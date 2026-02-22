@@ -103,33 +103,35 @@ function FileUsage() {
   );
 }
 
-/* ── Right: Library name-based lookup ── */
-function LibraryImport() {
+/* ── Right: Name-based Icon component ── */
+function IconComponentUsage() {
+  const icons = [
+    { name: "search", label: "search" },
+    { name: "home", label: "home" },
+    { name: "user", label: "user" },
+    { name: "settings", label: "settings" },
+    { name: "mail", label: "mail" },
+    { name: "trash", label: "trash" },
+  ];
   return (
     <div style={{ ...mono, marginBottom: 8 }}>
-      <div>
-        <span style={kw}>import</span>{" "}
-        <span style={dim}>{"{ "}</span>
-        Search, Home, User,
-      </div>
-      <div style={{ paddingLeft: 16 }}>
-        Settings, Mail, Trash2
-      </div>
-      <div>
-        <span style={dim}>{"} "}</span>
-        <span style={kw}>from</span>{" "}
-        <span style={str}>"lucide-react"</span>
-      </div>
-    </div>
-  );
-}
-
-function LibraryUsage() {
-  return (
-    <div style={mono}>
-      <span style={dim}>{"<"}</span>
-      <span style={tag}>Search</span>
-      <span style={dim}>{" />"}</span>
+      {icons.map((icon, i) => (
+        <div key={icon.name}>
+          <span style={dim}>{"<"}</span>
+          <span style={tag}>Icon</span>
+          {" "}
+          <span style={{ color: "#9333ea" }}>name</span>
+          <span style={dim}>="</span>
+          <span style={str}>{icon.name}</span>
+          <span style={dim}>"</span>
+          {" "}
+          <span style={{ color: "#9333ea" }}>size</span>
+          <span style={dim}>="</span>
+          <span style={str}>m</span>
+          <span style={dim}>"</span>
+          <span style={dim}>{" />"}</span>
+        </div>
+      ))}
     </div>
   );
 }
@@ -146,17 +148,17 @@ const iconBox: CSSProperties = {
 };
 
 const libraryIcons = [
-  { Icon: Search, name: "Search" },
-  { Icon: Home, name: "Home" },
-  { Icon: User, name: "User" },
-  { Icon: Settings, name: "Settings" },
-  { Icon: Mail, name: "Mail" },
-  { Icon: Trash2, name: "Trash" },
+  { Icon: Search, name: "search" },
+  { Icon: Home, name: "home" },
+  { Icon: User, name: "user" },
+  { Icon: Settings, name: "settings" },
+  { Icon: Mail, name: "mail" },
+  { Icon: Trash2, name: "trash" },
 ];
 
 export default function Fig49() {
   return (
-    <IllustrationFrame title="ファイル個別管理 vs ライブラリによる名前呼び出し">
+    <IllustrationFrame title="ファイル個別管理 vs 名前で呼び出し">
       <div style={{ display: "flex", gap: 20, width: CONTENT_WIDTH }}>
         {/* Left: File-based */}
         <div style={{ flex: 1 }}>
@@ -181,11 +183,10 @@ export default function Fig49() {
           }}
         />
 
-        {/* Right: Library name-based */}
+        {/* Right: Name-based Icon component */}
         <div style={{ flex: 1 }}>
-          <div style={colTitle}>ライブラリ（名前で呼び出し）</div>
-          <LibraryImport />
-          <LibraryUsage />
+          <div style={colTitle}>名前で呼び出し</div>
+          <IconComponentUsage />
 
           {/* Rendered icons grid */}
           <div
@@ -215,7 +216,10 @@ export default function Fig49() {
           </div>
 
           <div style={note}>
-            名前を書くだけで表示される
+            <span style={{ ...mono, display: "inline", padding: "1px 5px", fontSize: 9, border: "none", background: "#f4f4f5" }}>
+              {"<Icon name=\"...\" />"}
+            </span>
+            {" "}と書くだけ
           </div>
         </div>
       </div>
