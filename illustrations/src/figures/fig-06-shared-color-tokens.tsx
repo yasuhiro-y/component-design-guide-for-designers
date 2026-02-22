@@ -2,92 +2,287 @@ import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const semantic = {
-  info: { color: "#3b82f6", bg: "#eff6ff", border: "#bfdbfe" },
-  success: { color: "#22c55e", bg: "#f0fdf4", border: "#bbf7d0" },
-  warning: { color: "#eab308", bg: "#fefce8", border: "#fef08a" },
-  error: { color: "#ef4444", bg: "#fef2f2", border: "#fecaca" },
-};
+const sizeTokens = {
+  S: { height: 24, fontSize: 10, px: 8, iconSize: 12 },
+  M: { height: 32, fontSize: 12, px: 12, iconSize: 14 },
+  L: { height: 40, fontSize: 14, px: 16, iconSize: 16 },
+} as const;
 
-function TokenSwatch({ name, c }: { name: string; c: { color: string; bg: string } }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <span style={{ width: 24, height: 24, borderRadius: 6, background: c.color }} />
-      <span style={{ fontSize: 12, fontWeight: 600, color: "#3f3f46" }}>{name}</span>
-    </div>
-  );
-}
+const colorTokens = {
+  info: { bg: "#eff6ff", color: "#3b82f6", border: "#bfdbfe" },
+  success: { bg: "#f0fdf4", color: "#22c55e", border: "#bbf7d0" },
+  warning: { bg: "#fefce8", color: "#eab308", border: "#fef08a" },
+  error: { bg: "#fef2f2", color: "#ef4444", border: "#fecaca" },
+} as const;
 
-function TagSample({ name, c }: { name: string; c: { color: string; bg: string; border: string } }) {
+type SizeKey = keyof typeof sizeTokens;
+type ColorKey = keyof typeof colorTokens;
+
+/* ── Button ── */
+function MiniButton({ size, label }: { size: SizeKey; label: string }) {
+  const s = sizeTokens[size];
   return (
-    <span style={{ display: "inline-flex", padding: "3px 10px", borderRadius: 999, fontSize: 11, fontWeight: 500, background: c.bg, color: c.color, border: `1px solid ${c.border}` }}>
-      {name}
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: s.height,
+        padding: `0 ${s.px}px`,
+        borderRadius: 6,
+        background: "#18181b",
+        color: "#fff",
+        fontSize: s.fontSize,
+        fontWeight: 500,
+      }}
+    >
+      {label}
     </span>
   );
 }
 
-function BadgeDot({ c }: { c: { color: string } }) {
-  return <span style={{ width: 8, height: 8, borderRadius: "50%", background: c.color, display: "inline-block" }} />;
-}
-
-function CalloutSample({ name, c }: { name: string; c: { color: string; bg: string; border: string } }) {
+/* ── Tag ── */
+function MiniTag({
+  size,
+  colorScheme,
+  label,
+}: {
+  size: SizeKey;
+  colorScheme: ColorKey;
+  label: string;
+}) {
+  const s = sizeTokens[size];
+  const c = colorTokens[colorScheme];
   return (
-    <div style={{ padding: "8px 12px", borderRadius: 6, background: c.bg, border: `1px solid ${c.border}`, fontSize: 11, color: c.color, fontWeight: 500 }}>
-      {name}: メッセージテキスト
-    </div>
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        height: s.height,
+        padding: `0 ${s.px}px`,
+        borderRadius: 999,
+        background: c.bg,
+        color: c.color,
+        border: `1px solid ${c.border}`,
+        fontSize: s.fontSize,
+        fontWeight: 500,
+      }}
+    >
+      {label}
+    </span>
   );
 }
 
-const section: CSSProperties = { marginBottom: 20 };
-const sectionLabel: CSSProperties = { fontSize: 11, fontWeight: 500, color: "#a1a1aa", marginBottom: 8 };
+/* ── Input ── */
+function MiniInput({ size, placeholder }: { size: SizeKey; placeholder: string }) {
+  const s = sizeTokens[size];
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        height: s.height,
+        padding: `0 ${s.px}px`,
+        borderRadius: 6,
+        background: "#fff",
+        border: "1px solid #d4d4d8",
+        color: "#a1a1aa",
+        fontSize: s.fontSize,
+        minWidth: 100,
+      }}
+    >
+      {placeholder}
+    </span>
+  );
+}
+
+const colTitle: CSSProperties = {
+  fontSize: 10,
+  fontWeight: 600,
+  color: "#a1a1aa",
+  marginBottom: 6,
+  fontFamily: '"SF Mono", Menlo, monospace',
+  letterSpacing: "0.04em",
+  textTransform: "uppercase",
+};
+
+const sizeLabel: CSSProperties = {
+  fontSize: 10,
+  fontWeight: 600,
+  color: "#a1a1aa",
+  fontFamily: '"SF Mono", Menlo, monospace',
+  width: 20,
+  textAlign: "right",
+  flexShrink: 0,
+};
 
 export default function Fig06() {
-  const entries = Object.entries(semantic) as [string, typeof semantic.info][];
+  const sizeKeys: SizeKey[] = ["S", "M", "L"];
 
   return (
-    <IllustrationFrame title="セマンティックカラートークンの共有">
+    <IllustrationFrame title="トークンの共有: 複数コンポーネントの一貫性を保つ">
       <div style={{ width: CONTENT_WIDTH }}>
-        {/* Token swatches */}
-        <div style={section}>
-          <div style={sectionLabel}>Semantic Color Tokens</div>
-          <div style={{ display: "flex", gap: 24 }}>
-            {entries.map(([n, c]) => (
-              <TokenSwatch key={n} name={n} c={c} />
+        {/* Size tokens shared across Button, Tag, Input */}
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: 8,
+            border: "1px solid #e4e4e7",
+            padding: 16,
+            marginBottom: 16,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: "#18181b",
+              marginBottom: 12,
+            }}
+          >
+            同じ size トークンを共有 → 高さが揃う
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "30px 1fr 1fr 1fr",
+              gap: 10,
+              alignItems: "center",
+            }}
+          >
+            {/* Header */}
+            <div />
+            <div style={colTitle}>Button</div>
+            <div style={colTitle}>Tag</div>
+            <div style={colTitle}>Input</div>
+
+            {/* Size rows */}
+            {sizeKeys.map((s) => (
+              <>
+                <div key={`label-${s}`} style={sizeLabel}>{s}</div>
+                <div key={`btn-${s}`}>
+                  <MiniButton size={s} label="保存" />
+                </div>
+                <div key={`tag-${s}`}>
+                  <MiniTag size={s} colorScheme="info" label="info" />
+                </div>
+                <div key={`input-${s}`}>
+                  <MiniInput size={s} placeholder="テキスト" />
+                </div>
+              </>
             ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: 12,
+              fontSize: 11,
+              color: "#71717a",
+              borderTop: "1px dashed #e4e4e7",
+              paddingTop: 10,
+            }}
+          >
+            S の高さを 24→28px に変更 →{" "}
+            <strong style={{ color: "#18181b" }}>
+              Button・Tag・Input すべての S が一括で更新される
+            </strong>
           </div>
         </div>
 
-        {/* Connector line */}
-        <div style={{ borderTop: "1px dashed #d4d4d8", margin: "8px 0 20px" }} />
+        {/* Color tokens shared across Tag, Badge, Callout */}
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: 8,
+            border: "1px solid #e4e4e7",
+            padding: 16,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: "#18181b",
+              marginBottom: 12,
+            }}
+          >
+            同じ colorScheme トークンを共有 → 色の意味が統一される
+          </div>
 
-        {/* Components using tokens */}
-        <div style={{ display: "flex", gap: 16 }}>
-          <div style={{ flex: 1 }}>
-            <div style={sectionLabel}>Tag</div>
-            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-              {entries.map(([n, c]) => (
-                <TagSample key={n} name={n} c={c} />
-              ))}
+          <div style={{ display: "flex", gap: 20 }}>
+            {/* Tag */}
+            <div style={{ flex: 1 }}>
+              <div style={colTitle}>Tag</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {(Object.keys(colorTokens) as ColorKey[]).map((c) => (
+                  <MiniTag key={c} size="M" colorScheme={c} label={c} />
+                ))}
+              </div>
+            </div>
+
+            {/* Badge dot */}
+            <div style={{ flex: 1 }}>
+              <div style={colTitle}>Badge</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {(Object.keys(colorTokens) as ColorKey[]).map((c) => (
+                  <div
+                    key={c}
+                    style={{ display: "flex", alignItems: "center", gap: 8 }}
+                  >
+                    <span
+                      style={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: "50%",
+                        background: colorTokens[c].color,
+                      }}
+                    />
+                    <span style={{ fontSize: 12, color: "#52525b" }}>
+                      {c}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Callout */}
+            <div style={{ flex: 1.5 }}>
+              <div style={colTitle}>Callout</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {(Object.keys(colorTokens) as ColorKey[]).map((c) => (
+                  <div
+                    key={c}
+                    style={{
+                      padding: "6px 10px",
+                      borderRadius: 6,
+                      background: colorTokens[c].bg,
+                      border: `1px solid ${colorTokens[c].border}`,
+                      fontSize: 11,
+                      color: colorTokens[c].color,
+                      fontWeight: 500,
+                    }}
+                  >
+                    {c}: メッセージ
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <div style={{ flex: 1 }}>
-            <div style={sectionLabel}>Badge</div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              {entries.map(([n, c]) => (
-                <div key={n} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <BadgeDot c={c} />
-                  <span style={{ fontSize: 12, color: "#52525b" }}>{n}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div style={{ flex: 1.2 }}>
-            <div style={sectionLabel}>Callout</div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              {entries.slice(0, 3).map(([n, c]) => (
-                <CalloutSample key={n} name={n} c={c} />
-              ))}
-            </div>
+
+          <div
+            style={{
+              marginTop: 12,
+              fontSize: 11,
+              color: "#71717a",
+              borderTop: "1px dashed #e4e4e7",
+              paddingTop: 10,
+            }}
+          >
+            info の色を変更 →{" "}
+            <strong style={{ color: "#18181b" }}>
+              Tag・Badge・Callout すべての info が一括で更新される
+            </strong>
           </div>
         </div>
       </div>

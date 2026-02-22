@@ -1,77 +1,191 @@
-import * as Toggle from "@radix-ui/react-toggle";
-import * as Switch from "@radix-ui/react-switch";
+import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
-import "../styles/radix-common.css";
 
-const badTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 600, color: "#ef4444", background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 4, padding: "2px 8px", marginBottom: 8 };
-const goodTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 600, color: "#22c55e", background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 4, padding: "2px 8px", marginBottom: 8 };
-const propLine = { fontSize: 11, color: "#a1a1aa", fontFamily: '"SF Mono", Menlo, monospace', marginTop: 4 } as const;
-const compTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 8 };
+const sizes = { S: 24, M: 32, L: 40 } as const;
+const variants = {
+  primary: { bg: "#18181b", color: "#fff" },
+  secondary: { bg: "#f4f4f5", color: "#18181b" },
+  destructive: { bg: "#fef2f2", color: "#ef4444" },
+} as const;
+
+type Size = keyof typeof sizes;
+type Variant = keyof typeof variants;
+
+/* ── Mini Button ── */
+function MiniButton({
+  size,
+  variant,
+  label,
+}: {
+  size: Size;
+  variant: Variant;
+  label: string;
+}) {
+  const h = sizes[size];
+  const v = variants[variant];
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: h,
+        padding: `0 ${h * 0.5}px`,
+        borderRadius: 6,
+        background: v.bg,
+        color: v.color,
+        fontSize: size === "S" ? 10 : size === "M" ? 12 : 14,
+        fontWeight: 500,
+        border:
+          variant === "secondary" ? "1px solid #e4e4e7" : "none",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+    </span>
+  );
+}
+
+const headerCell: CSSProperties = {
+  fontSize: 10,
+  fontWeight: 600,
+  color: "#a1a1aa",
+  textAlign: "center",
+  padding: "6px 0",
+  fontFamily: '"SF Mono", Menlo, monospace',
+};
+
+const rowLabel: CSSProperties = {
+  fontSize: 10,
+  fontWeight: 600,
+  color: "#a1a1aa",
+  fontFamily: '"SF Mono", Menlo, monospace',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+  paddingRight: 12,
+};
+
+const gridCell: CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "8px 0",
+};
 
 export default function Fig05() {
+  const sizeKeys: Size[] = ["S", "M", "L"];
+  const variantKeys: Variant[] = ["primary", "secondary", "destructive"];
+  const labels = { primary: "保存", secondary: "キャンセル", destructive: "削除" };
+
   return (
-    <IllustrationFrame title="直交性: まとめた場合 vs 分けた場合">
-      <div style={{ display: "flex", gap: 20, width: CONTENT_WIDTH }}>
-        {/* Bad */}
-        <div style={{ flex: 1 }}>
-          <div><span style={badTag}>Bad</span></div>
-          <div style={compTitle}>ToggleSwitch</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <Toggle.Root className="radix-toggle" defaultPressed>
-                <span style={{ fontWeight: 700 }}>B</span>
-              </Toggle.Root>
-              <span style={{ fontSize: 12, color: "#52525b" }}>太字</span>
-            </div>
-            <label style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <Switch.Root className="radix-switch" defaultChecked>
-                <Switch.Thumb className="radix-switch-thumb" />
-              </Switch.Root>
-              <span style={{ fontSize: 12, color: "#52525b" }}>通知</span>
-            </label>
-          </div>
-          <div style={propLine}>isFormField: boolean</div>
-          <div style={{ fontSize: 11, color: "#71717a", marginTop: 8 }}>
-            UI操作とデータ設定が1つに混在
+    <IllustrationFrame title="直交性: size と variant の組み合わせがすべて成立する">
+      <div style={{ width: CONTENT_WIDTH }}>
+        {/* Matrix */}
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: 8,
+            border: "1px solid #e4e4e7",
+            padding: 16,
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "80px 1fr 1fr 1fr",
+              gap: 0,
+            }}
+          >
+            {/* Header row */}
+            <div />
+            {sizeKeys.map((s) => (
+              <div key={s} style={headerCell}>
+                size: {s}
+              </div>
+            ))}
+
+            {/* Data rows */}
+            {variantKeys.map((v) => (
+              <>
+                <div key={`label-${v}`} style={rowLabel}>
+                  {v}
+                </div>
+                {sizeKeys.map((s) => (
+                  <div key={`${v}-${s}`} style={gridCell}>
+                    <MiniButton size={s} variant={v} label={labels[v]} />
+                  </div>
+                ))}
+              </>
+            ))}
           </div>
         </div>
 
-        {/* Good */}
-        <div style={{ flex: 1 }}>
-          <div><span style={goodTag}>Good</span></div>
-          <div style={compTitle}>Toggle</div>
-          <div style={{ display: "flex", gap: 4 }}>
-            <Toggle.Root className="radix-toggle" defaultPressed>
-              <span style={{ fontWeight: 700 }}>B</span>
-            </Toggle.Root>
-            <Toggle.Root className="radix-toggle">
-              <span style={{ fontStyle: "italic" }}>I</span>
-            </Toggle.Root>
-            <Toggle.Root className="radix-toggle">
-              <span style={{ textDecoration: "underline" }}>U</span>
-            </Toggle.Root>
+        {/* Annotation */}
+        <div
+          style={{
+            marginTop: 16,
+            display: "flex",
+            gap: 16,
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              padding: "10px 14px",
+              background: "#fff",
+              borderRadius: 6,
+              border: "1px solid #e4e4e7",
+            }}
+          >
+            <div
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: "#18181b",
+                marginBottom: 4,
+              }}
+            >
+              独立している（直交）
+            </div>
+            <div style={{ fontSize: 11, color: "#71717a", lineHeight: 1.5 }}>
+              size を S→L に変えても variant の見た目は変わらない。
+              variant を変えても size は影響を受けない。
+              <strong style={{ color: "#18181b" }}>
+                どの組み合わせもそれぞれが決まり通りに働く
+              </strong>
+            </div>
           </div>
-          <div style={{ fontSize: 11, color: "#71717a", marginTop: 6 }}>UI上のON/OFF操作</div>
 
-          <div style={{ borderTop: "1px solid #e4e4e7", margin: "12px 0" }} />
-
-          <div style={compTitle}>Switch</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <label style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <Switch.Root className="radix-switch" defaultChecked>
-                <Switch.Thumb className="radix-switch-thumb" />
-              </Switch.Root>
-              <span style={{ fontSize: 12, color: "#52525b" }}>メール通知</span>
-            </label>
-            <label style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <Switch.Root className="radix-switch">
-                <Switch.Thumb className="radix-switch-thumb" />
-              </Switch.Root>
-              <span style={{ fontSize: 12, color: "#52525b" }}>ダークモード</span>
-            </label>
+          <div
+            style={{
+              flex: 1,
+              padding: "10px 14px",
+              background: "#fff",
+              borderRadius: 6,
+              border: "1px solid #e4e4e7",
+            }}
+          >
+            <div
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: "#18181b",
+                marginBottom: 4,
+              }}
+            >
+              依存していたら（非直交）
+            </div>
+            <div style={{ fontSize: 11, color: "#71717a", lineHeight: 1.5 }}>
+              「destructive のときは S が使えない」
+              「secondary は L だけ角丸が変わる」
+              ——こうした暗黙の制約があると
+              <strong style={{ color: "#18181b" }}>
+                組み合わせのたびにルール確認が必要になる
+              </strong>
+            </div>
           </div>
-          <div style={{ fontSize: 11, color: "#71717a", marginTop: 6 }}>データの真偽値を設定</div>
         </div>
       </div>
     </IllustrationFrame>

@@ -682,9 +682,9 @@ Figmaのプロパティパネルでも同じことが起きています。トグ
 以下の表は全体像です。まずはざっと眺めてみましょう。
 
 | 型 | コードでの書き方（参考） | Figmaでの表現 | 設計時に自問すべきこと | よくある落とし穴 |
-| | - | -- | -- | |
+| -- | -- | -- | -- | -- |
 | `Boolean` | `isDisabled: boolean`（ON/OFFの値） | トグルスイッチ | 本当に2択か？将来3択にならないか | 3つ以上並んだらEnumを検討 |
-| `Enum` | `size: 'S'                      | 'M'               | 'L'`（3つの中から1つ選ぶ） | バリアント（Variant） |
+| `Enum` | `size: 'S' \| 'M' \| 'L'`（3つの中から1つ選ぶ） | バリアント（Variant） | 選択肢は網羅されているか | 追加は安全、削除は破壊的変更 |
 | `String` | `label: string`（自由なテキスト） | テキスト入力 | 空・長文・改行時の振る舞いは？ | 選択肢があるならEnumにできないか |
 | `Number` | `count: number`（数値） | テキスト入力 | 上限・下限・0のときの扱いは？ | 表示フォーマットの定義を忘れない |
 | `Date` | `deadline: Date`（日付） | テキスト入力 | フォーマットは誰が決める？ | タイムゾーンの扱いを確認 |
@@ -812,6 +812,9 @@ Enumの力が特に発揮されるのが、`Tag`、`Badge`、`Callout` のよう
 - マイナスの値はありえるか（ポイント残高、差分表示など）
 - 単位の表示はコンポーネントの責任か、外から渡すか（円、件、%）
 
+![Number型: 数値の表示ルール](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-45.png)
+*Number型: 数値の表示ルール*
+
 ### Date: 日付と時刻
 
 カレンダーの予定日、メッセージのタイムスタンプ、クーポンの有効期限。日付や時刻を扱うデータです。
@@ -829,6 +832,9 @@ Enumの力が特に発揮されるのが、`Tag`、`Badge`、`Callout` のよう
 ここまでの5つの型（Boolean / Enum / String / Number / Date）で、コンポーネント設計に必要な基礎は揃いました。以降のArray・Object・Elementは、複雑なデータを扱うときに必要になる発展的な型です。今すぐ必要でなければ次の章に進んでも構いません。読み進める方のために、ここからはデータの構造（まとまり方）に関する型を見ていきます。
 
 ひとつ実践的なコツを補足します。たとえば、更新日: 2026/01/01 と表示するUIがあるとき、Figma上のプロパティは 2026/01/01 のテキストだけにし、更新日というラベルはコンポーネント内に固定しておくと、実装との対応が明確になります。
+
+![Date型: 日付の表示形式と設計判断](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-46.png)
+*Date型: 日付の表示形式と設計判断*
 
 ### Array: 配列（リスト）
 
@@ -870,6 +876,9 @@ Figmaのプロパティパネルで見比べてみると、この違いがはっ
 
 Objectを受け取るコンポーネントを作ろうとしているなら、それはドメインコンポーネントとして位置づけるのが自然でしょう。
 
+![Object型: 個別の値 vs データのまとまり](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-47.png)
+*Object型: 個別の値 vs データのまとまり*
+
 ### Element: 要素
 
 ここまでの型（`Boolean`、`Enum`、`String`、`Number`など）はすべて、テキストや数値といったデータを渡すものでした。しかし、プロパティに渡したいのがデータではなく別のコンポーネントであそのものというケースがあります。
@@ -892,6 +901,9 @@ Figmaでは、Instance Swap Propertyを使ってスロットを表現します�
 - 差し込める対象を制約する。Instance Swap Propertyで差し替え候補を同じカテゴリに限定し、意図しない使い方を防ぐ
 
 設計時に考えておきたいのは、その箇所にテキストを渡すだけで本当に十分か、それとも将来的にUIのかたまりを渡す必要が出てこないか、という点です。最初はStringで足りていても、後からリンクやアイコン付きテキストが必要になるケースは少なくありません。
+
+![Element型（スロット）: 差し込み口で中身を自由に](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-48.png)
+*Element型（スロット）: 差し込み口で中身を自由に*
 
 ここまで個々の型を見てきました。ここからは、複数のプロパティが組み合わさったときにどう振る舞うかを考えます。
 
@@ -1009,7 +1021,7 @@ MUIでは、ユーザーへのフィードバックという同じ目的を持�
 *Partial State: データ欠損時のフォールバック*
 
 | データ項目 | 欠損時の代替表示 |
-| -- | |
+| -- | -- |
 | プロフィール画像 | イニシャルアイコン |
 | 評価スコア | 「—」を表示 |
 | 自己紹介文 | 領域ごと詰める |

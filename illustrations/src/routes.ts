@@ -51,6 +51,10 @@ export const figures: FigureRoute[] = [
   { id: "fig-42", component: lazy(() => import("./figures/fig-42-boolean-contradiction")), title: "Boolean の矛盾: 2つのトグルより1つの Enum" },
   { id: "fig-43", component: lazy(() => import("./figures/fig-43-detach-alternatives")), title: "既存コンポーネントで実現できないとき: 4つの選択肢" },
   { id: "fig-44", component: lazy(() => import("./figures/fig-44-retrofit-steps")), title: "後発導入: 稼働中プロダクトへの3ステップ" },
+  { id: "fig-45", component: lazy(() => import("./figures/fig-45-number-type")), title: "Number型: 数値の表示ルール" },
+  { id: "fig-46", component: lazy(() => import("./figures/fig-46-date-type")), title: "Date型: 日付の表示形式と設計判断" },
+  { id: "fig-47", component: lazy(() => import("./figures/fig-47-object-type")), title: "Object型: 個別の値 vs データのまとまり" },
+  { id: "fig-48", component: lazy(() => import("./figures/fig-48-element-type")), title: "Element型（スロット）: 差し込み口で中身を自由に" },
 ];
 
 export function getFigureById(id: string) {
