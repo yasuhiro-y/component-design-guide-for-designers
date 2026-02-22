@@ -60,7 +60,7 @@ function MiniTag({
         alignItems: "center",
         height: s.height,
         padding: `0 ${s.px}px`,
-        borderRadius: 999,
+        borderRadius: 4,
         background: c.bg,
         color: c.color,
         border: `1px solid ${c.border}`,

@@ -1,8 +1,8 @@
 import { chromium } from 'playwright';
 import sharp from 'sharp';
 
-const TARGET_WIDTH = 1200;
-const RADIUS = 24; // rounded corner radius in output pixels
+const TARGET_WIDTH = 2400;
+const RADIUS = 48; // rounded corner radius in output pixels
 
 const figs = [
   'fig-01','fig-02','fig-03','fig-04','fig-05','fig-06','fig-07','fig-08','fig-09','fig-10',

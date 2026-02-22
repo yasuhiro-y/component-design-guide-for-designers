@@ -229,7 +229,7 @@ export default function Fig32() {
       </div>
 
       <div style={noteStyle}>
-        判断基準: 特定のオブジェクトにそのまま対応するならドメイン、しないなら汎用
+        どちらが正解かは文脈次第。同じUIでも、再利用の範囲や依存するデータによって答えが変わる
       </div>
 
     </IllustrationFrame>

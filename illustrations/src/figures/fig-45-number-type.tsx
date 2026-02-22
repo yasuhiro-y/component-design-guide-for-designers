@@ -107,17 +107,9 @@ export default function Fig45() {
         <div>
           <div style={cellLabel}>通常</div>
           <div style={mockCard}>
-            <div style={{ position: "relative", display: "inline-flex" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <BellIcon />
-              <span
-                style={{
-                  position: "absolute",
-                  top: -6,
-                  right: -10,
-                }}
-              >
-                <Badge count={3} />
-              </span>
+              <Badge count={3} />
             </div>
           </div>
           <div style={cellSub}>count: 3</div>
@@ -127,9 +119,7 @@ export default function Fig45() {
         <div>
           <div style={cellLabel}>0件</div>
           <div style={mockCard}>
-            <div style={{ position: "relative", display: "inline-flex" }}>
-              <BellIcon />
-            </div>
+            <BellIcon />
           </div>
           <div style={cellSub}>0 → バッジ非表示</div>
         </div>
@@ -138,17 +128,9 @@ export default function Fig45() {
         <div>
           <div style={cellLabel}>上限超過</div>
           <div style={mockCard}>
-            <div style={{ position: "relative", display: "inline-flex" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <BellIcon />
-              <span
-                style={{
-                  position: "absolute",
-                  top: -6,
-                  right: -14,
-                }}
-              >
-                <Badge count={312} max={99} />
-              </span>
+              <Badge count={312} max={99} />
             </div>
           </div>
           <div style={cellSub}>312 → 99+ 表示</div>

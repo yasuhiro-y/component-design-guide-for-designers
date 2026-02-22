@@ -12,7 +12,7 @@ const colTitle: CSSProperties = {
 const colSub: CSSProperties = {
   fontSize: 10,
   color: "#52525b",
-  marginBottom: 12,
+  marginTop: 6,
 };
 
 const panel: CSSProperties = {
@@ -22,43 +22,21 @@ const panel: CSSProperties = {
   padding: 16,
 };
 
-const monoSmall: CSSProperties = {
-  fontFamily: '"SF Mono", Menlo, monospace',
-  fontSize: 10,
-  color: "#52525b",
-};
-
-const propsBox: CSSProperties = {
+const codeBox: CSSProperties = {
   background: "#fafafa",
   borderRadius: 6,
   border: "1px solid #e4e4e7",
-  padding: "8px 10px",
+  padding: "10px 12px",
   fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 11,
-  lineHeight: 1.6,
+  lineHeight: 1.7,
   color: "#3f3f46",
 };
 
-const propKey: CSSProperties = { color: "#3f3f46" };
-const propType: CSSProperties = { color: "#18181b", fontWeight: 500 };
+const kw: CSSProperties = { color: "#52525b" };
+const tp: CSSProperties = { color: "#18181b", fontWeight: 500 };
 
-/* ── Avatar component ── */
-function Avatar({ size = 36 }: { size?: number }) {
-  return (
-    <img
-      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-      style={{
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        objectFit: "cover",
-        flexShrink: 0,
-      }}
-    />
-  );
-}
-
-/* ── Star ── */
+/* ── Stars ── */
 function Stars({ score }: { score: number }) {
   return (
     <div style={{ display: "flex", gap: 1 }}>
@@ -74,27 +52,8 @@ function Stars({ score }: { score: number }) {
   );
 }
 
-/* ── Status badge ── */
-function StatusBadge({ label }: { label: string }) {
-  return (
-    <span
-      style={{
-        fontSize: 10,
-        fontWeight: 500,
-        color: "#3f3f46",
-        background: "#f4f4f5",
-        border: "1px solid #e4e4e7",
-        borderRadius: 999,
-        padding: "1px 8px",
-      }}
-    >
-      {label}
-    </span>
-  );
-}
-
-/* ── Rendered UserCard ── */
-function UserCard() {
+/* ── Rendered UserCard (shared visual) ── */
+function UserCardVisual() {
   return (
     <div
       style={{
@@ -107,20 +66,14 @@ function UserCard() {
         alignItems: "center",
       }}
     >
-      <Avatar size={40} />
+      <img
+        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+        style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }}
+      />
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            marginBottom: 2,
-          }}
-        >
-          <span style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>
-            田中 太郎
-          </span>
-          <StatusBadge label="アクティブ" />
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>田中 太郎</span>
+          <span style={{ fontSize: 10, fontWeight: 500, color: "#3f3f46", background: "#f4f4f5", border: "1px solid #e4e4e7", borderRadius: 999, padding: "1px 8px" }}>アクティブ</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <Stars score={4} />
@@ -131,188 +84,90 @@ function UserCard() {
   );
 }
 
-/* ── Figma-like property panel ── */
-function FigmaPanel({
-  items,
-}: {
-  items: { key: string; value: string }[];
-}) {
-  return (
-    <div
-      style={{
-        background: "#fafafa",
-        borderRadius: 6,
-        border: "1px solid #e4e4e7",
-        padding: "6px 10px",
-      }}
-    >
-      <div
-        style={{
-          ...monoSmall,
-          fontWeight: 600,
-          letterSpacing: "0.04em",
-          textTransform: "uppercase",
-          marginBottom: 4,
-        }}
-      >
-        設定パネル
-      </div>
-      {items.map((item) => (
-        <div
-          key={item.key}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "4px 0",
-            fontSize: 11,
-            color: "#3f3f46",
-            borderTop: "1px solid #e4e4e7",
-          }}
-        >
-          <span>{item.key}</span>
-          <span
-            style={{
-              fontSize: 10,
-              color: "#3f3f46",
-              background: "#fff",
-              border: "1px solid #e4e4e7",
-              borderRadius: 3,
-              padding: "1px 6px",
-            }}
-          >
-            {item.value}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function Fig47() {
   return (
     <IllustrationFrame title="Object型: 個別の値 vs データのまとまり">
-      <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
-        {/* Left: Avatar — individual props */}
-        <div style={{ flex: 1 }}>
-          <div style={colTitle}>Avatar（汎用）</div>
-          <div style={colSub}>個別の値を受け取る</div>
-          <div style={panel}>
-            {/* Rendered */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: 12,
-              }}
-            >
-              <Avatar size={48} />
-            </div>
+      <div style={{ width: CONTENT_WIDTH }}>
+        {/* Same rendered result */}
+        <div style={{ fontSize: 11, color: "#52525b", marginBottom: 8 }}>
+          同じ見た目でも、プロパティの渡し方が異なる
+        </div>
+        <div style={{ maxWidth: 340, marginBottom: 16 }}>
+          <UserCardVisual />
+        </div>
 
-            {/* Props */}
-            <div style={propsBox}>
-              <div>
-                <span style={propKey}>image: </span>
-                <span style={propType}>string</span>
+        {/* Two approaches side by side */}
+        <div style={{ display: "flex", gap: 16 }}>
+          {/* Left: Individual props */}
+          <div style={{ flex: 1 }}>
+            <div style={colTitle}>個別に渡す</div>
+            <div style={panel}>
+              <div style={codeBox}>
+                <div>
+                  <span style={kw}>&lt;UserCard</span>
+                </div>
+                <div style={{ paddingLeft: 16 }}>
+                  <span style={kw}>name=</span><span style={tp}>"田中 太郎"</span>
+                </div>
+                <div style={{ paddingLeft: 16 }}>
+                  <span style={kw}>image=</span><span style={tp}>"url..."</span>
+                </div>
+                <div style={{ paddingLeft: 16 }}>
+                  <span style={kw}>rating=</span><span style={tp}>{"{ 4 }"}</span>
+                </div>
+                <div style={{ paddingLeft: 16 }}>
+                  <span style={kw}>status=</span><span style={tp}>"アクティブ"</span>
+                </div>
+                <div>
+                  <span style={kw}>/&gt;</span>
+                </div>
               </div>
-              <div>
-                <span style={propKey}>altText: </span>
-                <span style={propType}>string</span>
+              <div style={colSub}>プロパティが 4 個並ぶ</div>
+            </div>
+          </div>
+
+          {/* Right: Object prop */}
+          <div style={{ flex: 1 }}>
+            <div style={colTitle}>オブジェクトで渡す</div>
+            <div style={panel}>
+              <div style={codeBox}>
+                <div>
+                  <span style={kw}>&lt;UserCard</span>
+                </div>
+                <div style={{ paddingLeft: 16 }}>
+                  <span style={kw}>user=</span><span style={tp}>{"{ user }"}</span>
+                </div>
+                <div>
+                  <span style={kw}>/&gt;</span>
+                </div>
+                <div style={{ marginTop: 8, borderTop: "1px dashed #e4e4e7", paddingTop: 8, fontSize: 10, color: "#52525b" }}>
+                  <div>type User = {"{"}</div>
+                  <div style={{ paddingLeft: 12 }}>name: string</div>
+                  <div style={{ paddingLeft: 12 }}>image: string</div>
+                  <div style={{ paddingLeft: 12 }}>rating: number</div>
+                  <div style={{ paddingLeft: 12 }}>status: string</div>
+                  <div>{"}"}</div>
+                </div>
               </div>
-            </div>
-
-            {/* Figma panel */}
-            <div style={{ marginTop: 10 }}>
-              <FigmaPanel
-                items={[
-                  { key: "image", value: "url..." },
-                  { key: "altText", value: "田中 太郎" },
-                ]}
-              />
-            </div>
-
-            <div
-              style={{
-                fontSize: 11,
-                color: "#3f3f46",
-                marginTop: 10,
-                textAlign: "center",
-              }}
-            >
-              プロパティ <strong style={{ color: "#18181b" }}>2個</strong>
+              <div style={colSub}>プロパティは 1 個。データの構造は型が持つ</div>
             </div>
           </div>
         </div>
 
-        {/* Center separator */}
+        {/* Bottom note */}
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            flexShrink: 0,
-            paddingTop: 30,
+            marginTop: 16,
+            fontSize: 11,
+            color: "#3f3f46",
+            padding: "8px 16px",
+            background: "#fff",
+            borderRadius: 6,
+            border: "1px dashed #d4d4d8",
+            textAlign: "center",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 4,
-            }}
-          >
-            <span style={{ fontSize: 10, color: "#52525b" }}>プロパティ数</span>
-            <span style={{ fontSize: 10, color: "#52525b" }}>が示す</span>
-            <span style={{ fontSize: 10, color: "#52525b" }}>設計の違い</span>
-          </div>
-        </div>
-
-        {/* Right: UserCard — object prop */}
-        <div style={{ flex: 1 }}>
-          <div style={colTitle}>UserCard（ドメイン）</div>
-          <div style={colSub}>データ一式をまとめて受け取る</div>
-          <div style={panel}>
-            {/* Rendered */}
-            <div style={{ marginBottom: 12 }}>
-              <UserCard />
-            </div>
-
-            {/* Props */}
-            <div style={propsBox}>
-              <div>
-                <span style={propKey}>user: </span>
-                <span style={propType}>User</span>
-              </div>
-              <div style={{ paddingLeft: 12, fontSize: 10, color: "#52525b" }}>
-                {"{ name, image, rating, status }"}
-              </div>
-            </div>
-
-            {/* Figma panel */}
-            <div style={{ marginTop: 10 }}>
-              <FigmaPanel
-                items={[
-                  { key: "userName", value: "田中 太郎" },
-                  { key: "userImage", value: "url..." },
-                  { key: "rating", value: "4.0" },
-                  { key: "status", value: "アクティブ" },
-                  { key: "isVerified", value: "ON" },
-                ]}
-              />
-            </div>
-
-            <div
-              style={{
-                fontSize: 11,
-                color: "#3f3f46",
-                marginTop: 10,
-                textAlign: "center",
-              }}
-            >
-              プロパティ <strong style={{ color: "#18181b" }}>5個</strong>
-              （Figmaではバラバラに並ぶ）
-            </div>
-          </div>
+          汎用コンポーネントは個別の値、ドメインコンポーネントはオブジェクトで渡すのが自然
         </div>
       </div>
     </IllustrationFrame>
