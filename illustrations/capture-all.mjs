@@ -10,7 +10,8 @@ const figs = [
   'fig-21','fig-22','fig-23','fig-24','fig-25','fig-26','fig-27','fig-28','fig-29','fig-30',
   'fig-31','fig-32','fig-33','fig-34','fig-35','fig-36','fig-37','fig-38','fig-39','fig-40',
   'fig-41','fig-42','fig-43','fig-44',
-  'fig-45','fig-46','fig-47','fig-48'
+  'fig-45','fig-46','fig-47','fig-48','fig-49',
+  'fig-50','fig-51','fig-52'
 ];
 
 const browser = await chromium.launch();

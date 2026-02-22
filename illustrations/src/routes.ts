@@ -55,6 +55,10 @@ export const figures: FigureRoute[] = [
   { id: "fig-46", component: lazy(() => import("./figures/fig-46-date-type")), title: "Date型: 日付の表示形式と設計判断" },
   { id: "fig-47", component: lazy(() => import("./figures/fig-47-object-type")), title: "Object型: 個別の値 vs データのまとまり" },
   { id: "fig-48", component: lazy(() => import("./figures/fig-48-element-type")), title: "Element型（スロット）: 差し込み口で中身を自由に" },
+  { id: "fig-49", component: lazy(() => import("./figures/fig-49-icon-name-lookup")), title: "ファイル個別管理 vs ライブラリによる名前呼び出し" },
+  { id: "fig-50", component: lazy(() => import("./figures/fig-50-configuration-vs-composition")), title: "Configuration vs Composition: 設定の山か、組み合わせか" },
+  { id: "fig-51", component: lazy(() => import("./figures/fig-51-ecosystem-lifecycle")), title: "デザインシステムの進化サイクル" },
+  { id: "fig-52", component: lazy(() => import("./figures/fig-52-mental-model-sync")), title: "メンタルモデルの同期: Figma・コード・認知の一致" },
 ];
 
 export function getFigureById(id: string) {
