@@ -24,7 +24,7 @@ function MiniCard({ title, subtitle, hasLike, badge }: { title: string; subtitle
 
 export default function Fig20() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="早すぎる共通化の罠">
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         {/* Before */}
         <div style={{ flex: 1 }}>

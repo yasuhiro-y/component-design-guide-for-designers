@@ -67,7 +67,7 @@ const edges: Edge[] = [
 
 export default function Fig04() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="Button のスロット構造">
       <FlowDiagram nodes={nodes} edges={edges} height={300} />
       <Caption text="Button のスロット構造" />
     </IllustrationFrame>

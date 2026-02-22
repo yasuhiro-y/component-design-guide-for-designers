@@ -99,7 +99,7 @@ function TextVal({ value }: { value: string }) {
 
 export default function Fig18() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="Figma パネルとコードの対応">
       <div style={{ display: "flex", gap: 0, width: CONTENT_WIDTH }}>
         {/* Figma panel */}
         <div

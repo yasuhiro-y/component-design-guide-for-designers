@@ -22,7 +22,7 @@ const note = { fontSize: 11, color: "#71717a", marginTop: 14 } as const;
 export default function Fig13() {
   return (
     <ConfigProvider theme={{ token: { fontFamily: '"Inter", sans-serif' } }}>
-      <IllustrationFrame>
+      <IllustrationFrame title="Ant Design Tag vs Badge">
         <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
           <div style={{ flex: 1 }}>
             <div style={lib}>Ant Design</div>

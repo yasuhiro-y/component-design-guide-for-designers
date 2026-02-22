@@ -80,7 +80,7 @@ export default function Fig25() {
   ];
 
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="構築戦略の4パターン">
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Spectrum bar */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: 16, padding: "0 8px" }}>

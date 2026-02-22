@@ -18,7 +18,7 @@ const desc: CSSProperties = {
 
 export default function Fig08() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="Fill / Hug / Fixed の3パターン">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={label}>Fill</div>

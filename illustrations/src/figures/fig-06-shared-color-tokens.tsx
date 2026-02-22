@@ -46,7 +46,7 @@ export default function Fig06() {
   const entries = Object.entries(semantic) as [string, typeof semantic.info][];
 
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="セマンティックカラートークンの共有">
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Token swatches */}
         <div style={section}>

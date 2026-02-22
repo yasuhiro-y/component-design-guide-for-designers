@@ -39,7 +39,7 @@ function ButtonState({ label, bg, border, opacity, ring, note }: {
 
 export default function Fig29() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="インタラクション状態">
       <div style={{ display: "flex", gap: 10, width: CONTENT_WIDTH }}>
         <ButtonState label="Default" bg="#18181b" note="通常の状態" />
         <ButtonState label="Hover" bg="#27272a" note="8% のオーバーレイ" />

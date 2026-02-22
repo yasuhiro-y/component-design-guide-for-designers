@@ -31,7 +31,7 @@ const subLabel = { fontSize: 11, fontWeight: 500, color: "#52525b", marginBottom
 export default function Fig12() {
   return (
     <ThemeProvider theme={theme}>
-      <IllustrationFrame>
+      <IllustrationFrame title="MUI Chip vs Badge">
         <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
           <div style={{ flex: 1 }}>
             <div style={lib}>MUI</div>

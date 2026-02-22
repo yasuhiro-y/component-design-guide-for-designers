@@ -33,7 +33,7 @@ const edges: Edge[] = layers.slice(0, -1).map((l, i) => ({
 
 export default function Fig10() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="本書の構成と知識の積み上げ">
       <FlowDiagram nodes={nodes} edges={edges} height={480} />
       <Caption text="本書の構成と知識の積み上げ" />
     </IllustrationFrame>

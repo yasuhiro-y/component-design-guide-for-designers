@@ -12,7 +12,7 @@ const compTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily:
 
 export default function Fig05() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="直交性: まとめた場合 vs 分けた場合">
       <div style={{ display: "flex", gap: 20, width: CONTENT_WIDTH }}>
         {/* Bad */}
         <div style={{ flex: 1 }}>

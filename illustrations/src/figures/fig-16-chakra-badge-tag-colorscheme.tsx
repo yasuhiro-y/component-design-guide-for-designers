@@ -28,7 +28,7 @@ const variants = ["solid", "subtle", "outline"] as const;
 export default function Fig16() {
   return (
     <ChakraProvider theme={theme} resetCSS={false}>
-      <IllustrationFrame>
+      <IllustrationFrame title="Chakra Badge / Tag colorScheme">
         <div style={{ width: CONTENT_WIDTH }}>
           <div style={lib}>Chakra UI</div>
           <div style={name}>Badge / Tag — colorScheme × variant</div>

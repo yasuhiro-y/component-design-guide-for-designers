@@ -16,7 +16,7 @@ function ScreenBox({ label, color, borderColor }: { label: string; color: string
 
 export default function Fig23() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="再利用性: 1箇所の変更がすべてに届く">
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>コンポーネントなし</div>

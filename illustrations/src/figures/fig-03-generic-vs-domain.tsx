@@ -89,7 +89,7 @@ function JobListItemDemo() {
 
 export default function Fig03() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="汎用とドメインの依存関係">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={groupLabel}>汎用コンポーネント</div>

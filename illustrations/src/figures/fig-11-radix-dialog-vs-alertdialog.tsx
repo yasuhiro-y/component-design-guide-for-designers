@@ -51,7 +51,7 @@ function DialogMock({ title, desc, note, actions, showClose }: {
 
 export default function Fig11() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="Radix Dialog vs AlertDialog">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={lib}>Radix UI</div>

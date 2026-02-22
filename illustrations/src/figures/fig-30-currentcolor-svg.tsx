@@ -32,7 +32,7 @@ function DemoRow({ bg, textColor, iconColor, problem }: {
 
 export default function Fig30() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="SVGの色制御: currentColor">
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>fill="#1A1A1A"（固定色）</div>

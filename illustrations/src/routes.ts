@@ -37,6 +37,20 @@ export const figures: FigureRoute[] = [
   { id: "fig-28", component: lazy(() => import("./figures/fig-28-orthogonality-matrix")), title: "直交性マトリクス" },
   { id: "fig-29", component: lazy(() => import("./figures/fig-29-interaction-states")), title: "インタラクション状態" },
   { id: "fig-30", component: lazy(() => import("./figures/fig-30-currentcolor-svg")), title: "SVGの色制御: currentColor" },
+  { id: "fig-31", component: lazy(() => import("./figures/fig-31-design-dimensions")), title: "コンポーネント設計の8つの観点" },
+  { id: "fig-32", component: lazy(() => import("./figures/fig-32-generic-domain-boundary")), title: "汎用かドメインか: 視点で答えが変わる" },
+  { id: "fig-33", component: lazy(() => import("./figures/fig-33-string-edge-cases")), title: "String型: テキストの振る舞い6パターン" },
+  { id: "fig-34", component: lazy(() => import("./figures/fig-34-array-states")), title: "Array型: リストの4つの状態" },
+  { id: "fig-35", component: lazy(() => import("./figures/fig-35-partial-state-fallback")), title: "Partial State: データ欠損時のフォールバック" },
+  { id: "fig-36", component: lazy(() => import("./figures/fig-36-required-vs-optional")), title: "必須と任意: デフォルト値で使いやすさが決まる" },
+  { id: "fig-37", component: lazy(() => import("./figures/fig-37-figma-vs-code-props")), title: "条件付き表示: Figmaでは2つ、コードでは1つ" },
+  { id: "fig-38", component: lazy(() => import("./figures/fig-38-divider-placement")), title: "区切り線: コンポーネントに含めるか、親が制御するか" },
+  { id: "fig-39", component: lazy(() => import("./figures/fig-39-path-dependency")), title: "経路依存性: 初期の選択が未来を縛る" },
+  { id: "fig-40", component: lazy(() => import("./figures/fig-40-atomic-design-layers")), title: "Atomic Design: 5つの階層" },
+  { id: "fig-41", component: lazy(() => import("./figures/fig-41-naming-degradation")), title: "命名の体系: ルールの有無が半年後の品質を決める" },
+  { id: "fig-42", component: lazy(() => import("./figures/fig-42-boolean-contradiction")), title: "Boolean の矛盾: 2つのトグルより1つの Enum" },
+  { id: "fig-43", component: lazy(() => import("./figures/fig-43-detach-alternatives")), title: "既存コンポーネントで実現できないとき: 4つの選択肢" },
+  { id: "fig-44", component: lazy(() => import("./figures/fig-44-retrofit-steps")), title: "後発導入: 稼働中プロダクトへの3ステップ" },
 ];
 
 export function getFigureById(id: string) {

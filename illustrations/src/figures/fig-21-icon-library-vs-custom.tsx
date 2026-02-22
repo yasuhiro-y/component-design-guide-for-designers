@@ -27,7 +27,7 @@ const lucideIcons = [
 
 export default function Fig21() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="既存ライブラリ vs 独自アイコン">
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>既存ライブラリ（Lucide）</div>

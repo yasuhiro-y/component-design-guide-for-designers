@@ -122,7 +122,7 @@ export default function Fig07() {
   ];
 
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="UIの5つの状態と遷移">
       <div style={{ display: "flex", gap: 10, width: CONTENT_WIDTH }}>
         {states.map((s) => (
           <div key={s.label} style={{ flex: 1, minWidth: 0 }}>

@@ -20,7 +20,7 @@ function PropTag({ children }: { children: string }) {
 
 export default function Fig24() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="関心の分離: 3つのレイヤー">
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Rendered UserCard at top */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>

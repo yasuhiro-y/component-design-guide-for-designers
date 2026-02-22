@@ -106,7 +106,7 @@ function NumberInput({ value }: { value: number }) {
 
 export default function Fig17() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="プロパティの型: Figma とコードの対応">
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={row}>
           <div style={typeName}>Boolean</div>

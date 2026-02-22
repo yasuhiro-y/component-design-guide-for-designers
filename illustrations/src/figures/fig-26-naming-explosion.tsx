@@ -32,7 +32,7 @@ function PropRow({ name, values }: { name: string; values: string[] }) {
 
 export default function Fig26() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="命名: 組み合わせの爆発">
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>名前に状態を含める</div>

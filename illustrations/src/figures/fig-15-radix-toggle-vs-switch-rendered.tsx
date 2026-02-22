@@ -23,7 +23,7 @@ const note = { fontSize: 11, color: "#71717a", marginTop: 14 } as const;
 
 export default function Fig15() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="Radix Toggle vs Switch">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={lib}>Radix UI</div>

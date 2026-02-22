@@ -13,7 +13,7 @@ const legendItem: CSSProperties = {
 
 export default function Fig19() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="padding vs margin の責任分離">
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Legend */}
         <div style={{ display: "flex", gap: 20, marginBottom: 20 }}>

@@ -24,7 +24,7 @@ const annotation = { fontSize: 11, color: "#71717a", marginTop: 10, textAlign: "
 
 export default function Fig14() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="Radix Select / DropdownMenu / ContextMenu">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Select */}
         <div style={{ flex: 1 }}>

@@ -33,7 +33,7 @@ function ChangeRow({ label, code, status }: { label: string; code: string; statu
 
 export default function Fig27() {
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="安全な変更と破壊的変更">
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>安全な変更</div>

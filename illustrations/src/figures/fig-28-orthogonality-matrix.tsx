@@ -40,7 +40,7 @@ export default function Fig28() {
   const variants: Array<"solid" | "subtle" | "outline"> = ["solid", "subtle", "outline"];
 
   return (
-    <IllustrationFrame>
+    <IllustrationFrame title="直交性マトリクス">
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 4, textAlign: "center" }}>
           Tag
