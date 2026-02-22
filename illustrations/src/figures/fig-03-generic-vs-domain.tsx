@@ -32,13 +32,19 @@ function ButtonDemo() {
   );
 }
 
+const avatarUrls = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+];
+
 function AvatarDemo() {
   return (
     <div>
       <div style={compName}>Avatar</div>
       <div style={{ display: "flex", gap: 6 }}>
-        {["TK", "KS", "MN"].map((n) => (
-          <span key={n} style={{ width: 32, height: 32, borderRadius: "50%", background: "#e4e4e7", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600, color: "#52525b" }}>{n}</span>
+        {avatarUrls.map((url, i) => (
+          <img key={i} src={url} style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover" }} />
         ))}
       </div>
     </div>
@@ -61,7 +67,7 @@ function UserCardDemo() {
     <div>
       <div style={compName}>UserCard</div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, background: "#fff", borderRadius: 8, border: "1px solid #e4e4e7", padding: 12 }}>
-        <span style={{ width: 36, height: 36, borderRadius: "50%", background: "#e4e4e7", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 600, color: "#52525b", flexShrink: 0 }}>TK</span>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" style={{ width: 36, height: 36, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
         <div>
           <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>田中 太郎</div>
           <div style={{ fontSize: 11, color: "#3f3f46" }}>プロダクトデザイナー</div>

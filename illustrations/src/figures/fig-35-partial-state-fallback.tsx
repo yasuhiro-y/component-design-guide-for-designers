@@ -110,12 +110,10 @@ export default function Fig35() {
                 <div style={fieldLabel}>プロフィール画像</div>
               </td>
               <td style={bodyCell}>
-                <span style={miniAvatar(true)}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </span>
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                  style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover" as const }}
+                />
               </td>
               <td style={bodyCell}>
                 <div style={{ display: "flex", alignItems: "center" }}>

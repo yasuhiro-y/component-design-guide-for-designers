@@ -70,25 +70,19 @@ function UserIcon() {
   );
 }
 
+const avatarSrcs: Record<string, string> = {
+  "田": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "佐": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  "鈴": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+};
+
 /* ── Mini Avatar ── */
 function MiniAvatar({ letter }: { letter: string }) {
   return (
-    <span
-      style={{
-        width: 22,
-        height: 22,
-        borderRadius: "50%",
-        background: "#e4e4e7",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 9,
-        fontWeight: 600,
-        color: "#52525b",
-      }}
-    >
-      {letter}
-    </span>
+    <img
+      src={avatarSrcs[letter]}
+      style={{ width: 22, height: 22, borderRadius: "50%", objectFit: "cover" }}
+    />
   );
 }
 

@@ -48,23 +48,14 @@ function MessageRow({
         borderBottom: "1px solid #f4f4f5",
       }}
     >
-      <span
-        style={{
-          width: 28,
-          height: 28,
-          borderRadius: "50%",
-          background: "#e4e4e7",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 10,
-          fontWeight: 600,
-          color: "#52525b",
-          flexShrink: 0,
-        }}
-      >
-        {name[0]}
-      </span>
+      <img
+        src={({
+          "田": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+          "佐": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+          "鈴": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+        } as Record<string, string>)[name[0]] ?? ""}
+        style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover" as const, flexShrink: 0 }}
+      />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div
           style={{

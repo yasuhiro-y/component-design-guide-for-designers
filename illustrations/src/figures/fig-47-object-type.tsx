@@ -43,34 +43,18 @@ const propKey: CSSProperties = { color: "#3f3f46" };
 const propType: CSSProperties = { color: "#18181b", fontWeight: 500 };
 
 /* ── Avatar component ── */
-function Avatar({ src, size = 36 }: { src?: string; size?: number }) {
+function Avatar({ size = 36 }: { size?: number }) {
   return (
-    <div
+    <img
+      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
       style={{
         width: size,
         height: size,
         borderRadius: "50%",
-        background: "#e4e4e7",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        objectFit: "cover",
         flexShrink: 0,
       }}
-    >
-      <svg
-        width={size * 0.5}
-        height={size * 0.5}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#52525b"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
-      </svg>
-    </div>
+    />
   );
 }
 

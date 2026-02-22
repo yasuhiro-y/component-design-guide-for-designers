@@ -49,14 +49,18 @@ function LoadingState() {
   );
 }
 
+const avatarUrls: Record<string, string> = {
+  "田中 太郎": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "佐藤 花子": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  "鈴木 一郎": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+};
+
 function IdealState() {
   return (
     <div style={card}>
       {["田中 太郎", "佐藤 花子", "鈴木 一郎"].map((name, i) => (
         <div key={name} style={listItem(i)}>
-          <span style={{ width: 32, height: 32, borderRadius: "50%", background: "#e4e4e7", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 600, color: "#52525b", flexShrink: 0 }}>
-            {name[0]}
-          </span>
+          <img src={avatarUrls[name]} style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
           <div>
             <div style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>{name}</div>
             <div style={{ fontSize: 10, color: "#52525b" }}>Designer</div>
@@ -98,9 +102,11 @@ function PartialState() {
     <div style={card}>
       {["田中 太郎", "—", "鈴木 一郎"].map((name, i) => (
         <div key={i} style={listItem(i)}>
-          <span style={{ width: 32, height: 32, borderRadius: "50%", background: name === "—" ? "#f4f4f5" : "#e4e4e7", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 600, color: "#52525b", flexShrink: 0 }}>
-            {name === "—" ? "?" : name[0]}
-          </span>
+          {name === "—" ? (
+            <span style={{ width: 32, height: 32, borderRadius: "50%", background: "#f4f4f5", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 600, color: "#52525b", flexShrink: 0 }}>?</span>
+          ) : (
+            <img src={avatarUrls[name]} style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+          )}
           <div>
             <div style={{ fontSize: 12, fontWeight: 500, color: name === "—" ? "#52525b" : "#18181b" }}>{name === "—" ? "取得失敗" : name}</div>
             <div style={{ fontSize: 10, color: "#52525b" }}>{name === "—" ? "—" : "Designer"}</div>

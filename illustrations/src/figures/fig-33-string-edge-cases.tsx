@@ -43,14 +43,24 @@ const roleDisplay: CSSProperties = {
   marginTop: 2,
 };
 
+const avatarSrcs: Record<string, string> = {
+  "田": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "A": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+  "鈴": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+};
+
 function AvatarSmall({ letter }: { letter: string }) {
+  const src = avatarSrcs[letter];
+  if (src) {
+    return <img src={src} style={{ width: 24, height: 24, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />;
+  }
   return (
     <span
       style={{
         width: 24,
         height: 24,
         borderRadius: "50%",
-        background: "#e4e4e7",
+        background: "#f4f4f5",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
@@ -58,6 +68,7 @@ function AvatarSmall({ letter }: { letter: string }) {
         fontWeight: 600,
         color: "#52525b",
         flexShrink: 0,
+        border: "1px dashed #d4d4d8",
       }}
     >
       {letter}

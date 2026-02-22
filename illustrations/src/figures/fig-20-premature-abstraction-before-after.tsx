@@ -7,13 +7,17 @@ const cardTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily:
 const prop = { fontSize: 11, color: "#52525b", padding: "1px 0" as const, fontFamily: '"SF Mono", Menlo, monospace' };
 const propGray = { ...prop, color: "#52525b" };
 
-function MiniCard({ title, subtitle, hasLike, badge }: { title: string; subtitle: string; hasLike?: boolean; badge?: string }) {
+function MiniCard({ title, subtitle, hasLike, badge, image }: { title: string; subtitle: string; hasLike?: boolean; badge?: string; image?: string }) {
   return (
     <div style={{ background: "#fff", borderRadius: 8, border: "1px solid #e4e4e7", padding: 10, position: "relative" as const }}>
       {badge && (
         <span style={{ position: "absolute", top: 6, right: 6, fontSize: 9, fontWeight: 500, background: "#18181b", color: "#fff", padding: "1px 5px", borderRadius: 3 }}>{badge}</span>
       )}
-      <div style={{ width: "100%", height: 36, borderRadius: 4, background: "#e4e4e7", marginBottom: 6 }} />
+      {image ? (
+        <img src={image} style={{ width: "100%", height: 36, borderRadius: 4, objectFit: "cover", display: "block", marginBottom: 6 }} />
+      ) : (
+        <div style={{ width: "100%", height: 36, borderRadius: 4, background: "#e4e4e7", marginBottom: 6 }} />
+      )}
       <div style={{ fontSize: 11, fontWeight: 600, color: "#18181b" }}>{title}</div>
       <div style={{ fontSize: 10, color: "#3f3f46", marginTop: 1 }}>{subtitle}</div>
       {hasLike && <div style={{ marginTop: 4, fontSize: 12, color: "#52525b" }}>&#9825;</div>}
@@ -41,7 +45,7 @@ export default function Fig20() {
             無関係なプロパティが混在
           </div>
           <div style={{ marginTop: 10 }}>
-            <MiniCard title="商品名" subtitle="¥1,200" hasLike badge="NEW" />
+            <MiniCard title="商品名" subtitle="¥1,200" hasLike badge="NEW" image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" />
           </div>
         </div>
 
@@ -65,8 +69,8 @@ export default function Fig20() {
             <div style={prop}>onSwipe: function</div>
           </div>
           <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
-            <div style={{ flex: 1 }}><MiniCard title="商品名" subtitle="¥1,200" hasLike /></div>
-            <div style={{ flex: 1 }}><MiniCard title="おすすめ" subtitle="スワイプ →" /></div>
+            <div style={{ flex: 1 }}><MiniCard title="商品名" subtitle="¥1,200" hasLike image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" /></div>
+            <div style={{ flex: 1 }}><MiniCard title="おすすめ" subtitle="スワイプ →" image="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=300&fit=crop" /></div>
           </div>
         </div>
       </div>

@@ -31,19 +31,19 @@ const listRow = (isLast: boolean): CSSProperties => ({
   borderBottom: isLast ? "none" : "1px solid #f4f4f5",
 });
 
-const avatar = (letter: string): CSSProperties => ({
+const avatarImg: CSSProperties = {
   width: 26,
   height: 26,
   borderRadius: "50%",
-  background: "#e4e4e7",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: 10,
-  fontWeight: 600,
-  color: "#52525b",
+  objectFit: "cover",
   flexShrink: 0,
-});
+};
+
+const avatarUrls: Record<string, string> = {
+  "田中 太郎": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "佐藤 花子": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  "鈴木 一郎": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+};
 
 const nameStyle: CSSProperties = {
   fontSize: 12,
@@ -64,7 +64,7 @@ interface Person {
 function ListItem({ person, isLast }: { person: Person; isLast: boolean }) {
   return (
     <div style={listRow(isLast)}>
-      <span style={avatar(person.name[0])}>{person.name[0]}</span>
+      <img src={avatarUrls[person.name]} style={avatarImg} />
       <div>
         <div style={nameStyle}>{person.name}</div>
         <div style={roleStyle}>{person.role}</div>

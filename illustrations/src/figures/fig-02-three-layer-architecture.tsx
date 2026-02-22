@@ -175,31 +175,16 @@ function ProductCardDemo() {
           width: 160,
         }}
       >
-        {/* product image placeholder */}
-        <div
+        {/* product image */}
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop"
           style={{
+            width: "100%",
             height: 64,
-            background: "#f4f4f5",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            objectFit: "cover",
+            display: "block",
           }}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#52525b"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-        </div>
+        />
         <div style={{ padding: "8px 10px" }}>
           <div style={{ display: "flex", gap: 4, marginBottom: 4 }}>
             <span
@@ -266,33 +251,16 @@ function CartItemDemo() {
           width: 200,
         }}
       >
-        <div
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop"
           style={{
             width: 36,
             height: 36,
             borderRadius: 4,
-            background: "#f4f4f5",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            objectFit: "cover",
             flexShrink: 0,
           }}
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#52525b"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-        </div>
+        />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 11, fontWeight: 500, color: "#18181b" }}>
             スニーカー XR
@@ -370,9 +338,9 @@ function ProductListSectionDemo() {
         {/* Mini product cards in a row */}
         <div style={{ display: "flex", gap: 6 }}>
           {[
-            { name: "スニーカー XR", price: "¥12,800", sale: true },
-            { name: "ランニング Z", price: "¥9,600", sale: false },
-            { name: "サンダル S", price: "¥4,200", sale: true },
+            { name: "スニーカー XR", price: "¥12,800", sale: true, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" },
+            { name: "ランニング Z", price: "¥9,600", sale: false, img: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=300&fit=crop" },
+            { name: "サンダル S", price: "¥4,200", sale: true, img: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=300&fit=crop" },
           ].map((item) => (
             <div
               key={item.name}
@@ -383,10 +351,13 @@ function ProductListSectionDemo() {
                 overflow: "hidden",
               }}
             >
-              <div
+              <img
+                src={item.img}
                 style={{
+                  width: "100%",
                   height: 28,
-                  background: "#f4f4f5",
+                  objectFit: "cover",
+                  display: "block",
                 }}
               />
               <div style={{ padding: "4px 6px" }}>
@@ -442,8 +413,11 @@ function CheckoutFormDemo() {
         }}
       >
         {/* Cart items mini */}
-        {["スニーカー XR  ×1  ¥12,800", "ランニング Z  ×2  ¥19,200"].map(
-          (line, i) => (
+        {[
+          { line: "スニーカー XR  ×1  ¥12,800", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" },
+          { line: "ランニング Z  ×2  ¥19,200", img: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&h=300&fit=crop" },
+        ].map(
+          (item, i) => (
             <div
               key={i}
               style={{
@@ -456,16 +430,17 @@ function CheckoutFormDemo() {
                 color: "#3f3f46",
               }}
             >
-              <div
+              <img
+                src={item.img}
                 style={{
                   width: 20,
                   height: 20,
                   borderRadius: 3,
-                  background: "#f4f4f5",
+                  objectFit: "cover" as const,
                   flexShrink: 0,
                 }}
               />
-              <span style={{ flex: 1, minWidth: 0 }}>{line}</span>
+              <span style={{ flex: 1, minWidth: 0 }}>{item.line}</span>
             </div>
           )
         )}
