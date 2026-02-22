@@ -59,7 +59,7 @@ FigmaやSketchのおかげで、デザイナーもコンポーネントの概念
 
 組織の視点で見れば、コンポーネント化はデザインと実装のコスト削減につながります。共通のコンポーネントがなければ、同じUIを作るたびにデザイナーごとの判断が入り、品質のばらつきを引き起こします。組織として決めたデザインをコンポーネントに落とし込んでおけば、誰が使っても同じ品質が再現でき、特定のデザイナーに依存せずに一貫性を維持できます。
 
-![再利用性: 1箇所の変更がすべてに届く](illustrations/output/fig-23.png)
+![再利用性: 1箇所の変更がすべてに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-23.png)
 *再利用性: 1箇所の変更がすべてに届く*
 
 ## 変更のしやすさ: 一箇所を直せば全体に届く
@@ -144,7 +144,7 @@ FigmaやSketchのおかげで、デザイナーもコンポーネントの概念
 これらはすべて後の章でくわしく扱います。いまは名前だけ覚えておけば十分です。
 以下の例はいま完全に理解できなくても問題ありません。記事を読み進めるうちに自然とつながりが見えてきます。
 
-![関心の分離: 3つのレイヤー](illustrations/output/fig-24.png)
+![関心の分離: 3つのレイヤー](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-24.png)
 *関心の分離: 3つのレイヤー*
 
 たとえば、`UserCard`というコンポーネントひとつをとっても、これらの分離が見えてきます。上記の場合では、`UserCard`の見た目（レイアウトや色）とデータ（ユーザー名やアイコンURL）は分離すべきですし、骨組み（Auto Layoutの構造）とスタイル（色・角丸）も分けられます。`UserCard`自体はドメインコンポーネントですが、その中で使う`Card`（枠）や`Avatar`（アイコン）は汎用コンポーネントです。
@@ -157,7 +157,7 @@ Figmaで赤い塗りの四角形を描いたとします。これは「エラー
 
 例として、「見た目と意味の分離」を徹底しているのがRadix UIの[`Dialog`](https://www.radix-ui.com/primitives/docs/components/dialog)と[`AlertDialog`](https://www.radix-ui.com/primitives/docs/components/alert-dialog)です。どちらもオーバーレイ付きのモーダルウィンドウで、ピクセル単位ではほぼ同じ外観です。しかし`Dialog`は背景クリックで閉じられる汎用モーダルであるのに対し、`AlertDialog`は「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。アクセシビリティの国際標準規格でも、スクリーンリーダーに「通常のダイアログ」と「警告ダイアログ」を区別して伝えるための仕組みが用意されており、この設計判断はその規格に基づいています。見た目の一致と意味の不一致を分けて考える好例です。
 
-![Radix UI: Dialog と AlertDialog の違い](illustrations/output/fig-11.png)
+![Radix UI: Dialog と AlertDialog の違い](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-11.png)
 *Radix UI: Dialog と AlertDialog の違い*
 
 ## これらの原則は、なぜビジネスにも効くのか
@@ -185,7 +185,7 @@ Figmaで赤い塗りの四角形を描いたとします。これは「エラー
 
 自社のフェーズやリソースに合わせて適切な戦略を選ぶ必要があります。
 
-![構築戦略の4パターン: コストと自由度のトレードオフ](illustrations/output/fig-25.png)
+![構築戦略の4パターン: コストと自由度のトレードオフ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-25.png)
 *構築戦略の4パターン: コストと自由度のトレードオフ*
 
 ## 汎用ライブラリの活用: MUIやChakra UIを土台にする
@@ -222,7 +222,7 @@ Figmaで赤い塗りの四角形を描いたとします。これは「エラー
 
 Headless UIの設計思想がよく表れているのが、見た目が似たコンポーネントの分類です。Radix UIには、いずれもドロップダウン的な見た目の[`Select`](https://www.radix-ui.com/primitives/docs/components/select)、[`DropdownMenu`](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[`ContextMenu`](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。Headless UIライブラリも同様に、[`Listbox`](https://headlessui.com/react/listbox)はドロップダウンで1つ選ぶUI、[`Combobox`](https://headlessui.com/react/combobox)は入力しながら候補が絞られる検索付き選択UI、[`Menu`](https://headlessui.com/react/menu)はアクション一覧、というように分離しています。ポップオーバーが開いて項目が並ぶという見た目は共通しているのに、なぜ分けるのか。それはユーザーが何をしたいか——値を選ぶのか、アクションを実行するのか、検索してから選ぶのか——が違うからです。見た目ではなくインタラクションの目的でコンポーネントを分ける。これがHeadless UIの設計思想であり、後述する「汎用とドメインの分離」にも通じる考え方です。
 
-![Radix UI: 見た目が似た3つのコンポーネント](illustrations/output/fig-14.png)
+![Radix UI: 見た目が似た3つのコンポーネント](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-14.png)
 *Radix UI: 見た目が似た3つのコンポーネント*
 
 スタイリングは自分たちでおこなう必要があるため、MUIなどの完結型ライブラリに比べれば初期の手間はかかります。しかし、長期的な運用のしやすさを考えれば、初期コストを払う価値は十分にあります（コンポーネント間の一貫性を保ちながら各コンポーネントをスタイリングするのはAIが得意そうです）。
@@ -314,7 +314,7 @@ Figmaでいえば、マスターコンポーネントにせず通常のフレー
 
 迷ったときは、以下のフローで判断できます。
 
-![コンポーネント化の判断フロー](illustrations/output/fig-01.png)
+![コンポーネント化の判断フロー](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-01.png)
 *コンポーネント化の判断フロー*
 ## コンポーネントの分割方法: 3つのアプローチ
 
@@ -348,7 +348,7 @@ Figmaのページやセクションをどう整理するかを考えるときに
 
 **Widgets / Templates レイヤー** — 上の2つを組み合わせて作る、大きなかたまりです。ヘッダー、フォーム全体、商品一覧セクションなど。
 
-![Feature-Sliced Design の3層構造](illustrations/output/fig-02.png)
+![Feature-Sliced Design の3層構造](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-02.png)
 *Feature-Sliced Design の3層構造*
 大事なのは矢印の方向です。上のレイヤーは下のレイヤーを使えますが、逆はありません。
 
@@ -380,7 +380,7 @@ Atomic Design、FSD、フラット配置と3つのアプローチを見てきま
 なぜデザイナーがこの区別を知る必要があるのか。
 この境界を意識しないとなんでも入る万能コンポーネントかどこにも使い回せない専用コンポーネントの両極端に振れやすいからです。汎用とドメインの境界を引くことで、プロパティの肥大化と亜種の増殖を同時に防げます。
 
-![汎用コンポーネントとドメインコンポーネントの依存関係](illustrations/output/fig-03.png)
+![汎用コンポーネントとドメインコンポーネントの依存関係](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-03.png)
 *汎用コンポーネントとドメインコンポーネントの依存関係*
 この境界を設ける目的は、コンポーネントが使える範囲を限定することです。
 汎用コンポーネントはどこからでも呼び出せますが、ドメインコンポーネントは特定の機能の文脈でのみ使う、という規約です。
@@ -453,7 +453,7 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 結果、hasLikeButton と isSwipeable という互いに無関係なプロパティがひとつのコンポーネントに混在し、全体像を把握しづらい複雑なコンポーネントができあがります。
 
-![早すぎる共通化の罠: プロパティ肥大化](illustrations/output/fig-20.png)
+![早すぎる共通化の罠: プロパティ肥大化](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-20.png)
 *早すぎる共通化の罠: プロパティ肥大化*
 
 見た目が似ていることと、目的やドメインが同じことは別の話です。
@@ -462,12 +462,12 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 この罠は、実在するライブラリの設計判断を見ると鮮明になります。MUIの[`Chip`](https://mui.com/material-ui/react-chip/)と[`Badge`](https://mui.com/material-ui/react-badge/)は、どちらも丸みを帯びた小さな部品ですが、別コンポーネントです。Figmaでの見分け方は明快で、`Chip`はクリックや削除ができるインタラクティブな要素、`Badge`は`Avatar`やアイコンの右上に重ねて配置する通知ドット（アプリアイコンの赤丸の数字）です。
 
-![MUI: Chip（操作できる）と Badge（見るだけ）](illustrations/output/fig-12.png)
+![MUI: Chip（操作できる）と Badge（見るだけ）](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-12.png)
 *MUI: Chip（操作できる）と Badge（見るだけ）*
 
 Ant Designでも[`Tag`](https://ant.design/components/tag/)（カテゴリやステータスのラベル）と[`Badge`](https://ant.design/components/badge/)（件数や状態を示すドット）は別コンポーネントとして提供されています。
 
-![Ant Design: Tag と Badge](illustrations/output/fig-13.png)
+![Ant Design: Tag と Badge](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-13.png)
 *Ant Design: Tag と Badge*
 
 見た目の類似ではなく、「触れるかどうか」「何を伝えるか」で分けることが実装上合理的な場合もあれば、スタイルの共用を念頭に共通化することのほうが組織の方針に適している場合もあります。
@@ -520,7 +520,7 @@ Figmaでのコンポーネントはなんとなくインスタンスをコピー
 
 なぜかというと、状態やバリエーションを名前に含めると、組み合わせの数だけコンポーネントが増えていくからです。`RedButton` と `LoadingButton` と `SmallButton` が別々に存在していたら、`SmallRedLoadingButton` が必要になった瞬間に命名が破綻します。名前は何であるかだけを表し、いまどんな状態かはプロパティで表現する。この切り分けが管理のしやすさを決めます。
 
-![命名: 状態を名前に含めると組み合わせが爆発する](illustrations/output/fig-26.png)
+![命名: 状態を名前に含めると組み合わせが爆発する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-26.png)
 *命名: 状態を名前に含めると組み合わせが爆発する*
 
 ただし、利用可能範囲が広いコンポーネントに、1箇所の利用のための改変・拡張がおこなわれるような場合は切り出したほうが管理しやすい場合もあります。
@@ -557,7 +557,7 @@ Figmaのコンポーネント名、コードのコンポーネント名、APIの
 
 原則の章で触れた経路依存性——初期の選択が未来を制約する性質——がある以上、完璧な初期判断には限界があります。それでも、変更コストを下げる手立てはあります。ここでは3つの防御策を扱います。古いものを安全に終わらせるライフサイクル管理、既存の利用者を壊さない変更の作法、そして100%準拠を求めない例外の設計です。
 
-![安全な変更と破壊的変更: 増やすのは簡単、変えるのは大変](illustrations/output/fig-27.png)
+![安全な変更と破壊的変更: 増やすのは簡単、変えるのは大変](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-27.png)
 *安全な変更と破壊的変更: 増やすのは簡単、変えるのは大変*
 
 ## 安全な変更と破壊的変更: Figmaの修正がコードを壊すとき
@@ -623,7 +623,7 @@ Figmaではプロパティを自由に変更でき、インスタンスは自動
 
 作る責任と同じくらい、終わらせる責任を持つこと。これがデザインシステムを長く健全に保つためのポイントです。
 
-![コンポーネントのライフサイクル](illustrations/output/fig-22.png)
+![コンポーネントのライフサイクル](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-22.png)
 *コンポーネントのライフサイクル*
 
 このことは、デザインシステムの所有権という問いにもつながります。大聖堂は完成したその日から、毎日の保守が始まります。雨漏りがないか、石が劣化していないか、新しい装飾を加えるべきか。デザインシステムも同じで、常に誰かが目を配り、育て続ける必要があります。その責任をデザインチームが持つのか、エンジニアリングチームが持つのか、それとも横断的なチームを置くのか。この所有権をあらかじめ明確にしておくことが、ライフサイクル管理を機能させる前提条件です。
@@ -634,7 +634,7 @@ Figmaのプロパティパネルは、コードの設計図そのものです。
 
 ## プロパティの型を解剖する: Figmaのパネルはコードの設計図
 
-![Figma プロパティパネルとコードの対応関係](illustrations/output/fig-18.png)
+![Figma プロパティパネルとコードの対応関係](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-18.png)
 *Figma プロパティパネルとコードの対応関係*
 
 ここからは、コンポーネントが外側から受け取る設定値——プロパティ——をくわしく見ていきます。
@@ -655,7 +655,7 @@ Figmaのプロパティパネルでも同じことが起きています。トグ
 
 型の選択を間違えると、Figmaのプロパティパネルは使いにくくなり、実装者は意図を汲み取れず、このコンポーネント、使い方がわからないという声が上がります。型は地味ですが、コンポーネントの使い心地を決定的に左右します。
 
-![プロパティの型: Figma での見え方とコードの対応](illustrations/output/fig-17.png)
+![プロパティの型: Figma での見え方とコードの対応](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-17.png)
 *プロパティの型: Figma での見え方とコードの対応*
 
 以下の表は全体像です。まずはざっと眺めてみましょう。
@@ -740,7 +740,7 @@ Enumの力が特に発揮されるのが、`Tag`、`Badge`、`Callout` のよう
 
 [Chakra UI](https://chakra-ui.com/)はまさにこの構造で、[`Badge`](https://chakra-ui.com/docs/components/badge)と[`Tag`](https://chakra-ui.com/docs/components/tag)が同じ色の体系（colorScheme）と表現の種類（variant）——塗りつぶし（solid）、薄い背景色（subtle）、枠線のみ（outline）——を共有しつつ、`Tag`にだけ閉じるボタンの有無を切り替えるBooleanが加わっています。色と強度の軸は共通の設計言語で揃え、機能の違いだけをBooleanで表現する。このパターンは自社のコンポーネント設計でもそのまま応用できます。
 
-![Chakra UI: Badge と Tag の colorScheme バリエーション](illustrations/output/fig-16.png)
+![Chakra UI: Badge と Tag の colorScheme バリエーション](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-16.png)
 *Chakra UI: Badge と Tag の colorScheme バリエーション*
 
 たとえば、`Tag`コンポーネントを考えてみてください。情報の種類を表す色（info: 青、success: 緑、warning: 黄、error: 赤）と、表示サイズ（small / medium）の掛け算になります。
@@ -854,7 +854,7 @@ Figmaで考えるとわかりやすいです。Instance Swap Propertyを使っ�
 
 アイコン付きボタンの例で考えてみましょう。デザイナーは LeftIcon / RightIcon / BothIcons / NoIcon という4つのバリアントを作りがちです。しかし、スロットの発想を使えば、ボタンの左右に好きなものが入るエリアを用意するだけで済みます。アイコンでも、バッジでも、何も入れなくてもよい。
 
-![Button のスロット構造: 差し込み口を設けることでバリアント爆発を防ぐ](illustrations/output/fig-04.png)
+![Button のスロット構造: 差し込み口を設けることでバリアント爆発を防ぐ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-04.png)
 *Button のスロット構造: 差し込み口を設けることでバリアント爆発を防ぐ*
 Figmaでは、Instance Swap Propertyを使ってスロットを表現します。設計のポイントは2つです。
 
@@ -883,10 +883,10 @@ Booleanの章で、小さいと大きいのトグルを別々に持つと矛盾�
 
 Radix UIの[`Toggle`](https://www.radix-ui.com/primitives/docs/components/toggle)と[`Switch`](https://www.radix-ui.com/primitives/docs/components/switch)で考えてみます。どちらもON/OFFの2値を扱うコンポーネントで、見た目も似ています。しかし役割が違います。`Toggle`はツールバーの太字ボタンのように押すたびにON/OFFが切り替わるUI操作用の部品。`Switch`は設定画面の通知スライダーのようにフォームで送信されるデータを切り替える部品です。
 
-![プロパティの直交性: まとめた場合（Bad）vs 分けた場合（Good）](illustrations/output/fig-05.png)
+![プロパティの直交性: まとめた場合（Bad）vs 分けた場合（Good）](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-05.png)
 *プロパティの直交性: まとめた場合（Bad）vs 分けた場合（Good）*
 
-![Radix UI: Toggle と Switch の実際の見た目](illustrations/output/fig-15.png)
+![Radix UI: Toggle と Switch の実際の見た目](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-15.png)
 *Radix UI: Toggle と Switch の実際の見た目*
 `Toggle`のON/OFFはUI状態、`Switch`のON/OFFはデータ状態という別の関心に属しています。これをひとつのコンポーネントにまとめて`isFormField`のようなプロパティで切り替えようとすると、ひとつのプロパティがコンポーネントの役割そのものを変えてしまいます。関心が交差して直交性が崩れるのです。
 
@@ -896,7 +896,7 @@ Notionのデータベースで考えるとわかりやすいです。優先度�
 
 たとえば、タグの部品に色の種類と色の強さの2つのプロパティがあるとします。色の種類は情報・成功・警告・エラーといった意味を表し、色の強さは塗りつぶし・薄い背景・背景なしといった濃度を表します。この2つは独立しています。種類を変えても強さの振る舞いは変わらないし、強さを変えても種類の意味は変わりません。
 
-![直交性: colorScheme と variant の組み合わせマトリクス](illustrations/output/fig-28.png)
+![直交性: colorScheme と variant の組み合わせマトリクス](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-28.png)
 *直交性: colorScheme と variant の組み合わせマトリクス*
 
 ここで、背景なしを色の強さではなく形状のプロパティに入れてしまうとどうなるでしょうか。形状を変えただけなのに背景色が消え、色の種類と強さの組み合わせで決まるはずの配色システムが無効化されます。形状のプロパティが、色のシステムに暗黙的に優先してしまう。これが直交性の崩れです。
@@ -923,7 +923,7 @@ Figmaでは、`Tag`の色を変えたければ`Tag`のスタイルを編集し�
 
 たとえば、`Tag`の info と `Callout` の info が同じセマンティックカラーを参照していれば、色を変えたいときに一箇所の修正で両方に反映されます。バラバラに定義していると、デザイナーが個別に色を選ぶたびに微妙なズレが蓄積し、`Tag`は青いのに`Callout`は水色、という不一致がいつの間にか生まれます。
 
-![セマンティックカラートークンの共有構造](illustrations/output/fig-06.png)
+![セマンティックカラートークンの共有構造](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-06.png)
 *セマンティックカラートークンの共有構造*
 色だけの話ではありません。兄弟関係にあるコンポーネント（`Button` / `IconButton` / `CopyButton`など）では、縦幅やアイコンのサイズも共通のトークンを参照しておくと一貫性を保ちやすくなります。
 
@@ -961,7 +961,7 @@ MUIでは、ユーザーへのフィードバックという同じ目的を持�
 
 これら5つの状態は、以下のように遷移します。
 
-![UIの5つの状態と遷移](illustrations/output/fig-07.png)
+![UIの5つの状態と遷移](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-07.png)
 *UIの5つの状態と遷移*
 ユーザーカードや求人リストなどのドメインコンポーネントでは、これらの状態をあらかじめ定義しておく必要があります。読み込み中、データが空、エラーといった状態ごとの見た目をFigmaのバリアントとしてデザインしておきます。たとえば、state というバリアント軸に ideal / empty / loading / error を用意する方法が一般的です。
 
@@ -1006,7 +1006,7 @@ Figma上では、プロパティもバリアントとして表現されます。
 
 すべてのインタラクティブなコンポーネントに対して、Hover、Pressed、Disabled、Focusの見た目を定義しておくと、実装の抜け漏れが減り、操作方法を問わず一貫した体験を提供できます。
 
-![インタラクション状態: 5つの見た目を統一ルールで管理する](illustrations/output/fig-29.png)
+![インタラクション状態: 5つの見た目を統一ルールで管理する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-29.png)
 *インタラクション状態: 5つの見た目を統一ルールで管理する*
 
 ### アクセシビリティ: コンポーネントに組み込む
@@ -1096,7 +1096,7 @@ Figmaでコンポーネントを作るとき、ボタンの下に24pxの空白�
 - コンポーネントの責任: padding（内側の余白）、背景色・枠線、コンテンツの配置
 - 親（レイアウト）の責任: margin（外側の余白）、要素間の間隔（gap）、画面上の位置
 
-![padding（内側）と margin（外側）の責任分離](illustrations/output/fig-19.png)
+![padding（内側）と margin（外側）の責任分離](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-19.png)
 *padding（内側）と margin（外側）の責任分離*
 
 ## 下線（区切り線）: コンポーネントに含めるか？
@@ -1123,7 +1123,7 @@ Figmaでコンポーネントを作るとき、ボタンの下に24pxの空白�
 - 中身に合わせて自動で伸縮する（Hug）: テキストやアイコンの量に応じて幅が決まる。FigmaでいうHug Contentsの設定。ボタン、`Tag`、`Badge`など、内容量に幅が比例するコンポーネントに適している
 - 固定幅（Fixed）: 特定のピクセル値で幅が決まっている。アイコン、`Avatar`、サムネイルなど、サイズが一定であるべきコンポーネントに適している
 
-![Fill / Hug / Fixed の3パターン](illustrations/output/fig-08.png)
+![Fill / Hug / Fixed の3パターン](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-08.png)
 *Fill / Hug / Fixed の3パターン*
 デザイナーがFigmaでコンポーネントを作るとき、見た目は思い通りでも、そのまま実装すると画面サイズが変わったときに想定外の見た目をすることがあります。`Button`のデフォルトを Fixed Width にしてしまうと、利用者が画面幅いっぱいのボタンを作りたいときにいちいち設定を変えなければなりません。
 
@@ -1161,7 +1161,7 @@ Figma上で描けたからといって、それがそのままCSSやコードで
 
 コードで再現するか、アセットとして埋め込むかは、早い段階で実装方針をすり合わせておきたい論点です。
 
-![コード実装かアセット埋め込みかの判断フロー](illustrations/output/fig-09.png)
+![コード実装かアセット埋め込みかの判断フロー](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-09.png)
 *コード実装かアセット埋め込みかの判断フロー*
 ## アイコン管理: 既存ライブラリと独自制作のトレードオフ
 
@@ -1179,7 +1179,7 @@ Figma上で描けたからといって、それがそのままCSSやコードで
 
 これらはハイブリッド運用することも可能です。矢印やゴミ箱などの汎用的なアイコンは既存のライブラリに頼り、プロダクトを象徴する重要なアイコンだけを自作する構成です。ただし、この場合は線の太さや角丸のルールをライブラリ側に寄せる配慮が欠かせません。統一感がないとここだけ浮いて見えるという問題が起きるためです。
 
-![既存ライブラリ vs 独自アイコン](illustrations/output/fig-21.png)
+![既存ライブラリ vs 独自アイコン](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-21.png)
 *既存ライブラリ vs 独自アイコン*
 
 ## ベクターアイコンの活用: SVGとアイコンフォント
@@ -1204,7 +1204,7 @@ Figma上でアイコンの色を変えるとき、塗りの色を直接変更し
 
 理想は、SVGの中の色を固定値にせず、周囲のテキスト色に自動で合わせるという指定にしておくことです。白いテキストのボタンの中に置けば白に、青いリンクの中に置けば青に、と自動で色が変わります。Figmaでいえば、Variablesでアイコンの色をテキスト色トークンに紐づけておくのと近い考え方です。
 
-![SVGの色制御: 固定色 vs currentColor](illustrations/output/fig-30.png)
+![SVGの色制御: 固定色 vs currentColor](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-30.png)
 *SVGの色制御: 固定色 vs currentColor*
 
 運用ルールとしておすすめなのは、Figma上でアイコンコンポーネントを最初から黒一色で作ることです。コード側で`currentColor`（親要素のテキスト色を自動的に引き継ぐ仕組み）に置き換えることを前提にしておけば、Figma上で色をいちいち剥がす手間が省けます。
@@ -1217,7 +1217,7 @@ Figma上でアイコンの色を変えるとき、塗りの色を直接変更し
 
 コンポーネントは単なるUIの見た目ではなく、チームの共通言語です。 この記事では、デザインシステムのコンポーネント設計を、原則から具体的な変数の型まで段階的に掘り下げてきました。
 
-![本書の構成と知識の積み上げ](illustrations/output/fig-10.png)
+![本書の構成と知識の積み上げ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-10.png)
 *本書の構成と知識の積み上げ*
 一貫しているのは、コンポーネントは単なるUIの見た目ではなく、チームの共通言語であるということです。命名ひとつ、変数の型ひとつが、デザインと実装の間の翻訳コストを左右します。
 
