@@ -24,7 +24,7 @@ function FlowNodeInner({ data }: NodeProps & { data: FlowNodeData }) {
 
   const sub: CSSProperties = {
     fontSize: 11,
-    color: "#71717a",
+    color: "#3f3f46",
     marginTop: 3,
     fontWeight: 400,
   };
@@ -95,7 +95,7 @@ function FlowNodeInner({ data }: NodeProps & { data: FlowNodeData }) {
           {data.label}
         </div>
         {data.sub && (
-          <div style={{ fontSize: 11, color: "#71717a", marginTop: 2 }}>
+          <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 2 }}>
             {data.sub}
           </div>
         )}

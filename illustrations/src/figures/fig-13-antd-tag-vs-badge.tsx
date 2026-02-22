@@ -2,7 +2,7 @@ import { ConfigProvider, Tag, Badge, Space } from "antd";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const lib = { fontSize: 11, color: "#a1a1aa", marginBottom: 4 } as const;
+const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
@@ -16,7 +16,7 @@ const panel = {
   border: "1px solid #e4e4e7",
   padding: 14,
 } as const;
-const note = { fontSize: 11, color: "#71717a", marginTop: 14 } as const;
+const note = { fontSize: 11, color: "#3f3f46", marginTop: 14 } as const;
 
 export default function Fig13() {
   return (

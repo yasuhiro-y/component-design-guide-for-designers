@@ -44,7 +44,7 @@ export default function Fig28() {
         <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 4, textAlign: "center" }}>
           Tag
         </div>
-        <div style={{ fontSize: 11, color: "#71717a", marginBottom: 16, textAlign: "center" }}>
+        <div style={{ fontSize: 11, color: "#3f3f46", marginBottom: 16, textAlign: "center" }}>
           colorScheme x variant = すべての組み合わせが独立して機能する
         </div>
 
@@ -72,17 +72,17 @@ export default function Fig28() {
         <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 16 }}>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: 10, fontWeight: 600, color: "#3f3f46" }}>colorScheme</div>
-            <div style={{ fontSize: 10, color: "#a1a1aa" }}>意味（横軸）</div>
+            <div style={{ fontSize: 10, color: "#52525b" }}>意味（横軸）</div>
           </div>
           <div style={{ fontSize: 12, color: "#d4d4d8" }}>x</div>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: 10, fontWeight: 600, color: "#3f3f46" }}>variant</div>
-            <div style={{ fontSize: 10, color: "#a1a1aa" }}>強さ（縦軸）</div>
+            <div style={{ fontSize: 10, color: "#52525b" }}>強さ（縦軸）</div>
           </div>
           <div style={{ fontSize: 12, color: "#d4d4d8" }}>=</div>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: 10, fontWeight: 600, color: "#3f3f46" }}>12通り</div>
-            <div style={{ fontSize: 10, color: "#a1a1aa" }}>すべて独立</div>
+            <div style={{ fontSize: 10, color: "#52525b" }}>すべて独立</div>
           </div>
         </div>
       </div>

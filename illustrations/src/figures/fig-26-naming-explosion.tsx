@@ -1,13 +1,13 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
 
 function BadName({ name, strikethrough }: { name: string; strikethrough?: boolean }) {
   return (
     <div style={{
       padding: "4px 10px", borderRadius: 6, border: "1px solid #e4e4e7", background: "#fff",
-      fontSize: 11, fontFamily: '"SF Mono", Menlo, monospace', color: strikethrough ? "#a1a1aa" : "#3f3f46",
+      fontSize: 11, fontFamily: '"SF Mono", Menlo, monospace', color: strikethrough ? "#52525b" : "#3f3f46",
       textDecoration: strikethrough ? "line-through" : "none",
       marginBottom: 4,
     }}>
@@ -49,7 +49,7 @@ export default function Fig26() {
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", fontSize: 14, color: "#a1a1aa" }}>vs</div>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 14, color: "#52525b" }}>vs</div>
 
         <div style={{ flex: 1 }}>
           <div style={colLabel}>プロパティで表現する</div>
@@ -60,7 +60,7 @@ export default function Fig26() {
           <PropRow name="size" values={["S", "M", "L"]} />
           <PropRow name="isLoading" values={["true", "false"]} />
           <div style={{ borderTop: "1px solid #e4e4e7", margin: "10px 0", paddingTop: 8 }}>
-            <div style={{ fontSize: 10, color: "#71717a", lineHeight: 1.5 }}>
+            <div style={{ fontSize: 10, color: "#3f3f46", lineHeight: 1.5 }}>
               3 x 3 x 2 = <span style={{ fontWeight: 600, color: "#3f3f46" }}>18通り</span>の組み合わせを3つのプロパティだけで表現
             </div>
           </div>

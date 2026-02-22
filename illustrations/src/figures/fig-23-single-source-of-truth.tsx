@@ -1,14 +1,14 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
 
 function ScreenBox({ label, color, borderColor }: { label: string; color: string; borderColor: string }) {
   return (
     <div style={{ width: 80, height: 56, borderRadius: 6, border: `1.5px solid ${borderColor}`, background: "#fff", display: "flex", flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: 4 }}>
       <div style={{ width: 40, height: 8, borderRadius: 3, background: color }} />
       <div style={{ width: 30, height: 6, borderRadius: 3, background: "#e4e4e7" }} />
-      <div style={{ fontSize: 8, color: "#a1a1aa", marginTop: 2 }}>{label}</div>
+      <div style={{ fontSize: 8, color: "#52525b", marginTop: 2 }}>{label}</div>
     </div>
   );
 }
@@ -25,7 +25,7 @@ export default function Fig23() {
             <ScreenBox label="画面C" color="#60a5fa" borderColor="#e4e4e7" />
             <ScreenBox label="画面D" color="#3b82f6" borderColor="#e4e4e7" />
           </div>
-          <div style={{ fontSize: 11, color: "#71717a", marginTop: 12, lineHeight: 1.6 }}>
+          <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 12, lineHeight: 1.6 }}>
             画面ごとに微妙にズレが生じる。修正は個別に必要。
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Fig23() {
             <ScreenBox label="画面C" color="#3b82f6" borderColor="#3b82f6" />
             <ScreenBox label="画面D" color="#3b82f6" borderColor="#3b82f6" />
           </div>
-          <div style={{ fontSize: 11, color: "#71717a", marginTop: 12, lineHeight: 1.6 }}>
+          <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 12, lineHeight: 1.6 }}>
             <span style={{ fontWeight: 600, color: "#3f3f46" }}>1箇所の変更で全画面に反映。</span>一貫性が自動的に保たれる。
           </div>
         </div>

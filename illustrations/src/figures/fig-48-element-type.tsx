@@ -11,7 +11,7 @@ const colTitle: CSSProperties = {
 
 const colSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginTop: 6,
 };
 
@@ -145,7 +145,7 @@ function ListItem({
         <div style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>
           {title}
         </div>
-        <div style={{ fontSize: 10, color: "#a1a1aa" }}>{subtitle}</div>
+        <div style={{ fontSize: 10, color: "#52525b" }}>{subtitle}</div>
       </div>
     </div>
   );
@@ -161,7 +161,7 @@ const card: CSSProperties = {
 const slotLabel: CSSProperties = {
   fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   textAlign: "center" as const,
   marginTop: 8,
 };
@@ -270,10 +270,10 @@ export default function Fig48() {
             textAlign: "center",
           }}
         >
-          <span style={{ color: "#71717a" }}>leading</span>
+          <span style={{ color: "#3f3f46" }}>leading</span>
           <span style={{ color: "#d4d4d8" }}>?: </span>
           <span style={{ color: "#18181b", fontWeight: 500 }}>ReactNode</span>
-          <span style={{ color: "#a1a1aa", marginLeft: 12 }}>
+          <span style={{ color: "#52525b", marginLeft: 12 }}>
             — 同じ ListItem に Icon / Avatar / Badge を自由に差し込める
           </span>
         </div>

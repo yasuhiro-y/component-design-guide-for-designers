@@ -171,7 +171,7 @@ export default function Fig42() {
             </div>
           </div>
 
-          <div style={{ fontSize: 10, color: "#71717a", textAlign: "center" }}>
+          <div style={{ fontSize: 10, color: "#3f3f46", textAlign: "center" }}>
             Enum なら矛盾が発生しない: 常に1つだけ選択される
           </div>
         </div>

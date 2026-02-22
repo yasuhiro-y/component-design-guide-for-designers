@@ -11,7 +11,7 @@ const label: CSSProperties = {
 
 const desc: CSSProperties = {
   fontSize: 11,
-  color: "#71717a",
+  color: "#3f3f46",
   marginBottom: 10,
 };
 
@@ -37,7 +37,7 @@ export default function Fig08() {
             defaultValue="テキスト入力"
             readOnly
           />
-          <div style={{ fontSize: 11, color: "#a1a1aa", textAlign: "center", marginTop: 6 }}>
+          <div style={{ fontSize: 11, color: "#52525b", textAlign: "center", marginTop: 6 }}>
             width: 100%
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function Fig08() {
               </span>
             ))}
           </div>
-          <div style={{ fontSize: 11, color: "#a1a1aa", marginTop: 6 }}>36x36px 固定</div>
+          <div style={{ fontSize: 11, color: "#52525b", marginTop: 6 }}>36x36px 固定</div>
         </div>
       </div>
     </IllustrationFrame>

@@ -18,7 +18,7 @@ const card: CSSProperties = {
 
 const annotation: CSSProperties = {
   fontSize: 10,
-  color: "#71717a",
+  color: "#3f3f46",
   marginTop: 6,
   lineHeight: 1.4,
 };
@@ -103,7 +103,7 @@ function PatternC() {
                   style={{
                     fontSize: 9,
                     fontFamily: '"SF Mono", Menlo, monospace',
-                    color: "#a1a1aa",
+                    color: "#52525b",
                     background: "#f4f4f5",
                     padding: "1px 5px",
                     borderRadius: 3,

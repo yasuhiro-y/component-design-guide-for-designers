@@ -1,7 +1,7 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const lib = { fontSize: 11, color: "#a1a1aa", marginBottom: 4 } as const;
+const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
@@ -37,11 +37,11 @@ function DialogMock({ title, desc, note, actions, showClose }: {
 }) {
   return (
     <div style={showcase}>
-      <div style={{ position: "absolute", top: 8, right: 10, fontSize: 10, color: "#a1a1aa" }}>{note}</div>
+      <div style={{ position: "absolute", top: 8, right: 10, fontSize: 10, color: "#52525b" }}>{note}</div>
       <div style={{ background: "#fff", borderRadius: 8, border: "1px solid #e4e4e7", padding: 20, width: "100%", maxWidth: 260, position: "relative", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-        {showClose && <span style={{ position: "absolute", top: 12, right: 14, color: "#a1a1aa", fontSize: 16 }}>×</span>}
+        {showClose && <span style={{ position: "absolute", top: 12, right: 14, color: "#52525b", fontSize: 16 }}>×</span>}
         <div style={{ fontSize: 14, fontWeight: 600, color: "#18181b", marginBottom: 6 }}>{title}</div>
-        <div style={{ fontSize: 12, color: "#71717a", lineHeight: 1.5, marginBottom: 16 }}>{desc}</div>
+        <div style={{ fontSize: 12, color: "#3f3f46", lineHeight: 1.5, marginBottom: 16 }}>{desc}</div>
         <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>{actions}</div>
       </div>
     </div>

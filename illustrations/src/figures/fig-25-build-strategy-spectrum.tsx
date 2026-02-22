@@ -19,7 +19,7 @@ const titleStyle = {
 
 const descStyle = {
   fontSize: 11,
-  color: "#71717a",
+  color: "#3f3f46",
   lineHeight: 1.6,
 };
 
@@ -30,14 +30,14 @@ const tagStyle = (active: boolean) => ({
   fontSize: 10,
   fontWeight: 500,
   background: active ? "#18181b" : "#f4f4f5",
-  color: active ? "#fff" : "#71717a",
+  color: active ? "#fff" : "#3f3f46",
   marginRight: 4,
   marginBottom: 4,
 });
 
 const exampleStyle = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   fontFamily: '"SF Mono", Menlo, monospace' as const,
   marginTop: 8,
 };
@@ -83,9 +83,9 @@ export default function Fig25() {
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Spectrum bar */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: 16, padding: "0 8px" }}>
-          <span style={{ fontSize: 10, color: "#a1a1aa", whiteSpace: "nowrap" }}>低コスト / 低自由度</span>
+          <span style={{ fontSize: 10, color: "#52525b", whiteSpace: "nowrap" }}>低コスト / 低自由度</span>
           <div style={{ flex: 1, height: 2, background: "linear-gradient(to right, #e4e4e7, #18181b)", margin: "0 12px", borderRadius: 1 }} />
-          <span style={{ fontSize: 10, color: "#a1a1aa", whiteSpace: "nowrap" }}>高コスト / 高自由度</span>
+          <span style={{ fontSize: 10, color: "#52525b", whiteSpace: "nowrap" }}>高コスト / 高自由度</span>
         </div>
 
         {/* Cards */}
@@ -103,15 +103,15 @@ export default function Fig25() {
               {/* Bars */}
               <div style={{ marginTop: 10 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-                  <span style={{ fontSize: 9, color: "#a1a1aa", width: 36 }}>自由度</span>
+                  <span style={{ fontSize: 9, color: "#52525b", width: 36 }}>自由度</span>
                   <div style={{ flex: 1, height: 4, background: "#f4f4f5", borderRadius: 2, overflow: "hidden" }}>
                     <div style={{ width: `${s.customization * 25}%`, height: "100%", background: "#18181b", borderRadius: 2 }} />
                   </div>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ fontSize: 9, color: "#a1a1aa", width: 36 }}>コスト</span>
+                  <span style={{ fontSize: 9, color: "#52525b", width: 36 }}>コスト</span>
                   <div style={{ flex: 1, height: 4, background: "#f4f4f5", borderRadius: 2, overflow: "hidden" }}>
-                    <div style={{ width: `${s.effort * 25}%`, height: "100%", background: "#a1a1aa", borderRadius: 2 }} />
+                    <div style={{ width: `${s.effort * 25}%`, height: "100%", background: "#52525b", borderRadius: 2 }} />
                   </div>
                 </div>
               </div>

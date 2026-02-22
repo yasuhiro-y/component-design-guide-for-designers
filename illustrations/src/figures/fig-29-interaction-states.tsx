@@ -31,7 +31,7 @@ function ButtonState({ label, bg, border, opacity, ring, note }: {
           </button>
         </div>
       </div>
-      <div style={{ fontSize: 10, color: "#71717a", marginTop: 8, lineHeight: 1.4 }}>{note}</div>
+      <div style={{ fontSize: 10, color: "#3f3f46", marginTop: 8, lineHeight: 1.4 }}>{note}</div>
     </div>
   );
 }

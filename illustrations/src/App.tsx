@@ -25,7 +25,7 @@ function Gallery() {
               <div
                 style={{
                   fontSize: 12,
-                  color: "#a1a1aa",
+                  color: "#52525b",
                   marginBottom: 8,
                   paddingLeft: 10,
                   fontFamily: '"SF Mono", Menlo, monospace',
@@ -33,7 +33,7 @@ function Gallery() {
               >
                 {fig.id}
               </div>
-              <Suspense fallback={<div style={{ padding: 40, color: "#a1a1aa" }}>Loading...</div>}>
+              <Suspense fallback={<div style={{ padding: 40, color: "#52525b" }}>Loading...</div>}>
                 <Component />
               </Suspense>
             </div>
@@ -49,7 +49,7 @@ function FigureView() {
   const figure = id ? getFigureById(id) : null;
 
   if (!figure) {
-    return <div style={{ padding: 48, color: "#71717a" }}>Figure not found: {id}</div>;
+    return <div style={{ padding: 48, color: "#3f3f46" }}>Figure not found: {id}</div>;
   }
 
   const Component = figure.component;

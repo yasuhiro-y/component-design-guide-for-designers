@@ -11,7 +11,7 @@ const stateLabel: CSSProperties = {
 
 const stateNote: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginTop: 6,
 };
 
@@ -53,7 +53,7 @@ const nameStyle: CSSProperties = {
 
 const roleStyle: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
 };
 
 interface Person {
@@ -82,7 +82,7 @@ function EmptyState() {
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#a1a1aa"
+          stroke="#52525b"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -92,7 +92,7 @@ function EmptyState() {
           <path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z" />
         </svg>
         <div style={{ fontSize: 11, fontWeight: 500, color: "#3f3f46" }}>データなし</div>
-        <div style={{ fontSize: 10, color: "#a1a1aa", marginTop: 2 }}>メンバーがいません</div>
+        <div style={{ fontSize: 10, color: "#52525b", marginTop: 2 }}>メンバーがいません</div>
       </div>
     </div>
   );

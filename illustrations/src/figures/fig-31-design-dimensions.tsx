@@ -54,7 +54,7 @@ const titleStyle: CSSProperties = {
 
 const descStyle: CSSProperties = {
   fontSize: 11,
-  color: "#71717a",
+  color: "#3f3f46",
   lineHeight: 1.4,
 };
 

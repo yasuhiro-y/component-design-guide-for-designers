@@ -18,14 +18,14 @@ const colTitle: CSSProperties = {
 
 const colSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginTop: 6,
 };
 
 const monoSmall: CSSProperties = {
   fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
 };
 
 /* ── Mini message row ── */
@@ -76,14 +76,14 @@ function MessageRow({
           <span style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>
             {name}
           </span>
-          <span style={{ fontSize: 10, color: "#a1a1aa", flexShrink: 0 }}>
+          <span style={{ fontSize: 10, color: "#52525b", flexShrink: 0 }}>
             {time}
           </span>
         </div>
         <div
           style={{
             fontSize: 11,
-            color: "#71717a",
+            color: "#3f3f46",
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
@@ -126,7 +126,7 @@ function DeadlineCard({
         <div
           style={{
             fontSize: 10,
-            color: isPast ? "#ef4444" : "#71717a",
+            color: isPast ? "#ef4444" : "#3f3f46",
             fontWeight: isPast ? 500 : 400,
           }}
         >
@@ -207,16 +207,16 @@ export default function Fig46() {
               <span style={monoSmall}>表示変換:</span>
             </div>
             <div style={{ paddingLeft: 8 }}>
-              <span style={{ color: "#a1a1aa" }}>→</span> 2026/02/22
+              <span style={{ color: "#52525b" }}>→</span> 2026/02/22
             </div>
             <div style={{ paddingLeft: 8 }}>
-              <span style={{ color: "#a1a1aa" }}>→</span> 2月22日
+              <span style={{ color: "#52525b" }}>→</span> 2月22日
             </div>
             <div style={{ paddingLeft: 8 }}>
-              <span style={{ color: "#a1a1aa" }}>→</span> 今日
+              <span style={{ color: "#52525b" }}>→</span> 今日
             </div>
             <div style={{ paddingLeft: 8 }}>
-              <span style={{ color: "#a1a1aa" }}>→</span> 3分前
+              <span style={{ color: "#52525b" }}>→</span> 3分前
             </div>
           </div>
           <div style={colSub}>同じデータ → 複数の表示形式</div>

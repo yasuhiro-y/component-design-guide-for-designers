@@ -11,7 +11,7 @@ const colTitle: CSSProperties = {
 
 const colSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginBottom: 12,
 };
 
@@ -56,7 +56,7 @@ const propsBox: CSSProperties = {
 };
 
 const propKey: CSSProperties = {
-  color: "#71717a",
+  color: "#3f3f46",
 };
 
 const propType: CSSProperties = {
@@ -75,7 +75,7 @@ const checkItem: CSSProperties = {
 
 const noteStyle: CSSProperties = {
   fontSize: 11,
-  color: "#71717a",
+  color: "#3f3f46",
   textAlign: "center",
   marginTop: 16,
   padding: "8px 16px",
@@ -168,8 +168,8 @@ export default function Fig32() {
               gap: 4,
             }}
           >
-            <span style={{ fontSize: 10, color: "#a1a1aa" }}>同じUI</span>
-            <span style={{ fontSize: 10, color: "#a1a1aa" }}>異なる設計</span>
+            <span style={{ fontSize: 10, color: "#52525b" }}>同じUI</span>
+            <span style={{ fontSize: 10, color: "#52525b" }}>異なる設計</span>
           </div>
         </div>
 
@@ -187,7 +187,7 @@ export default function Fig32() {
               <div
                 style={{
                   fontSize: 10,
-                  color: "#a1a1aa",
+                  color: "#52525b",
                   marginTop: 4,
                   display: "flex",
                   gap: 8,
@@ -204,7 +204,7 @@ export default function Fig32() {
                 <span style={propKey}>message: </span>
                 <span style={propType}>Message</span>
               </div>
-              <div style={{ paddingLeft: 12, fontSize: 10, color: "#a1a1aa" }}>
+              <div style={{ paddingLeft: 12, fontSize: 10, color: "#52525b" }}>
                 {"{ sender, text, timestamp, readStatus }"}
               </div>
             </div>

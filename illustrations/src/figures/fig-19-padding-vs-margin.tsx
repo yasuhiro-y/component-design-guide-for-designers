@@ -21,7 +21,7 @@ export default function Fig19() {
             padding（内側）
           </span>
           <span style={legendItem}>
-            <span style={{ width: 12, height: 12, borderRadius: 2, border: "1.5px dashed #a1a1aa", background: "transparent" }} />
+            <span style={{ width: 12, height: 12, borderRadius: 2, border: "1.5px dashed #52525b", background: "transparent" }} />
             margin（外側）
           </span>
         </div>
@@ -40,7 +40,7 @@ export default function Fig19() {
           <div style={{ textAlign: "center" }}>
             <div
               style={{
-                border: "1.5px dashed #a1a1aa",
+                border: "1.5px dashed #52525b",
                 borderRadius: 12,
                 padding: 16,
                 display: "inline-block",
@@ -70,16 +70,16 @@ export default function Fig19() {
                 </span>
               </div>
             </div>
-            <div style={{ fontSize: 11, color: "#71717a", marginTop: 10 }}>
+            <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 10 }}>
               <span style={{ fontWeight: 600, color: "#3f3f46" }}>padding</span> = コンポーネントの責任
             </div>
-            <div style={{ fontSize: 11, color: "#71717a", marginTop: 2 }}>
+            <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 2 }}>
               <span style={{ fontWeight: 600, color: "#3f3f46" }}>margin</span> = 親の責任
             </div>
           </div>
 
           {/* Arrow */}
-          <div style={{ fontSize: 12, color: "#a1a1aa" }}>→</div>
+          <div style={{ fontSize: 12, color: "#52525b" }}>→</div>
 
           {/* In context */}
           <div style={{ textAlign: "center" }}>
@@ -125,7 +125,7 @@ export default function Fig19() {
                 Button
               </span>
             </div>
-            <div style={{ fontSize: 11, color: "#71717a", marginTop: 10 }}>
+            <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 10 }}>
               親が <span style={{ fontWeight: 600, color: "#3f3f46" }}>gap: 12px</span> で間隔を制御
             </div>
           </div>

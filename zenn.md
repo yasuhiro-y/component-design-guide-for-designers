@@ -923,10 +923,10 @@ Booleanの章で、小さいと大きいのトグルを別々に持つと矛盾�
 
 ひとつのプロパティに複数の意味を持たせてしまうと、後から取り回しがきかなくなります。
 
-Radix UIの[`Toggle`](https://www.radix-ui.com/primitives/docs/components/toggle)と[`Switch`](https://www.radix-ui.com/primitives/docs/components/switch)で考えてみます。どちらもON/OFFの2値を扱うコンポーネントで、見た目も似ています。しかし役割が違います。`Toggle`はツールバーの太字ボタンのように押すたびにON/OFFが切り替わるUI操作用の部品。`Switch`は設定画面の通知スライダーのようにフォームで送信されるデータを切り替える部品です。
+![直交性: size と variant の組み合わせがすべて成立する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-05.png)
+*直交性: size と variant の組み合わせがすべて成立する*
 
-![プロパティの直交性: まとめた場合（Bad）vs 分けた場合（Good）](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-05.png)
-*プロパティの直交性: まとめた場合（Bad）vs 分けた場合（Good）*
+Radix UIの[`Toggle`](https://www.radix-ui.com/primitives/docs/components/toggle)と[`Switch`](https://www.radix-ui.com/primitives/docs/components/switch)で考えてみます。どちらもON/OFFの2値を扱うコンポーネントで、見た目も似ています。しかし役割が違います。`Toggle`はツールバーの太字ボタンのように押すたびにON/OFFが切り替わるUI操作用の部品。`Switch`は設定画面の通知スライダーのようにフォームで送信されるデータを切り替える部品です。
 
 ![Radix UI: Toggle と Switch の実際の見た目](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-15.png)
 *Radix UI: Toggle と Switch の実際の見た目*
@@ -965,8 +965,8 @@ Figmaでは、`Tag`の色を変えたければ`Tag`のスタイルを編集し�
 
 たとえば、`Tag`の info と `Callout` の info が同じセマンティックカラーを参照していれば、色を変えたいときに一箇所の修正で両方に反映されます。バラバラに定義していると、デザイナーが個別に色を選ぶたびに微妙なズレが蓄積し、`Tag`は青いのに`Callout`は水色、という不一致がいつの間にか生まれます。
 
-![セマンティックカラートークンの共有構造](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-06.png)
-*セマンティックカラートークンの共有構造*
+![トークンの共有: 複数コンポーネントの一貫性を保つ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-06.png)
+*トークンの共有: 複数コンポーネントの一貫性を保つ*
 色だけの話ではありません。兄弟関係にあるコンポーネント（`Button` / `IconButton` / `CopyButton`など）では、縦幅やアイコンのサイズも共通のトークンを参照しておくと一貫性を保ちやすくなります。
 
 こうしたトークンを一元管理しておけば、`Tag`の配色を微調整したいときに、共通構造を持つすべてのコンポーネントに変更が波及します。トークンを使わず個別のコンポーネントに値を直接書き込んでいたら、ひとつずつ直すことになります。

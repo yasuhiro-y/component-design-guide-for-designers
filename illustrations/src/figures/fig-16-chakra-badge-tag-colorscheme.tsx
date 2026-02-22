@@ -6,7 +6,7 @@ const theme = extendTheme({
   fonts: { body: '"Inter", sans-serif', heading: '"Inter", sans-serif' },
 });
 
-const lib = { fontSize: 11, color: "#a1a1aa", marginBottom: 4 } as const;
+const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
@@ -36,9 +36,9 @@ export default function Fig16() {
             <table style={{ borderCollapse: "collapse", width: "100%", marginBottom: 20 }}>
               <thead>
                 <tr>
-                  <th style={{ fontSize: 11, color: "#a1a1aa", fontWeight: 500, textAlign: "left", padding: "0 0 8px" }} />
+                  <th style={{ fontSize: 11, color: "#52525b", fontWeight: 500, textAlign: "left", padding: "0 0 8px" }} />
                   {variants.map((v) => (
-                    <th key={v} style={{ fontSize: 11, color: "#a1a1aa", fontWeight: 500, textAlign: "left", padding: "0 0 8px" }}>
+                    <th key={v} style={{ fontSize: 11, color: "#52525b", fontWeight: 500, textAlign: "left", padding: "0 0 8px" }}>
                       {v}
                     </th>
                   ))}
@@ -47,7 +47,7 @@ export default function Fig16() {
               <tbody>
                 {colors.map((c) => (
                   <tr key={c}>
-                    <td style={{ fontSize: 12, color: "#71717a", padding: "4px 16px 4px 0", fontWeight: 500 }}>{c}</td>
+                    <td style={{ fontSize: 12, color: "#3f3f46", padding: "4px 16px 4px 0", fontWeight: 500 }}>{c}</td>
                     {variants.map((v) => (
                       <td key={v} style={{ padding: "4px 8px 4px 0" }}>
                         <Badge colorScheme={c} variant={v}>{c}</Badge>

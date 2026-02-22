@@ -5,7 +5,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 const sectionTitle: CSSProperties = {
   fontSize: 11,
   fontWeight: 600,
-  color: "#a1a1aa",
+  color: "#52525b",
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
   marginBottom: 10,
@@ -73,7 +73,7 @@ function Dropdown({ value }: { value: string }) {
         color: "#3f3f46",
       }}
     >
-      {value} <span style={{ fontSize: 8, color: "#a1a1aa" }}>▾</span>
+      {value} <span style={{ fontSize: 8, color: "#52525b" }}>▾</span>
     </span>
   );
 }

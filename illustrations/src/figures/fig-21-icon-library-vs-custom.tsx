@@ -5,9 +5,9 @@ import {
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
 const iconBox = { width: 36, height: 36, borderRadius: 6, background: "#fff", border: "1px solid #e4e4e7", display: "flex" as const, alignItems: "center" as const, justifyContent: "center" as const };
-const note = { fontSize: 11, color: "#71717a", marginTop: 12, lineHeight: 1.6 } as const;
+const note = { fontSize: 11, color: "#3f3f46", marginTop: 12, lineHeight: 1.6 } as const;
 
 const lucideIcons = [
   { Icon: Search, name: "Search" },
@@ -36,7 +36,7 @@ export default function Fig21() {
                 <div style={iconBox}>
                   <Icon size={16} color="#3f3f46" strokeWidth={1.75} />
                 </div>
-                <span style={{ fontSize: 8, color: "#a1a1aa" }}>{name}</span>
+                <span style={{ fontSize: 8, color: "#52525b" }}>{name}</span>
               </div>
             ))}
           </div>
@@ -51,18 +51,18 @@ export default function Fig21() {
               <div key={name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                 <div style={{ ...iconBox, borderStyle: "dashed" as const }}>
                   <svg width="16" height="16" viewBox="0 0 16 16">
-                    <rect x="2" y="2" width="12" height="12" rx="2" fill="none" stroke="#a1a1aa" strokeWidth="1" strokeDasharray="2 2" />
-                    <text x="8" y="10" textAnchor="middle" fontSize="6" fill="#a1a1aa">?</text>
+                    <rect x="2" y="2" width="12" height="12" rx="2" fill="none" stroke="#52525b" strokeWidth="1" strokeDasharray="2 2" />
+                    <text x="8" y="10" textAnchor="middle" fontSize="6" fill="#52525b">?</text>
                   </svg>
                 </div>
-                <span style={{ fontSize: 8, color: "#a1a1aa" }}>{name}</span>
+                <span style={{ fontSize: 8, color: "#52525b" }}>{name}</span>
               </div>
             ))}
           </div>
           <div style={note}>
             <span style={{ fontWeight: 600, color: "#3f3f46" }}>ブランドの世界観を細部まで表現。</span>制作・メンテナンスコストは大きい。
           </div>
-          <div style={{ fontSize: 10, color: "#a1a1aa", marginTop: 8, lineHeight: 1.5 }}>
+          <div style={{ fontSize: 10, color: "#52525b", marginTop: 8, lineHeight: 1.5 }}>
             実例: <span style={{ color: "#52525b" }}>GitHub Octicons</span> / <span style={{ color: "#52525b" }}>Shopify Polaris</span> / <span style={{ color: "#52525b" }}>IBM Carbon</span>
           </div>
         </div>

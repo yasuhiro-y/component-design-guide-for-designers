@@ -19,7 +19,7 @@ const typeName: CSSProperties = {
 };
 const figmaLabel: CSSProperties = {
   fontSize: 12,
-  color: "#71717a",
+  color: "#3f3f46",
   width: 130,
   flexShrink: 0,
 };
@@ -59,7 +59,7 @@ function Dropdown({ value }: { value: string }) {
       }}
     >
       {value}
-      <span style={{ fontSize: 10, color: "#a1a1aa" }}>▾</span>
+      <span style={{ fontSize: 10, color: "#52525b" }}>▾</span>
     </span>
   );
 }
@@ -111,7 +111,7 @@ export default function Fig17() {
           <div style={typeName}>Boolean</div>
           <div style={figmaLabel}>トグルスイッチ</div>
           <Toggle on />
-          <span style={{ fontSize: 11, color: "#a1a1aa" }}>→</span>
+          <span style={{ fontSize: 11, color: "#52525b" }}>→</span>
           <code style={{ fontSize: 12, color: "#3f3f46", fontFamily: '"SF Mono", Menlo, monospace' }}>
             isDisabled: boolean
           </code>
@@ -120,7 +120,7 @@ export default function Fig17() {
           <div style={typeName}>Enum</div>
           <div style={figmaLabel}>ドロップダウン</div>
           <Dropdown value="medium" />
-          <span style={{ fontSize: 11, color: "#a1a1aa" }}>→</span>
+          <span style={{ fontSize: 11, color: "#52525b" }}>→</span>
           <code style={{ fontSize: 12, color: "#3f3f46", fontFamily: '"SF Mono", Menlo, monospace' }}>
             {"size: 's' | 'm' | 'l'"}
           </code>
@@ -129,7 +129,7 @@ export default function Fig17() {
           <div style={typeName}>String</div>
           <div style={figmaLabel}>テキスト入力</div>
           <TextInput value="保存する" />
-          <span style={{ fontSize: 11, color: "#a1a1aa" }}>→</span>
+          <span style={{ fontSize: 11, color: "#52525b" }}>→</span>
           <code style={{ fontSize: 12, color: "#3f3f46", fontFamily: '"SF Mono", Menlo, monospace' }}>
             label: string
           </code>
@@ -138,7 +138,7 @@ export default function Fig17() {
           <div style={typeName}>Number</div>
           <div style={figmaLabel}>数値入力</div>
           <NumberInput value={24} />
-          <span style={{ fontSize: 11, color: "#a1a1aa" }}>→</span>
+          <span style={{ fontSize: 11, color: "#52525b" }}>→</span>
           <code style={{ fontSize: 12, color: "#3f3f46", fontFamily: '"SF Mono", Menlo, monospace' }}>
             maxLength: number
           </code>

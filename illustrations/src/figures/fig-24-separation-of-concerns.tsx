@@ -2,7 +2,7 @@ import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", marginBottom: 4 } as const;
-const colDesc = { fontSize: 10, color: "#71717a", marginBottom: 12 } as const;
+const colDesc = { fontSize: 10, color: "#3f3f46", marginBottom: 12 } as const;
 
 function PropTag({ children }: { children: string }) {
   return (
@@ -35,7 +35,7 @@ export default function Fig24() {
             }}>TK</div>
             <div>
               <div style={{ fontSize: 14, fontWeight: 600, color: "#18181b" }}>UserCard</div>
-              <div style={{ fontSize: 11, color: "#a1a1aa" }}>Designer</div>
+              <div style={{ fontSize: 11, color: "#52525b" }}>Designer</div>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function Fig24() {
                 { label: "shadow", value: "sm" },
               ].map(({ label, value }) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
-                  <span style={{ color: "#a1a1aa", fontFamily: '"SF Mono", Menlo, monospace', minWidth: 50 }}>{label}</span>
+                  <span style={{ color: "#52525b", fontFamily: '"SF Mono", Menlo, monospace', minWidth: 50 }}>{label}</span>
                   <span style={{ color: "#3f3f46" }}>{value}</span>
                 </div>
               ))}
@@ -72,14 +72,14 @@ export default function Fig24() {
               <div style={{
                 width: 28, height: 28, borderRadius: "50%", border: "1.5px dashed #d4d4d8",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 8, color: "#a1a1aa",
+                fontSize: 8, color: "#52525b",
               }}>img</div>
               <div style={{ flex: 1 }}>
                 <div style={{ height: 8, borderRadius: 3, background: "#d4d4d8", width: "70%", marginBottom: 4 }} />
                 <div style={{ height: 6, borderRadius: 3, background: "#e4e4e7", width: "40%" }} />
               </div>
             </div>
-            <div style={{ fontSize: 10, color: "#a1a1aa", marginTop: 6 }}>
+            <div style={{ fontSize: 10, color: "#52525b", marginTop: 6 }}>
               Auto Layout / Flexbox
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function Fig24() {
               <PropTag>avatarURL: string</PropTag>
               <PropTag>role: string</PropTag>
             </div>
-            <div style={{ fontSize: 10, color: "#a1a1aa", marginTop: 8 }}>
+            <div style={{ fontSize: 10, color: "#52525b", marginTop: 8 }}>
               コンポーネントは中身を知らない
             </div>
           </div>

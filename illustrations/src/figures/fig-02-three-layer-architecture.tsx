@@ -6,7 +6,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 const layerLabel: CSSProperties = {
   fontSize: 11,
   fontWeight: 600,
-  color: "#71717a",
+  color: "#3f3f46",
   letterSpacing: "0.04em",
   textTransform: "uppercase",
   marginBottom: 4,
@@ -14,13 +14,13 @@ const layerLabel: CSSProperties = {
 
 const layerSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginBottom: 10,
 };
 
 const compName: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   fontFamily: '"SF Mono", Menlo, monospace',
   marginBottom: 4,
 };
@@ -190,7 +190,7 @@ function ProductCardDemo() {
             height="20"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#a1a1aa"
+            stroke="#52525b"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -226,7 +226,7 @@ function ProductCardDemo() {
           >
             スニーカー XR
           </div>
-          <div style={{ fontSize: 10, color: "#71717a" }}>¥12,800</div>
+          <div style={{ fontSize: 10, color: "#3f3f46" }}>¥12,800</div>
           <button
             style={{
               marginTop: 6,
@@ -283,7 +283,7 @@ function CartItemDemo() {
             height="14"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#a1a1aa"
+            stroke="#52525b"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -297,7 +297,7 @@ function CartItemDemo() {
           <div style={{ fontSize: 11, fontWeight: 500, color: "#18181b" }}>
             スニーカー XR
           </div>
-          <div style={{ fontSize: 10, color: "#a1a1aa" }}>× 1</div>
+          <div style={{ fontSize: 10, color: "#52525b" }}>× 1</div>
         </div>
         <div
           style={{ fontSize: 11, fontWeight: 600, color: "#18181b", flexShrink: 0 }}
@@ -418,7 +418,7 @@ function ProductListSectionDemo() {
                 >
                   {item.name}
                 </div>
-                <div style={{ fontSize: 7, color: "#71717a" }}>{item.price}</div>
+                <div style={{ fontSize: 7, color: "#3f3f46" }}>{item.price}</div>
               </div>
             </div>
           ))}
@@ -517,7 +517,7 @@ function LayerArrow() {
         />
         <polygon points="3,14 8,20 13,14" fill="#d4d4d8" />
       </svg>
-      <span style={{ fontSize: 9, color: "#a1a1aa", marginLeft: 6 }}>
+      <span style={{ fontSize: 9, color: "#52525b", marginLeft: 6 }}>
         uses
       </span>
     </div>
@@ -595,12 +595,12 @@ export default function Fig02() {
               y1="0"
               x2="7"
               y2="10"
-              stroke="#a1a1aa"
+              stroke="#52525b"
               strokeWidth="1.5"
             />
-            <polygon points="3.5,10 7,14 10.5,10" fill="#a1a1aa" />
+            <polygon points="3.5,10 7,14 10.5,10" fill="#52525b" />
           </svg>
-          <span style={{ fontSize: 11, color: "#71717a" }}>
+          <span style={{ fontSize: 11, color: "#3f3f46" }}>
             依存は常に上→下の一方通行。下位が上位に依存することはない
           </span>
         </div>

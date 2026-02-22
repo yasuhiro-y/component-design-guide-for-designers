@@ -1,7 +1,7 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
 
 function IconSvg({ fill }: { fill: string }) {
   return (
@@ -35,7 +35,7 @@ export default function Fig30() {
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>fill="#1A1A1A"（固定色）</div>
-          <div style={{ fontSize: 11, fontFamily: '"SF Mono", Menlo, monospace', color: "#a1a1aa", marginBottom: 8 }}>
+          <div style={{ fontSize: 11, fontFamily: '"SF Mono", Menlo, monospace', color: "#52525b", marginBottom: 8 }}>
             {'<svg fill="#1A1A1A" ...>'}
           </div>
           <DemoRow bg="#ffffff" textColor="#18181b" iconColor="#1a1a1a" />
@@ -48,7 +48,7 @@ export default function Fig30() {
 
         <div style={{ flex: 1 }}>
           <div style={colLabel}>fill="currentColor"（自動）</div>
-          <div style={{ fontSize: 11, fontFamily: '"SF Mono", Menlo, monospace', color: "#a1a1aa", marginBottom: 8 }}>
+          <div style={{ fontSize: 11, fontFamily: '"SF Mono", Menlo, monospace', color: "#52525b", marginBottom: 8 }}>
             {'<svg fill="currentColor" ...>'}
           </div>
           <DemoRow bg="#ffffff" textColor="#18181b" iconColor="#18181b" />

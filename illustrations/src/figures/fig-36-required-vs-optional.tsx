@@ -46,12 +46,12 @@ const required: CSSProperties = {
 
 const optional: CSSProperties = {
   ...codeFont,
-  color: "#a1a1aa",
+  color: "#52525b",
 };
 
 const noteStyle: CSSProperties = {
   fontSize: 11,
-  color: "#71717a",
+  color: "#3f3f46",
   textAlign: "center",
   marginTop: 16,
   padding: "8px 16px",
@@ -114,7 +114,7 @@ export default function Fig36() {
             display: "flex",
             alignItems: "center",
             fontSize: 14,
-            color: "#a1a1aa",
+            color: "#52525b",
             flexShrink: 0,
           }}
         >

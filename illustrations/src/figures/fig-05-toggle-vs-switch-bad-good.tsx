@@ -50,7 +50,7 @@ function MiniButton({
 const headerCell: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
-  color: "#a1a1aa",
+  color: "#52525b",
   textAlign: "center",
   padding: "6px 0",
   fontFamily: '"SF Mono", Menlo, monospace',
@@ -59,7 +59,7 @@ const headerCell: CSSProperties = {
 const rowLabel: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
-  color: "#a1a1aa",
+  color: "#52525b",
   fontFamily: '"SF Mono", Menlo, monospace',
   display: "flex",
   alignItems: "center",
@@ -149,7 +149,7 @@ export default function Fig05() {
             >
               独立している（直交）
             </div>
-            <div style={{ fontSize: 11, color: "#71717a", lineHeight: 1.5 }}>
+            <div style={{ fontSize: 11, color: "#3f3f46", lineHeight: 1.5 }}>
               size を S→L に変えても variant の見た目は変わらない。
               variant を変えても size は影響を受けない。
               <strong style={{ color: "#18181b" }}>
@@ -177,7 +177,7 @@ export default function Fig05() {
             >
               依存していたら（非直交）
             </div>
-            <div style={{ fontSize: 11, color: "#71717a", lineHeight: 1.5 }}>
+            <div style={{ fontSize: 11, color: "#3f3f46", lineHeight: 1.5 }}>
               「destructive のときは S が使えない」
               「secondary は L だけ角丸が変わる」
               ——こうした暗黙の制約があると

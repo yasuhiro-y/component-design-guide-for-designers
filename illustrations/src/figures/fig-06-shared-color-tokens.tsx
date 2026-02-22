@@ -86,7 +86,7 @@ function MiniInput({ size, placeholder }: { size: SizeKey; placeholder: string }
         borderRadius: 6,
         background: "#fff",
         border: "1px solid #d4d4d8",
-        color: "#a1a1aa",
+        color: "#52525b",
         fontSize: s.fontSize,
         minWidth: 100,
       }}
@@ -99,7 +99,7 @@ function MiniInput({ size, placeholder }: { size: SizeKey; placeholder: string }
 const colTitle: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginBottom: 6,
   fontFamily: '"SF Mono", Menlo, monospace',
   letterSpacing: "0.04em",
@@ -109,7 +109,7 @@ const colTitle: CSSProperties = {
 const sizeLabel: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
-  color: "#a1a1aa",
+  color: "#52525b",
   fontFamily: '"SF Mono", Menlo, monospace',
   width: 20,
   textAlign: "right",
@@ -178,7 +178,7 @@ export default function Fig06() {
             style={{
               marginTop: 12,
               fontSize: 11,
-              color: "#71717a",
+              color: "#3f3f46",
               borderTop: "1px dashed #e4e4e7",
               paddingTop: 10,
             }}
@@ -274,7 +274,7 @@ export default function Fig06() {
             style={{
               marginTop: 12,
               fontSize: 11,
-              color: "#71717a",
+              color: "#3f3f46",
               borderTop: "1px dashed #e4e4e7",
               paddingTop: 10,
             }}

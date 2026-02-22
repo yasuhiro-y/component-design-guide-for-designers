@@ -18,7 +18,7 @@ const cellLabel: CSSProperties = {
 
 const cellSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginTop: 6,
 };
 
@@ -39,7 +39,7 @@ const nameDisplay: CSSProperties = {
 
 const roleDisplay: CSSProperties = {
   fontSize: 10,
-  color: "#71717a",
+  color: "#3f3f46",
   marginTop: 2,
 };
 
@@ -91,7 +91,7 @@ export default function Fig33() {
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <AvatarSmall letter="?" />
               <div>
-                <div style={{ ...nameDisplay, color: "#a1a1aa" }}>&mdash;</div>
+                <div style={{ ...nameDisplay, color: "#52525b" }}>&mdash;</div>
                 <div style={roleDisplay}>Designer</div>
               </div>
             </div>
@@ -182,7 +182,7 @@ export default function Fig33() {
                     height="12"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#71717a"
+                    stroke="#3f3f46"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"

@@ -19,7 +19,7 @@ const lockedNode: CSSProperties = {
   ...nodeBox,
   background: "#fafafa",
   border: "1px solid #d4d4d8",
-  color: "#71717a",
+  color: "#3f3f46",
 };
 
 const decisionNode: CSSProperties = {
@@ -39,7 +39,7 @@ const arrowCol: CSSProperties = {
 const timeLabel: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
-  color: "#a1a1aa",
+  color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.03em",
   marginBottom: 6,
@@ -56,7 +56,7 @@ const funnelBar = (width: string, opacity: number): CSSProperties => ({
 
 const annotationStyle: CSSProperties = {
   fontSize: 10,
-  color: "#71717a",
+  color: "#3f3f46",
   textAlign: "center",
   marginTop: 2,
 };
@@ -79,7 +79,7 @@ function LockIcon() {
       height="10"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#a1a1aa"
+      stroke="#52525b"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -108,7 +108,7 @@ export default function Fig39() {
             <div style={timeLabel}>立ち上げ期</div>
             <div style={decisionNode}>
               MUI を採用
-              <div style={{ fontSize: 9, color: "#a1a1aa", fontWeight: 400, marginTop: 4 }}>
+              <div style={{ fontSize: 9, color: "#52525b", fontWeight: 400, marginTop: 4 }}>
                 管理画面を速く作りたい
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Fig39() {
             <div style={timeLabel}>半年後</div>
             <div style={nodeBox}>
               カスタマイズが増える
-              <div style={{ fontSize: 9, color: "#a1a1aa", fontWeight: 400, marginTop: 4 }}>
+              <div style={{ fontSize: 9, color: "#52525b", fontWeight: 400, marginTop: 4 }}>
                 MUI のスタイル上書きが散在
               </div>
             </div>
@@ -142,7 +142,7 @@ export default function Fig39() {
             <div style={timeLabel}>1年後</div>
             <div style={nodeBox}>
               独自デザインが必要に
-              <div style={{ fontSize: 9, color: "#a1a1aa", fontWeight: 400, marginTop: 4 }}>
+              <div style={{ fontSize: 9, color: "#52525b", fontWeight: 400, marginTop: 4 }}>
                 Headless UI に乗り換えたいが…
               </div>
             </div>
@@ -179,7 +179,7 @@ export default function Fig39() {
             borderRadius: 6,
             border: "1px dashed #d4d4d8",
             fontSize: 11,
-            color: "#71717a",
+            color: "#3f3f46",
             textAlign: "center",
             lineHeight: 1.6,
           }}

@@ -72,7 +72,7 @@ export default function Fig43() {
             style={{
               fontSize: 10,
               fontWeight: 600,
-              color: "#71717a",
+              color: "#3f3f46",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
             }}
@@ -91,7 +91,7 @@ export default function Fig43() {
             style={{
               fontSize: 10,
               fontWeight: 600,
-              color: "#a1a1aa",
+              color: "#52525b",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
             }}
@@ -135,7 +135,7 @@ export default function Fig43() {
                     <div
                       style={{
                         fontSize: 10,
-                        color: "#a1a1aa",
+                        color: "#52525b",
                         marginTop: 4,
                         fontStyle: "italic",
                       }}

@@ -6,8 +6,8 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 const surface = "#fff";
 const border = "#e4e4e7";
 const text = "#18181b";
-const secondary = "#71717a";
-const tertiary = "#a1a1aa";
+const secondary = "#3f3f46";
+const tertiary = "#52525b";
 const mono = '"SF Mono", Menlo, monospace';
 
 /* ── chaotic button styles (left side — inconsistent conventions) ── */

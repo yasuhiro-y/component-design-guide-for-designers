@@ -5,7 +5,7 @@ import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 import "../styles/radix-common.css";
 
-const lib = { fontSize: 11, color: "#a1a1aa", marginBottom: 4 } as const;
+const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
@@ -19,7 +19,7 @@ const panel = {
   border: "1px solid #e4e4e7",
   padding: 16,
 } as const;
-const annotation = { fontSize: 11, color: "#71717a", marginTop: 10, textAlign: "center" as const };
+const annotation = { fontSize: 11, color: "#3f3f46", marginTop: 10, textAlign: "center" as const };
 
 export default function Fig14() {
   return (
@@ -33,7 +33,7 @@ export default function Fig14() {
             <Select.Root defaultValue="medium" open>
               <Select.Trigger className="radix-select-trigger">
                 <Select.Value />
-                <Select.Icon style={{ fontSize: 10, color: "#a1a1aa", marginLeft: 4 }}>▾</Select.Icon>
+                <Select.Icon style={{ fontSize: 10, color: "#52525b", marginLeft: 4 }}>▾</Select.Icon>
               </Select.Trigger>
               <Select.Portal container={null}>
                 <Select.Content className="radix-select-content" position="popper" sideOffset={4}>
@@ -59,7 +59,7 @@ export default function Fig14() {
             <DropdownMenu.Root open>
               <DropdownMenu.Trigger asChild>
                 <button className="radix-select-trigger">
-                  Actions <span style={{ fontSize: 10, color: "#a1a1aa", marginLeft: 4 }}>▾</span>
+                  Actions <span style={{ fontSize: 10, color: "#52525b", marginLeft: 4 }}>▾</span>
                 </button>
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal container={null}>
@@ -90,7 +90,7 @@ export default function Fig14() {
                     border: "1px dashed #d4d4d8",
                     background: "#fff",
                     fontSize: 12,
-                    color: "#a1a1aa",
+                    color: "#52525b",
                     display: "inline-block",
                   }}
                 >

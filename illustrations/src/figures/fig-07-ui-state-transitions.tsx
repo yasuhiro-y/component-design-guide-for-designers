@@ -11,7 +11,7 @@ const stateLabel: CSSProperties = {
 
 const stateNote: CSSProperties = {
   fontSize: 11,
-  color: "#71717a",
+  color: "#3f3f46",
   marginTop: 8,
 };
 
@@ -59,7 +59,7 @@ function IdealState() {
           </span>
           <div>
             <div style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>{name}</div>
-            <div style={{ fontSize: 10, color: "#a1a1aa" }}>Designer</div>
+            <div style={{ fontSize: 10, color: "#52525b" }}>Designer</div>
           </div>
         </div>
       ))}
@@ -71,11 +71,11 @@ function EmptyState() {
   return (
     <div style={{ ...card, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
       <div>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: 6 }}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: 6 }}>
           <path d="M22 12h-6l-2 3H10l-2-3H2" /><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z" />
         </svg>
         <div style={{ fontSize: 11, fontWeight: 500, color: "#3f3f46" }}>データなし</div>
-        <div style={{ fontSize: 10, color: "#a1a1aa", marginTop: 2 }}>条件を変えてください</div>
+        <div style={{ fontSize: 10, color: "#52525b", marginTop: 2 }}>条件を変えてください</div>
       </div>
     </div>
   );
@@ -102,8 +102,8 @@ function PartialState() {
             {name === "—" ? "?" : name[0]}
           </span>
           <div>
-            <div style={{ fontSize: 12, fontWeight: 500, color: name === "—" ? "#a1a1aa" : "#18181b" }}>{name === "—" ? "取得失敗" : name}</div>
-            <div style={{ fontSize: 10, color: "#a1a1aa" }}>{name === "—" ? "—" : "Designer"}</div>
+            <div style={{ fontSize: 12, fontWeight: 500, color: name === "—" ? "#52525b" : "#18181b" }}>{name === "—" ? "取得失敗" : name}</div>
+            <div style={{ fontSize: 10, color: "#52525b" }}>{name === "—" ? "—" : "Designer"}</div>
           </div>
         </div>
       ))}

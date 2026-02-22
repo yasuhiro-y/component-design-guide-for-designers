@@ -11,7 +11,7 @@ const colTitle: CSSProperties = {
 
 const colSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginBottom: 12,
 };
 
@@ -25,7 +25,7 @@ const panel: CSSProperties = {
 const monoSmall: CSSProperties = {
   fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
 };
 
 const propsBox: CSSProperties = {
@@ -39,7 +39,7 @@ const propsBox: CSSProperties = {
   color: "#3f3f46",
 };
 
-const propKey: CSSProperties = { color: "#71717a" };
+const propKey: CSSProperties = { color: "#3f3f46" };
 const propType: CSSProperties = { color: "#18181b", fontWeight: 500 };
 
 /* ── Avatar component ── */
@@ -140,7 +140,7 @@ function UserCard() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <Stars score={4} />
-          <span style={{ fontSize: 10, color: "#a1a1aa" }}>4.0</span>
+          <span style={{ fontSize: 10, color: "#52525b" }}>4.0</span>
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@ function FigmaPanel({
           <span
             style={{
               fontSize: 10,
-              color: "#71717a",
+              color: "#3f3f46",
               background: "#fff",
               border: "1px solid #e4e4e7",
               borderRadius: 3,
@@ -250,7 +250,7 @@ export default function Fig47() {
             <div
               style={{
                 fontSize: 11,
-                color: "#71717a",
+                color: "#3f3f46",
                 marginTop: 10,
                 textAlign: "center",
               }}
@@ -277,9 +277,9 @@ export default function Fig47() {
               gap: 4,
             }}
           >
-            <span style={{ fontSize: 10, color: "#a1a1aa" }}>プロパティ数</span>
-            <span style={{ fontSize: 10, color: "#a1a1aa" }}>が示す</span>
-            <span style={{ fontSize: 10, color: "#a1a1aa" }}>設計の違い</span>
+            <span style={{ fontSize: 10, color: "#52525b" }}>プロパティ数</span>
+            <span style={{ fontSize: 10, color: "#52525b" }}>が示す</span>
+            <span style={{ fontSize: 10, color: "#52525b" }}>設計の違い</span>
           </div>
         </div>
 
@@ -299,7 +299,7 @@ export default function Fig47() {
                 <span style={propKey}>user: </span>
                 <span style={propType}>User</span>
               </div>
-              <div style={{ paddingLeft: 12, fontSize: 10, color: "#a1a1aa" }}>
+              <div style={{ paddingLeft: 12, fontSize: 10, color: "#52525b" }}>
                 {"{ name, image, rating, status }"}
               </div>
             </div>
@@ -320,7 +320,7 @@ export default function Fig47() {
             <div
               style={{
                 fontSize: 11,
-                color: "#71717a",
+                color: "#3f3f46",
                 marginTop: 10,
                 textAlign: "center",
               }}

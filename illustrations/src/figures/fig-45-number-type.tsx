@@ -11,7 +11,7 @@ const cellLabel: CSSProperties = {
 
 const cellSub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginTop: 6,
 };
 

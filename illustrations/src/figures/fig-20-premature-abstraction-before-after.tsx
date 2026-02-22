@@ -5,7 +5,7 @@ const beforeTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 
 const afterTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 600, color: "#22c55e", background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 4, padding: "2px 8px", marginBottom: 8 };
 const cardTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 6 };
 const prop = { fontSize: 11, color: "#52525b", padding: "1px 0" as const, fontFamily: '"SF Mono", Menlo, monospace' };
-const propGray = { ...prop, color: "#a1a1aa" };
+const propGray = { ...prop, color: "#52525b" };
 
 function MiniCard({ title, subtitle, hasLike, badge }: { title: string; subtitle: string; hasLike?: boolean; badge?: string }) {
   return (
@@ -15,8 +15,8 @@ function MiniCard({ title, subtitle, hasLike, badge }: { title: string; subtitle
       )}
       <div style={{ width: "100%", height: 36, borderRadius: 4, background: "#e4e4e7", marginBottom: 6 }} />
       <div style={{ fontSize: 11, fontWeight: 600, color: "#18181b" }}>{title}</div>
-      <div style={{ fontSize: 10, color: "#71717a", marginTop: 1 }}>{subtitle}</div>
-      {hasLike && <div style={{ marginTop: 4, fontSize: 12, color: "#a1a1aa" }}>&#9825;</div>}
+      <div style={{ fontSize: 10, color: "#3f3f46", marginTop: 1 }}>{subtitle}</div>
+      {hasLike && <div style={{ marginTop: 4, fontSize: 12, color: "#52525b" }}>&#9825;</div>}
     </div>
   );
 }
@@ -37,7 +37,7 @@ export default function Fig20() {
           <div style={propGray}>showBadge: boolean</div>
           <div style={propGray}>badgeText: string</div>
           <div style={propGray}>onSwipe: function</div>
-          <div style={{ fontSize: 10, color: "#71717a", marginTop: 8 }}>
+          <div style={{ fontSize: 10, color: "#3f3f46", marginTop: 8 }}>
             無関係なプロパティが混在
           </div>
           <div style={{ marginTop: 10 }}>
@@ -45,7 +45,7 @@ export default function Fig20() {
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", fontSize: 14, color: "#a1a1aa" }}>→</div>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 14, color: "#52525b" }}>→</div>
 
         {/* After */}
         <div style={{ flex: 1 }}>

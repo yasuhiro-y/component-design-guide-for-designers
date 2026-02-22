@@ -1,7 +1,7 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
 const mono = { fontFamily: '"SF Mono", Menlo, monospace' as const };
 
 function ChangeRow({ label, code, status }: { label: string; code: string; status: "safe" | "breaking" }) {
@@ -24,7 +24,7 @@ function ChangeRow({ label, code, status }: { label: string; code: string; statu
       </span>
       <div style={{ flex: 1 }}>
         <div style={{ fontSize: 11, color: "#3f3f46" }}>{label}</div>
-        <div style={{ fontSize: 10, color: "#71717a", ...mono }}>{code}</div>
+        <div style={{ fontSize: 10, color: "#3f3f46", ...mono }}>{code}</div>
       </div>
     </div>
   );

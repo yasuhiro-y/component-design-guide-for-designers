@@ -19,7 +19,7 @@ const panel: CSSProperties = {
 const monoSmall: CSSProperties = {
   fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#52525b",
 };
 
 /* ── Rendered Card component ── */
@@ -38,7 +38,7 @@ function MiniCard({ subtitle }: { subtitle?: string }) {
         カードタイトル
       </div>
       {subtitle && (
-        <div style={{ fontSize: 11, color: "#71717a", marginTop: 2 }}>
+        <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 2 }}>
           {subtitle}
         </div>
       )}
@@ -137,7 +137,7 @@ export default function Fig37() {
                 </div>
               </div>
 
-              <div style={{ marginTop: 10, fontSize: 11, color: "#71717a" }}>
+              <div style={{ marginTop: 10, fontSize: 11, color: "#3f3f46" }}>
                 表示するかどうかの <strong style={{ color: "#18181b" }}>トグル</strong> と
                 テキストの <strong style={{ color: "#18181b" }}>入力</strong> で
                 合計2つの操作が必要
@@ -175,13 +175,13 @@ export default function Fig37() {
                 }}
               >
                 <div>
-                  <span style={{ color: "#a1a1aa" }}>subtitle</span>
+                  <span style={{ color: "#52525b" }}>subtitle</span>
                   <span style={{ color: "#d4d4d8" }}>?: </span>
                   <span style={{ color: "#18181b", fontWeight: 500 }}>string</span>
                 </div>
               </div>
 
-              <div style={{ marginTop: 10, fontSize: 11, color: "#71717a" }}>
+              <div style={{ marginTop: 10, fontSize: 11, color: "#3f3f46" }}>
                 テキストを渡せば表示、渡さなければ非表示。
                 <strong style={{ color: "#18181b" }}>1つ</strong>で済む
               </div>

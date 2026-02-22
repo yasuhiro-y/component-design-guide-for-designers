@@ -34,13 +34,13 @@ const miniAvatar = (hasImage: boolean): CSSProperties => ({
   justifyContent: "center",
   fontSize: 10,
   fontWeight: 600,
-  color: hasImage ? "#52525b" : "#a1a1aa",
+  color: hasImage ? "#52525b" : "#52525b",
   border: hasImage ? "none" : "1px dashed #d4d4d8",
 });
 
 const fallbackNote: CSSProperties = {
   fontSize: 11,
-  color: "#a1a1aa",
+  color: "#52525b",
   marginLeft: 4,
 };
 
@@ -64,7 +64,7 @@ const starsRow: CSSProperties = {
 
 const arrowNote: CSSProperties = {
   fontSize: 11,
-  color: "#a1a1aa",
+  color: "#52525b",
 };
 
 export default function Fig35() {
@@ -91,7 +91,7 @@ export default function Fig35() {
           >
             UserCard
           </span>
-          <span style={{ fontSize: 11, color: "#a1a1aa" }}>各フィールドが欠けたとき、どう見せるか</span>
+          <span style={{ fontSize: 11, color: "#52525b" }}>各フィールドが欠けたとき、どう見せるか</span>
         </div>
 
         {/* Table */}
@@ -142,7 +142,7 @@ export default function Fig35() {
               </td>
               <td style={bodyCell}>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <span style={{ fontSize: 13, color: "#a1a1aa" }}>&mdash;</span>
+                  <span style={{ fontSize: 13, color: "#52525b" }}>&mdash;</span>
                   <span style={{ ...arrowNote, margin: "0 6px" }}>←</span>
                   <span style={fallbackNote}>ダッシュ表示</span>
                 </div>
@@ -158,7 +158,7 @@ export default function Fig35() {
                 <span style={{ fontSize: 11, color: "#52525b" }}>UIデザイナーです</span>
               </td>
               <td style={bodyCell}>
-                <span style={{ fontSize: 11, color: "#a1a1aa", fontStyle: "italic" }}>領域を詰める</span>
+                <span style={{ fontSize: 11, color: "#52525b", fontStyle: "italic" }}>領域を詰める</span>
               </td>
             </tr>
 
@@ -174,7 +174,7 @@ export default function Fig35() {
                 </div>
               </td>
               <td style={{ ...bodyCell, borderBottom: "none" }}>
-                <span style={{ fontSize: 11, color: "#a1a1aa", fontStyle: "italic" }}>セクション非表示</span>
+                <span style={{ fontSize: 11, color: "#52525b", fontStyle: "italic" }}>セクション非表示</span>
               </td>
             </tr>
           </tbody>

@@ -10,8 +10,8 @@ const BG_FRAME = "#f4f4f5";
 const SURFACE = "#fff";
 const BORDER = "#e4e4e7";
 const TEXT_PRIMARY = "#18181b";
-const TEXT_SECONDARY = "#71717a";
-const TEXT_TERTIARY = "#a1a1aa";
+const TEXT_SECONDARY = "#3f3f46";
+const TEXT_TERTIARY = "#52525b";
 const MONO = '"SF Mono", Menlo, monospace';
 
 /* ------------------------------------------------------------------ */

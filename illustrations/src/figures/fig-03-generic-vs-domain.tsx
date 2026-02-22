@@ -5,7 +5,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 const groupLabel: CSSProperties = {
   fontSize: 11,
   fontWeight: 500,
-  color: "#71717a",
+  color: "#3f3f46",
   letterSpacing: "0.04em",
   textTransform: "uppercase",
   marginBottom: 10,
@@ -13,7 +13,7 @@ const groupLabel: CSSProperties = {
 
 const compName: CSSProperties = {
   fontSize: 11,
-  color: "#a1a1aa",
+  color: "#52525b",
   fontFamily: '"SF Mono", Menlo, monospace',
   marginBottom: 4,
 };
@@ -64,7 +64,7 @@ function UserCardDemo() {
         <span style={{ width: 36, height: 36, borderRadius: "50%", background: "#e4e4e7", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 600, color: "#52525b", flexShrink: 0 }}>TK</span>
         <div>
           <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>田中 太郎</div>
-          <div style={{ fontSize: 11, color: "#71717a" }}>プロダクトデザイナー</div>
+          <div style={{ fontSize: 11, color: "#3f3f46" }}>プロダクトデザイナー</div>
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@ function JobListItemDemo() {
       <div style={compName}>JobListItem</div>
       <div style={{ background: "#fff", borderRadius: 8, border: "1px solid #e4e4e7", padding: 12 }}>
         <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>カフェスタッフ</div>
-        <div style={{ fontSize: 11, color: "#71717a", marginTop: 2 }}>渋谷店 · 時給 1,200円</div>
+        <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 2 }}>渋谷店 · 時給 1,200円</div>
         <div style={{ marginTop: 8 }}>
           <button style={{ padding: "4px 10px", borderRadius: 6, border: "none", background: "#18181b", color: "#fff", fontSize: 11, fontWeight: 500, fontFamily: '"Inter",sans-serif', cursor: "default" }}>応募する</button>
         </div>
@@ -99,7 +99,7 @@ export default function Fig03() {
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", fontSize: 12, color: "#a1a1aa", padding: "30px 0 0" }}>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 12, color: "#52525b", padding: "30px 0 0" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
             <span style={{ fontSize: 10 }}>uses</span>
             <span>→</span>
