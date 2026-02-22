@@ -1,0 +1,44 @@
+import { lazy, ComponentType } from "react";
+
+interface FigureRoute {
+  id: string;
+  component: React.LazyExoticComponent<ComponentType>;
+  title: string;
+}
+
+export const figures: FigureRoute[] = [
+  { id: "fig-01", component: lazy(() => import("./figures/fig-01-component-decision-flow")), title: "コンポーネント化の判断フロー" },
+  { id: "fig-02", component: lazy(() => import("./figures/fig-02-three-layer-architecture")), title: "Feature-Sliced Design の3層構造" },
+  { id: "fig-03", component: lazy(() => import("./figures/fig-03-generic-vs-domain")), title: "汎用とドメインの依存関係" },
+  { id: "fig-04", component: lazy(() => import("./figures/fig-04-slot-pattern-button")), title: "Button のスロット構造" },
+  { id: "fig-05", component: lazy(() => import("./figures/fig-05-toggle-vs-switch-bad-good")), title: "直交性: まとめた場合 vs 分けた場合" },
+  { id: "fig-06", component: lazy(() => import("./figures/fig-06-shared-color-tokens")), title: "セマンティックカラートークンの共有" },
+  { id: "fig-07", component: lazy(() => import("./figures/fig-07-ui-state-transitions")), title: "UIの5つの状態と遷移" },
+  { id: "fig-08", component: lazy(() => import("./figures/fig-08-width-behaviors")), title: "Fill / Hug / Fixed の3パターン" },
+  { id: "fig-09", component: lazy(() => import("./figures/fig-09-svg-vs-asset-decision")), title: "コード実装かアセット埋め込みか" },
+  { id: "fig-10", component: lazy(() => import("./figures/fig-10-article-knowledge-hierarchy")), title: "本書の構成と知識の積み上げ" },
+  { id: "fig-11", component: lazy(() => import("./figures/fig-11-radix-dialog-vs-alertdialog")), title: "Radix Dialog vs AlertDialog" },
+  { id: "fig-12", component: lazy(() => import("./figures/fig-12-mui-chip-vs-badge")), title: "MUI Chip vs Badge" },
+  { id: "fig-13", component: lazy(() => import("./figures/fig-13-antd-tag-vs-badge")), title: "Ant Design Tag vs Badge" },
+  { id: "fig-14", component: lazy(() => import("./figures/fig-14-radix-select-dropdown-context")), title: "Radix Select / DropdownMenu / ContextMenu" },
+  { id: "fig-15", component: lazy(() => import("./figures/fig-15-radix-toggle-vs-switch-rendered")), title: "Radix Toggle vs Switch" },
+  { id: "fig-16", component: lazy(() => import("./figures/fig-16-chakra-badge-tag-colorscheme")), title: "Chakra Badge / Tag colorScheme" },
+  { id: "fig-17", component: lazy(() => import("./figures/fig-17-property-types-explanation")), title: "プロパティの型: Figma とコードの対応" },
+  { id: "fig-18", component: lazy(() => import("./figures/fig-18-figma-property-panel-mockup")), title: "Figma パネルとコードの対応" },
+  { id: "fig-19", component: lazy(() => import("./figures/fig-19-padding-vs-margin")), title: "padding vs margin の責任分離" },
+  { id: "fig-20", component: lazy(() => import("./figures/fig-20-premature-abstraction-before-after")), title: "早すぎる共通化の罠" },
+  { id: "fig-21", component: lazy(() => import("./figures/fig-21-icon-library-vs-custom")), title: "既存ライブラリ vs 独自アイコン" },
+  { id: "fig-22", component: lazy(() => import("./figures/fig-22-component-lifecycle-timeline")), title: "コンポーネントのライフサイクル" },
+  { id: "fig-23", component: lazy(() => import("./figures/fig-23-single-source-of-truth")), title: "再利用性: 1箇所の変更がすべてに届く" },
+  { id: "fig-24", component: lazy(() => import("./figures/fig-24-separation-of-concerns")), title: "関心の分離: 3つのレイヤー" },
+  { id: "fig-25", component: lazy(() => import("./figures/fig-25-build-strategy-spectrum")), title: "構築戦略の4パターン" },
+  { id: "fig-26", component: lazy(() => import("./figures/fig-26-naming-explosion")), title: "命名: 組み合わせの爆発" },
+  { id: "fig-27", component: lazy(() => import("./figures/fig-27-safe-vs-breaking-change")), title: "安全な変更と破壊的変更" },
+  { id: "fig-28", component: lazy(() => import("./figures/fig-28-orthogonality-matrix")), title: "直交性マトリクス" },
+  { id: "fig-29", component: lazy(() => import("./figures/fig-29-interaction-states")), title: "インタラクション状態" },
+  { id: "fig-30", component: lazy(() => import("./figures/fig-30-currentcolor-svg")), title: "SVGの色制御: currentColor" },
+];
+
+export function getFigureById(id: string) {
+  return figures.find((f) => f.id === id);
+}

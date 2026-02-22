@@ -1,0 +1,61 @@
+import { Node, Edge } from "@xyflow/react";
+import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { FlowDiagram } from "../shared/FlowDiagram";
+import { Caption } from "../shared/Caption";
+
+const nodes: Node[] = [
+  {
+    id: "start",
+    type: "custom",
+    position: { x: 230, y: 0 },
+    data: { label: "このビジュアル要素は？", variant: "decision" },
+  },
+  {
+    id: "code",
+    type: "custom",
+    position: { x: 540, y: 5 },
+    data: { label: "コード実装", sub: "CSS / SVGインライン", variant: "result" },
+  },
+  {
+    id: "dynamic",
+    type: "custom",
+    position: { x: 230, y: 110 },
+    data: { label: "色やサイズを動的に変える？", variant: "decision" },
+  },
+  {
+    id: "colorq",
+    type: "custom",
+    position: { x: 230, y: 220 },
+    data: { label: "色数は少ない？", sub: "単色〜数色", variant: "decision" },
+  },
+  {
+    id: "svg",
+    type: "custom",
+    position: { x: 120, y: 320 },
+    data: { label: "SVG", sub: "ベクターで軽量", variant: "result" },
+  },
+  {
+    id: "webp",
+    type: "custom",
+    position: { x: 370, y: 320 },
+    data: { label: "WebP / PNG", sub: "写真・複雑なグラフィック", variant: "result" },
+  },
+];
+
+const edges: Edge[] = [
+  { id: "s-code", source: "start", target: "code", sourceHandle: "right", targetHandle: "left", label: "単純な図形" },
+  { id: "s-dyn", source: "start", target: "dynamic", label: "アセット" },
+  { id: "dyn-code", source: "dynamic", target: "code", sourceHandle: "right", targetHandle: "left", label: "Yes" },
+  { id: "dyn-color", source: "dynamic", target: "colorq", label: "No" },
+  { id: "color-svg", source: "colorq", target: "svg", label: "Yes" },
+  { id: "color-webp", source: "colorq", target: "webp", label: "No" },
+];
+
+export default function Fig09() {
+  return (
+    <IllustrationFrame>
+      <FlowDiagram nodes={nodes} edges={edges} height={400} />
+      <Caption text="コード実装かアセット埋め込みかの判断フロー" />
+    </IllustrationFrame>
+  );
+}

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  background: #ffffff;
+  color: #09090b;
+  overflow: auto !important;
+}
+
+html, body, #root {
+  height: auto !important;
+  overflow: auto !important;
+}
+
+/* React Flow: hide handles and clean up */
+.react-flow__handle {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.react-flow__edge-text {
+  font-family: "Inter", sans-serif !important;
+}
+
+.react-flow__attribution {
+  display: none !important;
+}
