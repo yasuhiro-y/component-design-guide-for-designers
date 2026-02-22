@@ -2,7 +2,6 @@ import * as Select from "@radix-ui/react-select";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 import "../styles/radix-common.css";
 
@@ -128,7 +127,6 @@ export default function Fig14() {
           <div style={annotation}>右クリックで開く</div>
         </div>
       </div>
-      <Caption text="Radix UI: 見た目が似た3つのコンポーネント" />
     </IllustrationFrame>
   );
 }

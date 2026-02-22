@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const headerStyle = { fontSize: 10, fontWeight: 600, color: "#3f3f46", padding: "6px 0", textAlign: "center" as const };
@@ -87,7 +86,6 @@ export default function Fig28() {
           </div>
         </div>
       </div>
-      <Caption text="直交性: colorScheme と variant の組み合わせマトリクス" />
     </IllustrationFrame>
   );
 }

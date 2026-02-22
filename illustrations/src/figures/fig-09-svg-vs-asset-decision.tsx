@@ -1,7 +1,6 @@
 import { Node, Edge } from "@xyflow/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { FlowDiagram } from "../shared/FlowDiagram";
-import { Caption } from "../shared/Caption";
 
 const nodes: Node[] = [
   {
@@ -55,7 +54,6 @@ export default function Fig09() {
   return (
     <IllustrationFrame title="コード実装かアセット埋め込みか">
       <FlowDiagram nodes={nodes} edges={edges} height={400} />
-      <Caption text="コード実装かアセット埋め込みかの判断フロー" />
     </IllustrationFrame>
   );
 }

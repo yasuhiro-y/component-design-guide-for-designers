@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const beforeTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 600, color: "#ef4444", background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 4, padding: "2px 8px", marginBottom: 8 };
@@ -71,7 +70,6 @@ export default function Fig20() {
           </div>
         </div>
       </div>
-      <Caption text="早すぎる共通化の罠: プロパティ肥大化" />
     </IllustrationFrame>
   );
 }

@@ -4,7 +4,6 @@ import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const theme = createTheme({
@@ -85,7 +84,6 @@ export default function Fig12() {
             </div>
           </div>
         </div>
-        <Caption text="MUI: Chip（操作できる）と Badge（見るだけ）" />
       </IllustrationFrame>
     </ThemeProvider>
   );

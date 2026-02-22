@@ -1,6 +1,5 @@
 import { ChakraProvider, Badge, Tag, TagLabel, TagCloseButton, Stack, Box, extendTheme } from "@chakra-ui/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const theme = extendTheme({
@@ -69,7 +68,6 @@ export default function Fig16() {
             </Stack>
           </div>
         </div>
-        <Caption text="Chakra UI: Badge と Tag の colorScheme バリエーション" />
       </IllustrationFrame>
     </ChakraProvider>
   );

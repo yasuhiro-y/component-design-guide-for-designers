@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
@@ -56,7 +55,6 @@ export default function Fig23() {
           </div>
         </div>
       </div>
-      <Caption text="再利用性: 1箇所の変更がすべてに届く" />
     </IllustrationFrame>
   );
 }

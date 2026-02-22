@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const label: CSSProperties = {
@@ -114,7 +113,6 @@ export default function Fig08() {
           <div style={{ fontSize: 11, color: "#a1a1aa", marginTop: 6 }}>36x36px 固定</div>
         </div>
       </div>
-      <Caption text="Fill / Hug / Fixed の3パターン" />
     </IllustrationFrame>
   );
 }

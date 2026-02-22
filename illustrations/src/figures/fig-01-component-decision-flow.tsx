@@ -1,7 +1,6 @@
 import { Node, Edge } from "@xyflow/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { FlowDiagram } from "../shared/FlowDiagram";
-import { Caption } from "../shared/Caption";
 
 const cx = 260;
 
@@ -49,7 +48,6 @@ export default function Fig01() {
   return (
     <IllustrationFrame title="コンポーネント化の判断フロー">
       <FlowDiagram nodes={nodes} edges={edges} height={320} />
-      <Caption text="コンポーネント化の判断フロー" />
     </IllustrationFrame>
   );
 }

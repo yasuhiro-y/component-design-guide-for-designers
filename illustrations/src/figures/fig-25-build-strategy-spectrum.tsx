@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const cardStyle = {
@@ -120,7 +119,6 @@ export default function Fig25() {
           ))}
         </div>
       </div>
-      <Caption text="構築戦略の4パターン: コストと自由度のトレードオフ" />
     </IllustrationFrame>
   );
 }

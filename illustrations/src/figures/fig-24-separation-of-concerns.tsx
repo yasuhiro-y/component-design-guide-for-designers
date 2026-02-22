@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", marginBottom: 4 } as const;
@@ -100,7 +99,6 @@ export default function Fig24() {
           </div>
         </div>
       </div>
-      <Caption text="関心の分離: 1つのコンポーネントを3つの視点で分ける" />
     </IllustrationFrame>
   );
 }

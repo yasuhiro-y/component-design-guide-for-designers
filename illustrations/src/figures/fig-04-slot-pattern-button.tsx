@@ -1,7 +1,6 @@
 import { Node, Edge } from "@xyflow/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { FlowDiagram } from "../shared/FlowDiagram";
-import { Caption } from "../shared/Caption";
 
 const nodes: Node[] = [
   {
@@ -69,7 +68,6 @@ export default function Fig04() {
   return (
     <IllustrationFrame title="Button のスロット構造">
       <FlowDiagram nodes={nodes} edges={edges} height={300} />
-      <Caption text="Button のスロット構造" />
     </IllustrationFrame>
   );
 }

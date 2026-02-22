@@ -1,31 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
-
-const badTag: CSSProperties = {
-  display: "inline-block",
-  fontSize: 11,
-  fontWeight: 600,
-  color: "#ef4444",
-  background: "#fef2f2",
-  border: "1px solid #fecaca",
-  borderRadius: 4,
-  padding: "2px 8px",
-  marginBottom: 8,
-};
-
-const goodTag: CSSProperties = {
-  display: "inline-block",
-  fontSize: 11,
-  fontWeight: 600,
-  color: "#22c55e",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 4,
-  padding: "2px 8px",
-  marginBottom: 8,
-};
 
 const patternTitle: CSSProperties = {
   fontSize: 12,
@@ -43,6 +18,7 @@ const card: CSSProperties = {
 
 const annotation: CSSProperties = {
   fontSize: 10,
+  color: "#71717a",
   marginTop: 6,
   lineHeight: 1.4,
 };
@@ -54,7 +30,7 @@ function PatternA() {
     <div style={{ flex: 1, minWidth: 0 }}>
       <div style={patternTitle}>コンポーネント内包</div>
       <div style={card}>
-        {items.map((item, i) => (
+        {items.map((item) => (
           <div
             key={item}
             style={{
@@ -68,9 +44,8 @@ function PatternA() {
           </div>
         ))}
       </div>
-      <div style={{ ...annotation, color: "#ef4444" }}>
-        <span style={badTag}>Bad</span>
-        <div style={{ marginTop: 2 }}>最後にも線がつく</div>
+      <div style={annotation}>
+        最後にも線がつく — 制御不能
       </div>
     </div>
   );
@@ -98,9 +73,8 @@ function PatternB() {
           </div>
         ))}
       </div>
-      <div style={{ ...annotation, color: "#22c55e" }}>
-        <span style={goodTag}>Good</span>
-        <div style={{ marginTop: 2 }}>最後は線なし</div>
+      <div style={annotation}>
+        最後は線なし — 親のループで挿入
       </div>
     </div>
   );
@@ -145,9 +119,8 @@ function PatternC() {
           </div>
         ))}
       </div>
-      <div style={{ ...annotation, color: "#22c55e" }}>
-        <span style={goodTag}>Good</span>
-        <div style={{ marginTop: 2 }}>showDivider: false</div>
+      <div style={annotation}>
+        showDivider で末尾だけ非表示
       </div>
     </div>
   );
@@ -161,7 +134,6 @@ export default function Fig38() {
         <PatternB />
         <PatternC />
       </div>
-      <Caption text="区切り線: コンポーネントに含めるか、親が制御するか" />
     </IllustrationFrame>
   );
 }

@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const stateLabel: CSSProperties = {
@@ -132,7 +131,6 @@ export default function Fig07() {
           </div>
         ))}
       </div>
-      <Caption text="UIの5つの状態と遷移" />
     </IllustrationFrame>
   );
 }

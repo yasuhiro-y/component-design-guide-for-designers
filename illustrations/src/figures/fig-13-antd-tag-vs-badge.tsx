@@ -1,6 +1,5 @@
 import { ConfigProvider, Tag, Badge, Space } from "antd";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const lib = { fontSize: 11, color: "#a1a1aa", marginBottom: 4 } as const;
@@ -66,7 +65,6 @@ export default function Fig13() {
             </div>
           </div>
         </div>
-        <Caption text="Ant Design: Tag と Badge" />
       </IllustrationFrame>
     </ConfigProvider>
   );

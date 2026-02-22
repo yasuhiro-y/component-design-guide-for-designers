@@ -1,13 +1,12 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colTitle: CSSProperties = {
-  fontSize: 14,
+const sectionTitle: CSSProperties = {
+  fontSize: 13,
   fontWeight: 600,
   color: "#18181b",
-  marginBottom: 12,
+  marginBottom: 10,
 };
 
 const panel: CSSProperties = {
@@ -17,54 +16,44 @@ const panel: CSSProperties = {
   padding: 16,
 };
 
-const propRow: CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  padding: "8px 0",
-  borderBottom: "1px solid #f4f4f5",
-  fontSize: 12,
+const monoSmall: CSSProperties = {
+  fontFamily: '"SF Mono", Menlo, monospace',
+  fontSize: 10,
+  color: "#a1a1aa",
 };
 
-const propLabel: CSSProperties = {
-  color: "#3f3f46",
-  fontWeight: 500,
-};
+/* ── Rendered Card component ── */
+function MiniCard({ subtitle }: { subtitle?: string }) {
+  return (
+    <div
+      style={{
+        background: "#fff",
+        borderRadius: 8,
+        border: "1px solid #e4e4e7",
+        padding: 12,
+        width: "100%",
+      }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>
+        カードタイトル
+      </div>
+      {subtitle && (
+        <div style={{ fontSize: 11, color: "#71717a", marginTop: 2 }}>
+          {subtitle}
+        </div>
+      )}
+    </div>
+  );
+}
 
-const codeFont: CSSProperties = {
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
-  fontSize: 12,
-  color: "#3f3f46",
-  lineHeight: 1.7,
-};
-
-const countCircle = (n: number): CSSProperties => ({
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 24,
-  height: 24,
-  borderRadius: "50%",
-  background: "#f4f4f5",
-  fontSize: 13,
-  fontWeight: 700,
-  color: "#18181b",
-});
-
-const noteText: CSSProperties = {
-  fontSize: 11,
-  color: "#71717a",
-  marginTop: 10,
-  lineHeight: 1.5,
-};
-
-function Toggle({ on }: { on?: boolean }) {
+/* ── Figma toggle ── */
+function Toggle({ on }: { on: boolean }) {
   return (
     <span
       style={{
         display: "inline-flex",
-        width: 30,
-        height: 16,
+        width: 28,
+        height: 15,
         borderRadius: 8,
         background: on ? "#18181b" : "#d4d4d8",
         padding: 2,
@@ -72,21 +61,28 @@ function Toggle({ on }: { on?: boolean }) {
         justifyContent: on ? "flex-end" : "flex-start",
       }}
     >
-      <span style={{ width: 12, height: 12, borderRadius: 6, background: "#fff" }} />
+      <span
+        style={{
+          width: 11,
+          height: 11,
+          borderRadius: 6,
+          background: "#fff",
+        }}
+      />
     </span>
   );
 }
 
-function TextVal({ value }: { value: string }) {
+function TextInput({ value }: { value: string }) {
   return (
     <span
       style={{
-        display: "inline-flex",
-        padding: "3px 8px",
+        display: "inline-block",
+        padding: "2px 6px",
         borderRadius: 4,
         border: "1px solid #d4d4d8",
         background: "#fff",
-        fontSize: 11,
+        fontSize: 10,
         color: "#3f3f46",
       }}
     >
@@ -95,97 +91,104 @@ function TextVal({ value }: { value: string }) {
   );
 }
 
+const figmaPropRow: CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "6px 0",
+  fontSize: 11,
+  color: "#3f3f46",
+};
+
 export default function Fig37() {
   return (
     <IllustrationFrame title="条件付き表示: Figmaでは2つ、コードでは1つ">
-      <div style={{ display: "flex", gap: 0, width: CONTENT_WIDTH, alignItems: "stretch" }}>
-        {/* Figma side */}
-        <div style={{ flex: 1 }}>
-          <div style={colTitle}>Figma</div>
-          <div style={panel}>
-            <div style={{ fontSize: 11, fontWeight: 600, color: "#a1a1aa", letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 10 }}>
-              Properties
-            </div>
-            <div style={propRow}>
-              <span style={propLabel}>サブタイトルを表示</span>
-              <Toggle on />
-            </div>
-            <div style={{ ...propRow, borderBottom: "none" }}>
-              <span style={propLabel}>サブタイトル</span>
-              <TextVal value="補足テキスト" />
-            </div>
+      <div style={{ width: CONTENT_WIDTH }}>
+        {/* Two columns: Figma vs Code */}
+        <div style={{ display: "flex", gap: 16, marginBottom: 0 }}>
+          {/* ── Figma ── */}
+          <div style={{ flex: 1 }}>
+            <div style={sectionTitle}>Figma</div>
+            <div style={panel}>
+              {/* Rendered card with subtitle ON */}
+              <div style={{ marginBottom: 12 }}>
+                <MiniCard subtitle="補足テキスト" />
+              </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 14, paddingTop: 12, borderTop: "1px solid #e4e4e7" }}>
-              <span style={countCircle(2)}>2</span>
-              <span style={{ fontSize: 12, color: "#52525b", fontWeight: 500 }}>プロパティ</span>
-            </div>
-            <div style={noteText}>
-              Boolean + Text の2つで制御
+              {/* Simulated Figma property panel */}
+              <div
+                style={{
+                  background: "#fafafa",
+                  borderRadius: 6,
+                  border: "1px solid #e4e4e7",
+                  padding: "8px 10px",
+                }}
+              >
+                <div style={{ ...monoSmall, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 6 }}>
+                  設定パネル
+                </div>
+                <div style={figmaPropRow}>
+                  <span>サブタイトルを表示</span>
+                  <Toggle on />
+                </div>
+                <div style={{ ...figmaPropRow, borderTop: "1px solid #e4e4e7", paddingTop: 6 }}>
+                  <span>サブタイトル</span>
+                  <TextInput value="補足テキスト" />
+                </div>
+              </div>
+
+              <div style={{ marginTop: 10, fontSize: 11, color: "#71717a" }}>
+                表示するかどうかの <strong style={{ color: "#18181b" }}>トグル</strong> と
+                テキストの <strong style={{ color: "#18181b" }}>入力</strong> で
+                合計2つの操作が必要
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Arrow */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0 16px",
-            flexShrink: 0,
-            paddingTop: 30,
-          }}
-        >
-          <svg
-            width="40"
-            height="20"
-            viewBox="0 0 40 20"
-            fill="none"
-            style={{ marginBottom: 4 }}
-          >
-            <path
-              d="M2 10h32M28 4l6 6-6 6"
-              stroke="#d4d4d8"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span style={{ fontSize: 10, color: "#a1a1aa" }}>mismatch</span>
-        </div>
+          {/* ── Code ── */}
+          <div style={{ flex: 1 }}>
+            <div style={sectionTitle}>コード</div>
+            <div style={panel}>
+              {/* Two card states side by side */}
+              <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ ...monoSmall, marginBottom: 4 }}>渡す →</div>
+                  <MiniCard subtitle="補足テキスト" />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ ...monoSmall, marginBottom: 4 }}>渡さない →</div>
+                  <MiniCard />
+                </div>
+              </div>
 
-        {/* Code side */}
-        <div style={{ flex: 1 }}>
-          <div style={colTitle}>コード</div>
-          <div style={panel}>
-            <div style={{ fontSize: 11, fontWeight: 600, color: "#a1a1aa", letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 10 }}>
-              Props
-            </div>
-            <div
-              style={{
-                background: "#fafafa",
-                borderRadius: 6,
-                border: "1px solid #e4e4e7",
-                padding: 12,
-              }}
-            >
-              <pre style={codeFont}>
-                {`subtitle?: string`}
-              </pre>
-            </div>
+              {/* Code snippet */}
+              <div
+                style={{
+                  background: "#fafafa",
+                  borderRadius: 6,
+                  border: "1px solid #e4e4e7",
+                  padding: "8px 10px",
+                  fontFamily: '"SF Mono", Menlo, monospace',
+                  fontSize: 11,
+                  lineHeight: 1.7,
+                  color: "#3f3f46",
+                }}
+              >
+                <div>
+                  <span style={{ color: "#a1a1aa" }}>subtitle</span>
+                  <span style={{ color: "#d4d4d8" }}>?: </span>
+                  <span style={{ color: "#18181b", fontWeight: 500 }}>string</span>
+                </div>
+              </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 14, paddingTop: 12, borderTop: "1px solid #e4e4e7" }}>
-              <span style={countCircle(1)}>1</span>
-              <span style={{ fontSize: 12, color: "#52525b", fontWeight: 500 }}>プロパティ</span>
-            </div>
-            <div style={noteText}>
-              渡せば表示、省略すれば非表示
+              <div style={{ marginTop: 10, fontSize: 11, color: "#71717a" }}>
+                テキストを渡せば表示、渡さなければ非表示。
+                <strong style={{ color: "#18181b" }}>1つ</strong>で済む
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <Caption text="条件付き表示: Figmaでは2つ、コードでは1つ" />
     </IllustrationFrame>
   );
 }

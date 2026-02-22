@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const grid: CSSProperties = {
@@ -212,7 +211,6 @@ export default function Fig33() {
           <div style={cellSub}>アイコンと共存</div>
         </div>
       </div>
-      <Caption text="String型: テキストの振る舞い6パターン" />
     </IllustrationFrame>
   );
 }

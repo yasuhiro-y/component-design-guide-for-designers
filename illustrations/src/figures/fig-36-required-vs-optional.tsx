@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const badTag: CSSProperties = {
@@ -183,7 +182,6 @@ export default function Fig36() {
         8割のユースケースは何も指定しなくてもそのまま使える
       </div>
 
-      <Caption text="必須と任意: デフォルト値で使いやすさが決まる" />
     </IllustrationFrame>
   );
 }

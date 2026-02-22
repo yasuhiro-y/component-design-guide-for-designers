@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colLabel = { fontSize: 11, fontWeight: 500, color: "#71717a", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
@@ -55,7 +54,6 @@ export default function Fig27() {
           </div>
         </div>
       </div>
-      <Caption text="安全な変更と破壊的変更: 増やすのは簡単、変えるのは大変" />
     </IllustrationFrame>
   );
 }

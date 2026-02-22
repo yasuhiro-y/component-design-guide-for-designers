@@ -1,7 +1,6 @@
 import { Node, Edge } from "@xyflow/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { FlowDiagram } from "../shared/FlowDiagram";
-import { Caption } from "../shared/Caption";
 
 const layers = [
   { id: "principles", label: "1. 原則", sub: "再利用性・変更のしやすさ・拡張・関心の分離" },
@@ -35,7 +34,6 @@ export default function Fig10() {
   return (
     <IllustrationFrame title="本書の構成と知識の積み上げ">
       <FlowDiagram nodes={nodes} edges={edges} height={480} />
-      <Caption text="本書の構成と知識の積み上げ" />
     </IllustrationFrame>
   );
 }

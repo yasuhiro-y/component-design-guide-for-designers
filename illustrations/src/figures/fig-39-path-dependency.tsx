@@ -1,114 +1,93 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const badTag: CSSProperties = {
-  display: "inline-block",
-  fontSize: 11,
-  fontWeight: 600,
-  color: "#ef4444",
-  background: "#fef2f2",
-  border: "1px solid #fecaca",
-  borderRadius: 4,
-  padding: "2px 8px",
-  marginBottom: 10,
-};
-
-const goodTag: CSSProperties = {
-  display: "inline-block",
-  fontSize: 11,
-  fontWeight: 600,
-  color: "#22c55e",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 4,
-  padding: "2px 8px",
-  marginBottom: 10,
-};
-
+/* ─── Styles ─── */
 const nodeBox: CSSProperties = {
   background: "#fff",
   borderRadius: 6,
   border: "1px solid #e4e4e7",
-  padding: "8px 10px",
+  padding: "10px 14px",
   fontSize: 11,
   fontWeight: 500,
   color: "#18181b",
   textAlign: "center",
-  minWidth: 100,
-  lineHeight: 1.4,
+  lineHeight: 1.5,
 };
 
-const arrowStyle: CSSProperties = {
-  fontSize: 14,
-  color: "#a1a1aa",
+const lockedNode: CSSProperties = {
+  ...nodeBox,
+  background: "#fafafa",
+  border: "1px solid #d4d4d8",
+  color: "#71717a",
+};
+
+const decisionNode: CSSProperties = {
+  ...nodeBox,
+  border: "2px solid #18181b",
+  fontWeight: 600,
+};
+
+const arrowCol: CSSProperties = {
   display: "flex",
   alignItems: "center",
+  justifyContent: "center",
   flexShrink: 0,
-};
-
-const costLabel: CSSProperties = {
-  fontSize: 10,
-  fontWeight: 600,
-  padding: "2px 8px",
-  borderRadius: 4,
-  textAlign: "center",
-  marginTop: 4,
+  width: 28,
 };
 
 const timeLabel: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
-  color: "#71717a",
-  textAlign: "center",
-  marginBottom: 8,
+  color: "#a1a1aa",
+  textTransform: "uppercase",
+  letterSpacing: "0.03em",
+  marginBottom: 6,
 };
 
-function PathRow({
-  tag,
-  tagStyle,
-  steps,
-  costText,
-  costColor,
-}: {
-  tag: string;
-  tagStyle: CSSProperties;
-  steps: string[];
-  costText: string;
-  costColor: "red" | "green";
-}) {
-  const costStyles: CSSProperties =
-    costColor === "red"
-      ? { ...costLabel, background: "#fef2f2", color: "#ef4444" }
-      : { ...costLabel, background: "#f0fdf4", color: "#22c55e" };
+const funnelBar = (width: string, opacity: number): CSSProperties => ({
+  height: 4,
+  background: "#18181b",
+  borderRadius: 2,
+  width,
+  opacity,
+  margin: "0 auto",
+});
 
+const annotationStyle: CSSProperties = {
+  fontSize: 10,
+  color: "#71717a",
+  textAlign: "center",
+  marginTop: 2,
+};
+
+/* ─── Arrow SVG ─── */
+function Arrow() {
   return (
-    <div>
-      <div>
-        <span style={tagStyle}>{tag}</span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-        }}
-      >
-        {steps.map((step, i) => (
-          <div key={i} style={{ display: "contents" }}>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={nodeBox}>{step}</div>
-            </div>
-            {i < steps.length - 1 && <div style={arrowStyle}>&rarr;</div>}
-          </div>
-        ))}
-        <div style={arrowStyle}>&rarr;</div>
-        <div style={{ minWidth: 80 }}>
-          <div style={costStyles}>{costText}</div>
-        </div>
-      </div>
-    </div>
+    <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
+      <line x1="0" y1="6" x2="14" y2="6" stroke="#d4d4d8" strokeWidth="1.5" />
+      <polygon points="14,2 20,6 14,10" fill="#d4d4d8" />
+    </svg>
+  );
+}
+
+/* ─── Lock icon ─── */
+function LockIcon() {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#a1a1aa"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ marginRight: 3, verticalAlign: "middle" }}
+    >
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0110 0v4" />
+    </svg>
   );
 }
 
@@ -116,51 +95,102 @@ export default function Fig39() {
   return (
     <IllustrationFrame title="経路依存性: 初期の選択が未来を縛る">
       <div style={{ width: CONTENT_WIDTH }}>
-        {/* Timeline headers */}
+        {/* ── Funnel: Freedom narrows over time ── */}
         <div
           style={{
             display: "flex",
-            gap: 6,
-            marginBottom: 16,
-            paddingLeft: 0,
+            alignItems: "stretch",
+            gap: 0,
           }}
         >
-          {["初期選択", "半年後", "1年後", "方向転換"].map((label, i) => (
-            <div key={label} style={{ flex: 1, minWidth: 0 }}>
-              <div style={timeLabel}>{label}</div>
+          {/* Step 1: Initial decision */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={timeLabel}>立ち上げ期</div>
+            <div style={decisionNode}>
+              MUI を採用
+              <div style={{ fontSize: 9, color: "#a1a1aa", fontWeight: 400, marginTop: 4 }}>
+                管理画面を速く作りたい
+              </div>
             </div>
-          ))}
-          <div style={{ minWidth: 80 }} />
+            <div style={{ marginTop: 8 }}>
+              <div style={funnelBar("100%", 0.15)} />
+              <div style={annotationStyle}>自由度: 高い</div>
+            </div>
+          </div>
+
+          <div style={arrowCol}><Arrow /></div>
+
+          {/* Step 2: Growing customization */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={timeLabel}>半年後</div>
+            <div style={nodeBox}>
+              カスタマイズが増える
+              <div style={{ fontSize: 9, color: "#a1a1aa", fontWeight: 400, marginTop: 4 }}>
+                MUI のスタイル上書きが散在
+              </div>
+            </div>
+            <div style={{ marginTop: 8 }}>
+              <div style={funnelBar("65%", 0.25)} />
+              <div style={annotationStyle}>自由度: 中</div>
+            </div>
+          </div>
+
+          <div style={arrowCol}><Arrow /></div>
+
+          {/* Step 3: Desire to change */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={timeLabel}>1年後</div>
+            <div style={nodeBox}>
+              独自デザインが必要に
+              <div style={{ fontSize: 9, color: "#a1a1aa", fontWeight: 400, marginTop: 4 }}>
+                Headless UI に乗り換えたいが…
+              </div>
+            </div>
+            <div style={{ marginTop: 8 }}>
+              <div style={funnelBar("35%", 0.4)} />
+              <div style={annotationStyle}>自由度: 低い</div>
+            </div>
+          </div>
+
+          <div style={arrowCol}><Arrow /></div>
+
+          {/* Step 4: Locked in */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={timeLabel}>現在</div>
+            <div style={lockedNode}>
+              <LockIcon />
+              移行コストが大きすぎて
+              <br />
+              方向転換できない
+            </div>
+            <div style={{ marginTop: 8 }}>
+              <div style={funnelBar("12%", 0.6)} />
+              <div style={annotationStyle}>自由度: ほぼなし</div>
+            </div>
+          </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <PathRow
-            tag="MUI 採用"
-            tagStyle={badTag}
-            steps={[
-              "MUI 採用",
-              "カスタマイズ増加",
-              "独自デザイン必要",
-              "移行コスト大",
-            ]}
-            costText="移行コスト大"
-            costColor="red"
-          />
-          <PathRow
-            tag="Headless UI 採用"
-            tagStyle={goodTag}
-            steps={[
-              "Headless UI 採用",
-              "スタイル自由",
-              "独自デザイン対応",
-              "移行コスト小",
-            ]}
-            costText="移行コスト小"
-            costColor="green"
-          />
+        {/* ── Takeaway ── */}
+        <div
+          style={{
+            marginTop: 16,
+            padding: "10px 16px",
+            background: "#fff",
+            borderRadius: 6,
+            border: "1px dashed #d4d4d8",
+            fontSize: 11,
+            color: "#71717a",
+            textAlign: "center",
+            lineHeight: 1.6,
+          }}
+        >
+          初期の選択 → 利用箇所が増える → 依存が深まる → 変更コストが膨らむ
+          <br />
+          <span style={{ color: "#18181b", fontWeight: 500 }}>
+            命名・ディレクトリ構造・ライブラリ選択——すべてに同じ力学が働く
+          </span>
         </div>
       </div>
-      <Caption text="経路依存性: 初期の選択が未来の自由度を決める" />
     </IllustrationFrame>
   );
 }

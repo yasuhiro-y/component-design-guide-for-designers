@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const legendItem: CSSProperties = {
@@ -132,7 +131,6 @@ export default function Fig19() {
           </div>
         </div>
       </div>
-      <Caption text="padding（内側）と margin（外側）の責任分離" />
     </IllustrationFrame>
   );
 }

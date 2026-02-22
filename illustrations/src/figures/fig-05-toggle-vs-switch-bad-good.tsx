@@ -1,7 +1,6 @@
 import * as Toggle from "@radix-ui/react-toggle";
 import * as Switch from "@radix-ui/react-switch";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 import "../styles/radix-common.css";
 
@@ -75,7 +74,6 @@ export default function Fig05() {
           <div style={{ fontSize: 11, color: "#71717a", marginTop: 6 }}>データの真偽値を設定</div>
         </div>
       </div>
-      <Caption text="プロパティの直交性: まとめた場合 vs 分けた場合" />
     </IllustrationFrame>
   );
 }

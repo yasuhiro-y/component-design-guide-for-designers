@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 /* ─── shared styles ─── */
@@ -606,7 +605,6 @@ export default function Fig02() {
           </span>
         </div>
       </div>
-      <Caption text="Feature-Sliced Design の3層構造（ECサイトの例）" />
     </IllustrationFrame>
   );
 }

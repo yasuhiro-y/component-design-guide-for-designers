@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const headerCell: CSSProperties = {
@@ -177,7 +176,6 @@ export default function Fig42() {
           </div>
         </div>
       </div>
-      <Caption text="Boolean の矛盾: 2つのトグルより1つの Enum" />
     </IllustrationFrame>
   );
 }

@@ -1,209 +1,227 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const badTag: CSSProperties = {
-  display: "inline-block",
-  fontSize: 11,
-  fontWeight: 600,
-  color: "#ef4444",
-  background: "#fef2f2",
-  border: "1px solid #fecaca",
-  borderRadius: 4,
-  padding: "2px 8px",
-  marginBottom: 10,
-};
+/* ── tokens ── */
+const surface = "#fff";
+const border = "#e4e4e7";
+const text = "#18181b";
+const secondary = "#71717a";
+const tertiary = "#a1a1aa";
+const mono = '"SF Mono", Menlo, monospace';
 
-const goodTag: CSSProperties = {
-  display: "inline-block",
-  fontSize: 11,
-  fontWeight: 600,
-  color: "#22c55e",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 4,
-  padding: "2px 8px",
-  marginBottom: 10,
-};
-
-const timeHeader: CSSProperties = {
-  fontSize: 10,
-  fontWeight: 600,
-  color: "#71717a",
-  textAlign: "center",
-  marginBottom: 6,
-};
-
-const nameChip = (isNew: boolean): CSSProperties => ({
-  display: "inline-block",
-  fontSize: 10,
-  fontWeight: 500,
-  fontFamily: '"SF Mono", Menlo, monospace',
-  padding: "3px 8px",
-  borderRadius: 4,
-  background: isNew ? "#f4f4f5" : "#fff",
-  border: `1px solid ${isNew ? "#d4d4d8" : "#e4e4e7"}`,
-  color: "#18181b",
-  marginBottom: 3,
-  marginRight: 3,
-});
-
-const cellStyle: CSSProperties = {
-  flex: 1,
-  minWidth: 0,
-  padding: "8px 6px",
-};
-
-const chaosNames = [
-  { step: 0, names: ["primary", "secondary"] },
-  { step: 1, names: ["primary", "secondary", "red-button"] },
-  { step: 2, names: ["primary", "secondary", "red-button", "btn-light"] },
+/* ── chaotic button styles (left side — inconsistent conventions) ── */
+const chaosButtons: { name: string; style: CSSProperties }[] = [
   {
-    step: 3,
-    names: ["primary", "secondary", "red-button", "btn-light", "outline-gray"],
+    name: "primary",
+    style: {
+      background: "#18181b",
+      color: "#fff",
+      border: "1px solid #18181b",
+      borderRadius: 6,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "default",
+    },
+  },
+  {
+    name: "secondary",
+    style: {
+      background: surface,
+      color: text,
+      border: `1px solid ${border}`,
+      borderRadius: 6,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "default",
+    },
+  },
+  {
+    name: "red-button",
+    style: {
+      background: "#dc2626",
+      color: "#fff",
+      border: "1px solid #dc2626",
+      borderRadius: 8,
+      padding: "8px 14px",
+      fontSize: 13,
+      fontWeight: 700,
+      cursor: "default",
+      letterSpacing: "0.02em",
+    },
+  },
+  {
+    name: "btn-light",
+    style: {
+      background: "#f4f4f5",
+      color: secondary,
+      border: "1px dashed #d4d4d8",
+      borderRadius: 4,
+      padding: "5px 12px",
+      fontSize: 11,
+      fontWeight: 500,
+      cursor: "default",
+    },
+  },
+  {
+    name: "outline-gray",
+    style: {
+      background: "transparent",
+      color: tertiary,
+      border: `2px solid ${tertiary}`,
+      borderRadius: 10,
+      padding: "5px 14px",
+      fontSize: 12,
+      fontWeight: 400,
+      cursor: "default",
+      fontStyle: "italic",
+    },
   },
 ];
 
-const cleanNames = [
-  { step: 0, names: ["primary", "secondary"] },
-  { step: 1, names: ["primary", "secondary", "destructive"] },
-  { step: 2, names: ["primary", "secondary", "destructive", "ghost"] },
-  { step: 3, names: ["primary", "secondary", "destructive", "ghost"] },
+/* ── systematic button styles (right side — consistent conventions) ── */
+const cleanButtons: { name: string; style: CSSProperties }[] = [
+  {
+    name: "primary",
+    style: {
+      background: "#18181b",
+      color: "#fff",
+      border: "1px solid #18181b",
+      borderRadius: 6,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "default",
+    },
+  },
+  {
+    name: "secondary",
+    style: {
+      background: surface,
+      color: text,
+      border: `1px solid ${border}`,
+      borderRadius: 6,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "default",
+    },
+  },
+  {
+    name: "destructive",
+    style: {
+      background: "#dc2626",
+      color: "#fff",
+      border: "1px solid #dc2626",
+      borderRadius: 6,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "default",
+    },
+  },
+  {
+    name: "ghost",
+    style: {
+      background: "transparent",
+      color: secondary,
+      border: "1px solid transparent",
+      borderRadius: 6,
+      padding: "6px 16px",
+      fontSize: 12,
+      fontWeight: 600,
+      cursor: "default",
+    },
+  },
 ];
 
-const timeLabels = ["初期", "1ヶ月後", "3ヶ月後", "6ヶ月後"];
+/* ── shared styles ── */
+const columnHeader: CSSProperties = {
+  fontSize: 13,
+  fontWeight: 700,
+  color: text,
+  marginBottom: 16,
+  letterSpacing: "-0.01em",
+};
 
-function NamingRow({
-  tag,
-  tagStyle,
-  data,
-}: {
-  tag: string;
-  tagStyle: CSSProperties;
-  data: { step: number; names: string[] }[];
-}) {
-  const initialNames = data[0].names;
+const card: CSSProperties = {
+  background: surface,
+  border: `1px solid ${border}`,
+  borderRadius: 8,
+  padding: "20px 24px",
+};
 
-  return (
-    <div>
-      <div>
-        <span style={tagStyle}>{tag}</span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          background: "#fff",
-          borderRadius: 8,
-          border: "1px solid #e4e4e7",
-          overflow: "hidden",
-        }}
-      >
-        {data.map((col, i) => (
-          <div
-            key={i}
-            style={{
-              ...cellStyle,
-              borderRight: i < data.length - 1 ? "1px solid #f4f4f5" : "none",
-            }}
-          >
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
-              {col.names.map((name) => (
-                <span
-                  key={name}
-                  style={nameChip(!initialNames.includes(name) && i > 0)}
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const variantRow: CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  gap: 16,
+  marginBottom: 14,
+};
 
+const nameLabel: CSSProperties = {
+  fontFamily: mono,
+  fontSize: 11,
+  color: secondary,
+  minWidth: 90,
+  textAlign: "right",
+};
+
+const note: CSSProperties = {
+  fontSize: 11,
+  color: tertiary,
+  marginTop: 12,
+  lineHeight: 1.6,
+};
+
+/* ── component ── */
 export default function Fig41() {
   return (
     <IllustrationFrame title="命名の体系: ルールの有無が半年後の品質を決める">
-      <div style={{ width: CONTENT_WIDTH }}>
-        {/* Time headers */}
-        <div style={{ display: "flex", marginBottom: 4, paddingLeft: 0 }}>
-          {timeLabels.map((label) => (
-            <div key={label} style={{ flex: 1, minWidth: 0 }}>
-              <div style={timeHeader}>{label}</div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <NamingRow
-            tag="体系なし"
-            tagStyle={badTag}
-            data={chaosNames}
-          />
-          <NamingRow
-            tag="体系あり"
-            tagStyle={goodTag}
-            data={cleanNames}
-          />
-        </div>
-
-        {/* Result annotation */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            gap: 16,
-            marginTop: 12,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              fontSize: 10,
-              color: "#ef4444",
-            }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: 8,
-                height: 8,
-                borderRadius: 2,
-                background: "#fef2f2",
-                border: "1px solid #fecaca",
-              }}
-            />
-            規則なし = 命名が発散
+      <div
+        style={{
+          width: CONTENT_WIDTH,
+          display: "flex",
+          gap: 24,
+        }}
+      >
+        {/* ── Left: no rules ── */}
+        <div style={{ flex: 1 }}>
+          <div style={columnHeader}>ルールなし</div>
+          <div style={card}>
+            {chaosButtons.map((btn) => (
+              <div key={btn.name} style={variantRow}>
+                <span style={nameLabel}>{btn.name}</span>
+                <button type="button" style={btn.style}>
+                  Button
+                </button>
+              </div>
+            ))}
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              fontSize: 10,
-              color: "#22c55e",
-            }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: 8,
-                height: 8,
-                borderRadius: 2,
-                background: "#f0fdf4",
-                border: "1px solid #bbf7d0",
-              }}
-            />
-            規則あり = 命名が一貫
+          <div style={note}>
+            半年後: 5つの variant、命名に規則性がない
+          </div>
+        </div>
+
+        {/* ── Right: with rules ── */}
+        <div style={{ flex: 1 }}>
+          <div style={columnHeader}>ルールあり</div>
+          <div style={card}>
+            {cleanButtons.map((btn) => (
+              <div key={btn.name} style={variantRow}>
+                <span style={nameLabel}>{btn.name}</span>
+                <button type="button" style={btn.style}>
+                  Button
+                </button>
+              </div>
+            ))}
+          </div>
+          <div style={note}>
+            半年後: 4つの variant、誰でも次を類推できる
           </div>
         </div>
       </div>
-      <Caption text="命名の体系: ルールの有無が半年後の品質を決める" />
     </IllustrationFrame>
   );
 }

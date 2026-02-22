@@ -1,7 +1,6 @@
 import { Node, Edge } from "@xyflow/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { FlowDiagram } from "../shared/FlowDiagram";
-import { Caption } from "../shared/Caption";
 
 const phases = [
   { id: "draft", label: "Draft", sub: "検討中・実験的" },
@@ -34,7 +33,6 @@ export default function Fig22() {
   return (
     <IllustrationFrame title="コンポーネントのライフサイクル">
       <FlowDiagram nodes={nodes} edges={edges} height={140} />
-      <Caption text="コンポーネントのライフサイクル" />
     </IllustrationFrame>
   );
 }

@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const lib = { fontSize: 11, color: "#a1a1aa", marginBottom: 4 } as const;
@@ -75,7 +74,6 @@ export default function Fig11() {
           />
         </div>
       </div>
-      <Caption text="Radix UI: Dialog と AlertDialog の違い" />
     </IllustrationFrame>
   );
 }

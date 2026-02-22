@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const dimensions = [
@@ -71,7 +70,6 @@ export default function Fig31() {
           </div>
         ))}
       </div>
-      <Caption text="コンポーネント設計の8つの観点" />
     </IllustrationFrame>
   );
 }

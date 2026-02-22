@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const stateLabel: CSSProperties = {
@@ -168,7 +167,6 @@ export default function Fig34() {
           </div>
         ))}
       </div>
-      <Caption text="Array型: リストの4つの状態" />
     </IllustrationFrame>
   );
 }

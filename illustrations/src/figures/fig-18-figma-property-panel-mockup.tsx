@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sectionTitle: CSSProperties = {
@@ -156,7 +155,6 @@ export default function Fig18() {
           </pre>
         </div>
       </div>
-      <Caption text="Figma プロパティパネルとコードの対応関係" />
     </IllustrationFrame>
   );
 }

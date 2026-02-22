@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const headerCell: CSSProperties = {
@@ -39,32 +38,10 @@ const miniAvatar = (hasImage: boolean): CSSProperties => ({
   border: hasImage ? "none" : "1px dashed #d4d4d8",
 });
 
-const tagPresent: CSSProperties = {
-  display: "inline-block",
-  fontSize: 10,
-  fontWeight: 500,
-  color: "#22c55e",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 3,
-  padding: "1px 6px",
-};
-
-const tagAbsent: CSSProperties = {
-  display: "inline-block",
-  fontSize: 10,
-  fontWeight: 500,
-  color: "#ef4444",
-  background: "#fef2f2",
-  border: "1px solid #fecaca",
-  borderRadius: 3,
-  padding: "1px 6px",
-};
-
 const fallbackNote: CSSProperties = {
   fontSize: 11,
-  color: "#71717a",
-  marginLeft: 8,
+  color: "#a1a1aa",
+  marginLeft: 4,
 };
 
 const skillTag: CSSProperties = {
@@ -83,6 +60,11 @@ const starsRow: CSSProperties = {
   display: "flex",
   gap: 2,
   alignItems: "center",
+};
+
+const arrowNote: CSSProperties = {
+  fontSize: 11,
+  color: "#a1a1aa",
 };
 
 export default function Fig35() {
@@ -109,16 +91,16 @@ export default function Fig35() {
           >
             UserCard
           </span>
-          <span style={{ fontSize: 11, color: "#a1a1aa" }}>Partial State</span>
+          <span style={{ fontSize: 11, color: "#a1a1aa" }}>各フィールドが欠けたとき、どう見せるか</span>
         </div>
 
         {/* Table */}
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
             <tr>
-              <th style={{ ...headerCell, width: "28%", textAlign: "left" }}>フィールド</th>
-              <th style={{ ...headerCell, width: "36%", textAlign: "left" }}>あり</th>
-              <th style={{ ...headerCell, width: "36%", textAlign: "left" }}>なし (フォールバック)</th>
+              <th style={{ ...headerCell, width: "24%", textAlign: "left" }}>フィールド</th>
+              <th style={{ ...headerCell, width: "38%", textAlign: "left" }}>データあり</th>
+              <th style={{ ...headerCell, width: "38%", textAlign: "left" }}>データなし（フォールバック）</th>
             </tr>
           </thead>
           <tbody>
@@ -128,20 +110,17 @@ export default function Fig35() {
                 <div style={fieldLabel}>プロフィール画像</div>
               </td>
               <td style={bodyCell}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagPresent}>あり</span>
-                  <span style={miniAvatar(true)}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </span>
-                </div>
+                <span style={miniAvatar(true)}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#52525b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </span>
               </td>
               <td style={bodyCell}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagAbsent}>なし</span>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <span style={miniAvatar(false)}>TN</span>
+                  <span style={{ ...arrowNote, margin: "0 6px" }}>←</span>
                   <span style={fallbackNote}>イニシャルアイコン</span>
                 </div>
               </td>
@@ -153,21 +132,18 @@ export default function Fig35() {
                 <div style={fieldLabel}>評価スコア</div>
               </td>
               <td style={bodyCell}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagPresent}>あり</span>
-                  <div style={starsRow}>
-                    {[1, 2, 3, 4].map((i) => (
-                      <span key={i} style={{ fontSize: 12, color: "#f59e0b" }}>&#9733;</span>
-                    ))}
-                    <span style={{ fontSize: 12, color: "#d4d4d8" }}>&#9733;</span>
-                    <span style={{ fontSize: 11, color: "#52525b", marginLeft: 4 }}>4.0</span>
-                  </div>
+                <div style={starsRow}>
+                  {[1, 2, 3, 4].map((i) => (
+                    <span key={i} style={{ fontSize: 12, color: "#f59e0b" }}>&#9733;</span>
+                  ))}
+                  <span style={{ fontSize: 12, color: "#d4d4d8" }}>&#9733;</span>
+                  <span style={{ fontSize: 11, color: "#52525b", marginLeft: 4 }}>4.0</span>
                 </div>
               </td>
               <td style={bodyCell}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagAbsent}>なし</span>
-                  <span style={{ fontSize: 12, color: "#a1a1aa" }}>&mdash;</span>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{ fontSize: 13, color: "#a1a1aa" }}>&mdash;</span>
+                  <span style={{ ...arrowNote, margin: "0 6px" }}>←</span>
                   <span style={fallbackNote}>ダッシュ表示</span>
                 </div>
               </td>
@@ -179,16 +155,10 @@ export default function Fig35() {
                 <div style={fieldLabel}>自己紹介文</div>
               </td>
               <td style={bodyCell}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagPresent}>あり</span>
-                  <span style={{ fontSize: 11, color: "#52525b" }}>UIデザイナーです</span>
-                </div>
+                <span style={{ fontSize: 11, color: "#52525b" }}>UIデザイナーです</span>
               </td>
               <td style={bodyCell}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagAbsent}>なし</span>
-                  <span style={{ fontSize: 11, color: "#a1a1aa", fontStyle: "italic" }}>領域を詰める</span>
-                </div>
+                <span style={{ fontSize: 11, color: "#a1a1aa", fontStyle: "italic" }}>領域を詰める</span>
               </td>
             </tr>
 
@@ -198,23 +168,18 @@ export default function Fig35() {
                 <div style={fieldLabel}>スキルタグ</div>
               </td>
               <td style={{ ...bodyCell, borderBottom: "none" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                  <span style={tagPresent}>あり</span>
+                <div style={{ display: "flex", alignItems: "center", gap: 0, flexWrap: "wrap" }}>
                   <span style={skillTag}>Figma</span>
                   <span style={skillTag}>React</span>
                 </div>
               </td>
               <td style={{ ...bodyCell, borderBottom: "none" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={tagAbsent}>なし</span>
-                  <span style={{ fontSize: 11, color: "#a1a1aa", fontStyle: "italic" }}>セクション非表示</span>
-                </div>
+                <span style={{ fontSize: 11, color: "#a1a1aa", fontStyle: "italic" }}>セクション非表示</span>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <Caption text="Partial State: データ欠損時のフォールバック定義" />
     </IllustrationFrame>
   );
 }

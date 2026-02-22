@@ -1,5 +1,4 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 function ButtonState({ label, bg, border, opacity, ring, note }: {
@@ -47,7 +46,6 @@ export default function Fig29() {
         <ButtonState label="Disabled" bg="#18181b" opacity={0.38} note="opacity: 38%" />
         <ButtonState label="Focus" bg="#18181b" ring note="フォーカスリング表示" />
       </div>
-      <Caption text="インタラクション状態: 5つの見た目を統一ルールで管理する" />
     </IllustrationFrame>
   );
 }

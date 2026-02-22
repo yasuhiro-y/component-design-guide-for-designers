@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { Caption } from "../shared/Caption";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 interface StepData {
@@ -8,9 +7,6 @@ interface StepData {
   title: string;
   description: string;
   note?: string;
-  tint: string;
-  borderColor: string;
-  accentColor: string;
 }
 
 const steps: StepData[] = [
@@ -18,51 +14,44 @@ const steps: StepData[] = [
     number: 1,
     title: "組み合わせで解決",
     description: "既存コンポーネント + Slot で構成",
-    tint: "#f0fdf4",
-    borderColor: "#bbf7d0",
-    accentColor: "#22c55e",
   },
   {
     number: 2,
     title: "バリアント追加",
     description: "新しいバリアント / プロパティを追加",
-    tint: "#f0fdf4",
-    borderColor: "#bbf7d0",
-    accentColor: "#22c55e",
   },
   {
     number: 3,
     title: "新規コンポーネント",
     description: "設計原則に沿って新規作成",
-    tint: "#fafafa",
-    borderColor: "#e4e4e7",
-    accentColor: "#71717a",
   },
   {
     number: 4,
     title: "例外として許容",
     description: "ワンオフの実装を許可",
     note: "N回発生したらコンポーネント化を検討",
-    tint: "#fffbeb",
-    borderColor: "#fde68a",
-    accentColor: "#f59e0b",
   },
 ];
 
-const preferLabel: CSSProperties = {
-  fontSize: 9,
-  fontWeight: 600,
-  color: "#22c55e",
-  textTransform: "uppercase",
-  letterSpacing: "0.05em",
+const stepCard: CSSProperties = {
+  display: "flex",
+  alignItems: "stretch",
+  background: "#fff",
+  borderRadius: 8,
+  border: "1px solid #e4e4e7",
+  overflow: "hidden",
 };
 
-const lastResortLabel: CSSProperties = {
-  fontSize: 9,
-  fontWeight: 600,
-  color: "#f59e0b",
-  textTransform: "uppercase",
-  letterSpacing: "0.05em",
+const numberBadge: CSSProperties = {
+  width: 36,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "#18181b",
+  color: "#fff",
+  fontSize: 14,
+  fontWeight: 700,
+  flexShrink: 0,
 };
 
 export default function Fig43() {
@@ -79,24 +68,36 @@ export default function Fig43() {
             padding: "0 4px",
           }}
         >
-          <span style={preferLabel}>優先</span>
-          <svg
-            width="80"
-            height="8"
-            viewBox="0 0 80 8"
-            fill="none"
+          <span
+            style={{
+              fontSize: 10,
+              fontWeight: 600,
+              color: "#71717a",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+            }}
           >
-            <line
-              x1="0"
-              y1="4"
-              x2="72"
-              y2="4"
-              stroke="#e4e4e7"
-              strokeWidth="1"
-            />
-            <polygon points="72,1 78,4 72,7" fill="#e4e4e7" />
-          </svg>
-          <span style={lastResortLabel}>最終手段</span>
+            優先
+          </span>
+          <div
+            style={{
+              flex: 1,
+              height: 1,
+              background: "#e4e4e7",
+              margin: "0 12px",
+            }}
+          />
+          <span
+            style={{
+              fontSize: 10,
+              fontWeight: 600,
+              color: "#a1a1aa",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+            }}
+          >
+            最終手段
+          </span>
         </div>
 
         <div
@@ -104,28 +105,12 @@ export default function Fig43() {
         >
           {steps.map((step, i) => (
             <div key={step.number}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "stretch",
-                  background: step.tint,
-                  borderRadius: 8,
-                  border: `1px solid ${step.borderColor}`,
-                  overflow: "hidden",
-                }}
-              >
+              <div style={stepCard}>
                 {/* Number indicator */}
                 <div
                   style={{
-                    width: 40,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: step.accentColor,
-                    color: "#fff",
-                    fontSize: 14,
-                    fontWeight: 700,
-                    flexShrink: 0,
+                    ...numberBadge,
+                    opacity: 1 - i * 0.15,
                   }}
                 >
                   {step.number}
@@ -192,7 +177,6 @@ export default function Fig43() {
           ))}
         </div>
       </div>
-      <Caption text="既存コンポーネントで実現できないとき: 4つの選択肢" />
     </IllustrationFrame>
   );
 }
