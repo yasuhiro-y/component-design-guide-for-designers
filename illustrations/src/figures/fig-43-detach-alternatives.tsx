@@ -58,48 +58,6 @@ export default function Fig43() {
   return (
     <IllustrationFrame title="既存コンポーネントで実現できないとき: 4つの選択肢">
       <div style={{ width: CONTENT_WIDTH }}>
-        {/* Preference indicator */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 12,
-            padding: "0 4px",
-          }}
-        >
-          <span
-            style={{
-              fontSize: 10,
-              fontWeight: 600,
-              color: "#3f3f46",
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-            }}
-          >
-            優先
-          </span>
-          <div
-            style={{
-              flex: 1,
-              height: 1,
-              background: "#e4e4e7",
-              margin: "0 12px",
-            }}
-          />
-          <span
-            style={{
-              fontSize: 10,
-              fontWeight: 600,
-              color: "#52525b",
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-            }}
-          >
-            最終手段
-          </span>
-        </div>
-
         <div
           style={{ display: "flex", flexDirection: "column", gap: 8 }}
         >

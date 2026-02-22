@@ -517,9 +517,6 @@ function LayerArrow() {
         />
         <polygon points="3,14 8,20 13,14" fill="#d4d4d8" />
       </svg>
-      <span style={{ fontSize: 9, color: "#52525b", marginLeft: 6 }}>
-        uses
-      </span>
     </div>
   );
 }

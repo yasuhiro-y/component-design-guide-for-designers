@@ -919,20 +919,12 @@ Figmaでバリアントを追加したとき、既存の組み合わせが意図
 
 Booleanの章で、小さいと大きいのトグルを別々に持つと矛盾するという話をしました。これは直交性が崩れた典型例です。ここではもう少し踏み込んで、Enum同士の設計でこの考え方がどう効いてくるかを見ていきます。
 
-直交性の崩れは、コンポーネントを分けるかどうかの判断にも関わります。
-
-ひとつのプロパティに複数の意味を持たせてしまうと、後から取り回しがきかなくなります。
+たとえば`Button`に`size`と`variant`の2つのプロパティがあるとします。`size`はS・M・Lの3段階、`variant`はprimary・secondary・destructiveの3種類。この2つが直交していれば、どの組み合わせでもそれぞれが決まり通りにはたらきます。
 
 ![直交性: size と variant の組み合わせがすべて成立する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-05.png)
 *直交性: size と variant の組み合わせがすべて成立する*
 
-Radix UIの[`Toggle`](https://www.radix-ui.com/primitives/docs/components/toggle)と[`Switch`](https://www.radix-ui.com/primitives/docs/components/switch)で考えてみます。どちらもON/OFFの2値を扱うコンポーネントで、見た目も似ています。しかし役割が違います。`Toggle`はツールバーの太字ボタンのように押すたびにON/OFFが切り替わるUI操作用の部品。`Switch`は設定画面の通知スライダーのようにフォームで送信されるデータを切り替える部品です。
-
-![Radix UI: Toggle と Switch の実際の見た目](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-15.png)
-*Radix UI: Toggle と Switch の実際の見た目*
-`Toggle`のON/OFFはUI状態、`Switch`のON/OFFはデータ状態という別の関心に属しています。これをひとつのコンポーネントにまとめて`isFormField`のようなプロパティで切り替えようとすると、ひとつのプロパティがコンポーネントの役割そのものを変えてしまいます。関心が交差して直交性が崩れるのです。
-
-関心が異なるなら、見た目が似ていても別コンポーネントにする——これも直交性を保つ設計判断のひとつです。
+sizeをSからLに変えてもvariantの見た目は変わらない。variantをdestructiveに変えてもsizeは影響を受けない。3×3＝9通りすべてが成立します。もし「destructiveのときはSが使えない」「secondaryのLだけ角丸が変わる」といった暗黙の制約があったら、組み合わせるたびにルール確認が必要になります。
 
 Notionのデータベースで考えるとわかりやすいです。優先度と担当者という2つのカラムがあるとして、優先度を高に変えても、担当者のリストは何も変わりませんよね。これが独立している状態です。もし優先度を変えた瞬間に担当者の選択肢が勝手に絞り込まれたら、使う人は混乱します。コンポーネントのプロパティも同じです。
 

@@ -1,4 +1,4 @@
-import { ChakraProvider, Badge, Tag, TagLabel, TagCloseButton, Stack, Box, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, Badge, Tag, TagLabel, Stack, extendTheme } from "@chakra-ui/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
@@ -62,7 +62,6 @@ export default function Fig16() {
               {colors.map((c) => (
                 <Tag key={c} size="md" colorScheme={c} variant="subtle">
                   <TagLabel>{c}</TagLabel>
-                  <TagCloseButton />
                 </Tag>
               ))}
             </Stack>
