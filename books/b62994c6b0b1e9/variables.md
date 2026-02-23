@@ -4,7 +4,7 @@ title: "変数: コンポーネントが受け取る設定値"
 
 Figmaのプロパティパネルは、コードの設計図そのものです。パネルに並ぶトグルやドロップダウン、あの一つひとつに型があることを意識したことはありますか？　この章を読むと、エンジニアに「このプロパティ、BooleanですかEnumですか？」と自分から確認できるようになります。型の会話ができるだけで、認識のズレによる手戻りが激減します。
 
-# プロパティの型を解剖する: Figmaのパネルはコードの設計図
+# プロパティの型を解剖する
 
 ![Figma プロパティパネルとコードの対応関係](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-18.png)
 
@@ -19,9 +19,7 @@ Figmaのプロパティパネルを整理することは、コードの設計図
 
 Figmaのプロパティパネルでも同じことが起きています。トグルスイッチはBoolean、バリアント切り替えはEnum、テキスト入力はStringです。Figmaのプロパティパネルではテキスト入力欄に何でも自由に入れられますが、コードの世界では数値の 24 とテキストの "24" は別物です。このプロパティに入る値はテキストなのか、数字なのか、ON/OFFなのかを意識して設計すると、コードとの対応関係が明確になります。
 
-
 ここでは、Boolean、Enum、String、Number、Dateといった基本の型に加え、配列やオブジェクトといったデータの構造についても解説します。聞き慣れない用語もありますが、ひとつずつFigmaの操作に対応づけていきます。
-
 
 ![プロパティの型: Figma での見え方とコードの対応](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-17.png)
 
@@ -47,8 +45,6 @@ Chakra UIやMUIなどの汎用ライブラリを見漁ったことのある方�
 ![汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-56.png)
 
 これは偶然ではなく、UIの問題構造が同じだからです。ボタンには見た目のバリエーションとサイズが必要で、入力フィールドにはプレースホルダーと無効状態が必要——こうした要件は言語やフレームワークを問わず共通します。だからこそ、ここから先で扱う変数の型や設計パターンは、特定のライブラリに依存しない普遍的な知識として使えます。
-
-
 
 ## Boolean: 真偽値
 
@@ -102,20 +98,21 @@ String型は何でも入力できますが、自由すぎるとチームのな�
 ### 選択肢の命名: 意味で名付ける
 
 Enumの選択肢は、見た目ではなく意味で名付けます。よくあるのがこのようなものです。
+みてのとおり、MECEであったり、粒度感がそろっていたりすることがわかります。
+誰でも心当たりがあるかもしれませんが、選択肢の命名は重要である割にデザイナーが手癖でつけてしまいがちです。今は問題なくても、次の人が困る命名は克服しましょう。
 
-| プロパティ | 選択肢の例 |
-| --- | --- |
-| size | small / medium / large |
-| variant | primary / secondary / outline / ghost |
-| status | success / warning / error / info |
-| colorScheme | blue / green / red / gray |
-| placement | top / right / bottom / left |
-| intensity | solid / subtle / outline |
-| orientation | horizontal / vertical |
-| shape | circle / square / rounded |
+| プロパティ  | 選択肢の例                            |
+| ----------- | ------------------------------------- |
+| size        | small / medium / large                |
+| variant     | primary / secondary / outline / ghost |
+| status      | success / warning / error / info      |
+| colorScheme | blue / green / red / gray             |
+| placement   | top / right / bottom / left           |
+| intensity   | solid / subtle / outline              |
+| orientation | horizontal / vertical                 |
+| shape       | circle / square / rounded             |
 
 それでは、個別の性質をもつ選択肢設計の論点をみていきます。
-
 
 ### Tシャツサイズ: 拡張可能なスケール
 
@@ -238,14 +235,12 @@ Figmaでいえば、同じコンポーネントを`Auto Layout`内に繰り返�
 
 ![Array型: リストの4つの状態](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-34.png)
 
-
 ただし、Figmaでは3件分のデータを置くと3件で固定されますが、実際のアプリでは0件になったり100件になったりします。デザイナーが意識しておきたいのは、0件・1件・大量にあるときのそれぞれの見え方です。
 
 - 0件のとき何を表示するか（空状態のデザインは用意したか）
 - 上限はあるか（無限に増えるのか、最大表示件数を設けるか）
 - 大量にあるとき、無限スクロールかページネーションか
 - 並び順は固定か、ユーザーが変えられるか
-
 
 ## Object: オブジェクト（データのまとまり）
 
@@ -279,7 +274,6 @@ Objectを受け取るコンポーネントを作ろうとしているなら、�
 
 ![Button のスロット構造: 差し込み口を設けることでバリアント爆発を防ぐ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-04.png)
 
-
 Figmaで考えるとわかりやすいです。`Instance Swap Property`を使って、ある箇所にアイコンを差し込んだり、`Avatar`に差し替えたりします。
 
 コードの世界ではこの仕組みをスロット（slot）と呼びます。Reactでは`ReactNode`あるいは`JSX.Element`型、SwiftUIでは`@ViewBuilder`、Flutterでは`Widget`型としてそれぞれ表現されます。ここでは便宜上Element型と総称します。好きなものを差し込める口を設けておく設計です。
@@ -293,7 +287,6 @@ Figmaで考えるとわかりやすいです。`Instance Swap Property`を使っ
 <!-- たとえを図示する -->
 
 アイコン付きボタンの例で考えてみましょう。デザイナーは `LeftIcon` / `RightIcon` / `BothIcons` / `NoIcon` という4つのバリアントを作りがちです。しかし、スロットの発想を使えば、ボタンの左右に好きなものが入るエリアを用意するだけで済みます。アイコンでも、バッジでも、何も入れなくてもよい。
-
 
 Figmaでは、`Instance Swap Property`を使ってスロットを表現します。設計のポイントは2つです。
 
@@ -382,7 +375,6 @@ Figma上でデザイントークンを管理するプラグインとしては、
 
 逆に、ほとんどが任意でデフォルト値を持っていれば、使う側は変えたいところだけを指定すればよい。必須と任意の設計は、コンポーネントの使いやすさを直接的に決めます。
 
-
 ![必須と任意: デフォルト値で使いやすさが決まる](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-36.png)
 
 必須を最小限にとどめ、よく使われる値をデフォルトに設定しておくことで、8割のユースケースは何も指定しなくてもそのまま使える状態を目指します。
@@ -400,7 +392,6 @@ Figmaのプロパティパネルには、必須かどうかや省略時のデフ
 ただし、デフォルト値は一度決めたら簡単には変えられません。コードの世界では、デフォルト値を変更すると、明示的に値を指定していなかったすべての箇所で表示が変わります。
 
 `size`のデフォルトを`Medium`から`Small`に変えれば、何も指定していないボタンがすべて小さくなる。影響範囲が広いぶん、デフォルト値の決定はかなり慎重におこなう必要があります。
-
 
 ## 条件付き表示: Figmaとコードでプロパティの数がズレる理由
 

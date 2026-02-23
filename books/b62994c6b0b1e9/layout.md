@@ -30,9 +30,7 @@ Figmaでコンポーネントを作るとき、ボタンの下に24pxの空白�
 
 結局、3つの画面でそれぞれmarginを上書きすることになり、ボタンの余白が画面ごとに違うというバグチケットが1ヶ月で5件も上がるようなことがおきます。
 
-
 ![padding（内側）と margin（外側）の責任分離](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-19.png)
-
 
 外側の余白をコンポーネントから剥がして、親の`Auto Layout`で `gap: 16px` を設定する方式に切り替えれば、この種のバグはなくなります。どこに置いても親が間隔を決めるので、ボタン側で上書きする必要がなくなるのです。
 
@@ -107,9 +105,7 @@ Figma ではフレームの Clip Content のオン・オフでコンテンツの
 
 ここで決めるべきは、省略（truncate）か折り返し（wrap）かです。
 
-
 ![テキストのオーバーフロー: 省略・行数制限・折り返し](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-64.png)
-
 
 - 1行で収めたい場面（テーブルのセル、ナビゲーション項目）は `…` で省略する。Figma では Truncate Text の設定、コードでは `text-overflow: ellipsis` と `overflow: hidden` の組み合わせ
 - 複数行を許容する場面（カードの説明文、コメント）は折り返すが、最大行数を決めておく（2行まで、3行までなど）。コードでは `-webkit-line-clamp` で行数制限をかける
@@ -121,7 +117,6 @@ Figma ではフレームの Clip Content のオン・オフでコンテンツの
 
 コンテンツの量がコンテナの高さを超えたとき——リストの項目数が想定以上に多い、フォームの入力項目が画面に収まらないなど——の扱いも事前に決めておきます。
 
-
 ![コンテナのオーバーフロー: スクロール・もっと見る・切り捨て](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-65.png)
 
 - **スクロール**: コンテナ内にスクロール領域を設ける。Figma ではプロトタイプモードの Scroll Behavior で表現できるが、デザインカンプだけでは伝わりにくい。仕様として「この領域はスクロールする」と明記する。コードでは `overflow-y: auto` が一般的
@@ -129,6 +124,5 @@ Figma ではフレームの Clip Content のオン・オフでコンテンツの
 - **切り捨て**: 表示しきれないコンテンツを切り捨てて表示しない。`Avatar` の画像が枠からはみ出す場合に `overflow: hidden` で丸く切り抜くのが典型例
 
 スクロールを採用する場合は、スクロール領域の高さの決め方も決めておきます。固定高（`height: 400px`）か、画面高さに連動（`max-height: 60vh`）か。モーダル内のリストなら画面高さに連動させないと、小さい画面でモーダル自体が画面外にはみ出します。
-
 
 Figma の Clip Content は見た目上コンテンツを切り抜きますが、それがスクロールなのか切り捨てなのかは伝わりません。デザインカンプに加えて、スクロール可能であること、最大表示件数があること、などを仕様として補足しておくのが確実です。

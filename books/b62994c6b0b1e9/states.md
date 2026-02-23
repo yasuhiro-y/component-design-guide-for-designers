@@ -72,7 +72,6 @@ Figma上では、プロパティもバリアントとして表現されます。
 
 ボタンの上にマウスカーソルを乗せたとき、押し込んでいるとき、操作できない状態のとき。これらはそれぞれ `Hover`、`Pressed`、`Disabled` と呼ばれます。Figmaでは `Interactive Components` の機能で表現できます。
 
-
 ![インタラクション状態: 5つの見た目を統一ルールで管理する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-29.png)
 
 Webにおけるボタンのインタラクションには一覧のながれがあります。default → hover → focused → pressed → waiting（[Curtis, 2016](https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23)）。この一連の流れを切れ目なくデザインすることが、ボタンのインタラクション品質を決めます。
