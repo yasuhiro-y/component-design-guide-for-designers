@@ -655,6 +655,8 @@ Figmaのコンポーネント名、コードのコンポーネント名、APIの
 
 命名で悩む時間を減らし、コードとデザインの語彙を最初から揃えることで、翻訳コストのない設計が可能になります。
 
+![データモデルとコンポーネント名: 揃えるか、離すか](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-66.png)
+
 ここまで、コンポーネントの分割・分類・命名という設計のルールを整理してきました。ルールだけでは対処しきれない現実もあります。次の章では、設計したルールが現実にぶつかったときにどう対処するかを扱います。
 
 # 現実的な問題への対処: 壊れ方を設計する
@@ -1357,6 +1359,8 @@ Figma ではフレームの Clip Content のオン・オフでコンテンツの
 
 この判断がコンポーネントの仕様に含まれていないと、「ここは1行で切るべきか、2行まで出すべきか」が実装者ごとに異なる結果になります。
 
+![テキストのオーバーフロー: 省略・行数制限・折り返し](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-64.png)
+
 ### コンテナのオーバーフロー
 
 コンテンツの量がコンテナの高さを超えたとき——リストの項目数が想定以上に多い、フォームの入力項目が画面に収まらないなど——の扱いも事前に決めておきます。
@@ -1366,6 +1370,8 @@ Figma ではフレームの Clip Content のオン・オフでコンテンツの
 - **切り捨て**: 表示しきれないコンテンツを切り捨てて表示しない。`Avatar` の画像が枠からはみ出す場合に `overflow: hidden` で丸く切り抜くのが典型例
 
 スクロールを採用する場合は、スクロール領域の高さの決め方も決めておきます。固定高（`height: 400px`）か、画面高さに連動（`max-height: 60vh`）か。モーダル内のリストなら画面高さに連動させないと、小さい画面でモーダル自体が画面外にはみ出します。
+
+![コンテナのオーバーフロー: スクロール・もっと見る・切り捨て](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-65.png)
 
 Figma の Clip Content は見た目上コンテンツを切り抜きますが、それがスクロールなのか切り捨てなのかは伝わりません。デザインカンプに加えて、スクロール可能であること、最大表示件数があること、などを仕様として補足しておくのが確実です。
 

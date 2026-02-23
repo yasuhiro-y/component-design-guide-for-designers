@@ -209,20 +209,19 @@ const libraries: LibColumn[] = [
   { icon: "antdesign", name: "Ant Design" },
 ];
 
-const components: { label: string; render: () => React.ReactNode; last?: boolean }[] = [
+const components: { render: () => React.ReactNode; last?: boolean }[] = [
   {
-    label: "Button",
     render: () => (
       <>
         <MiniButton primary /> <MiniButton />
       </>
     ),
   },
-  { label: "Input", render: () => <MiniInput /> },
-  { label: "Select", render: () => <MiniSelect /> },
-  { label: "Tag", render: () => <MiniTag /> },
-  { label: "Switch", render: () => <MiniSwitch on /> },
-  { label: "Check", render: () => <MiniCheckbox />, last: true },
+  { render: () => <MiniInput /> },
+  { render: () => <MiniSelect /> },
+  { render: () => <MiniTag /> },
+  { render: () => <MiniSwitch on /> },
+  { render: () => <MiniCheckbox />, last: true },
 ];
 
 export default function Fig56() {
@@ -234,9 +233,8 @@ export default function Fig56() {
             <LibraryLabel name={lib.name} icon={lib.icon} />
             <div style={nameStyle}>{lib.name}</div>
             <div style={panel}>
-              {components.map((comp) => (
-                <div key={comp.label} style={comp.last ? rowLast : rowStyle}>
-                  <span style={compLabel}>{comp.label}</span>
+              {components.map((comp, i) => (
+                <div key={i} style={comp.last ? rowLast : rowStyle}>
                   <div style={previewArea}>{comp.render()}</div>
                 </div>
               ))}

@@ -317,4 +317,6 @@ Figmaのコンポーネント名、コードのコンポーネント名、APIの
 
 命名で悩む時間を減らし、コードとデザインの語彙を最初から揃えることで、翻訳コストのない設計が可能になります。
 
+![データモデルとコンポーネント名: 揃えるか、離すか](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-66.png)
+
 ここまで、コンポーネントの分割・分類・命名という設計のルールを整理してきました。ルールだけでは対処しきれない現実もあります。次の章では、設計したルールが現実にぶつかったときにどう対処するかを扱います。

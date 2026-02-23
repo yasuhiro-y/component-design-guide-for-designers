@@ -70,6 +70,9 @@ export const figures: FigureRoute[] = [
   { id: "fig-61", component: lazy(() => import("./figures/fig-61-semantic-color-naming")), title: "色のセマンティクス: 見た目ではなく役割で名付ける" },
   { id: "fig-62", component: lazy(() => import("./figures/fig-62-array-concept")), title: "配列: 同じテンプレートに異なるデータを流し込む" },
   { id: "fig-63", component: lazy(() => import("./figures/fig-63-object-concept")), title: "オブジェクト: 複数の値をひとかたまりで渡す" },
+  { id: "fig-64", component: lazy(() => import("./figures/fig-64-text-overflow")), title: "テキストのオーバーフロー: 省略・行数制限・折り返し" },
+  { id: "fig-65", component: lazy(() => import("./figures/fig-65-container-overflow")), title: "コンテナのオーバーフロー: スクロール・もっと見る・切り捨て" },
+  { id: "fig-66", component: lazy(() => import("./figures/fig-66-data-model-naming")), title: "データモデルとコンポーネント名: 揃えるか、離すか" },
 ];
 
 export function getFigureById(id: string) {
