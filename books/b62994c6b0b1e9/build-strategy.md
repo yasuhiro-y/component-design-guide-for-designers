@@ -55,7 +55,6 @@ title: "構築戦略: どう作るかを選ぶ"
 
 Headless UIの設計思想がよく表れているのが、見た目が似たコンポーネントの分類です。
 
-
 ![Radix UI: 見た目が似た3つのコンポーネント](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-14.png)
 
 Radix UIには、いずれもドロップダウン的な見た目の[`Select`](https://www.radix-ui.com/primitives/docs/components/select)、[`DropdownMenu`](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[`ContextMenu`](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。
@@ -88,7 +87,6 @@ Headless UIライブラリも同様に、[`Listbox`](https://headlessui.com/reac
 
 なぜ後発導入が難しいのかを理解しておくと、戦略を立てやすくなります。ゼロから作るプロダクトなら最初からコンポーネントを揃えられますが、稼働中のサービスにはすでに動いているUIが資産として存在しているからです。一度に変えると、QA（品質確認）の範囲が爆発し、リグレッション（意図しない既存機能の破壊）が起きやすくなるためです。
 
-
 ユーザー影響や改修範囲などを考えると、この資産を壊さずに、新しい仕組みに段階的に置き換えていく必要があります。そうした観点から、フルスクラッチに近い構築になることが多いです。
 
 ただし、中長期的なメリットを見据えたHeadless UIや既存ライブラリの活用も含めて、エンジニアリングチームと早い段階で議論しましょう。技術スタックや既存コードとの相性によって、最適な戦略は大きく変わります。
@@ -100,8 +98,6 @@ Headless UIライブラリも同様に、[`Listbox`](https://headlessui.com/reac
 1. デザイントークンから入る。 コンポーネントの前に、色・フォントサイズ・余白のトークンを定義して既存コードに適用する。見た目はほぼ変わらないが、後からの一括変更が可能になる。これがもっとも低リスクで効果の高い出発点です
 2. 新規画面から準拠する。 既存画面は触らず、新しく作る画面だけをデザインシステムに沿って設計する。新規画面は100%準拠というルールを置くことで、デザインシステムの利用実績が自然に積み上がります
 3. 既存画面は優先度をつけて段階的に移行する。 ユーザーの利用頻度が高い画面や、変更が予定されている画面から置き換えていきます
-
-
 
 古いUIと新しいUIが一時的に混在する状態は、どのプロダクトでも起こりうるものです。
 

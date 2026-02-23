@@ -91,9 +91,7 @@ Figmaで赤い塗りの四角形を描いたとします。これは「エラー
 
 しかし`Dialog`は背景クリックで閉じられる汎用モーダルであるのに対し、`AlertDialog`は「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
 
-
 ![Radix UI: Dialog と AlertDialog の違い](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-11.png)
-
 
 アクセシビリティの国際標準規格（[WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/)）でも、スクリーンリーダーに「通常のダイアログ」と「警告ダイアログ」を区別して伝える仕組みが用意されており、この設計判断はその規格に基づいています。意味を正しく符号化することは、アクセシビリティにも直結します。
 
@@ -128,11 +126,9 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 3. 控えめなボタンも欲しい → `btn-light` を追加
 4. 半年後、`primary` / `secondary` / `red-button` / `btn-light` / `outline-gray` が混在し、新メンバーが `red-button` と `btn-light` の違いは何ですか？と聞く。答えられる人がいない
 
-
 ![慣習: ルールの有無が半年後の品質を決める](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-41.png)
 
 最初の2人目が正しく拡張できたかどうかは、10人目の生産性を大きく左右します。新メンバーが既存の仕組みに沿って迷わず貢献でき、チームが大きくなっても生産性が落ちにくい。これが慣習のビジネスインパクトです。
-
 
 拡張するために参照する体系をルール化することに加え、実装やFigmaファイルから類推可能であることが重要です。これはコンポーネントに限らず、トークンの命名体系、Enumの選択肢、ディレクトリ構造、あらゆる設計判断に通じる問いです。
 
