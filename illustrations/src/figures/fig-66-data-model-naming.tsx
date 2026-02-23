@@ -24,82 +24,61 @@ const sectionLabel: CSSProperties = {
   marginBottom: 10,
 };
 
-const layerRow: CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  gap: 10,
-  padding: "8px 0",
-  borderBottom: "1px solid #f4f4f5",
-};
-
-const layerRowLast: CSSProperties = {
-  ...layerRow,
-  borderBottom: "none",
-};
-
-const layerLabel: CSSProperties = {
-  fontSize: 10,
-  fontWeight: 600,
-  color: "#a1a1aa",
-  width: 50,
-  flexShrink: 0,
-  textAlign: "right",
-};
-
-const nameChip = (match: boolean): CSSProperties => ({
-  display: "inline-flex",
-  alignItems: "center",
-  gap: 4,
+const mono: CSSProperties = {
+  fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 12,
   fontWeight: 600,
-  fontFamily: '"SF Mono", Menlo, monospace',
-  color: match ? "#18181b" : "#52525b",
-  background: match ? "#f0fdf4" : "#f4f4f5",
-  border: `1px solid ${match ? "#bbf7d0" : "#e4e4e7"}`,
+};
+
+const headerCell: CSSProperties = {
+  fontSize: 9,
+  fontWeight: 600,
+  color: "#a1a1aa",
+  textTransform: "uppercase",
+  letterSpacing: "0.04em",
+  padding: "0 0 8px",
+};
+
+const cell: CSSProperties = {
+  padding: "8px 0",
+};
+
+const matchChip: CSSProperties = {
+  ...mono,
+  color: "#18181b",
+  background: "#f0fdf4",
+  border: "1px solid #bbf7d0",
   borderRadius: 5,
   padding: "3px 10px",
-});
+  display: "inline-block",
+  whiteSpace: "nowrap",
+};
 
-const connectorStyle: CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: 11,
+const neutralChip: CSSProperties = {
+  ...mono,
+  color: "#52525b",
+  background: "#f4f4f5",
+  border: "1px solid #e4e4e7",
+  borderRadius: 5,
+  padding: "3px 10px",
+  display: "inline-block",
+  whiteSpace: "nowrap",
+};
+
+const arrowCell: CSSProperties = {
+  ...cell,
+  textAlign: "center",
   color: "#22c55e",
   fontWeight: 600,
-  width: 16,
-  flexShrink: 0,
+  fontSize: 13,
+  width: 24,
 };
-
-const mismatchConnector: CSSProperties = {
-  ...connectorStyle,
-  color: "#ef4444",
-};
-
-interface NamingExample {
-  figma: string;
-  code: string;
-  api: string;
-  match: boolean;
-}
-
-const domainExamples: NamingExample[] = [
-  { figma: "ShiftCard", code: "<ShiftCard />", api: "Shift", match: true },
-  { figma: "JobListItem", code: "<JobListItem />", api: "Job", match: true },
-  { figma: "UserAvatar", code: "<UserAvatar />", api: "User", match: true },
-];
-
-const genericExamples: { figma: string; code: string; note: string }[] = [
-  { figma: "Avatar", code: "<Avatar />", note: "データ非依存" },
-  { figma: "Card", code: "<Card />", note: "データ非依存" },
-  { figma: "Badge", code: "<Badge />", note: "データ非依存" },
-];
 
 function MatchIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <circle cx="6" cy="6" r="5" stroke="#22c55e" strokeWidth="1.5" />
-      <path d="M3.5 6L5.5 8L8.5 4.5" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ verticalAlign: "middle" }}>
+      <circle cx="7" cy="7" r="6" stroke="#22c55e" strokeWidth="1.5" />
+      <path d="M4 7L6 9.5L10 5" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -109,49 +88,41 @@ export default function Fig66() {
     <IllustrationFrame title="データモデルとコンポーネント名: 揃えるか、離すか">
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={{ display: "flex", gap: 14 }}>
-          {/* Left: Domain components — names match API */}
+          {/* Left: Domain — match API names */}
           <div style={{ flex: 1 }}>
             <div style={sectionLabel}>ドメインコンポーネント: API名と揃える</div>
             <div style={panel}>
-              {/* Header row */}
+              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ borderBottom: "2px solid #e4e4e7" }}>
+                    <th style={headerCell}></th>
+                    <th style={{ ...headerCell, textAlign: "left" }}>Figma</th>
+                    <th style={headerCell}></th>
+                    <th style={{ ...headerCell, textAlign: "left" }}>コード</th>
+                    <th style={headerCell}></th>
+                    <th style={{ ...headerCell, textAlign: "left" }}>API</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { figma: "ShiftCard", code: "ShiftCard", api: "Shift" },
+                    { figma: "JobListItem", code: "JobListItem", api: "Job" },
+                    { figma: "UserAvatar", code: "UserAvatar", api: "User" },
+                  ].map((row, i, arr) => (
+                    <tr key={row.figma} style={i < arr.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
+                      <td style={{ ...cell, width: 20 }}><MatchIcon /></td>
+                      <td style={cell}><span style={matchChip}>{row.figma}</span></td>
+                      <td style={arrowCell}>=</td>
+                      <td style={cell}><span style={matchChip}>{row.code}</span></td>
+                      <td style={arrowCell}>←</td>
+                      <td style={cell}><span style={matchChip}>{row.api}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  paddingBottom: 8,
-                  borderBottom: "2px solid #e4e4e7",
-                  marginBottom: 4,
-                }}
-              >
-                <span style={{ ...layerLabel, color: "#a1a1aa" }}>レイヤー</span>
-                <div style={{ display: "flex", gap: 6, flex: 1 }}>
-                  <span style={{ fontSize: 9, fontWeight: 600, color: "#a1a1aa", width: 70 }}>Figma</span>
-                  <span style={{ width: 16 }} />
-                  <span style={{ fontSize: 9, fontWeight: 600, color: "#a1a1aa", width: 100 }}>コード</span>
-                  <span style={{ width: 16 }} />
-                  <span style={{ fontSize: 9, fontWeight: 600, color: "#a1a1aa" }}>API</span>
-                </div>
-              </div>
-
-              {domainExamples.map((ex, i) => (
-                <div key={ex.figma} style={i === domainExamples.length - 1 ? layerRowLast : layerRow}>
-                  <span style={layerLabel}>
-                    <MatchIcon />
-                  </span>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, flex: 1 }}>
-                    <span style={nameChip(true)}>{ex.figma}</span>
-                    <span style={connectorStyle}>=</span>
-                    <span style={{ ...nameChip(true), fontSize: 11 }}>{ex.code}</span>
-                    <span style={connectorStyle}>←</span>
-                    <span style={nameChip(true)}>{ex.api}</span>
-                  </div>
-                </div>
-              ))}
-
-              <div
-                style={{
-                  marginTop: 10,
+                  marginTop: 12,
                   fontSize: 10,
                   color: "#52525b",
                   padding: "6px 10px",
@@ -166,55 +137,37 @@ export default function Fig66() {
             </div>
           </div>
 
-          {/* Right: Generic components — abstract names */}
+          {/* Right: Generic — abstract names */}
           <div style={{ flex: 1 }}>
             <div style={sectionLabel}>汎用コンポーネント: 抽象的な名前</div>
             <div style={panel}>
-              {/* Header row */}
+              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ borderBottom: "2px solid #e4e4e7" }}>
+                    <th style={{ ...headerCell, textAlign: "left" }}>Figma</th>
+                    <th style={headerCell}></th>
+                    <th style={{ ...headerCell, textAlign: "left" }}>コード</th>
+                    <th style={{ ...headerCell, textAlign: "left" }}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { figma: "Avatar", code: "Avatar" },
+                    { figma: "Card", code: "Card" },
+                    { figma: "Badge", code: "Badge" },
+                  ].map((row, i, arr) => (
+                    <tr key={row.figma} style={i < arr.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
+                      <td style={cell}><span style={neutralChip}>{row.figma}</span></td>
+                      <td style={{ ...arrowCell, color: "#a1a1aa" }}>=</td>
+                      <td style={cell}><span style={neutralChip}>{row.code}</span></td>
+                      <td style={{ ...cell, fontSize: 9, color: "#a1a1aa", fontStyle: "italic", paddingLeft: 8 }}>データ非依存</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  paddingBottom: 8,
-                  borderBottom: "2px solid #e4e4e7",
-                  marginBottom: 4,
-                }}
-              >
-                <span style={{ ...layerLabel, color: "#a1a1aa" }}></span>
-                <div style={{ display: "flex", gap: 6, flex: 1 }}>
-                  <span style={{ fontSize: 9, fontWeight: 600, color: "#a1a1aa", width: 70 }}>Figma</span>
-                  <span style={{ width: 16 }} />
-                  <span style={{ fontSize: 9, fontWeight: 600, color: "#a1a1aa", width: 100 }}>コード</span>
-                  <span style={{ width: 16 }} />
-                  <span style={{ fontSize: 9, fontWeight: 600, color: "#a1a1aa" }}></span>
-                </div>
-              </div>
-
-              {genericExamples.map((ex, i) => (
-                <div key={ex.figma} style={i === genericExamples.length - 1 ? layerRowLast : layerRow}>
-                  <span style={layerLabel}></span>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, flex: 1 }}>
-                    <span style={nameChip(false)}>{ex.figma}</span>
-                    <span style={{ ...connectorStyle, color: "#a1a1aa" }}>=</span>
-                    <span style={{ ...nameChip(false), fontSize: 11 }}>{ex.code}</span>
-                    <span style={{ width: 16, flexShrink: 0 }} />
-                    <span
-                      style={{
-                        fontSize: 9,
-                        color: "#a1a1aa",
-                        fontStyle: "italic",
-                      }}
-                    >
-                      {ex.note}
-                    </span>
-                  </div>
-                </div>
-              ))}
-
-              <div
-                style={{
-                  marginTop: 10,
+                  marginTop: 12,
                   fontSize: 10,
                   color: "#52525b",
                   padding: "6px 10px",
