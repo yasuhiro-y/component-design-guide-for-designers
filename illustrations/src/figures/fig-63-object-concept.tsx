@@ -80,17 +80,7 @@ function FieldVisual({ visual, value }: { visual?: string; value: string }) {
   }
   if (visual === "tag") {
     return (
-      <span
-        style={{
-          fontSize: 10,
-          fontWeight: 500,
-          color: "#18181b",
-          background: "#f4f4f5",
-          border: "1px solid #e4e4e7",
-          borderRadius: 999,
-          padding: "1px 8px",
-        }}
-      >
+      <span style={{ fontSize: 10, fontWeight: 500, color: "#52525b" }}>
         {value}
       </span>
     );

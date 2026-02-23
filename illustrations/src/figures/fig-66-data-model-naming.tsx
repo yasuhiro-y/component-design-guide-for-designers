@@ -24,10 +24,16 @@ const sectionLabel: CSSProperties = {
   marginBottom: 10,
 };
 
-const mono: CSSProperties = {
-  fontFamily: '"SF Mono", Menlo, monospace',
+const nameText: CSSProperties = {
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 500,
+  color: "#18181b",
+  whiteSpace: "nowrap",
+};
+
+const nameMuted: CSSProperties = {
+  ...nameText,
+  color: "#71717a",
 };
 
 const headerCell: CSSProperties = {
@@ -43,42 +49,20 @@ const cell: CSSProperties = {
   padding: "8px 0",
 };
 
-const matchChip: CSSProperties = {
-  ...mono,
-  color: "#18181b",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 5,
-  padding: "3px 10px",
-  display: "inline-block",
-  whiteSpace: "nowrap",
-};
-
-const neutralChip: CSSProperties = {
-  ...mono,
-  color: "#52525b",
-  background: "#f4f4f5",
-  border: "1px solid #e4e4e7",
-  borderRadius: 5,
-  padding: "3px 10px",
-  display: "inline-block",
-  whiteSpace: "nowrap",
-};
-
 const arrowCell: CSSProperties = {
   ...cell,
   textAlign: "center",
-  color: "#22c55e",
-  fontWeight: 600,
-  fontSize: 13,
+  color: "#d4d4d8",
+  fontWeight: 500,
+  fontSize: 12,
   width: 24,
 };
 
 function MatchIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ verticalAlign: "middle" }}>
-      <circle cx="7" cy="7" r="6" stroke="#22c55e" strokeWidth="1.5" />
-      <path d="M4 7L6 9.5L10 5" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ verticalAlign: "middle" }}>
+      <circle cx="6" cy="6" r="5" stroke="#22c55e" strokeWidth="1.2" />
+      <path d="M3.5 6L5.2 8L8.5 4.5" stroke="#22c55e" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -110,28 +94,17 @@ export default function Fig66() {
                     { figma: "UserAvatar", code: "UserAvatar", api: "User" },
                   ].map((row, i, arr) => (
                     <tr key={row.figma} style={i < arr.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
-                      <td style={{ ...cell, width: 20 }}><MatchIcon /></td>
-                      <td style={cell}><span style={matchChip}>{row.figma}</span></td>
+                      <td style={{ ...cell, width: 18 }}><MatchIcon /></td>
+                      <td style={cell}><span style={nameText}>{row.figma}</span></td>
                       <td style={arrowCell}>=</td>
-                      <td style={cell}><span style={matchChip}>{row.code}</span></td>
+                      <td style={cell}><span style={nameText}>{row.code}</span></td>
                       <td style={arrowCell}>←</td>
-                      <td style={cell}><span style={matchChip}>{row.api}</span></td>
+                      <td style={cell}><span style={nameText}>{row.api}</span></td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <div
-                style={{
-                  marginTop: 12,
-                  fontSize: 10,
-                  color: "#52525b",
-                  padding: "6px 10px",
-                  background: "#f0fdf4",
-                  borderRadius: 4,
-                  border: "1px solid #bbf7d0",
-                  textAlign: "center",
-                }}
-              >
+              <div style={{ marginTop: 12, fontSize: 10, color: "#166534", textAlign: "center" }}>
                 Figma・コード・API が同じ語彙 → 翻訳不要
               </div>
             </div>
@@ -157,26 +130,15 @@ export default function Fig66() {
                     { figma: "Badge", code: "Badge" },
                   ].map((row, i, arr) => (
                     <tr key={row.figma} style={i < arr.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
-                      <td style={cell}><span style={neutralChip}>{row.figma}</span></td>
-                      <td style={{ ...arrowCell, color: "#a1a1aa" }}>=</td>
-                      <td style={cell}><span style={neutralChip}>{row.code}</span></td>
+                      <td style={cell}><span style={nameMuted}>{row.figma}</span></td>
+                      <td style={{ ...arrowCell, color: "#d4d4d8" }}>=</td>
+                      <td style={cell}><span style={nameMuted}>{row.code}</span></td>
                       <td style={{ ...cell, fontSize: 9, color: "#a1a1aa", fontStyle: "italic", paddingLeft: 8 }}>データ非依存</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <div
-                style={{
-                  marginTop: 12,
-                  fontSize: 10,
-                  color: "#52525b",
-                  padding: "6px 10px",
-                  background: "#f4f4f5",
-                  borderRadius: 4,
-                  border: "1px solid #e4e4e7",
-                  textAlign: "center",
-                }}
-              >
+              <div style={{ marginTop: 12, fontSize: 10, color: "#71717a", textAlign: "center" }}>
                 特定のデータに依存しない → どのデータにも使える
               </div>
             </div>

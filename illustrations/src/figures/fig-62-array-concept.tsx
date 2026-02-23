@@ -71,12 +71,6 @@ const linePlaceholder = (w: number): CSSProperties => ({
   background: "#e4e4e7",
 });
 
-const tagPlaceholder: CSSProperties = {
-  height: 18,
-  width: 40,
-  borderRadius: 4,
-  background: "#e4e4e7",
-};
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
@@ -120,19 +114,7 @@ function InstanceRow({ item }: { item: ItemData }) {
         </div>
         <div style={{ fontSize: 10, color: "#52525b" }}>{item.role}</div>
       </div>
-      <span
-        style={{
-          fontSize: 9,
-          fontWeight: 500,
-          color: item.color,
-          background: `${item.color}14`,
-          border: `1px solid ${item.color}30`,
-          padding: "2px 6px",
-          borderRadius: 3,
-        }}
-      >
-        {item.role}
-      </span>
+      <span style={{ fontSize: 10, color: "#a1a1aa" }}>{item.role}</span>
     </div>
   );
 }
@@ -152,7 +134,6 @@ export default function Fig62() {
                   <div style={linePlaceholder(80)} />
                   <div style={linePlaceholder(50)} />
                 </div>
-                <div style={tagPlaceholder} />
               </div>
               <div
                 style={{
@@ -201,49 +182,11 @@ export default function Fig62() {
             justifyContent: "center",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              fontSize: 11,
-              color: "#52525b",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: '"SF Mono", Menlo, monospace',
-                fontSize: 10,
-                background: "#f4f4f5",
-                padding: "2px 8px",
-                borderRadius: 4,
-              }}
-            >
-              Figma
-            </span>
-            Auto Layout 内にコンポーネントを繰り返し配置
+          <div style={{ fontSize: 11, color: "#71717a" }}>
+            <span style={{ fontWeight: 600, color: "#52525b" }}>Figma:</span> Auto Layout 内にコンポーネントを繰り返し配置
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              fontSize: 11,
-              color: "#52525b",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: '"SF Mono", Menlo, monospace',
-                fontSize: 10,
-                background: "#f4f4f5",
-                padding: "2px 8px",
-                borderRadius: 4,
-              }}
-            >
-              Code
-            </span>
-            配列をループして同じコンポーネントを描画
+          <div style={{ fontSize: 11, color: "#71717a" }}>
+            <span style={{ fontWeight: 600, color: "#52525b" }}>Code:</span> 配列をループして同じコンポーネントを描画
           </div>
         </div>
       </div>

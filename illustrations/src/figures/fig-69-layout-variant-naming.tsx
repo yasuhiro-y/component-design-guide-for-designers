@@ -7,12 +7,6 @@ import { CONTENT_WIDTH } from "../styles/tokens";
  * レイアウト形状で名前を分ける方法と、配置場所で名前を分ける方法
  */
 
-const mono: CSSProperties = {
-  fontFamily: '"SF Mono", Menlo, monospace',
-  fontSize: 11,
-  fontWeight: 600,
-};
-
 const panel: CSSProperties = {
   background: "#fff",
   borderRadius: 8,
@@ -44,21 +38,15 @@ const cellStyle: CSSProperties = {
   verticalAlign: "middle",
 };
 
-const nameChip: CSSProperties = {
-  ...mono,
+const nameText: CSSProperties = {
   fontSize: 11,
+  fontWeight: 500,
   color: "#18181b",
-  background: "#f4f4f5",
-  border: "1px solid #e4e4e7",
-  borderRadius: 5,
-  padding: "3px 10px",
-  display: "inline-block",
-  whiteSpace: "nowrap",
 };
 
 const descStyle: CSSProperties = {
   fontSize: 10,
-  color: "#52525b",
+  color: "#71717a",
   lineHeight: 1.4,
 };
 
@@ -93,7 +81,7 @@ function ByLayoutShape() {
   const rows = [
     { icon: layoutIcon.card, suffix: "Card", desc: "縦型・画像つきのリッチな表示", example: "ArticleCard" },
     { icon: layoutIcon.cell, suffix: "Cell", desc: "横幅いっぱいのリスト行", example: "ArticleCell" },
-    { icon: layoutIcon.item, suffix: "Item", desc: "最小限の情報だけを並べるコンパクト行", example: "ArticleItem" },
+    { icon: layoutIcon.item, suffix: "Item", desc: "最小限の情報のコンパクト行", example: "ArticleItem" },
   ];
 
   return (
@@ -113,15 +101,15 @@ function ByLayoutShape() {
             {rows.map((row, i) => (
               <tr key={row.suffix} style={i < rows.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
                 <td style={{ ...cellStyle, textAlign: "center" }}>{row.icon}</td>
-                <td style={cellStyle}><span style={nameChip}>{row.suffix}</span></td>
-                <td style={cellStyle}><span style={{ ...nameChip, background: "#f0fdf4", border: "1px solid #bbf7d0", color: "#166534" }}>{row.example}</span></td>
+                <td style={cellStyle}><span style={nameText}>{row.suffix}</span></td>
+                <td style={cellStyle}><span style={{ ...nameText, color: "#166534" }}>{row.example}</span></td>
                 <td style={{ ...cellStyle, ...descStyle }}>{row.desc}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ marginTop: 12, fontSize: 10, color: "#52525b", padding: "6px 10px", background: "#f4f4f5", borderRadius: 4 }}>
-          <span style={{ fontWeight: 600 }}>Article</span> + <span style={{ fontWeight: 600 }}>Card / Cell / Item</span> = レイアウトの違いが名前に表れる
+        <div style={{ marginTop: 12, fontSize: 10, color: "#71717a", textAlign: "center" }}>
+          Article + Card / Cell / Item = レイアウトの違いが名前に表れる
         </div>
       </div>
     </div>
@@ -152,14 +140,14 @@ function ByPlacement() {
             {rows.map((row, i) => (
               <tr key={row.place} style={i < rows.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
                 <td style={{ ...cellStyle, fontSize: 11, fontWeight: 500, color: "#18181b" }}>{row.place}</td>
-                <td style={cellStyle}><span style={{ ...nameChip, background: "#eff6ff", border: "1px solid #bfdbfe", color: "#1e40af" }}>{row.example}</span></td>
+                <td style={cellStyle}><span style={{ ...nameText, color: "#1e40af" }}>{row.example}</span></td>
                 <td style={{ ...cellStyle, ...descStyle }}>{row.desc}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ marginTop: 12, fontSize: 10, color: "#52525b", padding: "6px 10px", background: "#f4f4f5", borderRadius: 4 }}>
-          <span style={{ fontWeight: 600 }}>Article</span> + <span style={{ fontWeight: 600 }}>場所名</span> = 使われる文脈が名前に表れる
+        <div style={{ marginTop: 12, fontSize: 10, color: "#71717a", textAlign: "center" }}>
+          Article + 場所名 = 使われる文脈が名前に表れる
         </div>
       </div>
     </div>

@@ -8,7 +8,6 @@ import { CONTENT_WIDTH } from "../styles/tokens";
  */
 
 const mono: CSSProperties = {
-  fontFamily: '"SF Mono", Menlo, monospace',
   fontSize: 10,
   fontWeight: 600,
 };
@@ -22,13 +21,8 @@ const panel: CSSProperties = {
 
 const tag: CSSProperties = {
   fontSize: 9,
-  fontWeight: 600,
+  fontWeight: 500,
   color: "#3b82f6",
-  background: "#eff6ff",
-  border: "1px solid #bfdbfe",
-  borderRadius: 4,
-  padding: "1px 6px",
-  display: "inline-block",
 };
 
 const imagePlaceholder: CSSProperties = {
@@ -49,14 +43,10 @@ const sectionLabel: CSSProperties = {
 };
 
 const codeLabel: CSSProperties = {
-  ...mono,
-  color: "#18181b",
-  background: "#f4f4f5",
-  border: "1px solid #e4e4e7",
-  borderRadius: 4,
-  padding: "2px 8px",
-  display: "inline-block",
-  marginBottom: 8,
+  fontSize: 11,
+  fontWeight: 500,
+  color: "#52525b",
+  marginBottom: 6,
 };
 
 /* ── Shared data ── */
@@ -173,8 +163,8 @@ function ObjectBadge() {
         <rect x="1" y="1" width="12" height="12" rx="2" stroke="#22c55e" strokeWidth="1.2" />
         <path d="M4 5H10M4 7H10M4 9H7" stroke="#22c55e" strokeWidth="1" strokeLinecap="round" />
       </svg>
-      <span style={{ ...mono, fontSize: 11, color: "#166534" }}>
-        受け取るオブジェクト: Article {"{"} title, author, date, tag, summary {"}"}
+      <span style={{ fontSize: 11, fontWeight: 500, color: "#166534" }}>
+        受け取るオブジェクト: Article
       </span>
     </div>
   );

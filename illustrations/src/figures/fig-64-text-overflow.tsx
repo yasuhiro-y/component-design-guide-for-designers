@@ -56,24 +56,6 @@ function MiniAvatar() {
   );
 }
 
-function MiniTag() {
-  return (
-    <span
-      style={{
-        fontSize: 9,
-        fontWeight: 500,
-        color: "#18181b",
-        background: "#f4f4f5",
-        border: "1px solid #e4e4e7",
-        borderRadius: 999,
-        padding: "1px 6px",
-        flexShrink: 0,
-      }}
-    >
-      Designer
-    </span>
-  );
-}
 
 /* ── 1行省略（truncate） ── */
 function TruncateExample() {
@@ -98,7 +80,6 @@ function TruncateExample() {
             </div>
             <div style={{ fontSize: 10, color: "#52525b" }}>Product Designer</div>
           </div>
-          <MiniTag />
         </div>
       </div>
       <div style={descStyle}>
