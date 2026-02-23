@@ -42,7 +42,6 @@ const iconBox: CSSProperties = {
   fontSize: 11,
   fontWeight: 700,
   color: "#3f3f46",
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
   flexShrink: 0,
 };
 

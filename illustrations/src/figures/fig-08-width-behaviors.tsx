@@ -29,7 +29,7 @@ export default function Fig08() {
               borderRadius: 6,
               border: "1px solid #d4d4d8",
               fontSize: 13,
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
               background: "#fff",
               outline: "none",
               boxSizing: "border-box",
@@ -57,7 +57,7 @@ export default function Fig08() {
                   fontSize: 13,
                   fontWeight: 500,
                   cursor: "default",
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
                   color: "#18181b",
                 }}
               >

@@ -53,14 +53,12 @@ const headerCell: CSSProperties = {
   color: "#52525b",
   textAlign: "center",
   padding: "6px 0",
-  fontFamily: '"SF Mono", Menlo, monospace',
 };
 
 const rowLabel: CSSProperties = {
   fontSize: 10,
   fontWeight: 600,
   color: "#52525b",
-  fontFamily: '"SF Mono", Menlo, monospace',
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",

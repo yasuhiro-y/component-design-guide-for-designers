@@ -40,15 +40,12 @@ const contradictionCell: CSSProperties = {
   fontWeight: 700,
 };
 
-const goodTag: CSSProperties = {
-  display: "inline-block",
+const solutionLabel: CSSProperties = {
   fontSize: 11,
   fontWeight: 600,
-  color: "#22c55e",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 4,
-  padding: "2px 8px",
+  color: "#15803d",
+  letterSpacing: "0.04em",
+  textTransform: "uppercase",
 };
 
 const codeStyle: CSSProperties = {
@@ -165,7 +162,7 @@ export default function Fig42() {
               gap: 10,
             }}
           >
-            <span style={goodTag}>Good</span>
+            <span style={solutionLabel}>Solution</span>
             <div style={codeStyle}>
               size: &apos;S&apos; | &apos;M&apos; | &apos;L&apos;
             </div>

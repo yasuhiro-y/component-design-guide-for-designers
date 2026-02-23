@@ -23,7 +23,7 @@ function ButtonState({ label, bg, border, opacity, ring, note }: {
             background: bg,
             color: "#fff",
             fontSize: 12, fontWeight: 500,
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"Inter", "Noto Sans JP", sans-serif',
             cursor: "default",
             opacity: opacity ?? 1,
           }}>

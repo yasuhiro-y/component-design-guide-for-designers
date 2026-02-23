@@ -2,27 +2,19 @@ import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const badTag: CSSProperties = {
-  display: "inline-block",
+const negativeLabel: CSSProperties = {
   fontSize: 11,
   fontWeight: 600,
-  color: "#ef4444",
-  background: "#fef2f2",
-  border: "1px solid #fecaca",
-  borderRadius: 4,
-  padding: "2px 8px",
+  color: "#b91c1c",
+  letterSpacing: "0.04em",
   marginBottom: 10,
 };
 
-const goodTag: CSSProperties = {
-  display: "inline-block",
+const positiveLabel: CSSProperties = {
   fontSize: 11,
   fontWeight: 600,
-  color: "#22c55e",
-  background: "#f0fdf4",
-  border: "1px solid #bbf7d0",
-  borderRadius: 4,
-  padding: "2px 8px",
+  color: "#15803d",
+  letterSpacing: "0.04em",
   marginBottom: 10,
 };
 
@@ -60,18 +52,12 @@ const noteStyle: CSSProperties = {
   border: "1px dashed #d4d4d8",
 };
 
-const countBadge = (n: number, accent: boolean): CSSProperties => ({
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
+const countNote: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
-  color: accent ? "#ef4444" : "#22c55e",
-  background: accent ? "#fef2f2" : "#f0fdf4",
-  borderRadius: 999,
-  padding: "2px 8px",
+  fontWeight: 500,
+  color: "#52525b",
   marginTop: 10,
-});
+};
 
 export default function Fig36() {
   return (
@@ -79,9 +65,7 @@ export default function Fig36() {
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Bad: All required */}
         <div style={{ flex: 1 }}>
-          <div>
-            <span style={badTag}>全て必須</span>
-          </div>
+          <div style={negativeLabel}>全て必須</div>
           <div style={panel}>
             <div style={{ marginBottom: 8 }}>
               <span
@@ -104,7 +88,7 @@ export default function Fig36() {
               <div style={required}>{"onClick={handleClick}"}</div>
             </div>
             <div style={{ ...codeFont, color: "#18181b", marginTop: 4 }}>{"/>"}</div>
-            <div style={countBadge(6, true)}>毎回6つ指定が必要</div>
+            <div style={countNote}>毎回6つ指定が必要</div>
           </div>
         </div>
 
@@ -123,9 +107,7 @@ export default function Fig36() {
 
         {/* Good: With defaults */}
         <div style={{ flex: 1 }}>
-          <div>
-            <span style={goodTag}>デフォルトあり</span>
-          </div>
+          <div style={positiveLabel}>デフォルトあり</div>
           <div style={panel}>
             <div style={{ marginBottom: 8 }}>
               <span
@@ -143,37 +125,37 @@ export default function Fig36() {
               <div style={required}>{"label=\"保存\""}</div>
               <div style={optional}>
                 {"size=\"M\""}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"variant=\"primary\""}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"disabled={false}"}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"icon={undefined}"}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"onClick={undefined}"}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
                   default
                 </span>
               </div>
             </div>
             <div style={{ ...codeFont, color: "#18181b", marginTop: 4 }}>{"/>"}</div>
-            <div style={countBadge(1, false)}>必須は1つだけ</div>
+            <div style={countNote}>必須は1つだけ</div>
           </div>
         </div>
       </div>

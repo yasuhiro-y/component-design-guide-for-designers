@@ -1,4 +1,6 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { ServiceIcon } from "../shared/icons";
+import { ServiceIconName } from "../shared/icons/ServiceIcon";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const cardStyle = {
@@ -38,15 +40,23 @@ const tagStyle = (active: boolean) => ({
 const exampleStyle = {
   fontSize: 10,
   color: "#52525b",
-  fontFamily: '"SF Mono", Menlo, monospace' as const,
   marginTop: 8,
 };
 
 export default function Fig25() {
-  const strategies = [
+  const strategies: {
+    title: string;
+    examples: string;
+    icons?: ServiceIconName[];
+    customization: number;
+    effort: number;
+    desc: string;
+    tags: string[];
+  }[] = [
     {
       title: "汎用ライブラリ",
       examples: "MUI, Chakra UI, Ant Design",
+      icons: ["mui", "chakra", "antdesign"],
       customization: 1,
       effort: 1,
       desc: "すぐに開発を始められる。独自性は薄くなりがち。",
@@ -55,6 +65,7 @@ export default function Fig25() {
     {
       title: "Headless UI",
       examples: "Radix UI, React Aria",
+      icons: ["radix"],
       customization: 3,
       effort: 2,
       desc: "見た目は自由。振る舞いとa11yをライブラリに任せる。",
@@ -94,7 +105,16 @@ export default function Fig25() {
             <div key={s.title} style={cardStyle}>
               <div style={titleStyle}>{s.title}</div>
               <div style={descStyle}>{s.desc}</div>
-              <div style={exampleStyle}>{s.examples}</div>
+              <div style={exampleStyle}>
+                {s.icons && (
+                  <span style={{ display: "inline-flex", gap: 3, marginRight: 4, verticalAlign: "middle" }}>
+                    {s.icons.map((ic) => (
+                      <ServiceIcon key={ic} name={ic} size={14} />
+                    ))}
+                  </span>
+                )}
+                {s.examples}
+              </div>
               <div style={{ marginTop: 8 }}>
                 {s.tags.map((t) => (
                   <span key={t} style={tagStyle(false)}>{t}</span>

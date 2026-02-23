@@ -2,15 +2,14 @@ import * as Select from "@radix-ui/react-select";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { LibraryLabel } from "../shared/LibraryLabel";
 import { CONTENT_WIDTH } from "../styles/tokens";
 import "../styles/radix-common.css";
-
-const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
   color: "#18181b",
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
+  letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
@@ -27,7 +26,7 @@ export default function Fig14() {
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Select */}
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>Select</div>
           <div style={panel}>
             <Select.Root defaultValue="medium" open>
@@ -53,7 +52,7 @@ export default function Fig14() {
 
         {/* DropdownMenu */}
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>DropdownMenu</div>
           <div style={{ ...panel, minHeight: 200 }}>
             <DropdownMenu.Root open>
@@ -78,7 +77,7 @@ export default function Fig14() {
 
         {/* ContextMenu */}
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>ContextMenu</div>
           <div style={panel}>
             <ContextMenu.Root>

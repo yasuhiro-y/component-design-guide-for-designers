@@ -1,17 +1,16 @@
 import { ChakraProvider, Badge, Tag, TagLabel, Stack, extendTheme } from "@chakra-ui/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { LibraryLabel } from "../shared/LibraryLabel";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const theme = extendTheme({
-  fonts: { body: '"Inter", sans-serif', heading: '"Inter", sans-serif' },
+  fonts: { body: '"Inter", "Noto Sans JP", sans-serif', heading: '"Inter", "Noto Sans JP", sans-serif' },
 });
-
-const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
   color: "#18181b",
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
+  letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
@@ -29,7 +28,7 @@ export default function Fig16() {
     <ChakraProvider theme={theme} resetCSS={false}>
       <IllustrationFrame title="Chakra Badge / Tag colorScheme">
         <div style={{ width: CONTENT_WIDTH }}>
-          <div style={lib}>Chakra UI</div>
+          <LibraryLabel name="Chakra UI" icon="chakra" />
           <div style={name}>Badge / Tag — colorScheme × variant</div>
           <div style={panel}>
             <div style={{ fontSize: 12, fontWeight: 600, color: "#3f3f46", marginBottom: 12 }}>Badge</div>

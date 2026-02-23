@@ -3,6 +3,7 @@ import {
   Heart, Bell, Calendar, Download, Eye, Star,
 } from "lucide-react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
@@ -63,7 +64,7 @@ export default function Fig21() {
             <span style={{ fontWeight: 600, color: "#3f3f46" }}>ブランドの世界観を細部まで表現。</span>制作・メンテナンスコストは大きい。
           </div>
           <div style={{ fontSize: 10, color: "#52525b", marginTop: 8, lineHeight: 1.5 }}>
-            実例: <span style={{ color: "#52525b" }}>GitHub Octicons</span> / <span style={{ color: "#52525b" }}>Shopify Polaris</span> / <span style={{ color: "#52525b" }}>IBM Carbon</span>
+            実例: <span style={{ display: "inline-flex", alignItems: "center", gap: 2, verticalAlign: "middle" }}><ServiceIcon name="github" size={12} />GitHub Octicons</span> / <span style={{ color: "#52525b" }}>Shopify Polaris</span> / <span style={{ color: "#52525b" }}>IBM Carbon</span>
           </div>
         </div>
       </div>

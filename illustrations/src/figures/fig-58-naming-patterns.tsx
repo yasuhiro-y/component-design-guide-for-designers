@@ -57,7 +57,7 @@ const headerCell: CSSProperties = {
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
   background: "#fafafa",
-  fontFamily: '"Inter", -apple-system, sans-serif',
+  fontFamily: '"Inter", "Noto Sans JP", -apple-system, sans-serif',
 };
 
 export default function Fig58() {
@@ -108,7 +108,7 @@ export default function Fig58() {
                   fontWeight: 600,
                   color: secondary,
                   borderRight: `1px solid ${border}`,
-                  fontFamily: '"Inter", -apple-system, sans-serif',
+                  fontFamily: '"Inter", "Noto Sans JP", -apple-system, sans-serif',
                   fontSize: 11,
                 }}
               >
@@ -152,7 +152,7 @@ export default function Fig58() {
                 style={{
                   ...cellBase,
                   color: secondary,
-                  fontFamily: '"Inter", -apple-system, sans-serif',
+                  fontFamily: '"Inter", "Noto Sans JP", -apple-system, sans-serif',
                   fontSize: 10,
                 }}
               >

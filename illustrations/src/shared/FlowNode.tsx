@@ -14,9 +14,10 @@ function FlowNodeInner({ data }: NodeProps & { data: FlowNodeData }) {
   const variant = data.variant ?? "default";
 
   const base: CSSProperties = {
-    fontFamily: '"Inter", sans-serif',
+    fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+    fontFeatureSettings: '"palt", "cv02", "cv03", "cv04", "cv11"',
     fontSize: 13,
-    lineHeight: 1.45,
+    lineHeight: 1.55,
     minWidth: data.width ?? 120,
     maxWidth: data.width ?? 200,
     textAlign: "center",

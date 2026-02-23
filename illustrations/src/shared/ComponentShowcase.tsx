@@ -1,13 +1,15 @@
 import { CSSProperties, ReactNode } from "react";
 import { color, fontSize, space, radius } from "../styles/tokens";
+import { ServiceIcon, ServiceIconName } from "./icons";
 
 interface ComponentShowcaseProps {
   library: string;
+  libraryIcon?: ServiceIconName;
   name: string;
   children: ReactNode;
 }
 
-export function ComponentShowcase({ library, name, children }: ComponentShowcaseProps) {
+export function ComponentShowcase({ library, libraryIcon, name, children }: ComponentShowcaseProps) {
   const containerStyle: CSSProperties = {
     display: "flex",
     flexDirection: "column",
@@ -15,6 +17,9 @@ export function ComponentShowcase({ library, name, children }: ComponentShowcase
   };
 
   const badgeStyle: CSSProperties = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 4,
     fontSize: fontSize.xs,
     fontWeight: 500,
     color: color.textTertiary,
@@ -25,7 +30,7 @@ export function ComponentShowcase({ library, name, children }: ComponentShowcase
     fontSize: fontSize.lg,
     fontWeight: 500,
     color: color.text,
-    fontFamily: '"SF Mono", "Fira Code", "Fira Mono", Menlo, monospace',
+    
     letterSpacing: "-0.01em",
   };
 
@@ -38,7 +43,10 @@ export function ComponentShowcase({ library, name, children }: ComponentShowcase
 
   return (
     <div style={containerStyle}>
-      <span style={badgeStyle}>{library}</span>
+      <span style={badgeStyle}>
+        {libraryIcon && <ServiceIcon name={libraryIcon} size={16} />}
+        {library}
+      </span>
       <div style={nameStyle}>{name}</div>
       <div style={panelStyle}>{children}</div>
     </div>

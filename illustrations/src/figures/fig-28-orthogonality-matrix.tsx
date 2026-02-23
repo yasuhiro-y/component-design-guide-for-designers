@@ -41,7 +41,7 @@ export default function Fig28() {
   return (
     <IllustrationFrame title="直交性マトリクス">
       <div style={{ width: CONTENT_WIDTH }}>
-        <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 4, textAlign: "center" }}>
+        <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b", marginBottom: 4, textAlign: "center" }}>
           Tag
         </div>
         <div style={{ fontSize: 11, color: "#3f3f46", marginBottom: 16, textAlign: "center" }}>

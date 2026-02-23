@@ -1,15 +1,14 @@
 import * as Toggle from "@radix-ui/react-toggle";
 import * as Switch from "@radix-ui/react-switch";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { LibraryLabel } from "../shared/LibraryLabel";
 import { CONTENT_WIDTH } from "../styles/tokens";
 import "../styles/radix-common.css";
-
-const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
   color: "#18181b",
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
+  letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
@@ -25,7 +24,7 @@ export default function Fig15() {
     <IllustrationFrame title="Radix Toggle vs Switch">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>Toggle</div>
           <div style={panel}>
             <div style={{ display: "flex", gap: 4 }}>
@@ -43,7 +42,7 @@ export default function Fig15() {
           </div>
         </div>
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>Switch</div>
           <div style={panel}>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>

@@ -20,8 +20,8 @@ const layerSub: CSSProperties = {
 
 const compName: CSSProperties = {
   fontSize: 10,
+  fontWeight: 500,
   color: "#52525b",
-  fontFamily: '"SF Mono", Menlo, monospace',
   marginBottom: 4,
 };
 
@@ -47,7 +47,7 @@ function ButtonDemo() {
             color: "#fff",
             fontSize: 11,
             fontWeight: 500,
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"Inter", "Noto Sans JP", sans-serif',
             cursor: "default",
           }}
         >
@@ -62,7 +62,7 @@ function ButtonDemo() {
             color: "#3f3f46",
             fontSize: 11,
             fontWeight: 500,
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"Inter", "Noto Sans JP", sans-serif',
             cursor: "default",
           }}
         >
@@ -83,7 +83,7 @@ function InputDemo() {
           borderRadius: 6,
           border: "1px solid #d4d4d8",
           fontSize: 11,
-          fontFamily: '"Inter", sans-serif',
+          fontFamily: '"Inter", "Noto Sans JP", sans-serif',
           background: "#fff",
           width: 110,
           outline: "none",
@@ -222,7 +222,7 @@ function ProductCardDemo() {
               color: "#fff",
               fontSize: 9,
               fontWeight: 500,
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
               cursor: "default",
               width: "100%",
             }}
@@ -308,7 +308,7 @@ function ProductListSectionDemo() {
               borderRadius: 4,
               border: "1px solid #d4d4d8",
               fontSize: 9,
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
               background: "#fff",
               width: 80,
               outline: "none",
@@ -465,7 +465,7 @@ function CheckoutFormDemo() {
               color: "#fff",
               fontSize: 9,
               fontWeight: 500,
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
               cursor: "default",
             }}
           >

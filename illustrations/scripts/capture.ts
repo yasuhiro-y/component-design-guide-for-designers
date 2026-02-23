@@ -1,10 +1,14 @@
 import { chromium } from "playwright";
 import { figures } from "../src/routes";
+import sharp from "sharp";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = path.resolve(__dirname, "../output");
+
+const TARGET_WIDTH = 2400;
+const RADIUS = 48;
 
 async function capture(targetIds?: string[]) {
   const toCapture = targetIds
@@ -29,17 +33,29 @@ async function capture(targetIds?: string[]) {
 
     await page.goto(url, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(800);
 
     const frame = page.locator('[data-testid="illustration-frame"]');
     await frame.waitFor({ state: "visible" });
 
-    await frame.screenshot({
-      path: path.join(OUTPUT_DIR, `${fig.id}.png`),
-    });
+    const buf = await frame.screenshot();
+
+    const meta = await sharp(buf).metadata();
+    const h = Math.round((meta.height! * TARGET_WIDTH) / meta.width!);
+    const mask = Buffer.from(
+      `<svg width="${TARGET_WIDTH}" height="${h}">
+        <rect x="0" y="0" width="${TARGET_WIDTH}" height="${h}" rx="${RADIUS}" ry="${RADIUS}" fill="white"/>
+      </svg>`
+    );
+
+    await sharp(buf)
+      .resize(TARGET_WIDTH, h)
+      .composite([{ input: mask, blend: "dest-in" }])
+      .png()
+      .toFile(path.join(OUTPUT_DIR, `${fig.id}.png`));
 
     await page.close();
-    console.log(`  → ${fig.id}.png`);
+    console.log(`  → ${fig.id}.png (${TARGET_WIDTH}x${h})`);
   }
 
   await browser.close();

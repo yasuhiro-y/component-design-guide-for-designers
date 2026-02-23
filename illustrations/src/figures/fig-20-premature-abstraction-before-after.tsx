@@ -1,8 +1,22 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const beforeTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 600, color: "#ef4444", background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 4, padding: "2px 8px", marginBottom: 8 };
-const afterTag = { display: "inline-block" as const, fontSize: 11, fontWeight: 600, color: "#22c55e", background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 4, padding: "2px 8px", marginBottom: 8 };
+const beforeLabel = {
+  fontSize: 11,
+  fontWeight: 600,
+  color: "#b91c1c",
+  letterSpacing: "0.04em",
+  textTransform: "uppercase" as const,
+  marginBottom: 10,
+};
+const afterLabel = {
+  fontSize: 11,
+  fontWeight: 600,
+  color: "#15803d",
+  letterSpacing: "0.04em",
+  textTransform: "uppercase" as const,
+  marginBottom: 10,
+};
 const cardTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 6 };
 const prop = { fontSize: 11, color: "#52525b", padding: "1px 0" as const, fontFamily: '"SF Mono", Menlo, monospace' };
 const propGray = { ...prop, color: "#52525b" };
@@ -31,7 +45,7 @@ export default function Fig20() {
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         {/* Before */}
         <div style={{ flex: 1 }}>
-          <div><span style={beforeTag}>Before</span></div>
+          <div style={beforeLabel}>Before</div>
           <div style={cardTitle}>Card</div>
           <div style={prop}>title: string</div>
           <div style={prop}>image: string</div>
@@ -53,7 +67,7 @@ export default function Fig20() {
 
         {/* After */}
         <div style={{ flex: 1 }}>
-          <div><span style={afterTag}>After</span></div>
+          <div style={afterLabel}>After</div>
           <div style={{ marginBottom: 12 }}>
             <div style={cardTitle}>ProductCard</div>
             <div style={prop}>title: string</div>

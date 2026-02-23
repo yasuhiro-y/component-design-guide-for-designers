@@ -69,6 +69,20 @@ export const radius = {
   full: 9999,
 } as const;
 
+export const font = {
+  sans: '"Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  mono: '"SF Mono", "Fira Code", Menlo, monospace',
+  featureSettings: '"palt", "cv02", "cv03", "cv04", "cv11"',
+} as const;
+
+export const iconSize = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 24,
+  xl: 32,
+} as const;
+
 export const FRAME_WIDTH = 800;
 export const FRAME_PADDING = 40;
 export const CONTENT_WIDTH = FRAME_WIDTH - FRAME_PADDING * 2;

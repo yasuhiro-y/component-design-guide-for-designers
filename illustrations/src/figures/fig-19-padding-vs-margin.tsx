@@ -63,7 +63,7 @@ export default function Fig19() {
                     borderRadius: 6,
                     fontSize: 13,
                     fontWeight: 500,
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: '"Inter", "Noto Sans JP", sans-serif',
                   }}
                 >
                   Button
@@ -103,7 +103,7 @@ export default function Fig19() {
                   borderRadius: 6,
                   fontSize: 13,
                   fontWeight: 500,
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
                   alignSelf: "flex-start",
                 }}
               >
@@ -118,7 +118,7 @@ export default function Fig19() {
                   borderRadius: 6,
                   fontSize: 13,
                   fontWeight: 500,
-                  fontFamily: '"Inter", sans-serif',
+                  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
                   alignSelf: "flex-start",
                 }}
               >

@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sectionTitle: CSSProperties = {
@@ -110,7 +111,10 @@ export default function Fig18() {
             padding: 20,
           }}
         >
-          <div style={sectionTitle}>Figma Properties</div>
+          <div style={{ ...sectionTitle, display: "flex", alignItems: "center", gap: 4 }}>
+            <ServiceIcon name="figma" size={16} />
+            Figma Properties
+          </div>
           <div style={propRow}>
             <span style={propLabel}>showIcon</span>
             <Toggle on />
@@ -144,7 +148,10 @@ export default function Fig18() {
             padding: 20,
           }}
         >
-          <div style={sectionTitle}>Code Props</div>
+          <div style={{ ...sectionTitle, display: "flex", alignItems: "center", gap: 4 }}>
+            <ServiceIcon name="react" size={16} />
+            Code Props
+          </div>
           <pre style={codeBlock}>
 {`<Button
   showIcon={true}

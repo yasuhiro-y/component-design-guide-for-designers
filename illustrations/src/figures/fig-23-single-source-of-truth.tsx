@@ -33,7 +33,7 @@ export default function Fig23() {
         <div style={{ flex: 1 }}>
           <div style={colLabel}>コンポーネント管理</div>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
-            <div style={{ padding: "6px 14px", borderRadius: 6, background: "#18181b", color: "#fff", fontSize: 11, fontWeight: 600, fontFamily: '"SF Mono", Menlo, monospace' }}>
+            <div style={{ padding: "6px 14px", borderRadius: 6, background: "#18181b", color: "#fff", fontSize: 11, fontWeight: 600 }}>
               Button
             </div>
           </div>

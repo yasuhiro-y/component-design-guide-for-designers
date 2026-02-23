@@ -54,7 +54,7 @@ export default function Fig24() {
                 { label: "shadow", value: "sm" },
               ].map(({ label, value }) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
-                  <span style={{ color: "#52525b", fontFamily: '"SF Mono", Menlo, monospace', minWidth: 50 }}>{label}</span>
+                  <span style={{ color: "#52525b", fontWeight: 500, minWidth: 50 }}>{label}</span>
                   <span style={{ color: "#3f3f46" }}>{value}</span>
                 </div>
               ))}

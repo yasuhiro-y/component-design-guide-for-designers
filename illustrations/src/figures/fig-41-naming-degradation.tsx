@@ -8,7 +8,7 @@ const border = "#e4e4e7";
 const text = "#18181b";
 const secondary = "#3f3f46";
 const tertiary = "#52525b";
-const mono = '"SF Mono", Menlo, monospace';
+const mono = '"Inter", "Noto Sans JP", sans-serif';
 
 /* ── chaotic button styles (left side — inconsistent conventions) ── */
 const chaosButtons: { name: string; style: CSSProperties }[] = [

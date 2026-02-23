@@ -33,14 +33,10 @@ const bubble: CSSProperties = {
 };
 
 const tag = (type: "generic" | "domain"): CSSProperties => ({
-  display: "inline-block",
   fontSize: 11,
   fontWeight: 600,
-  color: type === "generic" ? "#3b82f6" : "#f59e0b",
-  background: type === "generic" ? "#eff6ff" : "#fffbeb",
-  border: `1px solid ${type === "generic" ? "#bfdbfe" : "#fde68a"}`,
-  borderRadius: 4,
-  padding: "2px 8px",
+  color: type === "generic" ? "#2563eb" : "#d97706",
+  letterSpacing: "0.02em",
 });
 
 const propsBox: CSSProperties = {

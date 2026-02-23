@@ -4,18 +4,19 @@ import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { LibraryLabel } from "../shared/LibraryLabel";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const theme = createTheme({
-  typography: { fontFamily: '"Inter", sans-serif', fontSize: 13 },
+  typography: { fontFamily: '"Inter", "Noto Sans JP", sans-serif', fontSize: 13 },
 });
 
-const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
+
 const name = {
   fontSize: 15,
   fontWeight: 500,
   color: "#18181b",
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
+  letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
@@ -33,7 +34,7 @@ export default function Fig12() {
       <IllustrationFrame title="MUI Chip vs Badge">
         <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
           <div style={{ flex: 1 }}>
-            <div style={lib}>MUI</div>
+            <LibraryLabel name="MUI" icon="mui" />
             <div style={name}>Chip</div>
             <div style={panel}>
               <div style={subLabel}>Deletable</div>
@@ -56,7 +57,7 @@ export default function Fig12() {
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <div style={lib}>MUI</div>
+            <LibraryLabel name="MUI" icon="mui" />
             <div style={name}>Badge</div>
             <div style={panel}>
               <div style={subLabel}>With Avatar</div>

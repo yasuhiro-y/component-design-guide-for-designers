@@ -13,8 +13,8 @@ const groupLabel: CSSProperties = {
 
 const compName: CSSProperties = {
   fontSize: 11,
+  fontWeight: 500,
   color: "#52525b",
-  fontFamily: '"SF Mono", Menlo, monospace',
   marginBottom: 4,
 };
 
@@ -25,8 +25,8 @@ function ButtonDemo() {
     <div>
       <div style={compName}>Button</div>
       <div style={{ display: "flex", gap: 6 }}>
-        <button style={{ padding: "6px 14px", borderRadius: 6, border: "none", background: "#18181b", color: "#fff", fontSize: 12, fontWeight: 500, fontFamily: '"Inter",sans-serif', cursor: "default" }}>Primary</button>
-        <button style={{ padding: "6px 14px", borderRadius: 6, border: "1px solid #d4d4d8", background: "#fff", color: "#3f3f46", fontSize: 12, fontWeight: 500, fontFamily: '"Inter",sans-serif', cursor: "default" }}>Secondary</button>
+        <button style={{ padding: "6px 14px", borderRadius: 6, border: "none", background: "#18181b", color: "#fff", fontSize: 12, fontWeight: 500, fontFamily: '"Inter", "Noto Sans JP", sans-serif', cursor: "default" }}>Primary</button>
+        <button style={{ padding: "6px 14px", borderRadius: 6, border: "1px solid #d4d4d8", background: "#fff", color: "#3f3f46", fontSize: 12, fontWeight: 500, fontFamily: '"Inter", "Noto Sans JP", sans-serif', cursor: "default" }}>Secondary</button>
       </div>
     </div>
   );
@@ -55,7 +55,7 @@ function InputDemo() {
   return (
     <div>
       <div style={compName}>Input</div>
-      <input style={{ padding: "6px 10px", borderRadius: 6, border: "1px solid #d4d4d8", fontSize: 12, fontFamily: '"Inter",sans-serif', background: "#fff", width: 160, outline: "none", color: "#3f3f46" }} defaultValue="テキスト入力" readOnly />
+      <input style={{ padding: "6px 10px", borderRadius: 6, border: "1px solid #d4d4d8", fontSize: 12, fontFamily: '"Inter", "Noto Sans JP", sans-serif', background: "#fff", width: 160, outline: "none", color: "#3f3f46" }} defaultValue="テキスト入力" readOnly />
     </div>
   );
 }
@@ -85,7 +85,7 @@ function JobListItemDemo() {
         <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>カフェスタッフ</div>
         <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 2 }}>渋谷店 · 時給 1,200円</div>
         <div style={{ marginTop: 8 }}>
-          <button style={{ padding: "4px 10px", borderRadius: 6, border: "none", background: "#18181b", color: "#fff", fontSize: 11, fontWeight: 500, fontFamily: '"Inter",sans-serif', cursor: "default" }}>応募する</button>
+          <button style={{ padding: "4px 10px", borderRadius: 6, border: "none", background: "#18181b", color: "#fff", fontSize: 11, fontWeight: 500, fontFamily: '"Inter", "Noto Sans JP", sans-serif', cursor: "default" }}>応募する</button>
         </div>
       </div>
     </div>

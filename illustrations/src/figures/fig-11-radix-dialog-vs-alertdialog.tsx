@@ -1,12 +1,11 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { LibraryLabel } from "../shared/LibraryLabel";
 import { CONTENT_WIDTH } from "../styles/tokens";
-
-const lib = { fontSize: 11, color: "#52525b", marginBottom: 4 } as const;
 const name = {
   fontSize: 15,
   fontWeight: 500,
   color: "#18181b",
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
+  letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const showcase = {
@@ -26,7 +25,7 @@ function Btn({ children, variant = "secondary" }: { children: string; variant?: 
   const fg = variant === "secondary" ? "#3f3f46" : "#fff";
   const border = variant === "secondary" ? "1px solid #e4e4e7" : "none";
   return (
-    <button style={{ display: "inline-flex", padding: "6px 14px", borderRadius: 6, fontSize: 12, fontWeight: 500, background: bg, color: fg, border, fontFamily: '"Inter",sans-serif', cursor: "default" }}>
+    <button style={{ display: "inline-flex", padding: "6px 14px", borderRadius: 6, fontSize: 12, fontWeight: 500, background: bg, color: fg, border, fontFamily: '"Inter", "Noto Sans JP", sans-serif', cursor: "default" }}>
       {children}
     </button>
   );
@@ -53,7 +52,7 @@ export default function Fig11() {
     <IllustrationFrame title="Radix Dialog vs AlertDialog">
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>Dialog</div>
           <DialogMock
             title="プロフィール編集"
@@ -64,7 +63,7 @@ export default function Fig11() {
           />
         </div>
         <div style={{ flex: 1 }}>
-          <div style={lib}>Radix UI</div>
+          <LibraryLabel name="Radix UI" icon="radix" />
           <div style={name}>AlertDialog</div>
           <DialogMock
             title="本当に削除しますか？"

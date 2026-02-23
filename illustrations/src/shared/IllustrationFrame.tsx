@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
-import { FRAME_WIDTH, FRAME_PADDING } from "../styles/tokens";
+import { FRAME_WIDTH, FRAME_PADDING, font } from "../styles/tokens";
 
 interface IllustrationFrameProps {
   children: ReactNode;
@@ -10,8 +10,9 @@ export function IllustrationFrame({ children, title }: IllustrationFrameProps) {
   const style: CSSProperties = {
     width: FRAME_WIDTH,
     padding: FRAME_PADDING,
-    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    fontFeatureSettings: '"cv02", "cv03", "cv04", "cv11"',
+    fontFamily: font.sans,
+    fontFeatureSettings: font.featureSettings,
+    fontKerning: "normal",
     background: "#f4f4f5",
   };
 
@@ -21,6 +22,7 @@ export function IllustrationFrame({ children, title }: IllustrationFrameProps) {
     color: "#18181b",
     marginBottom: 20,
     letterSpacing: "-0.01em",
+    lineHeight: 1.6,
   };
 
   return (

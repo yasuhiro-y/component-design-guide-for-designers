@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const mono: CSSProperties = {
@@ -42,7 +43,10 @@ export default function Fig52() {
       <div style={{ display: "flex", gap: 12, width: CONTENT_WIDTH, alignItems: "stretch" }}>
         {/* Figma */}
         <div style={panel}>
-          <div style={heading}>Figma</div>
+          <div style={{ ...heading, display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+            <ServiceIcon name="figma" size={16} />
+            Figma
+          </div>
           {items.map((item, i) => (
             <div key={item} style={{ ...row, borderBottom: i < items.length - 1 ? "1px solid #f4f4f5" : "none" }}>
               <span style={{ ...mono, fontWeight: 500, fontSize: 11 }}>{item}</span>
@@ -57,7 +61,10 @@ export default function Fig52() {
 
         {/* Code */}
         <div style={panel}>
-          <div style={heading}>Code</div>
+          <div style={{ ...heading, display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+            <ServiceIcon name="react" size={14} />
+            Code
+          </div>
           {items.map((item, i) => (
             <div key={item} style={{ ...row, borderBottom: i < items.length - 1 ? "1px solid #f4f4f5" : "none" }}>
               <span style={{ ...mono, fontWeight: 500, fontSize: 11 }}>{item}</span>

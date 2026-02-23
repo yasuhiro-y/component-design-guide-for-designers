@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sectionTitle: CSSProperties = {
@@ -108,7 +109,10 @@ export default function Fig37() {
         <div style={{ display: "flex", gap: 16, marginBottom: 0 }}>
           {/* ── Figma ── */}
           <div style={{ flex: 1 }}>
-            <div style={sectionTitle}>Figma</div>
+            <div style={{ ...sectionTitle, display: "flex", alignItems: "center", gap: 4 }}>
+              <ServiceIcon name="figma" size={16} />
+              Figma
+            </div>
             <div style={panel}>
               {/* Rendered card with subtitle ON */}
               <div style={{ marginBottom: 12 }}>
@@ -147,7 +151,10 @@ export default function Fig37() {
 
           {/* ── Code ── */}
           <div style={{ flex: 1 }}>
-            <div style={sectionTitle}>コード</div>
+            <div style={{ ...sectionTitle, display: "flex", alignItems: "center", gap: 4 }}>
+              <ServiceIcon name="react" size={16} />
+              コード
+            </div>
             <div style={panel}>
               {/* Two card states side by side */}
               <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>

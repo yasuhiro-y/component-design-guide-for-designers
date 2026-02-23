@@ -92,7 +92,7 @@ function ErrorState() {
         <span style={{ width: 20, height: 20, borderRadius: "50%", background: "#fef2f2", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#ef4444" }}>!</span>
         <span style={{ fontSize: 11, fontWeight: 500, color: "#ef4444" }}>読み込み失敗</span>
       </div>
-      <button style={{ padding: "5px 12px", borderRadius: 6, border: "1px solid #d4d4d8", background: "#fff", fontSize: 11, color: "#3f3f46", fontFamily: '"Inter",sans-serif', cursor: "default" }}>再試行</button>
+      <button style={{ padding: "5px 12px", borderRadius: 6, border: "1px solid #d4d4d8", background: "#fff", fontSize: 11, color: "#3f3f46", fontFamily: '"Inter", "Noto Sans JP", sans-serif', cursor: "default" }}>再試行</button>
     </div>
   );
 }

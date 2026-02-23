@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const timeLabel: CSSProperties = {
@@ -47,7 +48,10 @@ export default function Fig39() {
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={timeLabel}>立ち上げ期</div>
             <div style={{ ...nodeBox, border: "2px solid #18181b" }}>
-              MUI を採用
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                <ServiceIcon name="mui" size={16} />
+                MUI を採用
+              </span>
               <div style={sub}>管理画面を速く作りたい</div>
             </div>
           </div>
