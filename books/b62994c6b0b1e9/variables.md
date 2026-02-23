@@ -95,12 +95,12 @@ Enumの選択肢は、見た目ではなく意味で名付けます。
 
 | プロパティ | 選択肢の例 |
 | --- | --- |
-| `size` | `small` / `medium` / `large` |
-| `variant` | `primary` / `secondary` / `destructive` |
-| `status` | `success` / `warning` / `error` / `info` |
-| `placement` | `left` / `center` / `right` |
-| `variant`（強度） | `solid` / `subtle` / `outline` |
-| `priority` | `critical` / `high` / `medium` / `low` |
+| size | small / medium / large |
+| variant | primary / secondary / destructive |
+| status | success / warning / error / info |
+| placement | left / center / right |
+| variant（強度） | solid / subtle / outline |
+| priority | critical / high / medium / low |
 
 ### Tシャツサイズ: 拡張可能なスケール
 
