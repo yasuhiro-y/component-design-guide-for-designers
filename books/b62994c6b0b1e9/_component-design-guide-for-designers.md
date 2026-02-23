@@ -847,9 +847,13 @@ String型は何でも入力できますが、自由すぎるとチームのな�
 
 #### 選択肢の命名: 意味で名付ける
 
-Enumの選択肢は、見た目ではなく意味で名付けます。`size` なら `S` / `M` / `L` のように体系的に、`variant` なら `primary` / `danger` のように役割で。`size: default` は曖昧で後から意味がわからなくなりますし、`variant: red` は色が変わった瞬間に破綻します。
+Enumの選択肢は、見た目ではなく意味で名付けます。
 
-// todo 豊富な箇条書きを用意したい
+- **サイズ**: `default` ではなく `small` / `medium` / `large`。スケール上の位置が名前でわかる
+- **バリアント**: `red` ではなく `primary` / `secondary` / `destructive`。色が変わっても名前が壊れない
+- **ステータス**: `green` ではなく `success` / `warning` / `error` / `info`。意味が色から独立している
+- **配置**: `1` / `2` ではなく `left` / `center` / `right`、または `start` / `end`。位置の意味が伝わる
+- **表現の強度**: `dark` / `light` ではなく `solid`（塗りつぶし）/ `subtle`（薄い背景）/ `outline`（枠線のみ）。スタイルの意図が明確
 
 #### Tシャツサイズ: 拡張可能なスケール
 
