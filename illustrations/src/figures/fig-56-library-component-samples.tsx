@@ -1,17 +1,13 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import MuiButton from "@mui/material/Button";
-import MuiTextField from "@mui/material/TextField";
-import MuiChip from "@mui/material/Chip";
-import MuiSwitch from "@mui/material/Switch";
-import { Button as AntButton, Input as AntInput, Tag as AntTag, Switch as AntSwitch } from "antd";
-import { ChakraProvider, Button as ChakraButton, Input as ChakraInput, Tag as ChakraTag, Switch as ChakraSwitch } from "@chakra-ui/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { LibraryLabel } from "../shared/LibraryLabel";
 import { CONTENT_WIDTH } from "../styles/tokens";
+import type { ServiceIconName } from "../shared/icons";
 
-const muiTheme = createTheme({
-  typography: { fontFamily: '"Inter", "Noto Sans JP", sans-serif', fontSize: 13 },
-});
+/**
+ * MUI / Chakra UI / Ant Design のコンポーネント一覧を
+ * 統一された見た目のモックで並べる。
+ * 各ライブラリが同じ基本部品を提供していることを伝える図。
+ */
 
 const nameStyle = {
   fontSize: 15,
@@ -22,121 +18,235 @@ const nameStyle = {
 } as const;
 
 const panel = {
-  background: "#f4f4f5",
+  background: "#fff",
   borderRadius: 8,
   border: "1px solid #e4e4e7",
-  padding: 14,
+  padding: "12px 14px",
   display: "flex",
   flexDirection: "column" as const,
-  gap: 10,
-};
+  gap: 0,
+} as const;
 
-const row = {
+const rowStyle = {
   display: "flex",
   alignItems: "center" as const,
-  gap: 8,
-  flexWrap: "wrap" as const,
-};
-
-const label = {
-  fontSize: 11,
-  fontWeight: 500,
-  color: "#52525b",
-  minWidth: 48,
+  padding: "8px 0",
+  borderBottom: "1px solid #f4f4f5",
 } as const;
+
+const rowLast = {
+  ...rowStyle,
+  borderBottom: "none",
+} as const;
+
+const compLabel = {
+  fontSize: 11,
+  fontWeight: 600,
+  color: "#3f3f46",
+  width: 56,
+  flexShrink: 0,
+} as const;
+
+const previewArea = {
+  display: "flex",
+  alignItems: "center" as const,
+  gap: 6,
+  flex: 1,
+} as const;
+
+/* ── ミニコンポーネントモック ── */
+
+function MiniButton({ primary }: { primary?: boolean }) {
+  return (
+    <div
+      style={{
+        padding: "4px 12px",
+        borderRadius: 5,
+        background: primary ? "#18181b" : "#fff",
+        color: primary ? "#fff" : "#3f3f46",
+        border: primary ? "none" : "1px solid #d4d4d8",
+        fontSize: 11,
+        fontWeight: 500,
+        lineHeight: "18px",
+      }}
+    >
+      {primary ? "Primary" : "Default"}
+    </div>
+  );
+}
+
+function MiniInput() {
+  return (
+    <div
+      style={{
+        padding: "4px 8px",
+        borderRadius: 5,
+        border: "1px solid #d4d4d8",
+        background: "#fff",
+        fontSize: 11,
+        color: "#a1a1aa",
+        flex: 1,
+        lineHeight: "18px",
+      }}
+    >
+      Placeholder
+    </div>
+  );
+}
+
+function MiniTag() {
+  return (
+    <div style={{ display: "flex", gap: 4 }}>
+      <span
+        style={{
+          padding: "2px 8px",
+          borderRadius: 4,
+          background: "#f4f4f5",
+          fontSize: 10,
+          fontWeight: 500,
+          color: "#3f3f46",
+        }}
+      >
+        Default
+      </span>
+      <span
+        style={{
+          padding: "2px 8px",
+          borderRadius: 4,
+          background: "#eff6ff",
+          fontSize: 10,
+          fontWeight: 500,
+          color: "#3b82f6",
+        }}
+      >
+        Primary
+      </span>
+    </div>
+  );
+}
+
+function MiniSwitch({ on }: { on?: boolean }) {
+  return (
+    <div
+      style={{
+        width: 28,
+        height: 16,
+        borderRadius: 8,
+        background: on ? "#18181b" : "#d4d4d8",
+        padding: 2,
+        display: "flex",
+        justifyContent: on ? "flex-end" : "flex-start",
+      }}
+    >
+      <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#fff" }} />
+    </div>
+  );
+}
+
+function MiniSelect() {
+  return (
+    <div
+      style={{
+        padding: "4px 8px",
+        borderRadius: 5,
+        border: "1px solid #d4d4d8",
+        background: "#fff",
+        fontSize: 11,
+        color: "#3f3f46",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 4,
+        lineHeight: "18px",
+      }}
+    >
+      Medium <span style={{ fontSize: 9, color: "#a1a1aa" }}>▾</span>
+    </div>
+  );
+}
+
+function MiniCheckbox() {
+  return (
+    <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+      <div
+        style={{
+          width: 14,
+          height: 14,
+          borderRadius: 3,
+          border: "1.5px solid #18181b",
+          background: "#18181b",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 9,
+          color: "#fff",
+        }}
+      >
+        ✓
+      </div>
+      <div
+        style={{
+          width: 14,
+          height: 14,
+          borderRadius: 3,
+          border: "1.5px solid #d4d4d8",
+          background: "#fff",
+        }}
+      />
+    </div>
+  );
+}
+
+/* ── 列データ ── */
+
+interface LibColumn {
+  icon: ServiceIconName;
+  name: string;
+}
+
+const libraries: LibColumn[] = [
+  { icon: "mui", name: "Material UI" },
+  { icon: "chakra", name: "Chakra UI" },
+  { icon: "antdesign", name: "Ant Design" },
+];
+
+const components: { label: string; render: () => React.ReactNode; last?: boolean }[] = [
+  {
+    label: "Button",
+    render: () => (
+      <>
+        <MiniButton primary /> <MiniButton />
+      </>
+    ),
+  },
+  { label: "Input", render: () => <MiniInput /> },
+  { label: "Select", render: () => <MiniSelect /> },
+  { label: "Tag", render: () => <MiniTag /> },
+  { label: "Switch", render: () => <MiniSwitch on /> },
+  { label: "Check", render: () => <MiniCheckbox />, last: true },
+];
 
 export default function Fig56() {
   return (
-    <ThemeProvider theme={muiTheme}>
-      <IllustrationFrame title="汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design">
-        <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
-          {/* MUI */}
-          <div style={{ flex: 1 }}>
-            <LibraryLabel name="MUI" icon="mui" />
-            <div style={nameStyle}>Material UI</div>
+    <IllustrationFrame title="汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design">
+      <div style={{ display: "flex", gap: 14, width: CONTENT_WIDTH }}>
+        {libraries.map((lib) => (
+          <div key={lib.name} style={{ flex: 1 }}>
+            <LibraryLabel name={lib.name} icon={lib.icon} />
+            <div style={nameStyle}>{lib.name}</div>
             <div style={panel}>
-              <div style={row}>
-                <span style={label}>Button</span>
-                <MuiButton variant="contained" size="small">Primary</MuiButton>
-                <MuiButton variant="outlined" size="small">Outlined</MuiButton>
-              </div>
-              <div style={row}>
-                <span style={label}>Input</span>
-                <MuiTextField size="small" placeholder="Text field" variant="outlined" sx={{ flex: 1 }} />
-              </div>
-              <div style={row}>
-                <span style={label}>Chip</span>
-                <MuiChip label="Tag A" size="small" />
-                <MuiChip label="Tag B" size="small" color="primary" />
-              </div>
-              <div style={row}>
-                <span style={label}>Switch</span>
-                <MuiSwitch size="small" defaultChecked />
-                <MuiSwitch size="small" />
-              </div>
+              {components.map((comp) => (
+                <div key={comp.label} style={comp.last ? rowLast : rowStyle}>
+                  <span style={compLabel}>{comp.label}</span>
+                  <div style={previewArea}>{comp.render()}</div>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Chakra UI */}
-          <div style={{ flex: 1 }}>
-            <ChakraProvider>
-              <LibraryLabel name="Chakra UI" icon="chakra" />
-              <div style={nameStyle}>Chakra UI</div>
-              <div style={panel}>
-                <div style={row}>
-                  <span style={label}>Button</span>
-                  <ChakraButton size="sm" colorScheme="blue">Primary</ChakraButton>
-                  <ChakraButton size="sm" variant="outline">Outline</ChakraButton>
-                </div>
-                <div style={row}>
-                  <span style={label}>Input</span>
-                  <ChakraInput size="sm" placeholder="Text input" />
-                </div>
-                <div style={row}>
-                  <span style={label}>Tag</span>
-                  <ChakraTag size="sm">Tag A</ChakraTag>
-                  <ChakraTag size="sm" colorScheme="blue">Tag B</ChakraTag>
-                </div>
-                <div style={row}>
-                  <span style={label}>Switch</span>
-                  <ChakraSwitch size="sm" defaultChecked />
-                  <ChakraSwitch size="sm" />
-                </div>
-              </div>
-            </ChakraProvider>
-          </div>
-
-          {/* Ant Design */}
-          <div style={{ flex: 1 }}>
-            <LibraryLabel name="Ant Design" icon="antdesign" />
-            <div style={nameStyle}>Ant Design</div>
-            <div style={panel}>
-              <div style={row}>
-                <span style={label}>Button</span>
-                <AntButton type="primary" size="small">Primary</AntButton>
-                <AntButton size="small">Default</AntButton>
-              </div>
-              <div style={row}>
-                <span style={label}>Input</span>
-                <AntInput size="small" placeholder="Text input" style={{ flex: 1 }} />
-              </div>
-              <div style={row}>
-                <span style={label}>Tag</span>
-                <AntTag>Tag A</AntTag>
-                <AntTag color="blue">Tag B</AntTag>
-              </div>
-              <div style={row}>
-                <span style={label}>Switch</span>
-                <AntSwitch size="small" defaultChecked />
-                <AntSwitch size="small" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style={{ fontSize: 11, color: "#52525b", marginTop: 14, textAlign: "center" }}>
-          どのライブラリも Button・Input・Tag・Switch といった基本部品がそろっている
-        </div>
-      </IllustrationFrame>
-    </ThemeProvider>
+        ))}
+      </div>
+      <div style={{ fontSize: 11, color: "#52525b", marginTop: 14, textAlign: "center" }}>
+        どのライブラリも Button・Input・Select・Tag・Switch といった基本部品がそろっている
+      </div>
+    </IllustrationFrame>
   );
 }
