@@ -178,7 +178,7 @@ const note: CSSProperties = {
 /* ── component ── */
 export default function Fig41() {
   return (
-    <IllustrationFrame title="命名の体系: ルールの有無が半年後の品質を決める">
+    <IllustrationFrame title="慣習: ルールの有無が半年後の品質を決める">
       <div
         style={{
           width: CONTENT_WIDTH,

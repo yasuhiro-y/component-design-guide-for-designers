@@ -29,8 +29,8 @@ export const figures: FigureRoute[] = [
   { id: "fig-20", component: lazy(() => import("./figures/fig-20-premature-abstraction-before-after")), title: "早すぎる共通化の罠" },
   { id: "fig-21", component: lazy(() => import("./figures/fig-21-icon-library-vs-custom")), title: "既存ライブラリ vs 独自アイコン" },
   { id: "fig-22", component: lazy(() => import("./figures/fig-22-component-lifecycle-timeline")), title: "コンポーネントのライフサイクル" },
-  { id: "fig-23", component: lazy(() => import("./figures/fig-23-single-source-of-truth")), title: "再利用性: 1箇所の変更がすべてに届く" },
-  { id: "fig-24", component: lazy(() => import("./figures/fig-24-separation-of-concerns")), title: "関心の分離: 3つのレイヤー" },
+  { id: "fig-23", component: lazy(() => import("./figures/fig-23-single-source-of-truth")), title: "間接化: 1箇所の変更がすべてに届く" },
+  { id: "fig-24", component: lazy(() => import("./figures/fig-24-separation-of-concerns")), title: "カプセル化: 3つの分離レイヤー" },
   { id: "fig-25", component: lazy(() => import("./figures/fig-25-build-strategy-spectrum")), title: "構築戦略の4パターン" },
   { id: "fig-26", component: lazy(() => import("./figures/fig-26-naming-explosion")), title: "命名: 組み合わせの爆発" },
   { id: "fig-27", component: lazy(() => import("./figures/fig-27-safe-vs-breaking-change")), title: "安全な変更と破壊的変更" },
@@ -47,7 +47,7 @@ export const figures: FigureRoute[] = [
   { id: "fig-38", component: lazy(() => import("./figures/fig-38-divider-placement")), title: "区切り線: コンポーネントに含めるか、親が制御するか" },
   { id: "fig-39", component: lazy(() => import("./figures/fig-39-path-dependency")), title: "経路依存性: 初期の選択が未来を縛る" },
   { id: "fig-40", component: lazy(() => import("./figures/fig-40-atomic-design-layers")), title: "Atomic Design: 5つの階層" },
-  { id: "fig-41", component: lazy(() => import("./figures/fig-41-naming-degradation")), title: "命名の体系: ルールの有無が半年後の品質を決める" },
+  { id: "fig-41", component: lazy(() => import("./figures/fig-41-naming-degradation")), title: "慣習: ルールの有無が半年後の品質を決める" },
   { id: "fig-42", component: lazy(() => import("./figures/fig-42-boolean-contradiction")), title: "Boolean の矛盾: 2つのトグルより1つの Enum" },
   { id: "fig-43", component: lazy(() => import("./figures/fig-43-detach-alternatives")), title: "既存コンポーネントで実現できないとき: 4つの選択肢" },
   { id: "fig-44", component: lazy(() => import("./figures/fig-44-retrofit-steps")), title: "後発導入: 稼働中プロダクトへの3ステップ" },
@@ -59,6 +59,8 @@ export const figures: FigureRoute[] = [
   { id: "fig-50", component: lazy(() => import("./figures/fig-50-configuration-vs-composition")), title: "Configuration vs Composition: 設定の山か、組み合わせか" },
   { id: "fig-51", component: lazy(() => import("./figures/fig-51-ecosystem-lifecycle")), title: "デザインシステムの進化サイクル" },
   { id: "fig-52", component: lazy(() => import("./figures/fig-52-mental-model-sync")), title: "メンタルモデルの同期: Figma・コード・認知の一致" },
+  { id: "fig-53", component: lazy(() => import("./figures/fig-53-constraint")), title: "制約: 選択肢を絞り、判断の負荷を下げる" },
+  { id: "fig-54", component: lazy(() => import("./figures/fig-54-composition")), title: "合成: 小さな部品を組み合わせて大きなUIを構築する" },
 ];
 
 export function getFigureById(id: string) {
