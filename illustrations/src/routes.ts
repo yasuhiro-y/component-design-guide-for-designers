@@ -73,6 +73,7 @@ export const figures: FigureRoute[] = [
   { id: "fig-64", component: lazy(() => import("./figures/fig-64-text-overflow")), title: "テキストのオーバーフロー: 省略・行数制限・折り返し" },
   { id: "fig-65", component: lazy(() => import("./figures/fig-65-container-overflow")), title: "コンテナのオーバーフロー: スクロール・もっと見る・切り捨て" },
   { id: "fig-66", component: lazy(() => import("./figures/fig-66-data-model-naming")), title: "データモデルとコンポーネント名: 揃えるか、離すか" },
+  { id: "fig-67", component: lazy(() => import("./figures/fig-67-orthogonality-broken")), title: "直交性の崩れ: 1つのプロパティに混ぜる vs 分離する" },
 ];
 
 export function getFigureById(id: string) {

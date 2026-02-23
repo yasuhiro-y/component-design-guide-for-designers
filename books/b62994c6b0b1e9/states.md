@@ -72,12 +72,13 @@ Figma上では、プロパティもバリアントとして表現されます。
 
 ボタンの上にマウスカーソルを乗せたとき、押し込んでいるとき、操作できない状態のとき。これらはそれぞれ `Hover`、`Pressed`、`Disabled` と呼ばれます。Figmaでは `Interactive Components` の機能で表現できます。
 
-ボタンのインタラクションには「弧（arc）」があります。default → hover → focused → pressed → waiting（[Curtis, 2016](https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23)）。この一連の流れを切れ目なくデザインすることが、ボタンのインタラクション品質を決めます。
+
+![インタラクション状態: 5つの見た目を統一ルールで管理する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-29.png)
+
+Webにおけるボタンのインタラクションには一覧のながれがあります。default → hover → focused → pressed → waiting（[Curtis, 2016](https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23)）。この一連の流れを切れ目なくデザインすることが、ボタンのインタラクション品質を決めます。
 
 ここで大事なのは、こうしたインタラクション状態のルールをコンポーネントごとに個別に決めないことです。`Hover`時は現在の背景色に対してオーバーレイを8%重ねる、`Disabled`時は`opacity`を38%に下げる——こうしたルールをトークンとして一元管理しておけば、新しいコンポーネントを作るときにゼロから設計する必要がなくなります。[Material Design 3のState Layers](https://m3.material.io/foundations/interaction/states/state-layers)がこの考え方の参考になります。
 
 デザイナーが見落としがちなのがフォーカス状態です。マウスを使わずキーボードのTabキーで画面を操作するユーザーにとって、いまどの要素にフォーカスがあるかを示すフォーカスリング（枠線）は不可欠な手がかりです。フォーカスリングの色、太さ、オフセットをコンポーネント横断で統一しておくことが重要です。
 
 すべてのインタラクティブなコンポーネントに対して、`Hover`、`Pressed`、`Disabled`、`Focus`の見た目を定義しておくと、実装の抜け漏れが減り、操作方法を問わず一貫した体験を提供できます。
-
-![インタラクション状態: 5つの見た目を統一ルールで管理する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-29.png)
