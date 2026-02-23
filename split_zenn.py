@@ -12,7 +12,6 @@ CHAPTER_SLUG_MAP = {
     "現実的な問題への対処": "practical-problems",
     "変数": "variables",
     "状態": "states",
-    "命名": "naming",
     "レイアウト": "layout",
     "アセット": "assets",
     "おわりに": "conclusion",
