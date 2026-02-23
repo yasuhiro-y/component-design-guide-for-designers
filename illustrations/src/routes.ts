@@ -61,6 +61,8 @@ export const figures: FigureRoute[] = [
   { id: "fig-52", component: lazy(() => import("./figures/fig-52-mental-model-sync")), title: "メンタルモデルの同期: Figma・コード・認知の一致" },
   { id: "fig-53", component: lazy(() => import("./figures/fig-53-constraint")), title: "制約: 選択肢を絞り、判断の負荷を下げる" },
   { id: "fig-54", component: lazy(() => import("./figures/fig-54-composition")), title: "合成: 小さな部品を組み合わせて大きなUIを構築する" },
+  { id: "fig-55", component: lazy(() => import("./figures/fig-55-button-complexity")), title: "ボタンの複雑さ: シンプルに見えて設計判断の山" },
+  { id: "fig-58", component: lazy(() => import("./figures/fig-58-naming-patterns")), title: "プロパティ命名: 4つの判断パターン" },
 ];
 
 export function getFigureById(id: string) {
