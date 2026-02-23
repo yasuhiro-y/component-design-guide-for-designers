@@ -52,7 +52,7 @@ Figmaでいえば、マスターコンポーネントにせず通常のフレー
 
 # コンポーネントの分割方法: 3つのアプローチ
 
-コンポーネントの整理方法にはいくつかのアプローチがあります。チームの規模やプロダクトの複雑さに応じて使い分けます。簡単にではありますが、代表的な3つのアプローチを紹介します。
+コンポーネントの整理方法にはいくつかのアプローチがあり、チームの規模やプロダクトの複雑さに応じて使い分けます。代表的な3つを取り上げます。
 
 ## Atomic Design: 大きさで分ける
 
@@ -66,11 +66,12 @@ Figmaでいえば、マスターコンポーネントにせず通常のフレー
 
 このアプローチは、小さな部品からUIを積み上げるという考え方を広く浸透させました。
 
+![Atomic Design: 5つの階層](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-40.png)
+
 ところが、実際に使ってみるとやっかいなのは、`molecules`と`organisms`の境界線が人によってバラバラになることです。ボタンと入力フォームを組み合わせたら分子なのか、それが特定の検索窓になったら有機体なのか。
 
 実際には、ある程度くずした運用をしている場合が多いです。たとえば、`atoms`と`molecules`の2層のみを使い、`organisms`との境界線に悩む時間を省くという判断もあります。
 
-![Atomic Design: 5つの階層](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-40.png)
 
 ## Feature-Sliced Design: 目的で分ける
 

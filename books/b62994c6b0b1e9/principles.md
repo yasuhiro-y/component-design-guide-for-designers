@@ -24,7 +24,6 @@ Kevin Muldoonは[What Design Systems Actually Do](https://www.designsystemscolle
 たとえば、ブランドカラーを青から赤に変更するとします（別の意味で大変ですね！）。バラバラに実装されていたら、ボタンのある画面すべてをひとつずつ直さなければなりません。コンポーネントで管理されていれば、トークンの値をひとつ書き換えるだけで済みます。
 
 実際にはブランドカラーの全面変更より、プライマリボタンの角丸を8pxから12pxに統一する、フォントサイズのベースを14pxから16pxに上げるといった地味な変更のほうが頻繁に起こります。こうした変更も、コンポーネント化されていれば一箇所の修正で全画面に反映できます。
-
 デザイナーが少人数でも大規模なプロダクトを運用できるのは、このレバレッジが効いているからです。同じUIを1から作り直す工数が減り、新しい機能の開発に時間を使えるようになります。
 
 Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eightshapes-llc/and-you-thought-buttons-were-easy-26eb5b5c1871)」の中で、ボタンひとつをデザイン・実装・テストするコストを$20,000と見積もり、50チームがそれぞれ作れば$1,000,000になると試算しています。間接化は、このコストを1回分に圧縮する仕組みです。
@@ -35,7 +34,7 @@ Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eight
 
 内部の複雑さを隠し、使う側にはシンプルなインターフェースだけを見せる。これがカプセル化です。ひとことで言えば、**ひとつの部品にひとつの責任を持たせること**でもあります。
 
-ボタンを例に考えてみましょう。ラベルと背景色だけのシンプルな部品に見えますが、その裏には[膨大な設計判断](https://medium.com/eightshapes-llc/buttons-in-design-systems-eac3acf7e23)が隠れています。`Hover`・`Pressed`・`Disabled`・`Focus`のインタラクション状態、`primary`・`secondary`・`destructive`のバリアント、アイコンの有無と位置、ライト/ダークテーマ——これらの組み合わせだけで数百にのぼります。カプセル化されたボタンコンポーネントは、この複雑さを隠して「variant と size を選ぶだけ」にしてくれます。
+ボタンを例に考えてみましょう。ラベルと背景色だけのシンプルな部品に見えますが、その裏には膨大な設計判断が隠れています。`Hover`・`Pressed`・`Disabled`・`Focus`のインタラクション状態、`primary`・`secondary`・`destructive`のバリアント、アイコンの有無と位置、ライト/ダークテーマ——これらの組み合わせだけで数百にのぼります。カプセル化されたボタンコンポーネントは、この複雑さを隠して「variant と size を選ぶだけ」にしてくれます。
 
 ![ボタンの複雑さ: シンプルに見えて設計判断の山](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-55.png)
 
@@ -73,7 +72,7 @@ Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eight
 
 変数の章で扱うプロパティの型も制約の一形態です。`Boolean`は2択、`Enum`はN択、`String`は自由入力。型が厳しいほど誤用が減り、型がゆるいほど柔軟性が増します。
 
-[Ross Horbiの試算](https://medium.com/@rosshorbi/how-i-created-a-design-system-for-buttons-cfebbc55106e)によると、ボタンだけでもサイズ4段階 × アイコン有無4パターン × スタイル5種 × 状態5種 × テーマ2種 = 960バリアントに達します。制約なしにすべてを自由設計すると破綻するのは明白です。
+[Ross Horbiの試算](https://medium.com/@rosshorbi/how-i-created-a-design-system-for-buttons-cfebbc55106e)によると、とあるボタンの取りうる姿の組み合わせはサイズ4段階 × アイコン有無4パターン × スタイル5種 × 状態5種 × テーマ2種 = 960バリアントに達します。制約なしにすべてを自由設計すると破綻するのは明白です。
 
 この考え方は、行動経済学でいうチョイスアーキテクチャ（選択の設計）に近い発想です。デッドライン下で正しい選択を最も簡単にする環境をつくること。デザインシステムにおける制約は、自由を奪うものではなく、正解へのショートカットです。
 
@@ -142,13 +141,14 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 ところが1年後、ユーザー向け画面にも独自のデザインを入れたくなったとき、`MUI`のスタイル上書きがいたるところに広がっていて、Headless UIに乗り換えようにも影響範囲が大きすぎて踏み切れない。
 
+![経路依存性: 初期の選択が未来を縛る](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-39.png)
+
 命名も同じです。初期に`Card`と名付けたコンポーネントが50画面で使われたあとに「やっぱり`Tile`のほうが適切だった」と気づいても、Figma・コード・ドキュメント・チームの会話すべてに染みこんだ名前を変えるコストは、最初に決めるコストとは比べものになりません。
 
 こうした構造は、デザインシステムのあらゆる層に潜んでいます。ディレクトリ構造、プロパティ設計、どれも時間が経つほど方向転換が難しくなります。
 
 だからこそ初期の設計判断は慎重に決める価値がありますが、完璧な判断を最初から下せるわけでもありません。後半の「現実的な問題への対処」で、経路依存性に対する具体的な防御策を扱います。
 
-![経路依存性: 初期の選択が未来を縛る](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-39.png)
 
 ---
 

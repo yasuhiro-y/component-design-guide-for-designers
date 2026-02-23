@@ -11,6 +11,7 @@ CHAPTER_SLUG_MAP = {
     "コンポーネント分割": "component-splitting",
     "現実的な問題への対処": "practical-problems",
     "変数": "variables",
+    "命名": "naming",
     "レイアウト": "layout",
     "アセット": "assets",
     "おわりに": "conclusion",
