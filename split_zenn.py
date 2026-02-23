@@ -1,13 +1,28 @@
 import re
-import shutil
 from pathlib import Path
 
+BOOK_SLUG = "b62994c6b0b1e9"
 
-def slugify(text: str) -> str:
-    base = text.split(":")[0].split("：")[0].strip()
-    base = re.sub(r"\s+", "-", base)
-    base = re.sub(r'[\\/*?:"<>|]', "", base)
-    return base
+# 日本語チャプタータイトル → Book用ASCIIスラッグ
+CHAPTER_SLUG_MAP = {
+    "はじめに": "introduction",
+    "原則": "principles",
+    "構築戦略": "build-strategy",
+    "コンポーネント分割": "component-splitting",
+    "現実的な問題への対処": "practical-problems",
+    "変数": "variables",
+    "レイアウト": "layout",
+    "アセット": "assets",
+    "おわりに": "conclusion",
+}
+
+
+def slugify_book(title: str, index: int) -> str:
+    """タイトルからBook用のASCIIスラッグを生成する。"""
+    base = title.split(":")[0].split("：")[0].strip()
+    if base in CHAPTER_SLUG_MAP:
+        return CHAPTER_SLUG_MAP[base]
+    return f"chapter-{index:02d}"
 
 
 def promote_headings(content: str) -> str:
@@ -42,29 +57,52 @@ def split_by_h1(text: str) -> list[tuple[str, str]]:
     return sections
 
 
+def write_config_yaml(book_dir: Path, chapters: list[tuple[str, str]]):
+    """config.yamlのchaptersリストだけを更新する。"""
+    config_path = book_dir / "config.yaml"
+    if not config_path.exists():
+        return
+
+    text = config_path.read_text(encoding="utf-8")
+    new_chapters = "chapters:\n" + "".join(
+        f"  - {slug}\n" for slug, _ in chapters
+    )
+    text = re.sub(r"chapters:\n(?:  - .+\n)*", new_chapters, text)
+    config_path.write_text(text, encoding="utf-8")
+
+
 def main():
-    src = Path(__file__).parent / "zenn.md"
-    out_dir = Path(__file__).parent / "zenn"
-    if out_dir.exists():
-        shutil.rmtree(out_dir)
-        print(f"Cleaned up {out_dir}/")
-    out_dir.mkdir()
+    book_dir = Path(__file__).parent / "books" / BOOK_SLUG
+    src = book_dir / "_component-design-guide-for-designers.md"
+
+    book_dir.mkdir(parents=True, exist_ok=True)
+    for f in book_dir.glob("*.md"):
+        if f.name != "_component-design-guide-for-designers.md":
+            f.unlink()
 
     text = src.read_text(encoding="utf-8")
     sections = split_by_h1(text)
 
-    print(f"Found {len(sections)} sections:")
-    for i, (title, body) in enumerate(sections, 1):
-        slug = slugify(title)
-        filename = f"{i:02d}-{slug}.md"
-        filepath = out_dir / filename
+    book_chapters: list[tuple[str, str]] = []
 
+    print(f"Found {len(sections)} sections:\n")
+    for i, (title, body) in enumerate(sections, 1):
         promoted = promote_headings(body.strip())
 
-        filepath.write_text(promoted + "\n", encoding="utf-8")
-        print(f"  {filename} ({len(promoted.splitlines())} lines) — {title}")
+        book_slug = slugify_book(title, i)
+        book_filename = f"{book_slug}.md"
+        book_path = book_dir / book_filename
 
-    print(f"\nDone. {len(sections)} files written to {out_dir}/")
+        frontmatter = f"---\ntitle: \"{title}\"\n---\n\n"
+        book_path.write_text(frontmatter + promoted + "\n", encoding="utf-8")
+
+        book_chapters.append((book_slug, title))
+
+        print(f"  {book_filename:30s} ({len(promoted.splitlines())} lines) — {title}")
+
+    write_config_yaml(book_dir, book_chapters)
+
+    print(f"\nDone. {len(sections)} chapters written to books/{BOOK_SLUG}/")
 
 
 if __name__ == "__main__":
