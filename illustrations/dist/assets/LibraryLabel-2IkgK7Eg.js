@@ -1,1 +1,0 @@
-import{j as e}from"./index-CdUN5vWg.js";import{S as s}from"./ServiceIcon-BZHD0jNn.js";function a({name:i,icon:r,style:n}){return e.jsxs("div",{style:{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,color:"#52525b",marginBottom:4,...n},children:[e.jsx(s,{name:r,size:14}),e.jsx("span",{children:i})]})}export{a as L};

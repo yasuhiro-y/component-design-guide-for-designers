@@ -217,7 +217,7 @@ Enumの力が特に発揮されるのが、`Tag`、`Badge`、`Callout` のよう
 
 Figmaでいえば、同じコンポーネントを`Auto Layout`内に繰り返し配置する操作にあたります。コードではこれを配列として扱います。
 
-<!-- todo: 配列の概念を図示 -->
+![配列: 同じテンプレートに異なるデータを流し込む](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-62.png)
 
 同じ器に異なるデータを流し込む——これが配列型のUIの特徴です。各要素のテキストの内容、`Tag`の有無、ステータスの色はそれぞれ異なりますが、コンポーネント自体は同じものが使い回されます。
 
@@ -238,7 +238,7 @@ Figmaでいえば、同じコンポーネントを`Auto Layout`内に繰り返�
 
 Notionでいえば、データベースの1行がこれにあたります。ユーザーという1行に、名前・アイコン画像・ステータスがセットで入っているイメージです。
 
-<!-- objectの概念を図示 -->
+![オブジェクト: 複数の値をひとかたまりで渡す](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-63.png)
 
 たとえば、ユーザーカードに渡すユーザーというデータを考えてみてください。名前、アイコン画像、ステータス。これらをバラバラのプロパティとして渡すこともできますが、ドメインコンポーネントではユーザーの情報一式としてまとめて渡すほうが自然です。
 

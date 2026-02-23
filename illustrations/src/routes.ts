@@ -68,6 +68,8 @@ export const figures: FigureRoute[] = [
   { id: "fig-59", component: lazy(() => import("./figures/fig-59-generic-components")), title: "汎用コンポーネントの例" },
   { id: "fig-60", component: lazy(() => import("./figures/fig-60-domain-components")), title: "ドメインコンポーネントの例" },
   { id: "fig-61", component: lazy(() => import("./figures/fig-61-semantic-color-naming")), title: "色のセマンティクス: 見た目ではなく役割で名付ける" },
+  { id: "fig-62", component: lazy(() => import("./figures/fig-62-array-concept")), title: "配列: 同じテンプレートに異なるデータを流し込む" },
+  { id: "fig-63", component: lazy(() => import("./figures/fig-63-object-concept")), title: "オブジェクト: 複数の値をひとかたまりで渡す" },
 ];
 
 export function getFigureById(id: string) {
