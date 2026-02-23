@@ -151,6 +151,8 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 何にでも利用可能なコンポーネント——それが汎用コンポーネントです。
 
+![汎用コンポーネントの例: どのサービスでも使い回せる部品](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-59.png)
+
 たとえば、ボタンは会員登録にも退会にも使われます。このレイヤーのコンポーネントは、特定のデータ構造に依存しないよう設計します。ユーザー名を表示するボタンではなく、テキストを表示するボタン。
 
 汎用かどうかを判断するわかりやすい基準は、まったく別のサービスでもそのまま使えるかどうかです。自社のサービス名やデータモデルに依存しなくても機能するなら汎用コンポーネント、特定のサービスの文脈がないと意味をなさないならドメインコンポーネントと考えるとわかりやすいでしょう。
@@ -169,6 +171,7 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 特定のデータを表示するための専用コンポーネントです。
 
+![ドメインコンポーネントの例: 特定のデータ構造に特化した部品](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-60.png)
 
 たとえば、ECサービスにおける商品カードを考えてみましょう。
 

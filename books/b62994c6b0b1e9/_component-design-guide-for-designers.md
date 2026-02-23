@@ -244,6 +244,8 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 外部公開されているライブラリをそのまま活用する方法です。[Material UI](https://mui.com/)、[Chakra UI](https://chakra-ui.com/)、[Ant Design](https://ant.design/)などがこれにあたります。どんなサービスにも使える汎用のコンポーネント群です。
 
+![汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-56.png)
+
 すでにひと通りのコンポーネントがそろっているため、すぐに開発を始められるのが強みです。`Button`、`Input`、`Modal`、`Table`など、基本的なUI部品はすべて用意されています。とくに初期フェーズのスタートアップや、管理画面のような機能性重視のプロダクトでは、採用するメリットが大きいです。
 
 一方で、どこかで見たことのあるデザインになりがちです。ライブラリの設計思想に強く依存するため、そこから外れた独自のUIを実現しようとすると、かえって実装コストが高まる場合があります。独自性のあるデザインや機能をもつToCサービスでは、カスタマイズの限界がネックになることがあります。
@@ -281,6 +283,8 @@ Headless UIの設計思想がよく表れているのが、見た目が似たコ
 ![Radix UI: 見た目が似た3つのコンポーネント](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-14.png)
 
 Radix UIには、いずれもドロップダウン的な見た目の[`Select`](https://www.radix-ui.com/primitives/docs/components/select)、[`DropdownMenu`](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[`ContextMenu`](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。
+
+![Headless UI: Listbox / Combobox / Menu](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-57.png)
 
 Headless UIライブラリも同様に、[`Listbox`](https://headlessui.com/react/listbox)はドロップダウンで1つ選ぶUI、[`Combobox`](https://headlessui.com/react/combobox)は入力しながら候補が絞られる検索付き選択UI、[`Menu`](https://headlessui.com/react/menu)はアクション一覧、というように分離しています。ポップオーバーが開いて項目が並ぶという見た目は共通しているのに、なぜ分けるのか。それはユーザーが何をしたいか——値を選ぶのか、アクションを実行するのか、検索してから選ぶのか——が違うからです。
 
@@ -493,6 +497,8 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 何にでも利用可能なコンポーネント——それが汎用コンポーネントです。
 
+![汎用コンポーネントの例: どのサービスでも使い回せる部品](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-59.png)
+
 たとえば、ボタンは会員登録にも退会にも使われます。このレイヤーのコンポーネントは、特定のデータ構造に依存しないよう設計します。ユーザー名を表示するボタンではなく、テキストを表示するボタン。
 
 汎用かどうかを判断するわかりやすい基準は、まったく別のサービスでもそのまま使えるかどうかです。自社のサービス名やデータモデルに依存しなくても機能するなら汎用コンポーネント、特定のサービスの文脈がないと意味をなさないならドメインコンポーネントと考えるとわかりやすいでしょう。
@@ -511,6 +517,7 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 特定のデータを表示するための専用コンポーネントです。
 
+![ドメインコンポーネントの例: 特定のデータ構造に特化した部品](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-60.png)
 
 たとえば、ECサービスにおける商品カードを考えてみましょう。
 

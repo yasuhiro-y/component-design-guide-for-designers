@@ -63,6 +63,10 @@ export const figures: FigureRoute[] = [
   { id: "fig-54", component: lazy(() => import("./figures/fig-54-composition")), title: "合成: 小さな部品を組み合わせて大きなUIを構築する" },
   { id: "fig-55", component: lazy(() => import("./figures/fig-55-button-complexity")), title: "ボタンの複雑さ: シンプルに見えて設計判断の山" },
   { id: "fig-58", component: lazy(() => import("./figures/fig-58-naming-patterns")), title: "プロパティ命名: 4つの判断パターン" },
+  { id: "fig-56", component: lazy(() => import("./figures/fig-56-library-component-samples")), title: "汎用ライブラリのコンポーネント例" },
+  { id: "fig-57", component: lazy(() => import("./figures/fig-57-headless-ui-components")), title: "Headless UI: Listbox / Combobox / Menu" },
+  { id: "fig-59", component: lazy(() => import("./figures/fig-59-generic-components")), title: "汎用コンポーネントの例" },
+  { id: "fig-60", component: lazy(() => import("./figures/fig-60-domain-components")), title: "ドメインコンポーネントの例" },
 ];
 
 export function getFigureById(id: string) {
