@@ -102,12 +102,11 @@ export default function Fig33() {
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <AvatarSmall letter="?" />
               <div>
-                <div style={{ ...nameDisplay, color: "#52525b" }}>&mdash;</div>
                 <div style={roleDisplay}>Designer</div>
               </div>
             </div>
           </div>
-          <div style={cellSub}>空文字のフォールバック</div>
+          <div style={cellSub}>name 欄ごと非表示</div>
         </div>
 
         {/* 3. Long text */}
@@ -147,7 +146,7 @@ export default function Fig33() {
                     wordBreak: "break-all",
                   }}
                 >
-                  田中 太郎太郎太郎太郎太郎
+                  田中 太郎太郎太郎太郎太郎太郎太郎太郎太郎
                 </div>
                 <div style={roleDisplay}>Designer</div>
               </div>
