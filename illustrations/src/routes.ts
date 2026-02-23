@@ -67,6 +67,7 @@ export const figures: FigureRoute[] = [
   { id: "fig-57", component: lazy(() => import("./figures/fig-57-headless-ui-components")), title: "Headless UI: Listbox / Combobox / Menu" },
   { id: "fig-59", component: lazy(() => import("./figures/fig-59-generic-components")), title: "汎用コンポーネントの例" },
   { id: "fig-60", component: lazy(() => import("./figures/fig-60-domain-components")), title: "ドメインコンポーネントの例" },
+  { id: "fig-61", component: lazy(() => import("./figures/fig-61-semantic-color-naming")), title: "色のセマンティクス: 見た目ではなく役割で名付ける" },
 ];
 
 export function getFigureById(id: string) {
