@@ -8,6 +8,8 @@ title: "コンポーネント分割: 何をどう分けるか"
 
 ひとつのコンポーネントについて検討すべき要素は多岐にわたります。大まかに次のような考慮事項があります。
 
+![コンポーネント設計の8つの観点](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-31.png)
+
 - 階層: どこに位置するか
 - 名前: コンポーネント名、プロパティ名、値の名前
 - プロパティ: 何を受け取り、どんな型か。必須か任意か
@@ -19,7 +21,6 @@ title: "コンポーネント分割: 何をどう分けるか"
 
 ボタンひとつとっても、これだけの要素が同時に存在します。どれかひとつだけを決めればよいのではなく、これらが絡み合ってコンポーネントの設計になります。この記事の各章では、それぞれの要素を掘り下げていきます。
 
-![コンポーネント設計の8つの観点](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-31.png)
 
 仮にFigmaとコードの一致性を目指す場合、コンポーネントの命名・ディレクトリ・責務範囲を後から変更するコストが大きい場合が多いです。デザイナー同士の連携、エンジニアとの連携、使用している箇所の改修。利用箇所が多いほど大変です。
 
@@ -31,9 +32,11 @@ title: "コンポーネント分割: 何をどう分けるか"
 
 Figmaでいえば、マスターコンポーネントにせず通常のフレームとして描くことに相当します。つまり、画面に映るものすべてがコンポーネント化されている必要は（技術的には）ありません。
 
-では、何をコンポーネント化すると組織が最も恩恵を受けられるのでしょうか。判断の軸はシンプルです。一箇所を直せば全部直る状態にしたいなら、コンポーネント化する。
+では、何をコンポーネント化すると組織が最も恩恵を受けられるのでしょうか。判断の軸としては、一箇所を直せば全部直る状態にしたい・連続性をもって拡張したい場合にコンポーネント化する。
 
-それ以外は個別対応で構いません。実務ではいくつかの基準が使われています。
+コンポーネント化されているということは、そのコンポーネントを拡張したり、類似するものはそのコンポーネントのやり方に従うという道を開いていることです。つまり、単なる1画面に登場するUI以上に、組織的な合意や規範が詰まっていると捉えることができます。
+
+実務ではいくつかの基準が使われています。
 
 - よく使われるUIや汎用用途のものだけをコンポーネント化する
 - 2回以上使用されたらコンポーネント化する
@@ -44,9 +47,11 @@ Figmaでいえば、マスターコンポーネントにせず通常のフレー
 
 たとえば、フッターのリンク一覧。今は1画面にしか置いていなくても、将来2画面目に必要になったとき、コピー&ペーストで増やすとリンクの追加漏れが起きます。コンポーネント化しておけば、元を直すだけで全画面に反映されます。
 
+
+
 一方で、見た目が似ているからといって何でも共通化すればよいわけではありません。この判断については「早すぎる共通化の罠」でくわしく扱います。
 
-迷ったときは、以下のフローで判断できます。
+迷ったときは、以下のようなフローをチームではなしてみるといいかもしれません。
 
 ![コンポーネント化の判断フロー](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-01.png)
 
@@ -54,7 +59,7 @@ Figmaでいえば、マスターコンポーネントにせず通常のフレー
 
 コンポーネントの整理方法にはいくつかのアプローチがあり、チームの規模やプロダクトの複雑さに応じて使い分けます。代表的な3つを取り上げます。
 
-## Atomic Design: 大きさで分ける
+## Atomic Design: 複雑さで分ける
 
 [Atomic Design](https://atomicdesign.bradfrost.com/)は、Brad Frost氏が提唱したUIの構造化手法です。化学のメタファーを用いて、UIを以下の5つの階層に分類します。
 
@@ -72,10 +77,11 @@ Figmaでいえば、マスターコンポーネントにせず通常のフレー
 
 実際には、ある程度くずした運用をしている場合が多いです。たとえば、`atoms`と`molecules`の2層のみを使い、`organisms`との境界線に悩む時間を省くという判断もあります。
 
+Atomic Designは日本のサービスでも導入事例が豊富であり、そして辛みやその解決も多く発信されています。
 
 ## Feature-Sliced Design: 目的で分ける
 
-Atomic Designは見た目のサイズで分類する考え方でした。もうひとつ、何のための部品かで分類する考え方があります。[Feature-Sliced Design](https://feature-sliced.design/)（FSD）と呼ばれる手法のエッセンスです。
+Atomic Designはコンポーネントの構造で分類する考え方でした。もうひとつ、何のための部品かで分類する考え方があります。[Feature-Sliced Design](https://feature-sliced.design/)（FSD）と呼ばれる手法のエッセンスです。
 
 Figmaのページやセクションをどう整理するかを考えるときにも使える視点なので、ここでは3つのレイヤーに絞って紹介します。
 
@@ -85,11 +91,13 @@ Figmaのページやセクションをどう整理するかを考えるときに
 
 **Widgets / Templates レイヤー** — 上の2つを組み合わせて作る、大きなかたまりです。ヘッダー、フォーム全体、商品一覧セクションなど。
 
-![Feature-Sliced Design の3層構造](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-02.png)
+
 
 大事なのは矢印の方向です。上のレイヤーは下のレイヤーを使えますが、逆はありません。
 
 ECサイトで具体的にイメージしてみましょう。
+
+![Feature-Sliced Design の3層構造](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-02.png)
 
 - UI Kit: `Button`、`Input`、`Card`、`Tag` — どんなサービスにも使い回せる
 - Domain: `ProductCard`（商品の情報を表示する）、`CartItem`（カート内の1行） — ECサイトのデータに依存する
@@ -100,6 +108,10 @@ ECサイトで具体的にイメージしてみましょう。
 この一方通行が崩れると何が起きるか。`Button`が`UserCard`に依存していたら、`UserCard`を変更するたびに`Button`まで壊れるかもしれません。一方通行であれば、影響は常に下流（利用する側）にしか伝わりません。
 
 Figmaで考えると直感的です。`Button`コンポーネントが`UserCard`のインスタンスを内部に含んでいたら、おかしいですよね。それと同じ感覚です。
+
+この方式のメリットは、依存の方向が明確になることで影響範囲の予測がしやすくなる点です。UI Kitを修正しても影響はそれを使うDomain以上のレイヤーに限られ、Widgetsの変更がUI Kitに波及することはありません。レイヤーごとに責務が分かれているため、コンポーネントが増えても構造が破綻しにくく、新しいメンバーもどの階層に手を入れるべきか判断しやすくなります。
+
+この考え方は、後述の汎用・ドメインの考え方にも重複するところがみられます。
 
 ## フラットに置く: 階層なしで並べる
 
@@ -114,13 +126,15 @@ Figmaで考えると直感的です。`Button`コンポーネントが`UserCard`
 Atomic Design、FSD、フラット配置と3つのアプローチを見てきました。ここからは、Feature-Sliced Designにも内包されていた、汎用・ドメインの軸を深く見ていきます。
 そのコンポーネントが汎用的(generics, general)なものか、ドメイン(domain, feature)に関連するものかという分類です。
 
+![汎用コンポーネントとドメインコンポーネントの依存関係](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-03.png)
+
+
 これは汎用ライブラリにはない、インハウスならではの論点です。実務で頻繁に直面するにもかかわらず、体系的に語られることが少ないテーマでもあります。
 
 なぜデザイナーがこの区別を知る必要があるのか。この境界を意識しないと「なんでも入る万能コンポーネント」か「どこにも使い回せない専用コンポーネント」の両極端に振れやすいからです。
 
 汎用とドメインの境界を引くことで、プロパティの肥大化と亜種の増殖を同時に防げます。
 
-![汎用コンポーネントとドメインコンポーネントの依存関係](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-03.png)
 
 この境界を設ける目的は、コンポーネントが使える範囲を限定することです。
 汎用コンポーネントはどこからでも呼び出せますが、ドメインコンポーネントは特定の機能の文脈でのみ使う、という規約です。
@@ -133,6 +147,7 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 それぞれみていきましょう。
 
 ## 汎用コンポーネント: どのサービスでも使える部品
+
 
 何にでも利用可能なコンポーネント——それが汎用コンポーネントです。
 
@@ -153,6 +168,7 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 ## ドメインコンポーネント: 特定のデータに特化した部品
 
 特定のデータを表示するための専用コンポーネントです。
+
 
 たとえば、ECサービスにおける商品カードを考えてみましょう。
 
@@ -175,6 +191,10 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 チャットの吹き出しはドメインか、ボタンのような汎用部品か。
 
+
+![汎用かドメインか: 視点で答えが変わる](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-32.png)
+
+
 ロジックの複雑さに着目するか、扱うデータの特化度に着目するかで答えが変わります。
 
 ロジックの観点で見れば、テキストを表示するだけであり、またボタンのようにあらゆるサービスで登場しうるという意味では汎用ともいえます。
@@ -184,8 +204,6 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 特定のオブジェクトにそのまま対応する設計をするのであれば、ドメインコンポーネントとして整理したほうが実務上便利でしょう。
 
 このように、答えが一意に決まらないケースがあります。
-
-![汎用かドメインか: 視点で答えが変わる](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-32.png)
 
 社内でこうした境界線上の例をケーススタディとして議論し、自分たちの判断基準を育てていくことです。判断を積み重ねた記録自体が、チームのナレッジになります。
 
@@ -198,9 +216,11 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 
 結果、`hasLikeButton` と `isSwipeable` という互いに無関係なプロパティがひとつのコンポーネントに混在し、全体像を把握しづらい複雑なコンポーネントができあがります。
 
-![早すぎる共通化の罠: プロパティ肥大化](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-20.png)
 
 見た目が似ていることと、目的やドメインが同じことは別の話です。
+
+![早すぎる共通化の罠: プロパティ肥大化](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-20.png)
+
 
 無理にひとつに統合するよりも、あえて別々のコンポーネントとして持っておくほうが、将来の変更に強くなることがあります。
 
@@ -209,6 +229,8 @@ Material DesignやAnt Designなどの汎用ライブラリは、あらゆるサ�
 プログラミングの格言に「3回同じパターンが出て初めて共通化せよ（Rule of Three）」があります。2つ似た画面を見てすぐにマスターコンポーネントを作りたくなりますが、3つ目のユースケースが出るまで待つことで、本当に必要なプロパティの形が見えてきます。
 
 この罠は、実在するライブラリの設計判断を見ると鮮明になります。MUIの[`Chip`](https://mui.com/material-ui/react-chip/)と[`Badge`](https://mui.com/material-ui/react-badge/)は、どちらも丸みを帯びた小さな部品ですが、別コンポーネントです。Figmaでの見分け方は明快で、`Chip`はクリックや削除ができるインタラクティブな要素、`Badge`は`Avatar`やアイコンの右上に重ねて配置する通知ドット（アプリアイコンの赤丸の数字）です。
+
+// mui, antの例は見た目がぜんぜん似てないので、そりゃ別こんぽーねんとだろwwwって感じである。どうにかしてほしい
 
 ![MUI: Chip（操作できる）と Badge（見るだけ）](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-12.png)
 

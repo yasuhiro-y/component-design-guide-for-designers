@@ -29,17 +29,16 @@ Figmaのプロパティパネルでも同じことが起きています。トグ
 
 以下の表は全体像です。まずはざっと眺めてみましょう。
 
-
-| 型        | コードでの書き方（参考）                        | Figmaでの表現           | 
-| --------- | ----------------------------------------------- | ----------------------- | 
-| `Boolean` | `isDisabled: boolean`（ON/OFFの値）             | トグルスイッチ          | 
-| `Enum`    | `size: 'S' \| 'M' \| 'L'`（3つの中から1つ選ぶ） | バリアント（Variant）   | 
-| `String`  | `label: string`（自由なテキスト）               | テキスト入力            |
-| `Number`  | `count: number`（数値）                         | テキスト入力            |
-| `Date`    | `deadline: Date`（日付）                        | テキスト入力            | 
-| `Array`   | `items: Item[]`（データの一覧）                 | `Auto Layout`内の繰り返し | 
-| `Object`  | `user: User`（データのまとまり）                | 複数プロパティの集合    |
-| `Element` | `icon: ReactNode`（別の部品を差し込む）         | `Instance Swap`         | 
+| 型        | コードでの書き方（参考）                        | Figmaでの表現             |
+| --------- | ----------------------------------------------- | ------------------------- |
+| `Boolean` | `isDisabled: boolean`（ON/OFFの値）             | トグルスイッチ            |
+| `Enum`    | `size: 'S' \| 'M' \| 'L'`（3つの中から1つ選ぶ） | バリアント（Variant）     |
+| `String`  | `label: string`（自由なテキスト）               | テキスト入力              |
+| `Number`  | `count: number`（数値）                         | テキスト入力              |
+| `Date`    | `deadline: Date`（日付）                        | テキスト入力              |
+| `Array`   | `items: Item[]`（データの一覧）                 | `Auto Layout`内の繰り返し |
+| `Object`  | `user: User`（データのまとまり）                | 複数プロパティの集合      |
+| `Element` | `icon: ReactNode`（別の部品を差し込む）         | `Instance Swap`           |
 
 ## Boolean: 真偽値
 
@@ -144,7 +143,6 @@ FigmaのVariant（バリアント）がこれにあたります。たとえば�
 
 ![String型: テキストの振る舞い6パターン](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-33.png)
 
-
 ## Number: 数値
 
 バッジのカウント数（通知が3件あるときの「3」）や評価スコア（星4.5）など、数値を示すデータです。
@@ -171,6 +169,8 @@ FigmaのVariant（バリアント）がこれにあたります。たとえば�
 
 私たちが画面上で見ている 2月17日 や 3日前 といった表示は、裏側では 2026-02-17T14:00:00Z のような機械が読む形式のデータを変換したものです。スプレッドシートでも、セルに日付を入れるとカレンダー形式で表示されますが、中身は表示を変えても意味が維持される日付データですよね。それと同じで、日付データには裏側のデータと画面に出す見た目という二層構造があります。
 
+![Date型: 日付の表示形式と設計判断](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-46.png)
+
 日付型のプロパティを設計するときの確認ポイントです。
 
 - 日付のフォーマットはコンポーネント内部で決めるか、外部で決めてテキストとして渡されるか
@@ -181,8 +181,6 @@ FigmaのVariant（バリアント）がこれにあたります。たとえば�
 ここまでの5つの型（`Boolean` / `Enum` / `String` / `Number` / `Date`）で、コンポーネント設計に必要な基礎は揃いました。以降の`Array`・`Object`・`Element`は、複雑なデータを扱うときに必要になる発展的な型です。今すぐ必要でなければ次の章に進んでも構いません。読み進める方のために、ここからはデータの構造（まとまり方）に関する型を見ていきます。
 
 ひとつ実践的なコツを補足します。たとえば、更新日: 2026/01/01 と表示するUIがあるとき、Figma上のプロパティは 2026/01/01 のテキストだけにし、更新日というラベルはコンポーネント内に固定しておくと、実装との対応が明確になります。
-
-![Date型: 日付の表示形式と設計判断](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-46.png)
 
 ## Array: 配列（リスト）
 
@@ -232,7 +230,6 @@ Figmaのプロパティパネルで見比べてみると、この違いがはっ
 ここまでの型（`Boolean`、`Enum`、`String`、`Number`など）はすべて、テキストや数値といったデータを渡すものでした。しかし、プロパティに渡したいのがデータではなく、別のコンポーネントそのものというケースがあります。
 
 Figmaで考えるとわかりやすいです。`Instance Swap Property`を使って、ある箇所にアイコンを差し込んだり、`Avatar`に差し替えたりします。
-
 
 コードの世界ではこの仕組みをスロット（slot）と呼びます。Reactでは`ReactNode`型、SwiftUIでは`@ViewBuilder`、Flutterでは`Widget`型としてそれぞれ表現されます。ここでは便宜上`Element`型と総称します。好きなものを差し込める口を設けておく設計です。
 
@@ -313,13 +310,13 @@ Figmaの[Propstar](https://www.figma.com/community/plugin/1116018586739867857/pr
 
 色やサイジングの体系は、複数のコンポーネントで使い回せるように設計しておくと便利です。こうした共通の値に名前をつけて一元管理する仕組みをトークンと呼びます。Figmaでいえばスタイルやバリアブルに近い概念です。
 
+![トークンの共有: 複数コンポーネントの一貫性を保つ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-06.png)
+
 Figmaでは、`Tag`の色を変えたければ`Tag`のスタイルを編集し、`Callout`の色も変えたければ`Callout`のスタイルも別途編集する——というコンポーネントごとの作業になりがちです。
 
 しかしコードの世界では、共通のトークンを参照する仕組みがあれば、トークンの値をひとつ変えるだけですべてのコンポーネントに反映されます。
 
 たとえば、`Tag`の info と `Callout` の info が同じセマンティックカラーを参照していれば、色を変えたいときに一箇所の修正で両方に反映されます。バラバラに定義していると、デザイナーが個別に色を選ぶたびに微妙なズレが蓄積し、`Tag`は青いのに`Callout`は水色、という不一致がいつの間にか生まれます。
-
-![トークンの共有: 複数コンポーネントの一貫性を保つ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-06.png)
 
 色だけの話ではありません。兄弟関係にあるコンポーネント（`Button` / `IconButton` / `CopyButton`など）では、縦幅やアイコンのサイズも共通のトークンを参照しておくと一貫性を保ちやすくなります。
 
