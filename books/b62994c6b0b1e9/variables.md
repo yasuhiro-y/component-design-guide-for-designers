@@ -284,7 +284,7 @@ Figmaで考えるとわかりやすいです。`Instance Swap Property`を使っ
 
 スロットの威力がもっともわかりやすいのは、バリアントの爆発を防げる点です。
 
-<!-- たとえを図示する -->
+![バリアント爆発 vs スロット: 4つ作るか、1つで済ませるか](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-71.png)
 
 アイコン付きボタンの例で考えてみましょう。デザイナーは `LeftIcon` / `RightIcon` / `BothIcons` / `NoIcon` という4つのバリアントを作りがちです。しかし、スロットの発想を使えば、ボタンの左右に好きなものが入るエリアを用意するだけで済みます。アイコンでも、バッジでも、何も入れなくてもよい。
 
