@@ -76,6 +76,8 @@ export const figures: FigureRoute[] = [
   { id: "fig-67", component: lazy(() => import("./figures/fig-67-orthogonality-broken")), title: "直交性の崩れ: 1つのプロパティに混ぜる vs 分離する" },
   { id: "fig-68", component: lazy(() => import("./figures/fig-68-same-object-different-layout")), title: "同じオブジェクトを受け取り、レイアウトだけが異なる" },
   { id: "fig-69", component: lazy(() => import("./figures/fig-69-layout-variant-naming")), title: "レイアウトバリエーションの命名: 形状で分けるか、場所で分けるか" },
+  { id: "fig-70", component: lazy(() => import("./figures/fig-70-add-vs-remove-cost")), title: "追加と削除の非対称性: 似たバリアントは増えやすく、減らしにくい" },
+  { id: "fig-71", component: lazy(() => import("./figures/fig-71-variant-explosion-vs-slot")), title: "バリアント爆発 vs スロット: 4つ作るか、1つで済ませるか" },
 ];
 
 export function getFigureById(id: string) {
