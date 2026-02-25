@@ -4,7 +4,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const negativeLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#b91c1c",
   letterSpacing: "0.04em",
   marginBottom: 10,
@@ -12,7 +12,7 @@ const negativeLabel: CSSProperties = {
 
 const positiveLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#15803d",
   letterSpacing: "0.04em",
   marginBottom: 10,
@@ -20,7 +20,7 @@ const positiveLabel: CSSProperties = {
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 16,
 };
@@ -48,20 +48,20 @@ const noteStyle: CSSProperties = {
   marginTop: 16,
   padding: "8px 16px",
   background: "#fff",
-  borderRadius: 6,
+  borderRadius: 12,
   border: "1px dashed #d4d4d8",
 };
 
 const countNote: CSSProperties = {
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#52525b",
   marginTop: 10,
 };
 
 export default function Fig36() {
   return (
-    <IllustrationFrame title="必須と任意: デフォルト値で使いやすさが決まる">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Bad: All required */}
         <div style={{ flex: 1 }}>
@@ -71,7 +71,7 @@ export default function Fig36() {
               <span
                 style={{
                   fontSize: 13,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: "#18181b",
                   fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
                 }}
@@ -113,7 +113,7 @@ export default function Fig36() {
               <span
                 style={{
                   fontSize: 13,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: "#18181b",
                   fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
                 }}
@@ -125,31 +125,31 @@ export default function Fig36() {
               <div style={required}>{"label=\"保存\""}</div>
               <div style={optional}>
                 {"size=\"M\""}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"variant=\"primary\""}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"disabled={false}"}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"icon={undefined}"}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' }}>
                   default
                 </span>
               </div>
               <div style={optional}>
                 {"onClick={undefined}"}
-                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Noto Sans JP", sans-serif' }}>
+                <span style={{ fontSize: 10, marginLeft: 8, fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' }}>
                   default
                 </span>
               </div>

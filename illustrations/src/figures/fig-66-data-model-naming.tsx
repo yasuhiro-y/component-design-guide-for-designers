@@ -10,14 +10,13 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
 };
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -26,7 +25,7 @@ const sectionLabel: CSSProperties = {
 
 const nameText: CSSProperties = {
   fontSize: 12,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   whiteSpace: "nowrap",
 };
@@ -37,9 +36,9 @@ const nameMuted: CSSProperties = {
 };
 
 const headerCell: CSSProperties = {
-  fontSize: 9,
-  fontWeight: 600,
-  color: "#a1a1aa",
+  fontSize: 10,
+  fontWeight: 700,
+  color: "#71717a",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
   padding: "0 0 8px",
@@ -53,7 +52,7 @@ const arrowCell: CSSProperties = {
   ...cell,
   textAlign: "center",
   color: "#d4d4d8",
-  fontWeight: 500,
+  fontWeight: 700,
   fontSize: 12,
   width: 24,
 };
@@ -69,7 +68,7 @@ function MatchIcon() {
 
 export default function Fig66() {
   return (
-    <IllustrationFrame title="データモデルとコンポーネント名: 揃えるか、離すか">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={{ display: "flex", gap: 14 }}>
           {/* Left: Domain — match API names */}
@@ -133,7 +132,7 @@ export default function Fig66() {
                       <td style={cell}><span style={nameMuted}>{row.figma}</span></td>
                       <td style={{ ...arrowCell, color: "#d4d4d8" }}>=</td>
                       <td style={cell}><span style={nameMuted}>{row.code}</span></td>
-                      <td style={{ ...cell, fontSize: 9, color: "#a1a1aa", fontStyle: "italic", paddingLeft: 8 }}>データ非依存</td>
+                      <td style={{ ...cell, fontSize: 10, color: "#71717a", fontStyle: "italic", paddingLeft: 8 }}>データ非依存</td>
                     </tr>
                   ))}
                 </tbody>

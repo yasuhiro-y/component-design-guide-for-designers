@@ -9,7 +9,7 @@ const mono: CSSProperties = {
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 16,
   flex: 1,
@@ -17,7 +17,7 @@ const panel: CSSProperties = {
 
 const heading: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
@@ -39,7 +39,7 @@ const items = ["variant", "size", "label", "showIcon"];
 
 export default function Fig52() {
   return (
-    <IllustrationFrame title="メンタルモデルの同期: Figma・コード・チームの認知が一致する">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 12, width: CONTENT_WIDTH, alignItems: "stretch" }}>
         {/* Figma */}
         <div style={panel}>
@@ -49,7 +49,7 @@ export default function Fig52() {
           </div>
           {items.map((item, i) => (
             <div key={item} style={{ ...row, borderBottom: i < items.length - 1 ? "1px solid #f4f4f5" : "none" }}>
-              <span style={{ ...mono, fontWeight: 500, fontSize: 11 }}>{item}</span>
+              <span style={{ ...mono, fontWeight: 400, fontSize: 11 }}>{item}</span>
             </div>
           ))}
         </div>
@@ -67,7 +67,7 @@ export default function Fig52() {
           </div>
           {items.map((item, i) => (
             <div key={item} style={{ ...row, borderBottom: i < items.length - 1 ? "1px solid #f4f4f5" : "none" }}>
-              <span style={{ ...mono, fontWeight: 500, fontSize: 11 }}>{item}</span>
+              <span style={{ ...mono, fontWeight: 400, fontSize: 11 }}>{item}</span>
             </div>
           ))}
         </div>
@@ -83,7 +83,7 @@ export default function Fig52() {
           <div style={{ fontSize: 11, color: "#52525b", textAlign: "center", lineHeight: 1.7 }}>
             全員が同じ
             <br />
-            <span style={{ ...mono, fontWeight: 600, fontSize: 12, color: "#18181b" }}>{items.join(", ")}</span>
+            <span style={{ ...mono, fontWeight: 700, fontSize: 12, color: "#18181b" }}>{items.join(", ")}</span>
             <br />
             を思い浮かべる
           </div>

@@ -42,11 +42,11 @@ function MockBtn({ label, leftIcon, rightIcon }: MockBtnProps) {
         justifyContent: "center",
         gap: 6,
         padding: "7px 14px",
-        borderRadius: 6,
+        borderRadius: 12,
         background: text,
         color: "#fff",
         fontSize: 11,
-        fontWeight: 600,
+        fontWeight: 700,
         letterSpacing: "-0.01em",
       }}
     >
@@ -61,7 +61,7 @@ function MockBtn({ label, leftIcon, rightIcon }: MockBtnProps) {
 function SlotBtn({ label, leftIcon, rightIcon }: MockBtnProps) {
   const slotStyle: CSSProperties = {
     border: "1.5px dashed #71717a",
-    borderRadius: 4,
+    borderRadius: 8,
     padding: 2,
     display: "flex",
     alignItems: "center",
@@ -78,11 +78,11 @@ function SlotBtn({ label, leftIcon, rightIcon }: MockBtnProps) {
         justifyContent: "center",
         gap: 6,
         padding: "5px 12px",
-        borderRadius: 6,
+        borderRadius: 12,
         background: text,
         color: "#fff",
         fontSize: 11,
-        fontWeight: 600,
+        fontWeight: 700,
         letterSpacing: "-0.01em",
       }}
     >
@@ -94,8 +94,7 @@ function SlotBtn({ label, leftIcon, rightIcon }: MockBtnProps) {
 }
 
 const variantLabel: CSSProperties = {
-  fontFamily: mono,
-  fontSize: 9,
+  fontSize: 10,
   color: tertiary,
   textAlign: "center",
   marginTop: 4,
@@ -103,7 +102,7 @@ const variantLabel: CSSProperties = {
 
 const colTitle: CSSProperties = {
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 700,
   color: text,
   textAlign: "center",
   marginBottom: 12,
@@ -111,15 +110,14 @@ const colTitle: CSSProperties = {
 
 export default function Fig71() {
   return (
-    <IllustrationFrame title="バリアント爆発 vs スロット: 4つ作るか、1つで済ませるか">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH, alignItems: "flex-start" }}>
         {/* ── Left: Variant explosion ── */}
         <div
           style={{
             flex: 1,
             background: "#fff",
-            border: `1px solid ${border}`,
-            borderRadius: 8,
+            borderRadius: 16,
             padding: 16,
           }}
         >
@@ -155,7 +153,7 @@ export default function Fig71() {
           >
             アイコンの組み合わせごとにバリアントが増える。
             <br />
-            <span style={{ fontWeight: 600, color: text }}>新しいパターンが出るたびに追加が必要。</span>
+            <span style={{ fontWeight: 700, color: text }}>新しいパターンが出るたびに追加が必要。</span>
           </div>
         </div>
 
@@ -172,8 +170,7 @@ export default function Fig71() {
           style={{
             flex: 1,
             background: "#fff",
-            border: `1px solid ${border}`,
-            borderRadius: 8,
+            borderRadius: 16,
             padding: 16,
           }}
         >
@@ -192,7 +189,7 @@ export default function Fig71() {
               ].map((p) => (
                 <div key={p.label} style={{ textAlign: "center" }}>
                   <SlotBtn label="Btn" leftIcon={p.left ?? undefined} rightIcon={p.right ?? undefined} />
-                  <div style={{ ...variantLabel, fontSize: 8 }}>{p.label}</div>
+                  <div style={{ ...variantLabel, fontSize: 10 }}>{p.label}</div>
                 </div>
               ))}
             </div>
@@ -210,7 +207,7 @@ export default function Fig71() {
           >
             差し込み口を2つ用意するだけ。
             <br />
-            <span style={{ fontWeight: 600, color: text }}>バリアントを増やさず対応できる。</span>
+            <span style={{ fontWeight: 700, color: text }}>バリアントを増やさず対応できる。</span>
           </div>
         </div>
       </div>

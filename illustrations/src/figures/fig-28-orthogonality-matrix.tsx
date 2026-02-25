@@ -1,8 +1,8 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const headerStyle = { fontSize: 10, fontWeight: 600, color: "#3f3f46", padding: "6px 0", textAlign: "center" as const };
-const rowLabelStyle = { fontSize: 10, fontWeight: 500, color: "#52525b", padding: "6px 8px", minWidth: 56 };
+const headerStyle = { fontSize: 10, fontWeight: 700, color: "#3f3f46", padding: "6px 0", textAlign: "center" as const };
+const rowLabelStyle = { fontSize: 10, fontWeight: 700, color: "#52525b", padding: "6px 8px", minWidth: 56 };
 
 const colors: Record<string, { solid: string; subtle: string; text: string }> = {
   info:    { solid: "#3b82f6", subtle: "#dbeafe", text: "#1d4ed8" },
@@ -24,8 +24,8 @@ function TagCell({ colorScheme, variant }: { colorScheme: string; variant: "soli
   return (
     <div style={{ display: "flex", justifyContent: "center", padding: 4 }}>
       <span style={{
-        display: "inline-block", padding: "3px 10px", borderRadius: 4,
-        fontSize: 10, fontWeight: 500, lineHeight: 1.4,
+        display: "inline-block", padding: "3px 10px", borderRadius: 8,
+        fontSize: 10, fontWeight: 400, lineHeight: 1.4,
         ...styles[variant],
       }}>
         {label}
@@ -39,9 +39,9 @@ export default function Fig28() {
   const variants: Array<"solid" | "subtle" | "outline"> = ["solid", "subtle", "outline"];
 
   return (
-    <IllustrationFrame title="直交性マトリクス">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
-        <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b", marginBottom: 4, textAlign: "center" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#18181b", marginBottom: 4, textAlign: "center" }}>
           Tag
         </div>
         <div style={{ fontSize: 11, color: "#3f3f46", marginBottom: 16, textAlign: "center" }}>
@@ -71,17 +71,17 @@ export default function Fig28() {
 
         <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 16 }}>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 10, fontWeight: 600, color: "#3f3f46" }}>colorScheme</div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: "#3f3f46" }}>colorScheme</div>
             <div style={{ fontSize: 10, color: "#52525b" }}>意味（横軸）</div>
           </div>
           <div style={{ fontSize: 12, color: "#d4d4d8" }}>x</div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 10, fontWeight: 600, color: "#3f3f46" }}>variant</div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: "#3f3f46" }}>variant</div>
             <div style={{ fontSize: 10, color: "#52525b" }}>強さ（縦軸）</div>
           </div>
           <div style={{ fontSize: 12, color: "#d4d4d8" }}>=</div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 10, fontWeight: 600, color: "#3f3f46" }}>12通り</div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: "#3f3f46" }}>12通り</div>
             <div style={{ fontSize: 10, color: "#52525b" }}>すべて独立</div>
           </div>
         </div>

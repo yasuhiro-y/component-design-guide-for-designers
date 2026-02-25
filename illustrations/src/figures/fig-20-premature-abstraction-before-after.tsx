@@ -3,7 +3,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const beforeLabel = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#b91c1c",
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
@@ -11,28 +11,28 @@ const beforeLabel = {
 };
 const afterLabel = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#15803d",
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
   marginBottom: 10,
 };
-const cardTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 6 };
+const cardTitle = { fontSize: 13, fontWeight: 700, color: "#18181b", fontFamily: '"SF Mono", Menlo, monospace', marginBottom: 6 };
 const prop = { fontSize: 11, color: "#52525b", padding: "1px 0" as const, fontFamily: '"SF Mono", Menlo, monospace' };
 const propGray = { ...prop, color: "#52525b" };
 
 function MiniCard({ title, subtitle, hasLike, badge, image }: { title: string; subtitle: string; hasLike?: boolean; badge?: string; image?: string }) {
   return (
-    <div style={{ background: "#fff", borderRadius: 8, border: "1px solid #e4e4e7", padding: 10, position: "relative" as const }}>
+    <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e4e4e7", padding: 10, position: "relative" as const }}>
       {badge && (
-        <span style={{ position: "absolute", top: 6, right: 6, fontSize: 9, fontWeight: 500, background: "#18181b", color: "#fff", padding: "1px 5px", borderRadius: 3 }}>{badge}</span>
+        <span style={{ position: "absolute", top: 6, right: 6, fontSize: 10, fontWeight: 400, background: "#18181b", color: "#fff", padding: "1px 5px", borderRadius: 6 }}>{badge}</span>
       )}
       {image ? (
-        <img src={image} style={{ width: "100%", height: 36, borderRadius: 4, objectFit: "cover", display: "block", marginBottom: 6 }} />
+        <img src={image} style={{ width: "100%", height: 36, borderRadius: 8, objectFit: "cover", display: "block", marginBottom: 6 }} />
       ) : (
-        <div style={{ width: "100%", height: 36, borderRadius: 4, background: "#e4e4e7", marginBottom: 6 }} />
+        <div style={{ width: "100%", height: 36, borderRadius: 8, background: "#e4e4e7", marginBottom: 6 }} />
       )}
-      <div style={{ fontSize: 11, fontWeight: 600, color: "#18181b" }}>{title}</div>
+      <div style={{ fontSize: 11, fontWeight: 700, color: "#18181b" }}>{title}</div>
       <div style={{ fontSize: 10, color: "#3f3f46", marginTop: 1 }}>{subtitle}</div>
       {hasLike && <div style={{ marginTop: 4, fontSize: 12, color: "#52525b" }}>&#9825;</div>}
     </div>
@@ -41,7 +41,7 @@ function MiniCard({ title, subtitle, hasLike, badge, image }: { title: string; s
 
 export default function Fig20() {
   return (
-    <IllustrationFrame title="早すぎる共通化の罠">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         {/* Before */}
         <div style={{ flex: 1 }}>

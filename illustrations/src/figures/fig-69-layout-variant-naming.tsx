@@ -9,14 +9,13 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
 };
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -24,9 +23,9 @@ const sectionLabel: CSSProperties = {
 };
 
 const headerCell: CSSProperties = {
-  fontSize: 9,
-  fontWeight: 600,
-  color: "#a1a1aa",
+  fontSize: 10,
+  fontWeight: 700,
+  color: "#71717a",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
   padding: "6px 8px",
@@ -40,7 +39,7 @@ const cellStyle: CSSProperties = {
 
 const nameText: CSSProperties = {
   fontSize: 11,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
 };
 
@@ -139,7 +138,7 @@ function ByPlacement() {
           <tbody>
             {rows.map((row, i) => (
               <tr key={row.place} style={i < rows.length - 1 ? { borderBottom: "1px solid #f4f4f5" } : {}}>
-                <td style={{ ...cellStyle, fontSize: 11, fontWeight: 500, color: "#18181b" }}>{row.place}</td>
+                <td style={{ ...cellStyle, fontSize: 11, fontWeight: 700, color: "#18181b" }}>{row.place}</td>
                 <td style={cellStyle}><span style={{ ...nameText, color: "#1e40af" }}>{row.example}</span></td>
                 <td style={{ ...cellStyle, ...descStyle }}>{row.desc}</td>
               </tr>
@@ -156,7 +155,7 @@ function ByPlacement() {
 
 export default function Fig69() {
   return (
-    <IllustrationFrame title="レイアウトバリエーションの命名: 形状で分けるか、場所で分けるか">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <ByLayoutShape />
         <ByPlacement />

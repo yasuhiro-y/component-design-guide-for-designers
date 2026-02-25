@@ -1,10 +1,11 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colTitle: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 8,
 };
@@ -71,9 +72,9 @@ function UserIcon() {
 }
 
 const avatarSrcs: Record<string, string> = {
-  "田": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  "佐": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-  "鈴": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+  "田": avatars.lee,
+  "佐": avatars.tanaka,
+  "鈴": avatars.sato,
 };
 
 /* ── Mini Avatar ── */
@@ -119,7 +120,7 @@ function ListItem({
         display: "flex",
         alignItems: "center",
         gap: 10,
-        padding: "8px 0",
+        padding: "10px 0",
         borderBottom: isLast ? "none" : "1px solid #f4f4f5",
       }}
     >
@@ -136,7 +137,7 @@ function ListItem({
         {leading}
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>
+        <div style={{ fontSize: 12, fontWeight: 400, color: "#18181b" }}>
           {title}
         </div>
         <div style={{ fontSize: 10, color: "#52525b" }}>{subtitle}</div>
@@ -147,9 +148,9 @@ function ListItem({
 
 const card: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
-  padding: "4px 12px",
+  padding: "8px 12px",
 };
 
 const slotLabel: CSSProperties = {
@@ -162,7 +163,7 @@ const slotLabel: CSSProperties = {
 
 export default function Fig48() {
   return (
-    <IllustrationFrame title="Element型（スロット）: 差し込み口で中身を自由に">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* 3 variants showing different slot contents */}
         <div style={{ display: "flex", gap: 12 }}>
@@ -249,32 +250,6 @@ export default function Fig48() {
           </div>
         </div>
 
-        {/* Props annotation */}
-        <div
-          style={{
-            marginTop: 16,
-            padding: "10px 16px",
-            background: "#fafafa",
-            borderRadius: 6,
-            border: "1px solid #e4e4e7",
-            fontFamily: '"SF Mono", Menlo, monospace',
-            fontSize: 11,
-            lineHeight: 1.6,
-            color: "#3f3f46",
-            textAlign: "center",
-          }}
-        >
-          <span style={{ color: "#3f3f46" }}>leading</span>
-          <span style={{ color: "#d4d4d8" }}>?: </span>
-          <span style={{ color: "#18181b", fontWeight: 500 }}>ReactNode</span>
-          <span style={{ color: "#52525b", marginLeft: 12 }}>
-            — 同じ ListItem に Icon / Avatar / Badge を自由に差し込める
-          </span>
-        </div>
-
-        <div style={colSub}>
-          Figma では Instance Swap Property で表現。コードでは Element 型（ReactNode）のスロットとして設計する
-        </div>
       </div>
     </IllustrationFrame>
   );

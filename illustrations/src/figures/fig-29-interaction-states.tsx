@@ -6,7 +6,7 @@ function ButtonState({ label, bg, border, opacity, ring, note }: {
 }) {
   return (
     <div style={{ flex: 1, textAlign: "center" }}>
-      <div style={{ fontSize: 11, fontWeight: 600, color: "#3f3f46", marginBottom: 10 }}>{label}</div>
+      <div style={{ fontSize: 11, fontWeight: 700, color: "#3f3f46", marginBottom: 10 }}>{label}</div>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: 40 }}>
         <div style={{ position: "relative" as const, display: "inline-flex" }}>
           {ring && (
@@ -18,12 +18,12 @@ function ButtonState({ label, bg, border, opacity, ring, note }: {
             }} />
           )}
           <button style={{
-            display: "inline-flex", padding: "8px 20px", borderRadius: 6,
+            display: "inline-flex", padding: "8px 20px", borderRadius: 8,
             border: border || "none",
             background: bg,
             color: "#fff",
-            fontSize: 12, fontWeight: 500,
-            fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+            fontSize: 12, fontWeight: 400,
+            fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
             cursor: "default",
             opacity: opacity ?? 1,
           }}>
@@ -38,7 +38,7 @@ function ButtonState({ label, bg, border, opacity, ring, note }: {
 
 export default function Fig29() {
   return (
-    <IllustrationFrame title="インタラクション状態">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 10, width: CONTENT_WIDTH }}>
         <ButtonState label="Default" bg="#18181b" note="通常の状態" />
         <ButtonState label="Hover" bg="#27272a" note="8% のオーバーレイ" />

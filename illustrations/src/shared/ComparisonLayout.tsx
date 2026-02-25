@@ -29,7 +29,7 @@ export function ComparisonLayout({ columns, gap = space.md }: ComparisonLayoutPr
       {columns.map((col, i) => {
         const labelStyle: CSSProperties = {
           fontSize: fontSize.xs,
-          fontWeight: 500,
+          fontWeight: 400,
           color: color.textSecondary,
           letterSpacing: "0.04em",
           textTransform: "uppercase" as const,

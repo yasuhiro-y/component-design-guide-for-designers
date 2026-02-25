@@ -47,12 +47,12 @@ function MiniTag({
         alignItems: "center",
         height: 28,
         padding: "0 10px",
-        borderRadius: 4,
+        borderRadius: 8,
         background: bg,
         color,
         border: `1px solid ${border}`,
         fontSize: 12,
-        fontWeight: 500,
+        fontWeight: 700,
       }}
     >
       {label}
@@ -81,7 +81,7 @@ function MiniButton({
         background: bg,
         color: "#fff",
         fontSize: 12,
-        fontWeight: 500,
+        fontWeight: 700,
       }}
     >
       {label}
@@ -91,8 +91,7 @@ function MiniButton({
 
 const panelStyle = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
   flex: 1,
   minWidth: 0,
@@ -100,7 +99,7 @@ const panelStyle = {
 
 const headerStyle = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase" as const,
   letterSpacing: "0.04em",
@@ -130,7 +129,7 @@ const codeStyle = {
 
 export default function Fig61() {
   return (
-    <IllustrationFrame title="色のセマンティクス: 見た目ではなく役割で名付ける">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Bad vs Good comparison */}
         <div style={{ display: "flex", gap: 14, marginBottom: 16 }}>
@@ -140,11 +139,11 @@ export default function Fig61() {
               <span
                 style={{
                   fontSize: 11,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: "#a1a1aa",
                   background: "#f4f4f5",
                   padding: "2px 8px",
-                  borderRadius: 3,
+                  borderRadius: 8,
                 }}
               >
                 NG
@@ -166,11 +165,11 @@ export default function Fig61() {
               <span
                 style={{
                   fontSize: 11,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: "#18181b",
                   background: "#f0fdf4",
                   padding: "2px 8px",
-                  borderRadius: 3,
+                  borderRadius: 8,
                 }}
               >
                 OK
@@ -191,12 +190,11 @@ export default function Fig61() {
         <div
           style={{
             background: "#fff",
-            borderRadius: 8,
-            border: "1px solid #e4e4e7",
+            borderRadius: 16,
             padding: 16,
           }}
         >
-          <div style={{ fontSize: 12, fontWeight: 600, color: "#18181b", marginBottom: 4 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#18181b", marginBottom: 4 }}>
             ブランドカラーが変わったら？
           </div>
           <div style={{ fontSize: 11, color: "#52525b", marginBottom: 12 }}>

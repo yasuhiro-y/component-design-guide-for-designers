@@ -4,7 +4,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const label: CSSProperties = {
   fontSize: 14,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 2,
 };
@@ -17,7 +17,7 @@ const desc: CSSProperties = {
 
 export default function Fig08() {
   return (
-    <IllustrationFrame title="Fill / Hug / Fixed の3パターン">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={label}>Fill</div>
@@ -26,10 +26,10 @@ export default function Fig08() {
             style={{
               width: "100%",
               padding: "7px 10px",
-              borderRadius: 6,
+              borderRadius: 8,
               border: "1px solid #d4d4d8",
               fontSize: 13,
-              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+              fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
               background: "#fff",
               outline: "none",
               boxSizing: "border-box",
@@ -51,13 +51,13 @@ export default function Fig08() {
                 style={{
                   display: "inline-flex",
                   padding: "7px 14px",
-                  borderRadius: 6,
+                  borderRadius: 8,
                   border: "1px solid #d4d4d8",
                   background: "#fff",
                   fontSize: 13,
-                  fontWeight: 500,
+                  fontWeight: 400,
                   cursor: "default",
-                  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+                  fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
                   color: "#18181b",
                 }}
               >
@@ -74,7 +74,7 @@ export default function Fig08() {
                     border: "1px solid #e4e4e7",
                     background: "#fff",
                     fontSize: 11,
-                    fontWeight: 500,
+                    fontWeight: 400,
                     color: "#3f3f46",
                   }}
                 >
@@ -102,7 +102,7 @@ export default function Fig08() {
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: 12,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: "#3f3f46",
                 }}
               >

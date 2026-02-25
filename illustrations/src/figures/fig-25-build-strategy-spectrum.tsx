@@ -5,8 +5,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const cardStyle = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
   flex: 1,
   minWidth: 0,
@@ -14,7 +13,7 @@ const cardStyle = {
 
 const titleStyle = {
   fontSize: 13,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 8,
 };
@@ -28,9 +27,9 @@ const descStyle = {
 const tagStyle = (active: boolean) => ({
   display: "inline-block",
   padding: "2px 8px",
-  borderRadius: 4,
+  borderRadius: 8,
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 700,
   background: active ? "#18181b" : "#f4f4f5",
   color: active ? "#fff" : "#3f3f46",
   marginRight: 4,
@@ -90,7 +89,7 @@ export default function Fig25() {
   ];
 
   return (
-    <IllustrationFrame title="構築戦略の4パターン">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Spectrum bar */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: 16, padding: "0 8px" }}>
@@ -123,13 +122,13 @@ export default function Fig25() {
               {/* Bars */}
               <div style={{ marginTop: 10 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-                  <span style={{ fontSize: 9, color: "#52525b", width: 36 }}>自由度</span>
+                  <span style={{ fontSize: 10, color: "#52525b", width: 36 }}>自由度</span>
                   <div style={{ flex: 1, height: 4, background: "#f4f4f5", borderRadius: 2, overflow: "hidden" }}>
                     <div style={{ width: `${s.customization * 25}%`, height: "100%", background: "#18181b", borderRadius: 2 }} />
                   </div>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ fontSize: 9, color: "#52525b", width: 36 }}>コスト</span>
+                  <span style={{ fontSize: 10, color: "#52525b", width: 36 }}>コスト</span>
                   <div style={{ flex: 1, height: 4, background: "#f4f4f5", borderRadius: 2, overflow: "hidden" }}>
                     <div style={{ width: `${s.effort * 25}%`, height: "100%", background: "#52525b", borderRadius: 2 }} />
                   </div>

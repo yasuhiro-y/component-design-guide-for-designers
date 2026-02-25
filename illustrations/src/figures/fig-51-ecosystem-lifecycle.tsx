@@ -8,20 +8,20 @@ const box: CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   padding: "14px 20px",
-  borderRadius: 8,
+  borderRadius: 16,
   textAlign: "center",
   minWidth: 120,
 };
 
 const label: CSSProperties = {
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 700,
   marginBottom: 2,
 };
 
 const sub: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#71717a",
 };
 
 function Arrow() {
@@ -44,7 +44,7 @@ function DownArrow() {
 
 export default function Fig51() {
   return (
-    <IllustrationFrame title="デザインシステムの進化サイクル">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Top row: linear flow */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0 }}>

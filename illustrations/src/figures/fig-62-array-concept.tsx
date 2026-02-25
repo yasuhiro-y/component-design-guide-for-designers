@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 /**
@@ -10,14 +11,13 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
 };
 
 const templateCard: CSSProperties = {
   background: "#fafafa",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "2px dashed #d4d4d8",
   padding: 12,
   display: "flex",
@@ -27,7 +27,7 @@ const templateCard: CSSProperties = {
 
 const instanceCard = (highlight: string): CSSProperties => ({
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 10,
   display: "flex",
@@ -49,14 +49,6 @@ const avatarPlaceholder: CSSProperties = {
   flexShrink: 0,
 };
 
-const avatarFilled = (bg: string): CSSProperties => ({
-  width: 28,
-  height: 28,
-  borderRadius: "50%",
-  background: bg,
-  flexShrink: 0,
-});
-
 const textPlaceholder: CSSProperties = {
   display: "flex",
   flexDirection: "column",
@@ -67,14 +59,14 @@ const textPlaceholder: CSSProperties = {
 const linePlaceholder = (w: number): CSSProperties => ({
   width: w,
   height: 8,
-  borderRadius: 4,
+  borderRadius: 8,
   background: "#e4e4e7",
 });
 
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -95,33 +87,33 @@ interface ItemData {
   name: string;
   role: string;
   color: string;
-  avatarBg: string;
+  avatar: string;
 }
 
 const items: ItemData[] = [
-  { name: "田中 太郎", role: "Designer", color: "#3b82f6", avatarBg: "#bfdbfe" },
-  { name: "佐藤 花子", role: "Engineer", color: "#22c55e", avatarBg: "#bbf7d0" },
-  { name: "鈴木 一郎", role: "PM", color: "#f59e0b", avatarBg: "#fef08a" },
+  { name: "田中 太郎", role: "Designer", color: "#3b82f6", avatar: avatars.chen },
+  { name: "佐藤 花子", role: "Engineer", color: "#22c55e", avatar: avatars.kim },
+  { name: "鈴木 一郎", role: "PM", color: "#f59e0b", avatar: avatars.garcia },
 ];
 
 function InstanceRow({ item }: { item: ItemData }) {
   return (
     <div style={instanceCard(item.color)}>
-      <div style={avatarFilled(item.avatarBg)} />
+      <img src={item.avatar} style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: "#18181b" }}>
+        <div style={{ fontSize: 12, fontWeight: 700, color: "#18181b" }}>
           {item.name}
         </div>
         <div style={{ fontSize: 10, color: "#52525b" }}>{item.role}</div>
       </div>
-      <span style={{ fontSize: 10, color: "#a1a1aa" }}>{item.role}</span>
+      <span style={{ fontSize: 10, color: "#71717a" }}>{item.role}</span>
     </div>
   );
 }
 
 export default function Fig62() {
   return (
-    <IllustrationFrame title="配列: 同じテンプレートに異なるデータを流し込む">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
           {/* Left: Template (single component definition) */}
@@ -163,7 +155,7 @@ export default function Fig62() {
                 style={{
                   textAlign: "center",
                   fontSize: 10,
-                  color: "#a1a1aa",
+                  color: "#71717a",
                   padding: "4px 0 0",
                 }}
               >
@@ -183,10 +175,10 @@ export default function Fig62() {
           }}
         >
           <div style={{ fontSize: 11, color: "#71717a" }}>
-            <span style={{ fontWeight: 600, color: "#52525b" }}>Figma:</span> Auto Layout 内にコンポーネントを繰り返し配置
+            <span style={{ fontWeight: 700, color: "#52525b" }}>Figma:</span> Auto Layout 内にコンポーネントを繰り返し配置
           </div>
           <div style={{ fontSize: 11, color: "#71717a" }}>
-            <span style={{ fontWeight: 600, color: "#52525b" }}>Code:</span> 配列をループして同じコンポーネントを描画
+            <span style={{ fontWeight: 700, color: "#52525b" }}>Code:</span> 配列をループして同じコンポーネントを描画
           </div>
         </div>
       </div>

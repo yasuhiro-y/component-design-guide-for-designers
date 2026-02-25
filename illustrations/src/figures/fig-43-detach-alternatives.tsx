@@ -37,8 +37,7 @@ const stepCard: CSSProperties = {
   display: "flex",
   alignItems: "stretch",
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   overflow: "hidden",
 };
 
@@ -56,10 +55,10 @@ const numberBadge: CSSProperties = {
 
 export default function Fig43() {
   return (
-    <IllustrationFrame title="既存コンポーネントで実現できないとき: 4つの選択肢">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div
-          style={{ display: "flex", flexDirection: "column", gap: 8 }}
+          style={{ display: "flex", flexDirection: "column", gap: 10 }}
         >
           {steps.map((step, i) => (
             <div key={step.number}>
@@ -75,11 +74,11 @@ export default function Fig43() {
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: "10px 14px", flex: 1 }}>
+                <div style={{ padding: "12px 16px", flex: 1 }}>
                   <div
                     style={{
                       fontSize: 13,
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#18181b",
                       marginBottom: 2,
                     }}

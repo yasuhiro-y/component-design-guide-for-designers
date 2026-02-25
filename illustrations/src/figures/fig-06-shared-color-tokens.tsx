@@ -3,9 +3,9 @@ import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sizeTokens = {
-  S: { height: 24, fontSize: 10, px: 8, iconSize: 12 },
-  M: { height: 32, fontSize: 12, px: 12, iconSize: 14 },
-  L: { height: 40, fontSize: 14, px: 16, iconSize: 16 },
+  S: { height: 28, fontSize: 11, px: 10, iconSize: 12 },
+  M: { height: 34, fontSize: 13, px: 14, iconSize: 14 },
+  L: { height: 42, fontSize: 14, px: 18, iconSize: 16 },
 } as const;
 
 const colorTokens = {
@@ -29,11 +29,11 @@ function MiniButton({ size, label }: { size: SizeKey; label: string }) {
         justifyContent: "center",
         height: s.height,
         padding: `0 ${s.px}px`,
-        borderRadius: 6,
+        borderRadius: 8,
         background: "#18181b",
         color: "#fff",
         fontSize: s.fontSize,
-        fontWeight: 500,
+        fontWeight: 400,
       }}
     >
       {label}
@@ -60,12 +60,11 @@ function MiniTag({
         alignItems: "center",
         height: s.height,
         padding: `0 ${s.px}px`,
-        borderRadius: 4,
+        borderRadius: 9999,
         background: c.bg,
         color: c.color,
-        border: `1px solid ${c.border}`,
         fontSize: s.fontSize,
-        fontWeight: 500,
+        fontWeight: 400,
       }}
     >
       {label}
@@ -83,10 +82,10 @@ function MiniInput({ size, placeholder }: { size: SizeKey; placeholder: string }
         alignItems: "center",
         height: s.height,
         padding: `0 ${s.px}px`,
-        borderRadius: 6,
+        borderRadius: 8,
         background: "#fff",
-        border: "1px solid #d4d4d8",
-        color: "#52525b",
+        border: "1px solid #e4e4e7",
+        color: "#a1a1aa",
         fontSize: s.fontSize,
         minWidth: 100,
       }}
@@ -98,19 +97,17 @@ function MiniInput({ size, placeholder }: { size: SizeKey; placeholder: string }
 
 const colTitle: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
-  marginBottom: 6,
-  fontFamily: '"SF Mono", Menlo, monospace',
-  letterSpacing: "0.04em",
+  marginBottom: 8,
+  letterSpacing: "0.08em",
   textTransform: "uppercase",
 };
 
 const sizeLabel: CSSProperties = {
-  fontSize: 10,
-  fontWeight: 600,
+  fontSize: 11,
+  fontWeight: 700,
   color: "#52525b",
-  fontFamily: '"SF Mono", Menlo, monospace',
   width: 20,
   textAlign: "right",
   flexShrink: 0,
@@ -120,24 +117,23 @@ export default function Fig06() {
   const sizeKeys: SizeKey[] = ["S", "M", "L"];
 
   return (
-    <IllustrationFrame title="トークンの共有: 複数コンポーネントの一貫性を保つ">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
-        {/* Size tokens shared across Button, Tag, Input */}
+        {/* Size tokens — grouping surface (white, no border) */}
         <div
           style={{
             background: "#fff",
-            borderRadius: 8,
-            border: "1px solid #e4e4e7",
-            padding: 16,
+            borderRadius: 16,
+            padding: 20,
             marginBottom: 16,
           }}
         >
           <div
             style={{
-              fontSize: 12,
-              fontWeight: 600,
+              fontSize: 14,
+              fontWeight: 700,
               color: "#18181b",
-              marginBottom: 12,
+              marginBottom: 14,
             }}
           >
             同じ size トークンを共有 → 高さが揃う
@@ -147,7 +143,7 @@ export default function Fig06() {
             style={{
               display: "grid",
               gridTemplateColumns: "30px 1fr 1fr 1fr",
-              gap: 10,
+              gap: 12,
               alignItems: "center",
             }}
           >
@@ -174,47 +170,32 @@ export default function Fig06() {
             ))}
           </div>
 
-          <div
-            style={{
-              marginTop: 12,
-              fontSize: 11,
-              color: "#3f3f46",
-              borderTop: "1px dashed #e4e4e7",
-              paddingTop: 10,
-            }}
-          >
-            S の高さを 24→28px に変更 →{" "}
-            <strong style={{ color: "#18181b" }}>
-              Button・Tag・Input すべての S が一括で更新される
-            </strong>
-          </div>
         </div>
 
-        {/* Color tokens shared across Tag, Badge, Callout */}
+        {/* Color tokens — grouping surface (white, no border) */}
         <div
           style={{
             background: "#fff",
-            borderRadius: 8,
-            border: "1px solid #e4e4e7",
-            padding: 16,
+            borderRadius: 16,
+            padding: 20,
           }}
         >
           <div
             style={{
-              fontSize: 12,
-              fontWeight: 600,
+              fontSize: 14,
+              fontWeight: 700,
               color: "#18181b",
-              marginBottom: 12,
+              marginBottom: 14,
             }}
           >
             同じ colorScheme トークンを共有 → 色の意味が統一される
           </div>
 
-          <div style={{ display: "flex", gap: 20 }}>
+          <div style={{ display: "flex", gap: 24 }}>
             {/* Tag */}
             <div style={{ flex: 1 }}>
               <div style={colTitle}>Tag</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {(Object.keys(colorTokens) as ColorKey[]).map((c) => (
                   <MiniTag key={c} size="M" colorScheme={c} label={c} />
                 ))}
@@ -224,21 +205,21 @@ export default function Fig06() {
             {/* Badge dot */}
             <div style={{ flex: 1 }}>
               <div style={colTitle}>Badge</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {(Object.keys(colorTokens) as ColorKey[]).map((c) => (
                   <div
                     key={c}
-                    style={{ display: "flex", alignItems: "center", gap: 8 }}
+                    style={{ display: "flex", alignItems: "center", gap: 10 }}
                   >
                     <span
                       style={{
-                        width: 8,
-                        height: 8,
+                        width: 10,
+                        height: 10,
                         borderRadius: "50%",
                         background: colorTokens[c].color,
                       }}
                     />
-                    <span style={{ fontSize: 12, color: "#52525b" }}>
+                    <span style={{ fontSize: 13, color: "#52525b" }}>
                       {c}
                     </span>
                   </div>
@@ -249,18 +230,17 @@ export default function Fig06() {
             {/* Callout */}
             <div style={{ flex: 1.5 }}>
               <div style={colTitle}>Callout</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {(Object.keys(colorTokens) as ColorKey[]).map((c) => (
                   <div
                     key={c}
                     style={{
-                      padding: "6px 10px",
-                      borderRadius: 6,
+                      padding: "8px 12px",
+                      borderRadius: 12,
                       background: colorTokens[c].bg,
-                      border: `1px solid ${colorTokens[c].border}`,
                       fontSize: 11,
                       color: colorTokens[c].color,
-                      fontWeight: 500,
+                      fontWeight: 400,
                     }}
                   >
                     {c}: メッセージ
@@ -270,20 +250,6 @@ export default function Fig06() {
             </div>
           </div>
 
-          <div
-            style={{
-              marginTop: 12,
-              fontSize: 11,
-              color: "#3f3f46",
-              borderTop: "1px dashed #e4e4e7",
-              paddingTop: 10,
-            }}
-          >
-            info の色を変更 →{" "}
-            <strong style={{ color: "#18181b" }}>
-              Tag・Badge・Callout すべての info が一括で更新される
-            </strong>
-          </div>
         </div>
       </div>
     </IllustrationFrame>

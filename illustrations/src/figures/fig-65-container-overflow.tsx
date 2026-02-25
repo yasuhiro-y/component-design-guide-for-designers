@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
+import { avatars } from "../shared/unsplash";
 
 /**
  * コンテナのオーバーフロー: スクロール / もっと見る / 切り捨て（clip）の
@@ -9,8 +10,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 14,
   flex: 1,
   minWidth: 0,
@@ -18,7 +18,7 @@ const panel: CSSProperties = {
 
 const labelStyle: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -27,13 +27,13 @@ const labelStyle: CSSProperties = {
 
 const descStyle: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#71717a",
   marginTop: 8,
 };
 
 const listContainer: CSSProperties = {
   background: "#fafafa",
-  borderRadius: 6,
+  borderRadius: 12,
   border: "1px solid #f4f4f5",
   overflow: "hidden",
 };
@@ -41,11 +41,12 @@ const listContainer: CSSProperties = {
 interface ListItemProps {
   name: string;
   role: string;
+  avatar: string;
   isLast?: boolean;
   dimmed?: boolean;
 }
 
-function ListItem({ name, role, isLast, dimmed }: ListItemProps) {
+function ListItem({ name, role, avatar, isLast, dimmed }: ListItemProps) {
   return (
     <div
       style={{
@@ -57,30 +58,32 @@ function ListItem({ name, role, isLast, dimmed }: ListItemProps) {
         opacity: dimmed ? 0.4 : 1,
       }}
     >
-      <div
+      <img
+        src={avatar}
+        alt=""
         style={{
           width: 24,
           height: 24,
           borderRadius: "50%",
-          background: dimmed ? "#e4e4e7" : "#bfdbfe",
+          objectFit: "cover",
           flexShrink: 0,
         }}
       />
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 11, fontWeight: 500, color: "#18181b" }}>{name}</div>
-        <div style={{ fontSize: 9, color: "#52525b" }}>{role}</div>
+        <div style={{ fontSize: 11, fontWeight: 400, color: "#18181b" }}>{name}</div>
+        <div style={{ fontSize: 10, color: "#52525b" }}>{role}</div>
       </div>
     </div>
   );
 }
 
 const people = [
-  { name: "田中 太郎", role: "Designer" },
-  { name: "佐藤 花子", role: "Engineer" },
-  { name: "鈴木 一郎", role: "PM" },
-  { name: "高橋 美咲", role: "Designer" },
-  { name: "伊藤 健太", role: "Engineer" },
-  { name: "渡辺 さくら", role: "QA" },
+  { name: "田中 太郎", role: "Designer", avatar: avatars.chen },
+  { name: "佐藤 花子", role: "Engineer", avatar: avatars.kim },
+  { name: "鈴木 一郎", role: "PM", avatar: avatars.lee },
+  { name: "高橋 美咲", role: "Designer", avatar: avatars.ito },
+  { name: "伊藤 健太", role: "Engineer", avatar: avatars.watanabe },
+  { name: "渡辺 さくら", role: "QA", avatar: avatars.takahashi },
 ];
 
 /* ── スクロール ── */
@@ -91,7 +94,7 @@ function ScrollExample() {
       <div style={{ ...listContainer, height: 140, position: "relative" }}>
         <div style={{ height: "100%", overflowY: "auto" }}>
           {people.map((p, i) => (
-            <ListItem key={p.name} name={p.name} role={p.role} isLast={i === people.length - 1} />
+            <ListItem key={p.name} name={p.name} role={p.role} avatar={p.avatar} isLast={i === people.length - 1} />
           ))}
         </div>
         {/* Scroll fade indicator */}
@@ -125,8 +128,8 @@ function ScrollExample() {
         style={{
           marginTop: 6,
           fontFamily: '"SF Mono", Menlo, monospace',
-          fontSize: 9,
-          color: "#a1a1aa",
+          fontSize: 10,
+          color: "#71717a",
           lineHeight: 1.6,
         }}
       >
@@ -145,14 +148,14 @@ function PaginationExample() {
       <div style={labelStyle}>もっと見る</div>
       <div style={listContainer}>
         {people.slice(0, 3).map((p, i) => (
-          <ListItem key={p.name} name={p.name} role={p.role} isLast={i === 2} />
+          <ListItem key={p.name} name={p.name} role={p.role} avatar={p.avatar} isLast={i === 2} />
         ))}
         <div
           style={{
             textAlign: "center",
             padding: "8px 0",
             fontSize: 11,
-            fontWeight: 500,
+            fontWeight: 400,
             color: "#3b82f6",
             borderTop: "1px solid #f4f4f5",
           }}
@@ -165,8 +168,8 @@ function PaginationExample() {
         style={{
           marginTop: 6,
           fontFamily: '"SF Mono", Menlo, monospace',
-          fontSize: 9,
-          color: "#a1a1aa",
+          fontSize: 10,
+          color: "#71717a",
           lineHeight: 1.6,
         }}
       >
@@ -189,6 +192,7 @@ function ClipExample() {
             key={p.name}
             name={p.name}
             role={p.role}
+            avatar={p.avatar}
             isLast={i === 4}
             dimmed={i >= 3}
           />
@@ -211,8 +215,8 @@ function ClipExample() {
         style={{
           marginTop: 6,
           fontFamily: '"SF Mono", Menlo, monospace',
-          fontSize: 9,
-          color: "#a1a1aa",
+          fontSize: 10,
+          color: "#71717a",
           lineHeight: 1.6,
         }}
       >
@@ -226,7 +230,7 @@ function ClipExample() {
 
 export default function Fig65() {
   return (
-    <IllustrationFrame title="コンテナのオーバーフロー: スクロール・もっと見る・切り捨て">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 12, width: CONTENT_WIDTH }}>
         <ScrollExample />
         <PaginationExample />

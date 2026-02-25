@@ -21,14 +21,14 @@ export function ComponentShowcase({ library, libraryIcon, name, children }: Comp
     alignItems: "center",
     gap: 4,
     fontSize: fontSize.xs,
-    fontWeight: 500,
+    fontWeight: 400,
     color: color.textTertiary,
     letterSpacing: "0.02em",
   };
 
   const nameStyle: CSSProperties = {
     fontSize: fontSize.lg,
-    fontWeight: 500,
+    fontWeight: 400,
     color: color.text,
     
     letterSpacing: "-0.01em",

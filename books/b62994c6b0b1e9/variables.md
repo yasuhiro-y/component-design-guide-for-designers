@@ -72,6 +72,8 @@ Booleanはシンプルで使いやすい反面、増えすぎると矛盾が生�
 
 ![Boolean の矛盾: 2つのトグルより1つの Enum](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-42.png)
 
+![Boolean×2 の矛盾 vs Enum×1 のシンプルさ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-75.png)
+
 Booleanを追加するときの確認ポイントです。
 
 - そのON/OFFは本当に2択か？ 将来3択以上に増える可能性はないか
@@ -362,6 +364,8 @@ Figmaでは、`Tag`の色を変えたければ`Tag`のスタイルを編集し�
 色だけの話ではありません。兄弟関係にあるコンポーネント（`Button` / `IconButton` / `CopyButton`など）では、縦幅やアイコンのサイズも共通のトークンを参照しておくと一貫性を保ちやすくなります。
 
 こうしたトークンを一元管理しておけば、`Tag`の配色を微調整したいときに、共通構造を持つすべてのコンポーネントに変更が波及します。トークンを使わず個別のコンポーネントに値を直接書き込んでいたら、ひとつずつ直すことになります。
+
+![トークン変更の波及: 1箇所の変更が全コンポーネントに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-78.png)
 
 Figma上でデザイントークンを管理するプラグインとしては、[Tokens Studio](https://tokens.studio/)が広く使われています。JSONベースでトークンを定義でき、コードとの同期にも対応しています。
 

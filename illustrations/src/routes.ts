@@ -78,6 +78,13 @@ export const figures: FigureRoute[] = [
   { id: "fig-69", component: lazy(() => import("./figures/fig-69-layout-variant-naming")), title: "レイアウトバリエーションの命名: 形状で分けるか、場所で分けるか" },
   { id: "fig-70", component: lazy(() => import("./figures/fig-70-add-vs-remove-cost")), title: "追加と削除の非対称性: 似たバリアントは増えやすく、減らしにくい" },
   { id: "fig-71", component: lazy(() => import("./figures/fig-71-variant-explosion-vs-slot")), title: "バリアント爆発 vs スロット: 4つ作るか、1つで済ませるか" },
+  { id: "fig-72", component: lazy(() => import("./figures/fig-72-mindset-shift")), title: "絵を描く vs 建築する: マインドセットの転換" },
+  { id: "fig-73", component: lazy(() => import("./figures/fig-73-without-design-system")), title: "デザインシステムがないとき: 4つのロールの痛み" },
+  { id: "fig-74", component: lazy(() => import("./figures/fig-74-naming-convention-patterns")), title: "業界の命名規約: ライブラリ間で収束する名前" },
+  { id: "fig-75", component: lazy(() => import("./figures/fig-75-enum-vs-boolean")), title: "Enum vs Boolean: 排他的な選択肢の設計" },
+  { id: "fig-76", component: lazy(() => import("./figures/fig-76-deprecation-workflow")), title: "非推奨化ワークフロー: 安全にコンポーネントを削除する4ステップ" },
+  { id: "fig-77", component: lazy(() => import("./figures/fig-77-loading-skeleton-pattern")), title: "ローディングスケルトン: Loading / Partial / Error" },
+  { id: "fig-78", component: lazy(() => import("./figures/fig-78-token-cascade")), title: "トークンの連鎖: 1つの変更が全コンポーネントに届く" },
 ];
 
 export function getFigureById(id: string) {

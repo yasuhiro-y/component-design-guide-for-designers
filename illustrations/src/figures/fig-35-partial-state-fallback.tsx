@@ -1,10 +1,11 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const headerCell: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   padding: "10px 12px",
   background: "#f4f4f5",
@@ -20,7 +21,7 @@ const bodyCell: CSSProperties = {
 
 const fieldLabel: CSSProperties = {
   fontSize: 12,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
 };
 
@@ -33,7 +34,7 @@ const miniAvatar = (hasImage: boolean): CSSProperties => ({
   alignItems: "center",
   justifyContent: "center",
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: hasImage ? "#52525b" : "#52525b",
   border: hasImage ? "none" : "1px dashed #d4d4d8",
 });
@@ -47,7 +48,7 @@ const fallbackNote: CSSProperties = {
 const skillTag: CSSProperties = {
   display: "inline-block",
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#3f3f46",
   background: "#fff",
   border: "1px solid #e4e4e7",
@@ -69,12 +70,12 @@ const arrowNote: CSSProperties = {
 
 export default function Fig35() {
   return (
-    <IllustrationFrame title="Partial State: データ欠損時のフォールバック">
+    <IllustrationFrame>
       <div
         style={{
           width: CONTENT_WIDTH,
           background: "#fff",
-          borderRadius: 8,
+          borderRadius: 16,
           border: "1px solid #e4e4e7",
           overflow: "hidden",
         }}
@@ -84,7 +85,7 @@ export default function Fig35() {
           <span
             style={{
               fontSize: 13,
-              fontWeight: 600,
+              fontWeight: 700,
               color: "#18181b",
               fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
             }}
@@ -111,7 +112,7 @@ export default function Fig35() {
               </td>
               <td style={bodyCell}>
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                  src={avatars.watanabe}
                   style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover" as const }}
                 />
               </td>

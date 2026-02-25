@@ -74,8 +74,6 @@ Figmaではプロパティを自由に変更でき、インスタンスは自動
 
 次にコンポーネントを変更するとき、エンジニアに「これは破壊的変更になりますか？」と聞いてみてください。その一言で、移行計画の議論がスムーズに始まります。
 
-ここまで、コンポーネントの運用で直面する現実的な課題を扱いました。ここからは視点を変えて、コンポーネントが外側から受け取る設定値——プロパティ——の設計に踏み込みます。
-
 # コンポーネントのライフサイクル: 終わらせる設計
 
 デザイナーがコンポーネントの廃止プロセスを知っておくべき理由は、Figma上のマスターコンポーネントを消すとき、それがどこに影響するかを判断できるようになるためです。
@@ -97,5 +95,7 @@ Figmaではプロパティを自由に変更でき、インスタンスは自動
 [Deprecated]マークなしで新旧コンポーネントを並行運用した結果、1年後に`ListItem`（初代）と`ListItemV2`（改良版）と`NewListItem`（実験版）の3つが共存していたこともあります。新メンバーは最も新しそうな名前を選びますが、実は最新版は`ListItemV2`で、`NewListItem`は実験的に作られて放置されたものでした。
 
 作る責任と同じくらい、終わらせる責任を持つこと。これがデザインシステムを長く健全に保つためのポイントです。
+
+![非推奨化のワークフロー: 告知から削除までの4ステップ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-76.png)
 
 ![コンポーネントのライフサイクル](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-22.png)

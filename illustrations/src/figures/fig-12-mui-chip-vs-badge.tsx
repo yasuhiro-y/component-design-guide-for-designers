@@ -4,38 +4,39 @@ import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { LibraryLabel } from "../shared/LibraryLabel";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const theme = createTheme({
-  typography: { fontFamily: '"Inter", "Noto Sans JP", sans-serif', fontSize: 13 },
+  typography: { fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif', fontSize: 13 },
 });
 
 
 const name = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
-  background: "#f4f4f5",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  background: "#fff",
+  borderRadius: 16,
   padding: 14,
 } as const;
-const note = { fontSize: 11, color: "#3f3f46", marginTop: 14 } as const;
-const subLabel = { fontSize: 11, fontWeight: 500, color: "#52525b", marginBottom: 8 } as const;
+
+const subLabel = { fontSize: 11, fontWeight: 700, color: "#52525b", marginBottom: 8 } as const;
 
 export default function Fig12() {
   return (
     <ThemeProvider theme={theme}>
-      <IllustrationFrame title="MUI Chip vs Badge">
+      <IllustrationFrame>
         <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
           <div style={{ flex: 1 }}>
-            <LibraryLabel name="MUI" icon="mui" />
-            <div style={name}>Chip</div>
+            <div style={name}><ServiceIcon name="mui" size={18} />Chip</div>
             <div style={panel}>
               <div style={subLabel}>Deletable</div>
               <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
@@ -53,12 +54,11 @@ export default function Fig12() {
                 <Chip avatar={<Avatar>A</Avatar>} label="田中" size="small" />
                 <Chip avatar={<Avatar>K</Avatar>} label="佐藤" size="small" />
               </Stack>
-              <div style={note}>クリック・削除・アバター付きなどインタラクティブな要素</div>
+
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <LibraryLabel name="MUI" icon="mui" />
-            <div style={name}>Badge</div>
+            <div style={name}><ServiceIcon name="mui" size={18} />Badge</div>
             <div style={panel}>
               <div style={subLabel}>With Avatar</div>
               <Stack direction="row" spacing={4} sx={{ py: 1 }}>
@@ -81,7 +81,7 @@ export default function Fig12() {
                   <Avatar sx={{ width: 36, height: 36 }}>E</Avatar>
                 </Badge>
               </Stack>
-              <div style={note}>Avatar やアイコンの右上に数字やドットを重ねて表示</div>
+
             </div>
           </div>
         </div>

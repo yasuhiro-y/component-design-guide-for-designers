@@ -6,8 +6,8 @@ import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
-const iconBox = { width: 36, height: 36, borderRadius: 6, background: "#fff", border: "1px solid #e4e4e7", display: "flex" as const, alignItems: "center" as const, justifyContent: "center" as const };
+const colLabel = { fontSize: 11, fontWeight: 700, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const iconBox = { width: 36, height: 36, borderRadius: 12, background: "#fff", border: "1px solid #e4e4e7", display: "flex" as const, alignItems: "center" as const, justifyContent: "center" as const };
 const note = { fontSize: 11, color: "#3f3f46", marginTop: 12, lineHeight: 1.6 } as const;
 
 const lucideIcons = [
@@ -27,7 +27,7 @@ const lucideIcons = [
 
 export default function Fig21() {
   return (
-    <IllustrationFrame title="既存ライブラリ vs 独自アイコン">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>既存ライブラリ（Lucide）</div>
@@ -37,12 +37,9 @@ export default function Fig21() {
                 <div style={iconBox}>
                   <Icon size={16} color="#3f3f46" strokeWidth={1.75} />
                 </div>
-                <span style={{ fontSize: 8, color: "#52525b" }}>{name}</span>
+                <span style={{ fontSize: 10, color: "#52525b" }}>{name}</span>
               </div>
             ))}
-          </div>
-          <div style={note}>
-            <span style={{ fontWeight: 600, color: "#3f3f46" }}>導入コストほぼゼロ。</span>一貫性が担保される。反面ブランドの独自性は薄れがち。
           </div>
         </div>
         <div style={{ flex: 1 }}>
@@ -56,12 +53,9 @@ export default function Fig21() {
                     <text x="8" y="10" textAnchor="middle" fontSize="6" fill="#52525b">?</text>
                   </svg>
                 </div>
-                <span style={{ fontSize: 8, color: "#52525b" }}>{name}</span>
+                <span style={{ fontSize: 10, color: "#52525b" }}>{name}</span>
               </div>
             ))}
-          </div>
-          <div style={note}>
-            <span style={{ fontWeight: 600, color: "#3f3f46" }}>ブランドの世界観を細部まで表現。</span>制作・メンテナンスコストは大きい。
           </div>
           <div style={{ fontSize: 10, color: "#52525b", marginTop: 8, lineHeight: 1.5 }}>
             実例: <span style={{ display: "inline-flex", alignItems: "center", gap: 2, verticalAlign: "middle" }}><ServiceIcon name="github" size={12} />GitHub Octicons</span> / <span style={{ color: "#52525b" }}>Shopify Polaris</span> / <span style={{ color: "#52525b" }}>IBM Carbon</span>

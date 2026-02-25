@@ -30,8 +30,7 @@ const steps: StepData[] = [
 
 const stepCard: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
   flex: 1,
   minWidth: 0,
@@ -54,7 +53,7 @@ const stepNumber = (num: number): CSSProperties => ({
 
 export default function Fig44() {
   return (
-    <IllustrationFrame title="後発導入: 稼働中プロダクトへの3ステップ">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div
           style={{
@@ -79,7 +78,7 @@ export default function Fig44() {
                   <div
                     style={{
                       fontSize: 13,
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#18181b",
                     }}
                   >

@@ -57,18 +57,18 @@ const headerCell: CSSProperties = {
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
   background: "#fafafa",
-  fontFamily: '"Inter", "Noto Sans JP", -apple-system, sans-serif',
+  fontFamily: '"Inter", "Tazugane Gothic StdN", -apple-system, sans-serif',
 };
 
 export default function Fig58() {
   return (
-    <IllustrationFrame title="プロパティ命名: 4つの判断パターン">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div
           style={{
             background: "#fff",
             border: `1px solid ${border}`,
-            borderRadius: 8,
+            borderRadius: 16,
             overflow: "hidden",
           }}
         >
@@ -105,10 +105,10 @@ export default function Fig58() {
               <div
                 style={{
                   ...cellBase,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: secondary,
                   borderRight: `1px solid ${border}`,
-                  fontFamily: '"Inter", "Noto Sans JP", -apple-system, sans-serif',
+                  fontFamily: '"Inter", "Tazugane Gothic StdN", -apple-system, sans-serif',
                   fontSize: 11,
                 }}
               >
@@ -142,7 +142,7 @@ export default function Fig58() {
                 style={{
                   ...cellBase,
                   color: text,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   borderRight: `1px solid ${border}`,
                 }}
               >
@@ -152,7 +152,7 @@ export default function Fig58() {
                 style={{
                   ...cellBase,
                   color: secondary,
-                  fontFamily: '"Inter", "Noto Sans JP", -apple-system, sans-serif',
+                  fontFamily: '"Inter", "Tazugane Gothic StdN", -apple-system, sans-serif',
                   fontSize: 10,
                 }}
               >
@@ -162,22 +162,6 @@ export default function Fig58() {
           ))}
         </div>
 
-        {/* ── Caption ── */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: 14,
-            fontSize: 11,
-            color: secondary,
-            lineHeight: 1.6,
-          }}
-        >
-          命名は
-          <span style={{ fontWeight: 600, color: text }}>
-            「いまの見た目」ではなく「意味と拡張性」
-          </span>
-          で判断する。
-        </div>
       </div>
     </IllustrationFrame>
   );

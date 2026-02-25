@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
+import { avatars } from "../shared/unsplash";
 
 /**
  * 同じオブジェクト（Article）を受け取るが、レイアウトが異なる3パターン:
@@ -9,42 +10,37 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const mono: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
 };
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   overflow: "hidden",
 };
 
 const tag: CSSProperties = {
-  fontSize: 9,
-  fontWeight: 500,
+  fontSize: 10,
+  fontWeight: 700,
   color: "#3b82f6",
 };
 
 const imagePlaceholder: CSSProperties = {
-  background: "linear-gradient(135deg, #e4e4e7 0%, #d4d4d8 100%)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "#a1a1aa",
-  fontSize: 10,
-  fontWeight: 600,
+  objectFit: "cover",
+  display: "block",
+  width: "100%",
 };
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   marginBottom: 8,
 };
 
 const codeLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#52525b",
   marginBottom: 6,
 };
@@ -65,22 +61,20 @@ function CardLayout() {
       <div style={sectionLabel}>縦型カード</div>
       <div style={codeLabel}>ArticleCard</div>
       <div style={{ ...panel, width: 200 }}>
-        <div style={{ ...imagePlaceholder, height: 100 }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="3" width="18" height="18" rx="2" stroke="#a1a1aa" strokeWidth="1.5" />
-            <circle cx="8.5" cy="8.5" r="2" stroke="#a1a1aa" strokeWidth="1.2" />
-            <path d="M3 16L8 12L12 15L17 10L21 14" stroke="#a1a1aa" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+        <img
+          src={avatars.suzuki.replace("w=100&h=100", "w=400&h=200").replace("crop=face", "crop=center")}
+          alt=""
+          style={{ ...imagePlaceholder, height: 100, borderRadius: "16px 16px 0 0" }}
+        />
         <div style={{ padding: 12 }}>
           <div style={tag}>{article.tag}</div>
-          <div style={{ fontSize: 12, fontWeight: 600, color: "#18181b", marginTop: 6, lineHeight: 1.4 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#18181b", marginTop: 6, lineHeight: 1.4 }}>
             {article.title}
           </div>
           <div style={{ fontSize: 10, color: "#71717a", marginTop: 4, lineHeight: 1.4 }}>
             {article.summary.slice(0, 30)}…
           </div>
-          <div style={{ fontSize: 9, color: "#a1a1aa", marginTop: 8 }}>
+          <div style={{ fontSize: 10, color: "#71717a", marginTop: 8 }}>
             {article.author} · {article.date}
           </div>
         </div>
@@ -96,19 +90,17 @@ function CellLayout() {
       <div style={sectionLabel}>横型セル</div>
       <div style={codeLabel}>ArticleCell</div>
       <div style={{ ...panel, display: "flex" }}>
-        <div style={{ ...imagePlaceholder, width: 80, minHeight: 80 }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="3" width="18" height="18" rx="2" stroke="#a1a1aa" strokeWidth="1.5" />
-            <circle cx="8.5" cy="8.5" r="2" stroke="#a1a1aa" strokeWidth="1.2" />
-            <path d="M3 16L8 12L12 15L17 10L21 14" stroke="#a1a1aa" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+        <img
+          src={avatars.suzuki.replace("w=100&h=100", "w=160&h=160").replace("crop=face", "crop=center")}
+          alt=""
+          style={{ width: 80, minHeight: 80, objectFit: "cover", borderRadius: "16px 0 0 16px", display: "block" }}
+        />
         <div style={{ padding: "10px 12px", flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <span style={tag}>{article.tag}</span>
-            <span style={{ fontSize: 9, color: "#a1a1aa" }}>{article.date}</span>
+            <span style={{ fontSize: 10, color: "#71717a" }}>{article.date}</span>
           </div>
-          <div style={{ fontSize: 12, fontWeight: 600, color: "#18181b", marginTop: 4 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#18181b", marginTop: 4 }}>
             {article.title}
           </div>
           <div style={{ fontSize: 10, color: "#71717a", marginTop: 2 }}>
@@ -129,10 +121,10 @@ function ItemLayout() {
       <div style={{ ...panel, padding: "10px 12px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 11, fontWeight: 600, color: "#18181b" }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#18181b" }}>
               {article.title}
             </div>
-            <div style={{ fontSize: 9, color: "#a1a1aa", marginTop: 2 }}>
+            <div style={{ fontSize: 10, color: "#71717a", marginTop: 2 }}>
               {article.author} · {article.date}
             </div>
           </div>
@@ -151,19 +143,18 @@ function ObjectBadge() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: 8,
-        padding: "8px 16px",
-        background: "#f0fdf4",
-        border: "1px solid #bbf7d0",
-        borderRadius: 6,
-        marginBottom: 16,
+        gap: 6,
+        padding: "6px 14px",
+        background: "#f4f4f5",
+        borderRadius: 8,
+        marginBottom: 14,
       }}
     >
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <rect x="1" y="1" width="12" height="12" rx="2" stroke="#22c55e" strokeWidth="1.2" />
-        <path d="M4 5H10M4 7H10M4 9H7" stroke="#22c55e" strokeWidth="1" strokeLinecap="round" />
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+        <rect x="1" y="1" width="12" height="12" rx="2" stroke="#71717a" strokeWidth="1.2" />
+        <path d="M4 5H10M4 7H10M4 9H7" stroke="#71717a" strokeWidth="1" strokeLinecap="round" />
       </svg>
-      <span style={{ fontSize: 11, fontWeight: 500, color: "#166534" }}>
+      <span style={{ fontSize: 11, fontWeight: 600, color: "#3f3f46" }}>
         受け取るオブジェクト: Article
       </span>
     </div>
@@ -172,7 +163,7 @@ function ObjectBadge() {
 
 export default function Fig68() {
   return (
-    <IllustrationFrame title="同じオブジェクトを受け取り、レイアウトだけが異なる">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <ObjectBadge />
         <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>

@@ -18,7 +18,7 @@ const grid: CSSProperties = {
   gridTemplateColumns: "1fr 1fr 1fr 1fr",
   gap: 1,
   background: "#e4e4e7",
-  borderRadius: 8,
+  borderRadius: 16,
   overflow: "hidden",
   width: CONTENT_WIDTH,
 };
@@ -34,7 +34,7 @@ const cell: CSSProperties = {
 const iconBox: CSSProperties = {
   width: 28,
   height: 28,
-  borderRadius: 6,
+  borderRadius: 12,
   background: "#f4f4f5",
   display: "inline-flex",
   alignItems: "center",
@@ -47,7 +47,7 @@ const iconBox: CSSProperties = {
 
 const titleStyle: CSSProperties = {
   fontSize: 13,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
 };
 
@@ -59,7 +59,7 @@ const descStyle: CSSProperties = {
 
 export default function Fig31() {
   return (
-    <IllustrationFrame title="コンポーネント設計の8つの観点">
+    <IllustrationFrame>
       <div style={grid}>
         {dimensions.map((d) => (
           <div key={d.key} style={cell}>

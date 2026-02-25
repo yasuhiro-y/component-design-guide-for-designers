@@ -1,16 +1,19 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { LibraryLabel } from "../shared/LibraryLabel";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 const name = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const showcase = {
   background: "#f4f4f5",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 14,
   display: "flex" as const,
@@ -25,7 +28,7 @@ function Btn({ children, variant = "secondary" }: { children: string; variant?: 
   const fg = variant === "secondary" ? "#3f3f46" : "#fff";
   const border = variant === "secondary" ? "1px solid #e4e4e7" : "none";
   return (
-    <button style={{ display: "inline-flex", padding: "6px 14px", borderRadius: 6, fontSize: 12, fontWeight: 500, background: bg, color: fg, border, fontFamily: '"Inter", "Noto Sans JP", sans-serif', cursor: "default" }}>
+    <button style={{ display: "inline-flex", padding: "6px 14px", borderRadius: 8, fontSize: 12, fontWeight: 700, background: bg, color: fg, border, fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif', cursor: "default" }}>
       {children}
     </button>
   );
@@ -37,9 +40,9 @@ function DialogMock({ title, desc, note, actions, showClose }: {
   return (
     <div style={showcase}>
       <div style={{ position: "absolute", top: 8, right: 10, fontSize: 10, color: "#52525b" }}>{note}</div>
-      <div style={{ background: "#fff", borderRadius: 8, border: "1px solid #e4e4e7", padding: 20, width: "100%", maxWidth: 260, position: "relative", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
+      <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e4e4e7", padding: 20, width: "100%", maxWidth: 260, position: "relative" }}>
         {showClose && <span style={{ position: "absolute", top: 12, right: 14, color: "#52525b", fontSize: 16 }}>×</span>}
-        <div style={{ fontSize: 14, fontWeight: 600, color: "#18181b", marginBottom: 6 }}>{title}</div>
+        <div style={{ fontSize: 14, fontWeight: 700, color: "#18181b", marginBottom: 6 }}>{title}</div>
         <div style={{ fontSize: 12, color: "#3f3f46", lineHeight: 1.5, marginBottom: 16 }}>{desc}</div>
         <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>{actions}</div>
       </div>
@@ -49,11 +52,10 @@ function DialogMock({ title, desc, note, actions, showClose }: {
 
 export default function Fig11() {
   return (
-    <IllustrationFrame title="Radix Dialog vs AlertDialog">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
-          <LibraryLabel name="Radix UI" icon="radix" />
-          <div style={name}>Dialog</div>
+          <div style={name}><ServiceIcon name="radix" size={18} />Dialog</div>
           <DialogMock
             title="プロフィール編集"
             desc="表示名とメールアドレスを変更できます。"
@@ -63,8 +65,7 @@ export default function Fig11() {
           />
         </div>
         <div style={{ flex: 1 }}>
-          <LibraryLabel name="Radix UI" icon="radix" />
-          <div style={name}>AlertDialog</div>
+          <div style={name}><ServiceIcon name="radix" size={18} />AlertDialog</div>
           <DialogMock
             title="本当に削除しますか？"
             desc="この操作は取り消せません。すべてのデータが永久に削除されます。"

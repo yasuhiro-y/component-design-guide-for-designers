@@ -3,7 +3,6 @@ import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 /* ── tokens ── */
-const mono = '"SF Mono", Menlo, monospace';
 const text = "#18181b";
 const secondary = "#3f3f46";
 const border = "#e4e4e7";
@@ -34,9 +33,9 @@ function AtomAvatar() {
 function AtomText({ width, lines }: { width: number; lines?: number }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-      <div style={{ width, height: 8, borderRadius: 3, background: "#a1a1aa" }} />
+      <div style={{ width, height: 8, borderRadius: 8, background: "#a1a1aa" }} />
       {(lines ?? 1) > 1 && (
-        <div style={{ width: width * 0.6, height: 6, borderRadius: 3, background: "#d4d4d8" }} />
+        <div style={{ width: width * 0.6, height: 6, borderRadius: 8, background: "#d4d4d8" }} />
       )}
     </div>
   );
@@ -69,11 +68,11 @@ function AtomButton({ label }: { label: string }) {
         display: "inline-flex",
         alignItems: "center",
         padding: "4px 10px",
-        borderRadius: 4,
+        borderRadius: 8,
         background: "#18181b",
         color: "#fff",
         fontSize: 9,
-        fontWeight: 600,
+        fontWeight: 700,
       }}
     >
       {label}
@@ -92,13 +91,13 @@ function AtomCard({ label, children }: { label: string; children: React.ReactNod
         gap: 6,
         padding: "10px 12px",
         background: "#fff",
-        borderRadius: 6,
+        borderRadius: 12,
         border: `1px solid ${border}`,
         minWidth: 68,
       }}
     >
       {children}
-      <span style={{ fontFamily: mono, fontSize: 9, color: secondary }}>{label}</span>
+      <span style={{ fontSize: 10, color: secondary }}>{label}</span>
     </div>
   );
 }
@@ -110,15 +109,13 @@ const composedCard: CSSProperties = {
   gap: 8,
   padding: "10px 14px",
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: `1px solid ${border}`,
-  boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
 };
 
 const composedLabel: CSSProperties = {
-  fontFamily: mono,
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: secondary,
   textAlign: "center" as const,
   marginBottom: 6,
@@ -126,14 +123,14 @@ const composedLabel: CSSProperties = {
 
 export default function Fig54() {
   return (
-    <IllustrationFrame title="合成: 小さな部品を組み合わせて大きなUIを構築する">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* ── Top: atoms ── */}
         <div style={{ marginBottom: 6 }}>
           <div
             style={{
               fontSize: 10,
-              fontWeight: 600,
+              fontWeight: 700,
               color: "#52525b",
               letterSpacing: "0.04em",
               textTransform: "uppercase" as const,
@@ -165,7 +162,7 @@ export default function Fig54() {
               <line x1="8" y1="0" x2="8" y2="18" stroke="#d4d4d8" strokeWidth="1.5" />
               <polygon points="3,18 13,18 8,24" fill="#d4d4d8" />
             </svg>
-            <span style={{ fontSize: 10, fontWeight: 600, color: "#a1a1aa" }}>組み合わせる</span>
+            <span style={{ fontSize: 10, fontWeight: 700, color: "#71717a" }}>組み合わせる</span>
           </div>
         </div>
 
@@ -173,7 +170,7 @@ export default function Fig54() {
         <div
           style={{
             fontSize: 10,
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#52525b",
             letterSpacing: "0.04em",
             textTransform: "uppercase" as const,
@@ -208,19 +205,6 @@ export default function Fig54() {
           </div>
         </div>
 
-        {/* ── Message ── */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: 14,
-            fontSize: 11,
-            color: secondary,
-            lineHeight: 1.6,
-          }}
-        >
-          <span style={{ fontWeight: 600, color: text }}>同じ4部品、異なる配置 = 異なるUI。</span>
-          部品を増やさずにバリエーションを増やせる。
-        </div>
       </div>
     </IllustrationFrame>
   );

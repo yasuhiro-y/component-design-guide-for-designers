@@ -11,7 +11,7 @@ function Gallery() {
           fontWeight: 600,
           marginBottom: 40,
           color: "#18181b",
-          fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+          fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
           paddingLeft: 10,
         }}
       >

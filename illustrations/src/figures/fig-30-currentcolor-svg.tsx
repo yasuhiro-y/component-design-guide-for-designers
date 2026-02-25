@@ -1,7 +1,7 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colLabel = { fontSize: 11, fontWeight: 500, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
+const colLabel = { fontSize: 11, fontWeight: 700, color: "#3f3f46", letterSpacing: "0.04em", textTransform: "uppercase" as const, marginBottom: 8 };
 
 function IconSvg({ fill }: { fill: string }) {
   return (
@@ -17,13 +17,13 @@ function DemoRow({ bg, textColor, iconColor, problem }: {
   return (
     <div style={{
       display: "flex", alignItems: "center", gap: 10, padding: "8px 12px",
-      background: bg, borderRadius: 6, marginBottom: 6,
+      background: bg, borderRadius: 12, marginBottom: 6,
       border: problem ? "1px dashed #fecaca" : "1px solid #e4e4e7",
     }}>
       <IconSvg fill={iconColor} />
       <span style={{ fontSize: 12, color: textColor, flex: 1 }}>テキスト</span>
       {problem && (
-        <span style={{ fontSize: 9, color: "#ef4444" }}>見えない</span>
+        <span style={{ fontSize: 10, color: "#ef4444" }}>見えない</span>
       )}
     </div>
   );
@@ -31,7 +31,7 @@ function DemoRow({ bg, textColor, iconColor, problem }: {
 
 export default function Fig30() {
   return (
-    <IllustrationFrame title="SVGの色制御: currentColor">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <div style={colLabel}>fill="#1A1A1A"（固定色）</div>
@@ -41,9 +41,6 @@ export default function Fig30() {
           <DemoRow bg="#ffffff" textColor="#18181b" iconColor="#1a1a1a" />
           <DemoRow bg="#18181b" textColor="#fafafa" iconColor="#1a1a1a" problem />
           <DemoRow bg="#3b82f6" textColor="#ffffff" iconColor="#1a1a1a" problem />
-          <div style={{ fontSize: 10, color: "#ef4444", marginTop: 6, lineHeight: 1.5 }}>
-            背景色が変わるとアイコンが見えなくなる
-          </div>
         </div>
 
         <div style={{ flex: 1 }}>
@@ -54,9 +51,6 @@ export default function Fig30() {
           <DemoRow bg="#ffffff" textColor="#18181b" iconColor="#18181b" />
           <DemoRow bg="#18181b" textColor="#fafafa" iconColor="#fafafa" />
           <DemoRow bg="#3b82f6" textColor="#ffffff" iconColor="#ffffff" />
-          <div style={{ fontSize: 10, color: "#059669", marginTop: 6, lineHeight: 1.5 }}>
-            親要素のテキスト色を自動で引き継ぐ
-          </div>
         </div>
       </div>
     </IllustrationFrame>

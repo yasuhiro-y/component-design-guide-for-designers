@@ -5,18 +5,17 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const timeLabel: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   marginBottom: 6,
 };
 
 const nodeBox: CSSProperties = {
   background: "#fff",
-  borderRadius: 6,
-  border: "1px solid #e4e4e7",
+  borderRadius: 12,
   padding: "10px 12px",
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   textAlign: "center",
   lineHeight: 1.5,
@@ -25,7 +24,7 @@ const nodeBox: CSSProperties = {
 const sub: CSSProperties = {
   fontSize: 10,
   color: "#52525b",
-  fontWeight: 400,
+  fontWeight: 700,
   marginTop: 4,
 };
 
@@ -42,7 +41,7 @@ function Arrow() {
 
 export default function Fig39() {
   return (
-    <IllustrationFrame title="経路依存性: 初期の選択が未来を縛る">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={{ display: "flex", alignItems: "flex-start", gap: 0 }}>
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -86,16 +85,6 @@ export default function Fig39() {
           </div>
         </div>
 
-        <div
-          style={{
-            marginTop: 16,
-            fontSize: 11,
-            color: "#3f3f46",
-            textAlign: "center",
-          }}
-        >
-          初期の選択 → 利用箇所が増える → 依存が深まる → 変更コストが膨らむ
-        </div>
       </div>
     </IllustrationFrame>
   );

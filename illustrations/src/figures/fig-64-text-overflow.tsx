@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
 import { CONTENT_WIDTH } from "../styles/tokens";
+import { avatars } from "../shared/unsplash";
 
 /**
  * テキストのオーバーフロー: 省略（truncate）、行数制限（line-clamp）、折り返し（wrap）の
@@ -9,8 +10,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 14,
   flex: 1,
   minWidth: 0,
@@ -18,7 +18,7 @@ const panel: CSSProperties = {
 
 const labelStyle: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -27,13 +27,13 @@ const labelStyle: CSSProperties = {
 
 const descStyle: CSSProperties = {
   fontSize: 10,
-  color: "#a1a1aa",
+  color: "#71717a",
   marginTop: 8,
 };
 
 const cardBase: CSSProperties = {
   background: "#fafafa",
-  borderRadius: 6,
+  borderRadius: 12,
   border: "1px solid #f4f4f5",
   padding: 10,
 };
@@ -42,14 +42,16 @@ const longName = "Alexander Bartholomew Christopher Davidson III";
 const longDesc =
   "コンポーネント設計の基礎から応用まで、デザイナーとエンジニアが共通言語で語れるようになるためのガイドブックです。Figmaとコードの対応を意識しながら解説します。";
 
-function MiniAvatar() {
+function MiniAvatar({ src }: { src: string }) {
   return (
-    <div
+    <img
+      src={src}
+      alt=""
       style={{
         width: 32,
         height: 32,
         borderRadius: "50%",
-        background: "#bfdbfe",
+        objectFit: "cover",
         flexShrink: 0,
       }}
     />
@@ -64,12 +66,12 @@ function TruncateExample() {
       <div style={labelStyle}>省略（Truncate）</div>
       <div style={cardBase}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <MiniAvatar />
+          <MiniAvatar src={avatars.garcia} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div
               style={{
                 fontSize: 12,
-                fontWeight: 600,
+                fontWeight: 700,
                 color: "#18181b",
                 whiteSpace: "nowrap",
                 overflow: "hidden",
@@ -89,8 +91,8 @@ function TruncateExample() {
         style={{
           marginTop: 6,
           fontFamily: '"SF Mono", Menlo, monospace',
-          fontSize: 9,
-          color: "#a1a1aa",
+          fontSize: 10,
+          color: "#71717a",
           lineHeight: 1.6,
         }}
       >
@@ -108,7 +110,7 @@ function LineClampExample() {
     <div style={panel}>
       <div style={labelStyle}>行数制限（Line Clamp）</div>
       <div style={cardBase}>
-        <div style={{ fontSize: 11, fontWeight: 600, color: "#18181b", marginBottom: 4 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#18181b", marginBottom: 4 }}>
           コンポーネント設計ガイド
         </div>
         <div
@@ -132,8 +134,8 @@ function LineClampExample() {
         style={{
           marginTop: 6,
           fontFamily: '"SF Mono", Menlo, monospace',
-          fontSize: 9,
-          color: "#a1a1aa",
+          fontSize: 10,
+          color: "#71717a",
           lineHeight: 1.6,
         }}
       >
@@ -151,7 +153,7 @@ function WrapExample() {
     <div style={panel}>
       <div style={labelStyle}>折り返し（Wrap）</div>
       <div style={cardBase}>
-        <div style={{ fontSize: 11, fontWeight: 600, color: "#18181b", marginBottom: 4 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#18181b", marginBottom: 4 }}>
           利用規約
         </div>
         <div
@@ -172,8 +174,8 @@ function WrapExample() {
         style={{
           marginTop: 6,
           fontFamily: '"SF Mono", Menlo, monospace',
-          fontSize: 9,
-          color: "#a1a1aa",
+          fontSize: 10,
+          color: "#71717a",
           lineHeight: 1.6,
         }}
       >
@@ -187,7 +189,7 @@ function WrapExample() {
 
 export default function Fig64() {
   return (
-    <IllustrationFrame title="テキストのオーバーフロー: 省略・行数制限・折り返し">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 12, width: CONTENT_WIDTH }}>
         <TruncateExample />
         <LineClampExample />

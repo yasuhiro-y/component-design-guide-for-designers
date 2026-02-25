@@ -1,17 +1,18 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const card: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 12,
 };
 
 const colTitle: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 8,
 };
@@ -50,9 +51,9 @@ function MessageRow({
     >
       <img
         src={({
-          "田": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-          "佐": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-          "鈴": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+          "田": avatars.ito,
+          "佐": avatars.watanabe,
+          "鈴": avatars.park,
         } as Record<string, string>)[name[0]] ?? ""}
         style={{ width: 28, height: 28, borderRadius: "50%", objectFit: "cover" as const, flexShrink: 0 }}
       />
@@ -64,7 +65,7 @@ function MessageRow({
             alignItems: "baseline",
           }}
         >
-          <span style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>
+          <span style={{ fontSize: 12, fontWeight: 400, color: "#18181b" }}>
             {name}
           </span>
           <span style={{ fontSize: 10, color: "#52525b", flexShrink: 0 }}>
@@ -111,7 +112,7 @@ function DeadlineCard({
     >
       <span style={{ fontSize: 12, color: "#18181b" }}>{label}</span>
       <div style={{ textAlign: "right" }}>
-        <div style={{ fontSize: 12, fontWeight: 500, color: "#18181b" }}>
+        <div style={{ fontSize: 12, fontWeight: 400, color: "#18181b" }}>
           {date}
         </div>
         <div
@@ -130,7 +131,7 @@ function DeadlineCard({
 
 export default function Fig46() {
   return (
-    <IllustrationFrame title="Date型: 日付の表示形式と設計判断">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Left: Relative dates */}
         <div style={{ flex: 1 }}>
@@ -192,7 +193,7 @@ export default function Fig46() {
               <span style={monoSmall}>保存形式:</span>
             </div>
             <div style={{ paddingLeft: 8 }}>
-              2026-02-22T14:00:00<span style={{ color: "#18181b", fontWeight: 500 }}>Z</span>
+              2026-02-22T14:00:00<span style={{ color: "#18181b", fontWeight: 400 }}>Z</span>
             </div>
             <div style={{ marginTop: 12 }}>
               <span style={monoSmall}>表示変換:</span>

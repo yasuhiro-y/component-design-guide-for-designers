@@ -23,7 +23,7 @@ interface FlowDiagramProps {
 const defaultEdgeOptions = {
   type: "straight" as const,
   style: { stroke: "#d4d4d8", strokeWidth: 1.2 },
-  labelStyle: { fontSize: 12, fontWeight: 500, fill: "#3f3f46", fontFamily: '"Inter", "Noto Sans JP", sans-serif' },
+  labelStyle: { fontSize: 12, fontWeight: 400, fill: "#3f3f46", fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' },
 };
 
 export function FlowDiagram({

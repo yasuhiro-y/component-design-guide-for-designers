@@ -31,7 +31,7 @@ const edges: Edge[] = phases.slice(0, -1).map((p, i) => ({
 
 export default function Fig22() {
   return (
-    <IllustrationFrame title="コンポーネントのライフサイクル">
+    <IllustrationFrame>
       <FlowDiagram nodes={nodes} edges={edges} height={140} />
     </IllustrationFrame>
   );

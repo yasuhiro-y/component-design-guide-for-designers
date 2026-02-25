@@ -17,7 +17,7 @@ export function IllustrationFrame({ children, title }: IllustrationFrameProps) {
   };
 
   const titleStyle: CSSProperties = {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: 700,
     color: "#18181b",
     marginBottom: 20,

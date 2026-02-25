@@ -45,14 +45,13 @@ const columnHeader: CSSProperties = {
 
 const card: CSSProperties = {
   background: "#fff",
-  border: `1px solid ${border}`,
-  borderRadius: 8,
+  borderRadius: 16,
   padding: "16px 18px",
 };
 
 const sectionLabel: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: tertiary,
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
@@ -68,7 +67,7 @@ const caption: CSSProperties = {
 
 export default function Fig53() {
   return (
-    <IllustrationFrame title="制約: 選択肢を絞り、判断の負荷を下げる">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 24, width: CONTENT_WIDTH }}>
         {/* ── Left: Free choice ── */}
         <div style={{ flex: 1 }}>
@@ -83,7 +82,7 @@ export default function Fig53() {
                   style={{
                     width: 18,
                     height: 18,
-                    borderRadius: 3,
+                    borderRadius: 8,
                     background: c,
                   }}
                 />
@@ -101,7 +100,7 @@ export default function Fig53() {
                     fontSize: 10,
                     color: tertiary,
                     padding: "2px 5px",
-                    borderRadius: 3,
+                    borderRadius: 8,
                     background: "#fafafa",
                     border: `1px solid ${border}`,
                   }}
@@ -129,7 +128,7 @@ export default function Fig53() {
                     style={{
                       width: 18,
                       height: 18,
-                      borderRadius: 3,
+                      borderRadius: 8,
                       background: sc.color,
                     }}
                   />
@@ -174,7 +173,7 @@ export default function Fig53() {
             </div>
           </div>
           <div style={caption}>
-            <span style={{ fontWeight: 600, color: secondary }}>正しい選択が最も簡単になる</span>
+            <span style={{ fontWeight: 700, color: secondary }}>正しい選択が最も簡単になる</span>
           </div>
         </div>
       </div>

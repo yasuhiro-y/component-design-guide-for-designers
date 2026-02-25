@@ -50,18 +50,9 @@ const chakraTheme = extendTheme({
   fonts: { body: font.sans, heading: font.sans },
 });
 
-const nameStyle = {
-  fontSize: 15,
-  fontWeight: 500,
-  color: "#18181b",
-  letterSpacing: "-0.01em",
-  marginBottom: 12,
-} as const;
-
 const panel = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: "12px 14px",
   display: "flex",
   flexDirection: "column" as const,
@@ -93,8 +84,7 @@ function MuiColumn() {
   return (
     <ThemeProvider theme={muiTheme}>
       <div style={{ flex: 1 }}>
-        <LibraryLabel name="Material UI" icon="mui" />
-        <div style={nameStyle}>Material UI</div>
+        <LibraryLabel name="Material UI" icon="mui" style={{ fontSize: 14, fontWeight: 700, color: "#18181b", marginBottom: 12 }} />
         <div style={panel}>
           <div style={rowStyle}>
             <div style={previewArea}>
@@ -146,8 +136,7 @@ function ChakraColumn() {
   return (
     <ChakraProvider theme={chakraTheme} resetCSS={false}>
       <div style={{ flex: 1 }}>
-        <LibraryLabel name="Chakra UI" icon="chakra" />
-        <div style={nameStyle}>Chakra UI</div>
+        <LibraryLabel name="Chakra UI" icon="chakra" style={{ fontSize: 14, fontWeight: 700, color: "#18181b", marginBottom: 12 }} />
         <div style={panel}>
           <div style={rowStyle}>
             <div style={previewArea}>
@@ -197,8 +186,7 @@ function AntColumn() {
   return (
     <ConfigProvider theme={{ token: { fontFamily: font.sans, fontSize: 12 } }}>
       <div style={{ flex: 1 }}>
-        <LibraryLabel name="Ant Design" icon="antdesign" />
-        <div style={nameStyle}>Ant Design</div>
+        <LibraryLabel name="Ant Design" icon="antdesign" style={{ fontSize: 14, fontWeight: 700, color: "#18181b", marginBottom: 12 }} />
         <div style={panel}>
           <div style={rowStyle}>
             <div style={previewArea}>
@@ -241,7 +229,7 @@ function AntColumn() {
 
 export default function Fig56() {
   return (
-    <IllustrationFrame title="汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 14, width: CONTENT_WIDTH }}>
         <MuiColumn />
         <ChakraColumn />

@@ -8,8 +8,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const card = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: "12px 16px",
   display: "flex",
   flexDirection: "column" as const,
@@ -21,7 +20,7 @@ const card = {
 
 const compName = {
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
 } as const;
@@ -39,11 +38,11 @@ function MiniButton({ label }: { label: string }) {
     <div
       style={{
         padding: "5px 14px",
-        borderRadius: 6,
+        borderRadius: 8,
         background: "#18181b",
         color: "#fff",
         fontSize: 11,
-        fontWeight: 500,
+        fontWeight: 400,
       }}
     >
       {label}
@@ -56,7 +55,7 @@ function MiniInput() {
     <div
       style={{
         padding: "5px 10px",
-        borderRadius: 6,
+        borderRadius: 8,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 11,
@@ -75,10 +74,10 @@ function MiniTag({ label, color }: { label: string; color?: string }) {
     <span
       style={{
         padding: "2px 8px",
-        borderRadius: 4,
+        borderRadius: 8,
         background: color || "#f4f4f5",
         fontSize: 10,
-        fontWeight: 500,
+        fontWeight: 400,
         color: "#3f3f46",
       }}
     >
@@ -99,7 +98,7 @@ function MiniAvatar({ text }: { text: string }) {
         alignItems: "center",
         justifyContent: "center",
         fontSize: 11,
-        fontWeight: 600,
+        fontWeight: 700,
         color: "#3f3f46",
       }}
     >
@@ -114,7 +113,7 @@ function MiniCheckbox({ checked }: { checked?: boolean }) {
       style={{
         width: 16,
         height: 16,
-        borderRadius: 4,
+        borderRadius: 8,
         border: `1.5px solid ${checked ? "#18181b" : "#d4d4d8"}`,
         background: checked ? "#18181b" : "#fff",
         display: "flex",
@@ -136,7 +135,7 @@ function MiniBadge() {
         style={{
           width: 28,
           height: 28,
-          borderRadius: 6,
+          borderRadius: 12,
           background: "#e4e4e7",
         }}
       />
@@ -186,7 +185,7 @@ function MiniSelect() {
     <div
       style={{
         padding: "5px 10px",
-        borderRadius: 6,
+        borderRadius: 8,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 11,
@@ -240,7 +239,7 @@ const components: { name: string; render: () => React.ReactNode }[] = [
 
 export default function Fig59() {
   return (
-    <IllustrationFrame title="汎用コンポーネントの例: どのサービスでも使い回せる部品">
+    <IllustrationFrame>
       <div
         style={{
           display: "grid",

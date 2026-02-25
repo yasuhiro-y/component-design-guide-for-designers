@@ -1,30 +1,31 @@
 import { ConfigProvider, Tag, Badge, Space } from "antd";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { LibraryLabel } from "../shared/LibraryLabel";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 const name = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
-  background: "#f4f4f5",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  background: "#fff",
+  borderRadius: 16,
   padding: 14,
 } as const;
 const note = { fontSize: 11, color: "#3f3f46", marginTop: 14 } as const;
 
 export default function Fig13() {
   return (
-    <ConfigProvider theme={{ token: { fontFamily: '"Inter", "Noto Sans JP", sans-serif' } }}>
-      <IllustrationFrame title="Ant Design Tag vs Badge">
+    <ConfigProvider theme={{ token: { fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif' } }}>
+      <IllustrationFrame>
         <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
           <div style={{ flex: 1 }}>
-            <LibraryLabel name="Ant Design" icon="antdesign" />
-            <div style={name}>Tag</div>
+            <div style={name}><ServiceIcon name="antdesign" size={18} />Tag</div>
             <div style={panel}>
               <Space size={[6, 8]} wrap>
                 <Tag color="processing">Processing</Tag>
@@ -44,8 +45,7 @@ export default function Fig13() {
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <LibraryLabel name="Ant Design" icon="antdesign" />
-            <div style={name}>Badge</div>
+            <div style={name}><ServiceIcon name="antdesign" size={18} />Badge</div>
             <div style={panel}>
               <Space direction="vertical" size={8}>
                 <Badge status="success" text="Success" />

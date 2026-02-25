@@ -4,7 +4,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const headerCell: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#3f3f46",
   fontFamily: '"SF Mono", Menlo, monospace',
   padding: "8px 0",
@@ -13,7 +13,7 @@ const headerCell: CSSProperties = {
 
 const dataCell: CSSProperties = {
   fontSize: 12,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   textAlign: "center",
   padding: 12,
@@ -23,7 +23,7 @@ const dataCell: CSSProperties = {
 
 const rowHeader: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#3f3f46",
   fontFamily: '"SF Mono", Menlo, monospace',
   display: "flex",
@@ -42,7 +42,7 @@ const contradictionCell: CSSProperties = {
 
 const solutionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#15803d",
   letterSpacing: "0.04em",
   textTransform: "uppercase",
@@ -50,19 +50,19 @@ const solutionLabel: CSSProperties = {
 
 const codeStyle: CSSProperties = {
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 700,
   fontFamily: '"SF Mono", Menlo, monospace',
   color: "#18181b",
   background: "#fff",
   border: "1px solid #e4e4e7",
-  borderRadius: 6,
+  borderRadius: 12,
   padding: "10px 20px",
   textAlign: "center",
 };
 
 export default function Fig42() {
   return (
-    <IllustrationFrame title="Boolean の矛盾: 2つのトグルより1つの Enum">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Matrix */}
         <div style={{ maxWidth: 360, margin: "0 auto" }}>
@@ -115,17 +115,6 @@ export default function Fig42() {
             </div>
           </div>
 
-          {/* Contradiction note */}
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: 8,
-              fontSize: 10,
-              color: "#ef4444",
-            }}
-          >
-            isSmall = true かつ isLarge = true は矛盾
-          </div>
         </div>
 
         {/* Arrow pointing to solution */}
@@ -168,9 +157,6 @@ export default function Fig42() {
             </div>
           </div>
 
-          <div style={{ fontSize: 10, color: "#3f3f46", textAlign: "center" }}>
-            Enum なら矛盾が発生しない: 常に1つだけ選択される
-          </div>
         </div>
       </div>
     </IllustrationFrame>

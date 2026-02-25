@@ -4,7 +4,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const cellLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 8,
 };
@@ -17,7 +17,7 @@ const cellSub: CSSProperties = {
 
 const mockCard: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 12,
   minHeight: 56,
@@ -39,11 +39,11 @@ function Badge({ count, max }: { count: number; max?: number }) {
         justifyContent: "center",
         minWidth: 20,
         height: 20,
-        borderRadius: 10,
+        borderRadius: 12,
         background: "#18181b",
         color: "#fff",
         fontSize: 11,
-        fontWeight: 600,
+        fontWeight: 700,
         padding: "0 6px",
       }}
     >
@@ -65,7 +65,7 @@ function Stars({ score }: { score: number }) {
         </span>
       ))}
       <span
-        style={{ fontSize: 12, fontWeight: 500, color: "#3f3f46", marginLeft: 4 }}
+        style={{ fontSize: 12, fontWeight: 400, color: "#3f3f46", marginLeft: 4 }}
       >
         {score.toFixed(1)}
       </span>
@@ -94,7 +94,7 @@ function BellIcon() {
 
 export default function Fig45() {
   return (
-    <IllustrationFrame title="Number型: 数値の表示ルール">
+    <IllustrationFrame>
       <div
         style={{
           display: "grid",

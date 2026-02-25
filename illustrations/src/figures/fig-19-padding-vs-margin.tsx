@@ -12,7 +12,7 @@ const legendItem: CSSProperties = {
 
 export default function Fig19() {
   return (
-    <IllustrationFrame title="padding vs margin の責任分離">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Legend */}
         <div style={{ display: "flex", gap: 20, marginBottom: 20 }}>
@@ -41,7 +41,7 @@ export default function Fig19() {
             <div
               style={{
                 border: "1.5px dashed #52525b",
-                borderRadius: 12,
+                borderRadius: 8,
                 padding: 16,
                 display: "inline-block",
               }}
@@ -49,7 +49,7 @@ export default function Fig19() {
               <div
                 style={{
                   background: "#e4e4e7",
-                  borderRadius: 8,
+                  borderRadius: 16,
                   padding: 12,
                   display: "inline-block",
                 }}
@@ -60,10 +60,10 @@ export default function Fig19() {
                     padding: "8px 20px",
                     background: "#18181b",
                     color: "#fff",
-                    borderRadius: 6,
+                    borderRadius: 8,
                     fontSize: 13,
-                    fontWeight: 500,
-                    fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+                    fontWeight: 400,
+                    fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
                   }}
                 >
                   Button
@@ -71,10 +71,10 @@ export default function Fig19() {
               </div>
             </div>
             <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 10 }}>
-              <span style={{ fontWeight: 600, color: "#3f3f46" }}>padding</span> = コンポーネントの責任
+              <span style={{ fontWeight: 700, color: "#3f3f46" }}>padding</span> = コンポーネントの責任
             </div>
             <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 2 }}>
-              <span style={{ fontWeight: 600, color: "#3f3f46" }}>margin</span> = 親の責任
+              <span style={{ fontWeight: 700, color: "#3f3f46" }}>margin</span> = 親の責任
             </div>
           </div>
 
@@ -86,12 +86,13 @@ export default function Fig19() {
             <div
               style={{
                 border: "1px solid #e4e4e7",
-                borderRadius: 8,
+                borderRadius: 16,
                 padding: 16,
                 display: "flex",
                 flexDirection: "column",
                 gap: 12,
                 background: "#fafafa",
+                width: 200,
               }}
             >
               <span
@@ -100,11 +101,12 @@ export default function Fig19() {
                   padding: "8px 20px",
                   background: "#18181b",
                   color: "#fff",
-                  borderRadius: 6,
+                  borderRadius: 8,
                   fontSize: 13,
-                  fontWeight: 500,
-                  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
-                  alignSelf: "flex-start",
+                  fontWeight: 400,
+                  fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
+                  width: "100%",
+                  justifyContent: "center",
                 }}
               >
                 Button
@@ -115,18 +117,19 @@ export default function Fig19() {
                   padding: "8px 20px",
                   background: "#18181b",
                   color: "#fff",
-                  borderRadius: 6,
+                  borderRadius: 8,
                   fontSize: 13,
-                  fontWeight: 500,
-                  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
-                  alignSelf: "flex-start",
+                  fontWeight: 400,
+                  fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
+                  width: "100%",
+                  justifyContent: "center",
                 }}
               >
                 Button
               </span>
             </div>
             <div style={{ fontSize: 11, color: "#3f3f46", marginTop: 10 }}>
-              親が <span style={{ fontWeight: 600, color: "#3f3f46" }}>gap: 12px</span> で間隔を制御
+              親が <span style={{ fontWeight: 700, color: "#3f3f46" }}>gap: 12px</span> で間隔を制御
             </div>
           </div>
         </div>

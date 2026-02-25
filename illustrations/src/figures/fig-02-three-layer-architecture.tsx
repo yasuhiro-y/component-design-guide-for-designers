@@ -5,7 +5,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 /* ─── shared styles ─── */
 const layerLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#3f3f46",
   letterSpacing: "0.04em",
   textTransform: "uppercase",
@@ -20,7 +20,7 @@ const layerSub: CSSProperties = {
 
 const compName: CSSProperties = {
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 400,
   color: "#52525b",
   marginBottom: 4,
 };
@@ -41,13 +41,13 @@ function ButtonDemo() {
         <button
           style={{
             padding: "5px 12px",
-            borderRadius: 6,
+            borderRadius: 12,
             border: "none",
             background: "#18181b",
             color: "#fff",
             fontSize: 11,
-            fontWeight: 500,
-            fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+            fontWeight: 400,
+            fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
             cursor: "default",
           }}
         >
@@ -56,13 +56,13 @@ function ButtonDemo() {
         <button
           style={{
             padding: "5px 12px",
-            borderRadius: 6,
+            borderRadius: 12,
             border: "1px solid #d4d4d8",
             background: "#fff",
             color: "#3f3f46",
             fontSize: 11,
-            fontWeight: 500,
-            fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+            fontWeight: 400,
+            fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
             cursor: "default",
           }}
         >
@@ -80,10 +80,10 @@ function InputDemo() {
       <input
         style={{
           padding: "5px 8px",
-          borderRadius: 6,
+          borderRadius: 12,
           border: "1px solid #d4d4d8",
           fontSize: 11,
-          fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+          fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
           background: "#fff",
           width: 110,
           outline: "none",
@@ -107,7 +107,7 @@ function BadgeDemo() {
             padding: "2px 8px",
             borderRadius: 999,
             fontSize: 10,
-            fontWeight: 500,
+            fontWeight: 400,
             background: "#fef2f2",
             color: "#ef4444",
             border: "1px solid #fecaca",
@@ -121,7 +121,7 @@ function BadgeDemo() {
             padding: "2px 8px",
             borderRadius: 999,
             fontSize: 10,
-            fontWeight: 500,
+            fontWeight: 400,
             background: "#f0fdf4",
             color: "#22c55e",
             border: "1px solid #bbf7d0",
@@ -145,9 +145,9 @@ function TagDemo() {
             style={{
               display: "inline-block",
               padding: "2px 8px",
-              borderRadius: 4,
+              borderRadius: 8,
               fontSize: 10,
-              fontWeight: 500,
+              fontWeight: 400,
               background: "#f4f4f5",
               color: "#52525b",
               border: "1px solid #e4e4e7",
@@ -169,7 +169,7 @@ function ProductCardDemo() {
       <div
         style={{
           background: "#fff",
-          borderRadius: 8,
+          borderRadius: 16,
           border: "1px solid #e4e4e7",
           overflow: "hidden",
           width: 160,
@@ -193,7 +193,7 @@ function ProductCardDemo() {
                 padding: "1px 5px",
                 borderRadius: 999,
                 fontSize: 8,
-                fontWeight: 500,
+                fontWeight: 400,
                 background: "#fef2f2",
                 color: "#ef4444",
               }}
@@ -204,7 +204,7 @@ function ProductCardDemo() {
           <div
             style={{
               fontSize: 11,
-              fontWeight: 600,
+              fontWeight: 700,
               color: "#18181b",
               marginBottom: 2,
             }}
@@ -216,13 +216,13 @@ function ProductCardDemo() {
             style={{
               marginTop: 6,
               padding: "3px 10px",
-              borderRadius: 4,
+              borderRadius: 8,
               border: "none",
               background: "#18181b",
               color: "#fff",
               fontSize: 9,
-              fontWeight: 500,
-              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+              fontWeight: 400,
+              fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
               cursor: "default",
               width: "100%",
             }}
@@ -245,7 +245,7 @@ function CartItemDemo() {
           alignItems: "center",
           gap: 8,
           background: "#fff",
-          borderRadius: 8,
+          borderRadius: 16,
           border: "1px solid #e4e4e7",
           padding: 10,
           width: 200,
@@ -256,19 +256,19 @@ function CartItemDemo() {
           style={{
             width: 36,
             height: 36,
-            borderRadius: 4,
+            borderRadius: 8,
             objectFit: "cover",
             flexShrink: 0,
           }}
         />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 11, fontWeight: 500, color: "#18181b" }}>
+          <div style={{ fontSize: 11, fontWeight: 400, color: "#18181b" }}>
             スニーカー XR
           </div>
           <div style={{ fontSize: 10, color: "#52525b" }}>× 1</div>
         </div>
         <div
-          style={{ fontSize: 11, fontWeight: 600, color: "#18181b", flexShrink: 0 }}
+          style={{ fontSize: 11, fontWeight: 700, color: "#18181b", flexShrink: 0 }}
         >
           ¥12,800
         </div>
@@ -285,7 +285,7 @@ function ProductListSectionDemo() {
       <div
         style={{
           background: "#fff",
-          borderRadius: 8,
+          borderRadius: 16,
           border: "1px solid #e4e4e7",
           padding: 10,
           width: "100%",
@@ -305,10 +305,10 @@ function ProductListSectionDemo() {
           <input
             style={{
               padding: "3px 6px",
-              borderRadius: 4,
+              borderRadius: 8,
               border: "1px solid #d4d4d8",
               fontSize: 9,
-              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+              fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
               background: "#fff",
               width: 80,
               outline: "none",
@@ -323,9 +323,9 @@ function ProductListSectionDemo() {
               style={{
                 display: "inline-block",
                 padding: "1px 5px",
-                borderRadius: 3,
+                borderRadius: 8,
                 fontSize: 8,
-                fontWeight: 500,
+                fontWeight: 400,
                 background: "#f4f4f5",
                 color: "#52525b",
                 border: "1px solid #e4e4e7",
@@ -346,7 +346,7 @@ function ProductListSectionDemo() {
               key={item.name}
               style={{
                 flex: 1,
-                borderRadius: 4,
+                borderRadius: 8,
                 border: "1px solid #e4e4e7",
                 overflow: "hidden",
               }}
@@ -368,7 +368,7 @@ function ProductListSectionDemo() {
                       padding: "0 3px",
                       borderRadius: 999,
                       fontSize: 6,
-                      fontWeight: 500,
+                      fontWeight: 400,
                       background: "#fef2f2",
                       color: "#ef4444",
                       marginBottom: 2,
@@ -380,7 +380,7 @@ function ProductListSectionDemo() {
                 <div
                   style={{
                     fontSize: 8,
-                    fontWeight: 500,
+                    fontWeight: 400,
                     color: "#18181b",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
@@ -406,7 +406,7 @@ function CheckoutFormDemo() {
       <div
         style={{
           background: "#fff",
-          borderRadius: 8,
+          borderRadius: 16,
           border: "1px solid #e4e4e7",
           padding: 10,
           width: "100%",
@@ -435,7 +435,7 @@ function CheckoutFormDemo() {
                 style={{
                   width: 20,
                   height: 20,
-                  borderRadius: 3,
+                  borderRadius: 8,
                   objectFit: "cover" as const,
                   flexShrink: 0,
                 }}
@@ -453,19 +453,19 @@ function CheckoutFormDemo() {
             marginTop: 6,
           }}
         >
-          <span style={{ fontSize: 10, fontWeight: 600, color: "#18181b" }}>
+          <span style={{ fontSize: 10, fontWeight: 700, color: "#18181b" }}>
             合計 ¥32,000
           </span>
           <button
             style={{
               padding: "3px 10px",
-              borderRadius: 4,
+              borderRadius: 8,
               border: "none",
               background: "#18181b",
               color: "#fff",
               fontSize: 9,
-              fontWeight: 500,
-              fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+              fontWeight: 400,
+              fontFamily: '"Inter", "Tazugane Gothic StdN", sans-serif',
               cursor: "default",
             }}
           >
@@ -499,7 +499,7 @@ function LayerArrow() {
 /* ─── Main figure ─── */
 export default function Fig02() {
   return (
-    <IllustrationFrame title="Feature-Sliced Design の3層構造">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* ── Widgets layer ── */}
         <div style={{ marginBottom: 0 }}>
@@ -557,7 +557,7 @@ export default function Fig02() {
             marginTop: 16,
             padding: "8px 16px",
             background: "#fff",
-            borderRadius: 6,
+            borderRadius: 12,
             border: "1px dashed #d4d4d8",
           }}
         >

@@ -10,7 +10,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -19,15 +19,14 @@ const sectionLabel: CSSProperties = {
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 14,
 };
 
 const headerCell: CSSProperties = {
-  fontSize: 9,
-  fontWeight: 600,
-  color: "#a1a1aa",
+  fontSize: 10,
+  fontWeight: 700,
+  color: "#71717a",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
   padding: "6px 8px",
@@ -41,7 +40,7 @@ const cellBase: CSSProperties = {
 
 const rowHeader: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   padding: "5px 8px 5px 0",
   textAlign: "right",
@@ -54,10 +53,10 @@ function Btn({ bg, color, border, label, opacity }: { bg: string; color: string;
     <span
       style={{
         display: "inline-block",
-        fontSize: 9,
-        fontWeight: 600,
+        fontSize: 10,
+        fontWeight: 700,
         padding: "3px 8px",
-        borderRadius: 4,
+        borderRadius: 8,
         background: bg,
         color,
         border: border || "none",
@@ -79,11 +78,11 @@ function BrokenCell() {
         justifyContent: "center",
         width: 56,
         height: 24,
-        borderRadius: 4,
+        borderRadius: 8,
         border: "1.5px dashed #e4e4e7",
-        fontSize: 9,
+        fontSize: 10,
         color: "#d4d4d8",
-        fontWeight: 600,
+        fontWeight: 700,
       }}
     >
       ???
@@ -124,8 +123,8 @@ function BrokenTable() {
     <div>
       <div style={sectionLabel}>1つのプロパティに混在</div>
       <div style={panel}>
-        <div style={{ fontSize: 10, fontWeight: 600, color: "#18181b", marginBottom: 8 }}>
-          <code style={{ fontFamily: '"SF Mono", Menlo, monospace', fontSize: 10, background: "#f4f4f5", padding: "2px 5px", borderRadius: 3 }}>style</code> プロパティ
+        <div style={{ fontSize: 10, fontWeight: 700, color: "#18181b", marginBottom: 8 }}>
+          <code style={{ fontFamily: '"SF Mono", Menlo, monospace', fontSize: 10, background: "#f4f4f5", padding: "2px 5px", borderRadius: 6 }}>style</code> プロパティ
         </div>
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
@@ -151,7 +150,7 @@ function BrokenTable() {
                   <td style={cellBase}>
                     <Btn bg={c.bg} color={c.color} border={c.border} label={c.label} />
                   </td>
-                  <td style={{ ...cellBase, fontSize: 9, color: isGhost ? "#ef4444" : "#a1a1aa", fontWeight: isGhost ? 600 : 400 }}>
+                  <td style={{ ...cellBase, fontSize: 10, color: isGhost ? "#ef4444" : "#71717a", fontWeight: isGhost ? 700 : 400 }}>
                     {isGhost ? "強さ?" : "種類"}
                   </td>
                 </tr>
@@ -167,7 +166,7 @@ function BrokenTable() {
             gap: 6,
             padding: "6px 10px",
             background: "#fef2f2",
-            borderRadius: 4,
+            borderRadius: 8,
             border: "1px solid #fecaca",
             fontSize: 10,
             color: "#b91c1c",
@@ -203,10 +202,10 @@ function WorkingTable() {
     <div>
       <div style={sectionLabel}>2つのプロパティに分離</div>
       <div style={panel}>
-        <div style={{ fontSize: 10, fontWeight: 600, color: "#18181b", marginBottom: 8 }}>
-          <code style={{ fontFamily: '"SF Mono", Menlo, monospace', fontSize: 10, background: "#f4f4f5", padding: "2px 5px", borderRadius: 3 }}>colorScheme</code>
+        <div style={{ fontSize: 10, fontWeight: 700, color: "#18181b", marginBottom: 8 }}>
+          <code style={{ fontFamily: '"SF Mono", Menlo, monospace', fontSize: 10, background: "#f4f4f5", padding: "2px 5px", borderRadius: 6 }}>colorScheme</code>
           {" × "}
-          <code style={{ fontFamily: '"SF Mono", Menlo, monospace', fontSize: 10, background: "#f4f4f5", padding: "2px 5px", borderRadius: 3 }}>variant</code>
+          <code style={{ fontFamily: '"SF Mono", Menlo, monospace', fontSize: 10, background: "#f4f4f5", padding: "2px 5px", borderRadius: 6 }}>variant</code>
         </div>
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
@@ -242,7 +241,7 @@ function WorkingTable() {
             gap: 6,
             padding: "6px 10px",
             background: "#f0fdf4",
-            borderRadius: 4,
+            borderRadius: 8,
             border: "1px solid #bbf7d0",
             fontSize: 10,
             color: "#166534",
@@ -258,7 +257,7 @@ function WorkingTable() {
 
 export default function Fig67() {
   return (
-    <IllustrationFrame title="直交性の崩れ: 1つのプロパティに混ぜる vs 分離する">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         <div style={{ flex: 1 }}>
           <BrokenTable />

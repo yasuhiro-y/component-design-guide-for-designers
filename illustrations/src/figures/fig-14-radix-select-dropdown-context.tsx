@@ -2,19 +2,22 @@ import * as Select from "@radix-ui/react-select";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { LibraryLabel } from "../shared/LibraryLabel";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 import "../styles/radix-common.css";
 const name = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
   background: "#f4f4f5",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 16,
 } as const;
@@ -22,12 +25,11 @@ const annotation = { fontSize: 11, color: "#3f3f46", marginTop: 10, textAlign: "
 
 export default function Fig14() {
   return (
-    <IllustrationFrame title="Radix Select / DropdownMenu / ContextMenu">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Select */}
         <div style={{ flex: 1 }}>
-          <LibraryLabel name="Radix UI" icon="radix" />
-          <div style={name}>Select</div>
+          <div style={name}><ServiceIcon name="radix" size={18} />Select</div>
           <div style={panel}>
             <Select.Root defaultValue="medium" open>
               <Select.Trigger className="radix-select-trigger">
@@ -52,8 +54,7 @@ export default function Fig14() {
 
         {/* DropdownMenu */}
         <div style={{ flex: 1 }}>
-          <LibraryLabel name="Radix UI" icon="radix" />
-          <div style={name}>DropdownMenu</div>
+          <div style={name}><ServiceIcon name="radix" size={18} />DropdownMenu</div>
           <div style={{ ...panel, minHeight: 200 }}>
             <DropdownMenu.Root open>
               <DropdownMenu.Trigger asChild>
@@ -77,15 +78,14 @@ export default function Fig14() {
 
         {/* ContextMenu */}
         <div style={{ flex: 1 }}>
-          <LibraryLabel name="Radix UI" icon="radix" />
-          <div style={name}>ContextMenu</div>
+          <div style={name}><ServiceIcon name="radix" size={18} />ContextMenu</div>
           <div style={panel}>
             <ContextMenu.Root>
               <ContextMenu.Trigger asChild>
                 <div
                   style={{
                     padding: "6px 10px",
-                    borderRadius: 6,
+                    borderRadius: 12,
                     border: "1px dashed #d4d4d8",
                     background: "#fff",
                     fontSize: 12,
@@ -102,7 +102,7 @@ export default function Fig14() {
               style={{
                 background: "#fff",
                 border: "1px solid #e4e4e7",
-                borderRadius: 6,
+                borderRadius: 12,
                 padding: 4,
                 marginTop: 8,
               }}
@@ -114,7 +114,7 @@ export default function Fig14() {
                     padding: "6px 10px",
                     fontSize: 12,
                     color: "#3f3f46",
-                    borderRadius: 4,
+                    borderRadius: 8,
                     ...(i === 0 ? { background: "#f4f4f5" } : {}),
                   }}
                 >

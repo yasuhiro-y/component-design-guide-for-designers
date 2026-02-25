@@ -11,11 +11,10 @@ const row: CSSProperties = {
 };
 const typeName: CSSProperties = {
   fontSize: 13,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   width: 80,
   flexShrink: 0,
-  fontFamily: '"SF Mono", "Fira Code", Menlo, monospace',
 };
 const figmaLabel: CSSProperties = {
   fontSize: 12,
@@ -51,7 +50,7 @@ function Dropdown({ value }: { value: string }) {
         alignItems: "center",
         gap: 6,
         padding: "4px 10px",
-        borderRadius: 6,
+        borderRadius: 12,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 12,
@@ -70,7 +69,7 @@ function TextInput({ value }: { value: string }) {
       style={{
         display: "inline-flex",
         padding: "4px 10px",
-        borderRadius: 6,
+        borderRadius: 12,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 12,
@@ -90,7 +89,7 @@ function NumberInput({ value }: { value: number }) {
         display: "inline-flex",
         alignItems: "center",
         padding: "4px 10px",
-        borderRadius: 6,
+        borderRadius: 12,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 12,
@@ -105,7 +104,7 @@ function NumberInput({ value }: { value: number }) {
 
 export default function Fig17() {
   return (
-    <IllustrationFrame title="プロパティの型: Figma とコードの対応">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         <div style={row}>
           <div style={typeName}>Boolean</div>

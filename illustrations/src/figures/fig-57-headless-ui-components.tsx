@@ -9,21 +9,21 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const nameStyle = {
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
   background: "#f4f4f5",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 16,
 } as const;
 const annotation = { fontSize: 11, color: "#3f3f46", marginTop: 10, textAlign: "center" as const };
 const trigger = {
   padding: "6px 10px",
-  borderRadius: 6,
+  borderRadius: 12,
   border: "1px solid #d4d4d8",
   background: "#fff",
   fontSize: 12,
@@ -36,7 +36,7 @@ const trigger = {
 const dropdown = {
   background: "#fff",
   border: "1px solid #e4e4e7",
-  borderRadius: 6,
+  borderRadius: 12,
   padding: 4,
   marginTop: 6,
 } as const;
@@ -48,7 +48,7 @@ function Item({ label, active }: { label: string; active?: boolean }) {
         padding: "6px 10px",
         fontSize: 12,
         color: "#3f3f46",
-        borderRadius: 4,
+        borderRadius: 8,
         ...(active ? { background: "#f4f4f5" } : {}),
       }}
     >
@@ -68,7 +68,7 @@ const badge = {
 
 export default function Fig57() {
   return (
-    <IllustrationFrame title="Headless UI: Listbox / Combobox / Menu">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Listbox */}
         <div style={{ flex: 1 }}>

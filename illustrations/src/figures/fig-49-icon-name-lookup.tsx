@@ -7,7 +7,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colTitle: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 10,
 };
@@ -19,18 +19,10 @@ const mono: CSSProperties = {
   color: "#3f3f46",
   background: "#fff",
   border: "1px solid #e4e4e7",
-  borderRadius: 6,
+  borderRadius: 12,
   padding: "10px 12px",
   whiteSpace: "pre",
   overflow: "hidden",
-};
-
-const note: CSSProperties = {
-  fontSize: 10,
-  color: "#52525b",
-  marginTop: 10,
-  lineHeight: 1.5,
-  textAlign: "center",
 };
 
 const kw: CSSProperties = { color: "#7c3aed" };
@@ -56,7 +48,7 @@ function FileTree() {
         marginBottom: 8,
       }}
     >
-      <div style={{ fontWeight: 600, color: "#18181b", marginBottom: 2 }}>
+      <div style={{ fontWeight: 700, color: "#18181b", marginBottom: 2 }}>
         icons/
       </div>
       {files.map((f) => (
@@ -139,7 +131,7 @@ function IconComponentUsage() {
 const iconBox: CSSProperties = {
   width: 36,
   height: 36,
-  borderRadius: 6,
+  borderRadius: 12,
   background: "#fff",
   border: "1px solid #e4e4e7",
   display: "flex",
@@ -158,7 +150,7 @@ const libraryIcons = [
 
 export default function Fig49() {
   return (
-    <IllustrationFrame title="ファイル個別管理 vs 名前で呼び出し">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 20, width: CONTENT_WIDTH }}>
         {/* Left: File-based */}
         <div style={{ flex: 1 }}>
@@ -166,11 +158,6 @@ export default function Fig49() {
           <FileTree />
           <FileImports />
           <FileUsage />
-          <div style={note}>
-            アイコンごとにファイルを追加し、
-            <br />
-            毎回 import を書く必要がある
-          </div>
         </div>
 
         {/* Divider */}
@@ -210,17 +197,11 @@ export default function Fig49() {
                 <div style={iconBox}>
                   <Icon size={16} color="#3f3f46" strokeWidth={1.75} />
                 </div>
-                <span style={{ fontSize: 8, color: "#52525b" }}>{name}</span>
+                <span style={{ fontSize: 10, color: "#52525b" }}>{name}</span>
               </div>
             ))}
           </div>
 
-          <div style={note}>
-            <span style={{ ...mono, display: "inline", padding: "1px 5px", fontSize: 9, border: "none", background: "#f4f4f5" }}>
-              {"<Icon name=\"...\" />"}
-            </span>
-            {" "}と書くだけ
-          </div>
         </div>
       </div>
     </IllustrationFrame>

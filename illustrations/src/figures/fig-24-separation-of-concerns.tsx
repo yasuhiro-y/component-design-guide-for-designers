@@ -1,13 +1,14 @@
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
-const colTitle = { fontSize: 13, fontWeight: 600, color: "#18181b", marginBottom: 4 } as const;
+const colTitle = { fontSize: 13, fontWeight: 700, color: "#18181b", marginBottom: 4 } as const;
 const colDesc = { fontSize: 10, color: "#3f3f46", marginBottom: 12 } as const;
 
 function PropTag({ children }: { children: string }) {
   return (
     <span style={{
-      display: "inline-block", padding: "2px 8px", borderRadius: 4, fontSize: 10,
+      display: "inline-block", padding: "2px 8px", borderRadius: 8, fontSize: 10,
       fontFamily: '"SF Mono", Menlo, monospace',
       background: "#f4f4f5", border: "1px solid #e4e4e7", color: "#52525b",
       marginRight: 4, marginBottom: 4,
@@ -19,22 +20,19 @@ function PropTag({ children }: { children: string }) {
 
 export default function Fig24() {
   return (
-    <IllustrationFrame title="カプセル化: 3つの分離レイヤー">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Rendered UserCard at top */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
           <div style={{
             display: "flex", alignItems: "center", gap: 12, padding: "12px 20px",
-            background: "#fff", borderRadius: 10, border: "1px solid #e4e4e7",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+            background: "#fff", borderRadius: 12, border: "1px solid #e4e4e7",
           }}>
-            <div style={{
-              width: 40, height: 40, borderRadius: "50%", background: "#e4e4e7",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 14, fontWeight: 600, color: "#52525b",
-            }}>TK</div>
+            <img src={avatars.ito} style={{
+              width: 40, height: 40, borderRadius: "50%", objectFit: "cover",
+            }} />
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "#18181b" }}>UserCard</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "#18181b" }}>UserCard</div>
               <div style={{ fontSize: 11, color: "#52525b" }}>Designer</div>
             </div>
           </div>
@@ -54,7 +52,7 @@ export default function Fig24() {
                 { label: "shadow", value: "sm" },
               ].map(({ label, value }) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11 }}>
-                  <span style={{ color: "#52525b", fontWeight: 500, minWidth: 50 }}>{label}</span>
+                  <span style={{ color: "#52525b", fontWeight: 700, minWidth: 50 }}>{label}</span>
                   <span style={{ color: "#3f3f46" }}>{value}</span>
                 </div>
               ))}
@@ -67,7 +65,7 @@ export default function Fig24() {
             <div style={colDesc}>レイアウトの骨組み</div>
             <div style={{
               display: "flex", alignItems: "center", gap: 8, padding: 10,
-              borderRadius: 6, border: "1.5px dashed #d4d4d8", background: "#fafafa",
+              borderRadius: 12, border: "1.5px dashed #d4d4d8", background: "#fafafa",
             }}>
               <div style={{
                 width: 28, height: 28, borderRadius: "50%", border: "1.5px dashed #d4d4d8",
@@ -75,8 +73,8 @@ export default function Fig24() {
                 fontSize: 8, color: "#52525b",
               }}>img</div>
               <div style={{ flex: 1 }}>
-                <div style={{ height: 8, borderRadius: 3, background: "#d4d4d8", width: "70%", marginBottom: 4 }} />
-                <div style={{ height: 6, borderRadius: 3, background: "#e4e4e7", width: "40%" }} />
+                <div style={{ height: 8, borderRadius: 8, background: "#d4d4d8", width: "70%", marginBottom: 4 }} />
+                <div style={{ height: 6, borderRadius: 8, background: "#e4e4e7", width: "40%" }} />
               </div>
             </div>
             <div style={{ fontSize: 10, color: "#52525b", marginTop: 6 }}>

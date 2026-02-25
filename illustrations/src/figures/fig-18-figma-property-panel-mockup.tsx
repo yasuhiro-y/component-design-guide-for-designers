@@ -5,7 +5,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sectionTitle: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   letterSpacing: "0.04em",
   textTransform: "uppercase" as const,
@@ -23,7 +23,7 @@ const propRow: CSSProperties = {
 
 const propLabel: CSSProperties = {
   color: "#3f3f46",
-  fontWeight: 500,
+  fontWeight: 700,
 };
 
 const arrow: CSSProperties = {
@@ -47,14 +47,14 @@ function Toggle({ on }: { on?: boolean }) {
         display: "inline-flex",
         width: 30,
         height: 16,
-        borderRadius: 8,
+        borderRadius: 16,
         background: on ? "#18181b" : "#d4d4d8",
         padding: 2,
         alignItems: "center",
         justifyContent: on ? "flex-end" : "flex-start",
       }}
     >
-      <span style={{ width: 12, height: 12, borderRadius: 6, background: "#fff" }} />
+      <span style={{ width: 12, height: 12, borderRadius: 12, background: "#fff" }} />
     </span>
   );
 }
@@ -67,7 +67,7 @@ function Dropdown({ value }: { value: string }) {
         alignItems: "center",
         gap: 4,
         padding: "3px 8px",
-        borderRadius: 4,
+        borderRadius: 8,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 11,
@@ -85,7 +85,7 @@ function TextVal({ value }: { value: string }) {
       style={{
         display: "inline-flex",
         padding: "3px 8px",
-        borderRadius: 4,
+        borderRadius: 8,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 11,
@@ -99,14 +99,14 @@ function TextVal({ value }: { value: string }) {
 
 export default function Fig18() {
   return (
-    <IllustrationFrame title="Figma パネルとコードの対応">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 0, width: CONTENT_WIDTH }}>
         {/* Figma panel */}
         <div
           style={{
             flex: 1,
             background: "#f4f4f5",
-            borderRadius: 8,
+            borderRadius: 16,
             border: "1px solid #e4e4e7",
             padding: 20,
           }}
@@ -143,7 +143,7 @@ export default function Fig18() {
           style={{
             flex: 1,
             background: "#f4f4f5",
-            borderRadius: 8,
+            borderRadius: 16,
             border: "1px solid #e4e4e7",
             padding: 20,
           }}

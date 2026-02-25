@@ -8,7 +8,7 @@ const border = "#e4e4e7";
 const text = "#18181b";
 const secondary = "#3f3f46";
 const tertiary = "#52525b";
-const mono = '"Inter", "Noto Sans JP", sans-serif';
+const mono = '"Inter", "Tazugane Gothic StdN", sans-serif';
 
 /* ── chaotic button styles (left side — inconsistent conventions) ── */
 const chaosButtons: { name: string; style: CSSProperties }[] = [
@@ -18,10 +18,10 @@ const chaosButtons: { name: string; style: CSSProperties }[] = [
       background: "#18181b",
       color: "#fff",
       border: "1px solid #18181b",
-      borderRadius: 6,
+      borderRadius: 12,
       padding: "6px 16px",
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: "default",
     },
   },
@@ -31,10 +31,10 @@ const chaosButtons: { name: string; style: CSSProperties }[] = [
       background: surface,
       color: text,
       border: `1px solid ${border}`,
-      borderRadius: 6,
+      borderRadius: 12,
       padding: "6px 16px",
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: "default",
     },
   },
@@ -44,7 +44,7 @@ const chaosButtons: { name: string; style: CSSProperties }[] = [
       background: "#dc2626",
       color: "#fff",
       border: "1px solid #dc2626",
-      borderRadius: 8,
+      borderRadius: 16,
       padding: "8px 14px",
       fontSize: 13,
       fontWeight: 700,
@@ -58,10 +58,10 @@ const chaosButtons: { name: string; style: CSSProperties }[] = [
       background: "#f4f4f5",
       color: secondary,
       border: "1px dashed #d4d4d8",
-      borderRadius: 4,
+      borderRadius: 8,
       padding: "5px 12px",
       fontSize: 11,
-      fontWeight: 500,
+      fontWeight: 400,
       cursor: "default",
     },
   },
@@ -71,7 +71,7 @@ const chaosButtons: { name: string; style: CSSProperties }[] = [
       background: "transparent",
       color: tertiary,
       border: `2px solid ${tertiary}`,
-      borderRadius: 10,
+      borderRadius: 12,
       padding: "5px 14px",
       fontSize: 12,
       fontWeight: 400,
@@ -89,10 +89,10 @@ const cleanButtons: { name: string; style: CSSProperties }[] = [
       background: "#18181b",
       color: "#fff",
       border: "1px solid #18181b",
-      borderRadius: 6,
+      borderRadius: 12,
       padding: "6px 16px",
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: "default",
     },
   },
@@ -102,10 +102,10 @@ const cleanButtons: { name: string; style: CSSProperties }[] = [
       background: surface,
       color: text,
       border: `1px solid ${border}`,
-      borderRadius: 6,
+      borderRadius: 12,
       padding: "6px 16px",
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: "default",
     },
   },
@@ -115,10 +115,10 @@ const cleanButtons: { name: string; style: CSSProperties }[] = [
       background: "#dc2626",
       color: "#fff",
       border: "1px solid #dc2626",
-      borderRadius: 6,
+      borderRadius: 12,
       padding: "6px 16px",
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: "default",
     },
   },
@@ -128,10 +128,10 @@ const cleanButtons: { name: string; style: CSSProperties }[] = [
       background: "transparent",
       color: secondary,
       border: "1px solid transparent",
-      borderRadius: 6,
+      borderRadius: 12,
       padding: "6px 16px",
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: "default",
     },
   },
@@ -149,7 +149,7 @@ const columnHeader: CSSProperties = {
 const card: CSSProperties = {
   background: surface,
   border: `1px solid ${border}`,
-  borderRadius: 8,
+  borderRadius: 16,
   padding: "20px 24px",
 };
 
@@ -178,7 +178,7 @@ const note: CSSProperties = {
 /* ── component ── */
 export default function Fig41() {
   return (
-    <IllustrationFrame title="慣習: ルールの有無が半年後の品質を決める">
+    <IllustrationFrame>
       <div
         style={{
           width: CONTENT_WIDTH,

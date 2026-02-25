@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const grid: CSSProperties = {
@@ -11,7 +12,7 @@ const grid: CSSProperties = {
 
 const cellLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 8,
 };
@@ -24,7 +25,7 @@ const cellSub: CSSProperties = {
 
 const mockCard: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 12,
   minHeight: 48,
@@ -32,7 +33,7 @@ const mockCard: CSSProperties = {
 
 const nameDisplay: CSSProperties = {
   fontSize: 13,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   lineHeight: 1.4,
 };
@@ -44,9 +45,9 @@ const roleDisplay: CSSProperties = {
 };
 
 const avatarSrcs: Record<string, string> = {
-  "田": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  "A": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
-  "鈴": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+  "田": avatars.garcia,
+  "A": avatars.lee,
+  "鈴": avatars.takahashi,
 };
 
 function AvatarSmall({ letter }: { letter: string }) {
@@ -65,7 +66,7 @@ function AvatarSmall({ letter }: { letter: string }) {
         alignItems: "center",
         justifyContent: "center",
         fontSize: 10,
-        fontWeight: 600,
+        fontWeight: 700,
         color: "#52525b",
         flexShrink: 0,
         border: "1px dashed #d4d4d8",
@@ -78,7 +79,7 @@ function AvatarSmall({ letter }: { letter: string }) {
 
 export default function Fig33() {
   return (
-    <IllustrationFrame title="String型: テキストの振る舞い6パターン">
+    <IllustrationFrame>
       <div style={grid}>
         {/* 1. Normal */}
         <div>

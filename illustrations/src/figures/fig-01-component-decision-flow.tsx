@@ -46,7 +46,7 @@ const edges: Edge[] = [
 
 export default function Fig01() {
   return (
-    <IllustrationFrame title="コンポーネント化の判断フロー">
+    <IllustrationFrame>
       <FlowDiagram nodes={nodes} edges={edges} height={320} />
     </IllustrationFrame>
   );

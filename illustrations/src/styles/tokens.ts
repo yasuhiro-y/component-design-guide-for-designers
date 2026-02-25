@@ -62,15 +62,15 @@ export const fontSize = {
 } as const;
 
 export const radius = {
-  sm: 4,
-  md: 6,
-  lg: 8,
-  xl: 12,
+  sm: 6,
+  md: 12,
+  lg: 16,
+  xl: 20,
   full: 9999,
 } as const;
 
 export const font = {
-  sans: '"Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  sans: '"Inter", "Tazugane Gothic StdN", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   mono: '"SF Mono", "Fira Code", Menlo, monospace',
   featureSettings: '"palt", "cv02", "cv03", "cv04", "cv11"',
 } as const;

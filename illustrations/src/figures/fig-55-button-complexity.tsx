@@ -23,18 +23,18 @@ const chipStyle: CSSProperties = {
   display: "inline-flex",
   alignItems: "center",
   padding: "2px 6px",
-  borderRadius: 3,
+  borderRadius: 8,
   background: "#fafafa",
   border: `1px solid ${border}`,
   fontFamily: mono,
-  fontSize: 9,
+  fontSize: 10,
   color: tertiary,
   whiteSpace: "nowrap",
 };
 
 const axisLabel: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: secondary,
   minWidth: 56,
   letterSpacing: "0.02em",
@@ -42,7 +42,7 @@ const axisLabel: CSSProperties = {
 
 export default function Fig55() {
   return (
-    <IllustrationFrame title="ボタンの複雑さ: シンプルに見えて設計判断の山">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* ── Top: Simple button ── */}
         <div
@@ -59,24 +59,15 @@ export default function Fig55() {
               alignItems: "center",
               justifyContent: "center",
               padding: "10px 28px",
-              borderRadius: 6,
+              borderRadius: 8,
               background: text,
               color: "#fff",
               fontSize: 13,
-              fontWeight: 600,
+              fontWeight: 700,
               letterSpacing: "-0.01em",
             }}
           >
             Button
-          </div>
-          <div
-            style={{
-              fontSize: 11,
-              color: secondary,
-              marginTop: 8,
-            }}
-          >
-            見かけはシンプル
           </div>
         </div>
 
@@ -92,15 +83,14 @@ export default function Fig55() {
         <div
           style={{
             background: "#fff",
-            border: `1px solid ${border}`,
-            borderRadius: 8,
+            borderRadius: 16,
             padding: "16px 20px",
           }}
         >
           <div
             style={{
               fontSize: 10,
-              fontWeight: 600,
+              fontWeight: 700,
               color: tertiary,
               letterSpacing: "0.04em",
               textTransform: "uppercase" as const,
@@ -149,21 +139,6 @@ export default function Fig55() {
           </div>
         </div>
 
-        {/* ── Caption ── */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: 14,
-            fontSize: 11,
-            color: secondary,
-            lineHeight: 1.6,
-          }}
-        >
-          <span style={{ fontWeight: 600, color: text }}>
-            カプセル化されたコンポーネントは、この複雑さを隠す。
-          </span>
-          使う側は variant と size を選ぶだけ。
-        </div>
       </div>
     </IllustrationFrame>
   );

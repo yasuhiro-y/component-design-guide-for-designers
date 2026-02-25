@@ -25,8 +25,8 @@ function MiniButton({ children, primary }: { children: string; primary?: boolean
     justifyContent: "center",
     padding: "3px 10px",
     fontSize: 9,
-    fontWeight: 600,
-    borderRadius: 4,
+    fontWeight: 700,
+    borderRadius: 8,
     border: primary ? "none" : `1px solid ${BORDER}`,
     background: primary ? TEXT_PRIMARY : SURFACE,
     color: primary ? SURFACE : TEXT_PRIMARY,
@@ -45,7 +45,7 @@ function MiniInput({ placeholder, width }: { placeholder: string; width?: number
     fontSize: 9,
     color: TEXT_TERTIARY,
     border: `1px solid ${BORDER}`,
-    borderRadius: 4,
+    borderRadius: 8,
     background: SURFACE,
     lineHeight: 1.4,
     whiteSpace: "nowrap",
@@ -57,7 +57,7 @@ function MiniInput({ placeholder, width }: { placeholder: string; width?: number
 function MiniLabel({ children }: { children: string }) {
   const style: CSSProperties = {
     fontSize: 9,
-    fontWeight: 600,
+    fontWeight: 700,
     color: TEXT_PRIMARY,
     lineHeight: 1.4,
   };
@@ -74,7 +74,7 @@ function MiniSearchBar() {
     alignItems: "center",
     gap: 0,
     border: `1px solid ${BORDER}`,
-    borderRadius: 4,
+    borderRadius: 8,
     overflow: "hidden",
     background: SURFACE,
   };
@@ -91,7 +91,7 @@ function MiniSearchBar() {
   const btnStyle: CSSProperties = {
     padding: "3px 8px",
     fontSize: 9,
-    fontWeight: 600,
+    fontWeight: 700,
     border: "none",
     borderLeft: `1px solid ${BORDER}`,
     background: TEXT_PRIMARY,
@@ -133,7 +133,7 @@ function MiniHeader() {
     padding: "4px 10px",
     background: SURFACE,
     border: `1px solid ${BORDER}`,
-    borderRadius: 4,
+    borderRadius: 8,
     width: 180,
   };
   const logo: CSSProperties = {
@@ -170,7 +170,7 @@ function MiniCard() {
     flexDirection: "column",
     width: 100,
     border: `1px solid ${BORDER}`,
-    borderRadius: 4,
+    borderRadius: 8,
     overflow: "hidden",
     background: SURFACE,
   };
@@ -192,7 +192,7 @@ function MiniCard() {
   };
   const title: CSSProperties = {
     fontSize: 8,
-    fontWeight: 600,
+    fontWeight: 700,
     color: TEXT_PRIMARY,
     lineHeight: 1.3,
   };
@@ -224,7 +224,7 @@ function MiniTemplate() {
     width: 200,
     height: 80,
     border: `1px solid ${BORDER}`,
-    borderRadius: 4,
+    borderRadius: 8,
     overflow: "hidden",
     background: SURFACE,
   };
@@ -297,7 +297,7 @@ function MiniPage() {
     width: 200,
     height: 80,
     border: `1px solid ${BORDER}`,
-    borderRadius: 4,
+    borderRadius: 8,
     overflow: "hidden",
     background: SURFACE,
   };
@@ -358,7 +358,7 @@ function MiniPage() {
     display: "inline-block",
     padding: "1px 5px",
     fontSize: 5,
-    fontWeight: 600,
+    fontWeight: 700,
     background: TEXT_PRIMARY,
     color: SURFACE,
     borderRadius: 2,
@@ -453,7 +453,7 @@ const layerRow: CSSProperties = {
   alignItems: "center",
   background: SURFACE,
   border: `1px solid ${BORDER}`,
-  borderRadius: 6,
+  borderRadius: 12,
   padding: "10px 16px",
   gap: 16,
 };
@@ -468,14 +468,13 @@ const labelColumn: CSSProperties = {
 
 const nameStyle: CSSProperties = {
   fontSize: 12,
-  fontWeight: 600,
+  fontWeight: 700,
   color: TEXT_PRIMARY,
-  fontFamily: MONO,
   lineHeight: 1.3,
 };
 
 const nameJaStyle: CSSProperties = {
-  fontSize: 9,
+  fontSize: 10,
   color: TEXT_TERTIARY,
   lineHeight: 1.3,
 };
@@ -553,7 +552,7 @@ export default function Fig40() {
   const arrowHeight = totalRows * 60 + (totalRows - 1) * rowGap;
 
   return (
-    <IllustrationFrame title="Atomic Design: 5つの階層">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH, display: "flex", gap: 8 }}>
         {/* Left: upward arrow */}
         <div

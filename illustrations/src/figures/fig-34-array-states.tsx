@@ -1,70 +1,72 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const stateLabel: CSSProperties = {
-  fontSize: 12,
-  fontWeight: 600,
+  fontSize: 14,
+  fontWeight: 700,
   color: "#18181b",
-  marginBottom: 8,
+  marginBottom: 10,
 };
 
 const stateNote: CSSProperties = {
-  fontSize: 10,
+  fontSize: 12,
   color: "#52525b",
-  marginTop: 6,
+  marginTop: 8,
 };
 
+/* UI mock card — white + border */
 const card: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
-  padding: 12,
-  minHeight: 140,
+  borderRadius: 16,
+  padding: 16,
+  minHeight: 150,
 };
 
 const listRow = (isLast: boolean): CSSProperties => ({
   display: "flex",
   alignItems: "center",
-  gap: 8,
-  padding: "7px 0",
+  gap: 10,
+  padding: "8px 0",
   borderBottom: isLast ? "none" : "1px solid #f4f4f5",
 });
 
 const avatarImg: CSSProperties = {
-  width: 26,
-  height: 26,
+  width: 30,
+  height: 30,
   borderRadius: "50%",
   objectFit: "cover",
   flexShrink: 0,
 };
 
-const avatarUrls: Record<string, string> = {
-  "田中 太郎": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  "佐藤 花子": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-  "鈴木 一郎": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-};
-
 const nameStyle: CSSProperties = {
-  fontSize: 12,
-  fontWeight: 500,
+  fontSize: 13,
+  fontWeight: 400,
   color: "#18181b",
 };
 
 const roleStyle: CSSProperties = {
-  fontSize: 10,
-  color: "#52525b",
+  fontSize: 11,
+  color: "#71717a",
 };
 
 interface Person {
   name: string;
   role: string;
+  avatar: string;
 }
+
+const people: Person[] = [
+  { name: "田中 太郎", role: "Designer", avatar: avatars.kim },
+  { name: "佐藤 花子", role: "Engineer", avatar: avatars.garcia },
+  { name: "鈴木 一郎", role: "PM", avatar: avatars.suzuki },
+];
 
 function ListItem({ person, isLast }: { person: Person; isLast: boolean }) {
   return (
     <div style={listRow(isLast)}>
-      <img src={avatarUrls[person.name]} style={avatarImg} />
+      <img src={person.avatar} style={avatarImg} />
       <div>
         <div style={nameStyle}>{person.name}</div>
         <div style={roleStyle}>{person.role}</div>
@@ -78,21 +80,21 @@ function EmptyState() {
     <div style={{ ...card, display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ textAlign: "center" }}>
         <svg
-          width="24"
-          height="24"
+          width="28"
+          height="28"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#52525b"
+          stroke="#a1a1aa"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ marginBottom: 6 }}
+          style={{ marginBottom: 8 }}
         >
           <path d="M22 12h-6l-2 3H10l-2-3H2" />
           <path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z" />
         </svg>
-        <div style={{ fontSize: 11, fontWeight: 500, color: "#3f3f46" }}>データなし</div>
-        <div style={{ fontSize: 10, color: "#52525b", marginTop: 2 }}>メンバーがいません</div>
+        <div style={{ fontSize: 12, fontWeight: 400, color: "#3f3f46" }}>データなし</div>
+        <div style={{ fontSize: 11, color: "#71717a", marginTop: 3 }}>メンバーがいません</div>
       </div>
     </div>
   );
@@ -101,17 +103,12 @@ function EmptyState() {
 function SingleItem() {
   return (
     <div style={card}>
-      <ListItem person={{ name: "田中 太郎", role: "Designer" }} isLast />
+      <ListItem person={people[0]} isLast />
     </div>
   );
 }
 
 function NormalList() {
-  const people: Person[] = [
-    { name: "田中 太郎", role: "Designer" },
-    { name: "佐藤 花子", role: "Engineer" },
-    { name: "鈴木 一郎", role: "PM" },
-  ];
   return (
     <div style={card}>
       {people.map((p, i) => (
@@ -122,22 +119,17 @@ function NormalList() {
 }
 
 function ManyItems() {
-  const visible: Person[] = [
-    { name: "田中 太郎", role: "Designer" },
-    { name: "佐藤 花子", role: "Engineer" },
-    { name: "鈴木 一郎", role: "PM" },
-  ];
   return (
     <div style={card}>
-      {visible.map((p, i) => (
+      {people.map((p) => (
         <ListItem key={p.name} person={p} isLast={false} />
       ))}
       <div
         style={{
           textAlign: "center",
-          padding: "8px 0 2px",
+          padding: "10px 0 2px",
           fontSize: 11,
-          fontWeight: 500,
+          fontWeight: 400,
           color: "#3b82f6",
           cursor: "default",
         }}
@@ -157,13 +149,12 @@ export default function Fig34() {
   ];
 
   return (
-    <IllustrationFrame title="Array型: リストの4つの状態">
-      <div style={{ display: "flex", gap: 10, width: CONTENT_WIDTH }}>
+    <IllustrationFrame>
+      <div style={{ display: "flex", gap: 12, width: CONTENT_WIDTH }}>
         {states.map((s) => (
           <div key={s.label} style={{ flex: 1, minWidth: 0 }}>
             <div style={stateLabel}>{s.label}</div>
             {s.el}
-            <div style={stateNote}>{s.note}</div>
           </div>
         ))}
       </div>

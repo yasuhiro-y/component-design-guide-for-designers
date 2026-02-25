@@ -5,14 +5,14 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const sectionTitle: CSSProperties = {
   fontSize: 13,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 10,
 };
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 16,
   border: "1px solid #e4e4e7",
   padding: 16,
 };
@@ -29,13 +29,13 @@ function MiniCard({ subtitle }: { subtitle?: string }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 8,
+        borderRadius: 16,
         border: "1px solid #e4e4e7",
         padding: 12,
         width: "100%",
       }}
     >
-      <div style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}>
+      <div style={{ fontSize: 13, fontWeight: 700, color: "#18181b" }}>
         カードタイトル
       </div>
       {subtitle && (
@@ -55,7 +55,7 @@ function Toggle({ on }: { on: boolean }) {
         display: "inline-flex",
         width: 28,
         height: 15,
-        borderRadius: 8,
+        borderRadius: 16,
         background: on ? "#18181b" : "#d4d4d8",
         padding: 2,
         alignItems: "center",
@@ -66,7 +66,7 @@ function Toggle({ on }: { on: boolean }) {
         style={{
           width: 11,
           height: 11,
-          borderRadius: 6,
+          borderRadius: 12,
           background: "#fff",
         }}
       />
@@ -80,7 +80,7 @@ function TextInput({ value }: { value: string }) {
       style={{
         display: "inline-block",
         padding: "2px 6px",
-        borderRadius: 4,
+        borderRadius: 8,
         border: "1px solid #d4d4d8",
         background: "#fff",
         fontSize: 10,
@@ -103,7 +103,7 @@ const figmaPropRow: CSSProperties = {
 
 export default function Fig37() {
   return (
-    <IllustrationFrame title="条件付き表示: Figmaでは2つ、コードでは1つ">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Two columns: Figma vs Code */}
         <div style={{ display: "flex", gap: 16, marginBottom: 0 }}>
@@ -123,12 +123,12 @@ export default function Fig37() {
               <div
                 style={{
                   background: "#fafafa",
-                  borderRadius: 6,
+                  borderRadius: 12,
                   border: "1px solid #e4e4e7",
                   padding: "8px 10px",
                 }}
               >
-                <div style={{ ...monoSmall, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 6 }}>
+                <div style={{ ...monoSmall, fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 6 }}>
                   設定パネル
                 </div>
                 <div style={figmaPropRow}>
@@ -172,7 +172,7 @@ export default function Fig37() {
               <div
                 style={{
                   background: "#fafafa",
-                  borderRadius: 6,
+                  borderRadius: 12,
                   border: "1px solid #e4e4e7",
                   padding: "8px 10px",
                   fontFamily: '"SF Mono", Menlo, monospace',
@@ -184,7 +184,7 @@ export default function Fig37() {
                 <div>
                   <span style={{ color: "#52525b" }}>subtitle</span>
                   <span style={{ color: "#d4d4d8" }}>?: </span>
-                  <span style={{ color: "#18181b", fontWeight: 500 }}>string</span>
+                  <span style={{ color: "#18181b", fontWeight: 400 }}>string</span>
                 </div>
               </div>
 

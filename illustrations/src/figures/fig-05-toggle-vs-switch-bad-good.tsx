@@ -32,11 +32,11 @@ function MiniButton({
         justifyContent: "center",
         height: h,
         padding: `0 ${h * 0.5}px`,
-        borderRadius: 6,
+        borderRadius: 12,
         background: v.bg,
         color: v.color,
         fontSize: size === "S" ? 10 : size === "M" ? 12 : 14,
-        fontWeight: 500,
+        fontWeight: 700,
         border:
           variant === "secondary" ? "1px solid #e4e4e7" : "none",
         whiteSpace: "nowrap",
@@ -49,7 +49,7 @@ function MiniButton({
 
 const headerCell: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textAlign: "center",
   padding: "6px 0",
@@ -57,7 +57,7 @@ const headerCell: CSSProperties = {
 
 const rowLabel: CSSProperties = {
   fontSize: 10,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   display: "flex",
   alignItems: "center",
@@ -78,13 +78,13 @@ export default function Fig05() {
   const labels = { primary: "保存", secondary: "キャンセル", destructive: "削除" };
 
   return (
-    <IllustrationFrame title="直交性: size と variant の組み合わせがすべて成立する">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Matrix */}
         <div
           style={{
             background: "#fff",
-            borderRadius: 8,
+            borderRadius: 16,
             border: "1px solid #e4e4e7",
             padding: 16,
           }}
@@ -133,14 +133,14 @@ export default function Fig05() {
               flex: 1,
               padding: "10px 14px",
               background: "#fff",
-              borderRadius: 6,
+              borderRadius: 12,
               border: "1px solid #e4e4e7",
             }}
           >
             <div
               style={{
                 fontSize: 12,
-                fontWeight: 600,
+                fontWeight: 700,
                 color: "#18181b",
                 marginBottom: 4,
               }}
@@ -161,14 +161,14 @@ export default function Fig05() {
               flex: 1,
               padding: "10px 14px",
               background: "#fff",
-              borderRadius: 6,
+              borderRadius: 12,
               border: "1px solid #e4e4e7",
             }}
           >
             <div
               style={{
                 fontSize: 12,
-                fontWeight: 600,
+                fontWeight: 700,
                 color: "#18181b",
                 marginBottom: 4,
               }}

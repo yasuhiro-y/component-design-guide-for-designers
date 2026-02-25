@@ -1,22 +1,24 @@
 import { ChakraProvider, Badge, Tag, TagLabel, Stack, extendTheme } from "@chakra-ui/react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
-import { LibraryLabel } from "../shared/LibraryLabel";
+import { ServiceIcon } from "../shared/icons";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 const theme = extendTheme({
-  fonts: { body: '"Inter", "Noto Sans JP", sans-serif', heading: '"Inter", "Noto Sans JP", sans-serif' },
+  fonts: { body: '"Inter", "Tazugane Gothic StdN", sans-serif', heading: '"Inter", "Tazugane Gothic StdN", sans-serif' },
 });
 const name = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#18181b",
   letterSpacing: "-0.01em",
   marginBottom: 10,
 } as const;
 const panel = {
-  background: "#f4f4f5",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  background: "#fff",
+  borderRadius: 16,
   padding: 14,
 } as const;
 
@@ -26,18 +28,17 @@ const variants = ["solid", "subtle", "outline"] as const;
 export default function Fig16() {
   return (
     <ChakraProvider theme={theme} resetCSS={false}>
-      <IllustrationFrame title="Chakra Badge / Tag colorScheme">
+      <IllustrationFrame>
         <div style={{ width: CONTENT_WIDTH }}>
-          <LibraryLabel name="Chakra UI" icon="chakra" />
-          <div style={name}>Badge / Tag — colorScheme × variant</div>
+          <div style={name}><ServiceIcon name="chakra" size={18} />Badge / Tag — colorScheme × variant</div>
           <div style={panel}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: "#3f3f46", marginBottom: 12 }}>Badge</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: "#3f3f46", marginBottom: 12 }}>Badge</div>
             <table style={{ borderCollapse: "collapse", width: "100%", marginBottom: 20 }}>
               <thead>
                 <tr>
-                  <th style={{ fontSize: 11, color: "#52525b", fontWeight: 500, textAlign: "left", padding: "0 0 8px" }} />
+                  <th style={{ fontSize: 11, color: "#52525b", fontWeight: 700, textAlign: "left", padding: "0 0 8px" }} />
                   {variants.map((v) => (
-                    <th key={v} style={{ fontSize: 11, color: "#52525b", fontWeight: 500, textAlign: "left", padding: "0 0 8px" }}>
+                    <th key={v} style={{ fontSize: 11, color: "#52525b", fontWeight: 700, textAlign: "left", padding: "0 0 8px" }}>
                       {v}
                     </th>
                   ))}
@@ -46,7 +47,7 @@ export default function Fig16() {
               <tbody>
                 {colors.map((c) => (
                   <tr key={c}>
-                    <td style={{ fontSize: 12, color: "#3f3f46", padding: "4px 16px 4px 0", fontWeight: 500 }}>{c}</td>
+                    <td style={{ fontSize: 12, color: "#3f3f46", padding: "4px 16px 4px 0", fontWeight: 700 }}>{c}</td>
                     {variants.map((v) => (
                       <td key={v} style={{ padding: "4px 8px 4px 0" }}>
                         <Badge colorScheme={c} variant={v}>{c}</Badge>
@@ -56,7 +57,7 @@ export default function Fig16() {
                 ))}
               </tbody>
             </table>
-            <div style={{ fontSize: 12, fontWeight: 600, color: "#3f3f46", marginBottom: 12 }}>Tag</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: "#3f3f46", marginBottom: 12 }}>Tag</div>
             <Stack direction="row" spacing={2} flexWrap="wrap">
               {colors.map((c) => (
                 <Tag key={c} size="md" colorScheme={c} variant="subtle">

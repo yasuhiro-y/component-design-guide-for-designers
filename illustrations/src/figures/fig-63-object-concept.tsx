@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IllustrationFrame } from "../shared/IllustrationFrame";
+import { avatars } from "../shared/unsplash";
 import { CONTENT_WIDTH } from "../styles/tokens";
 
 /**
@@ -10,8 +11,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const panel: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
 };
 
@@ -30,7 +30,7 @@ const fieldRowLast: CSSProperties = {
 
 const fieldLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 500,
+  fontWeight: 700,
   color: "#52525b",
   width: 70,
   flexShrink: 0,
@@ -38,13 +38,13 @@ const fieldLabel: CSSProperties = {
 
 const fieldValue: CSSProperties = {
   fontSize: 12,
-  fontWeight: 500,
+  fontWeight: 400,
   color: "#18181b",
 };
 
 const sectionLabel: CSSProperties = {
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#52525b",
   textTransform: "uppercase",
   letterSpacing: "0.04em",
@@ -67,12 +67,13 @@ const fields: Field[] = [
 function FieldVisual({ visual, value }: { visual?: string; value: string }) {
   if (visual === "avatar") {
     return (
-      <div
+      <img
+        src={avatars.takahashi}
         style={{
           width: 24,
           height: 24,
           borderRadius: "50%",
-          background: "#bfdbfe",
+          objectFit: "cover",
           flexShrink: 0,
         }}
       />
@@ -80,7 +81,7 @@ function FieldVisual({ visual, value }: { visual?: string; value: string }) {
   }
   if (visual === "tag") {
     return (
-      <span style={{ fontSize: 10, fontWeight: 500, color: "#52525b" }}>
+      <span style={{ fontSize: 10, fontWeight: 400, color: "#52525b" }}>
         {value}
       </span>
     );
@@ -130,7 +131,7 @@ function BracketDecoration() {
 
 export default function Fig63() {
   return (
-    <IllustrationFrame title="オブジェクト: 複数の値をひとかたまりで渡す">
+    <IllustrationFrame>
       <div style={{ width: CONTENT_WIDTH }}>
         {/* Analogy: Notion-like database row */}
         <div style={{ marginBottom: 16 }}>
@@ -152,7 +153,7 @@ export default function Fig63() {
                   style={{
                     flex: 1,
                     fontSize: 10,
-                    fontWeight: 600,
+                    fontWeight: 700,
                     color: "#a1a1aa",
                     textTransform: "uppercase",
                     letterSpacing: "0.04em",
@@ -169,24 +170,24 @@ export default function Fig63() {
                 gap: 0,
                 padding: "8px 0",
                 background: "#eff6ff",
-                borderRadius: 4,
+                borderRadius: 8,
                 marginLeft: -8,
                 marginRight: -8,
                 paddingLeft: 8,
                 paddingRight: 8,
               }}
             >
-              <div style={{ flex: 1, fontSize: 12, fontWeight: 500, color: "#18181b" }}>
+              <div style={{ flex: 1, fontSize: 12, fontWeight: 400, color: "#18181b" }}>
                 田中 太郎
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ width: 22, height: 22, borderRadius: "50%", background: "#bfdbfe" }} />
+                <img src={avatars.takahashi} style={{ width: 22, height: 22, borderRadius: "50%", objectFit: "cover" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <span
                   style={{
                     fontSize: 10,
-                    fontWeight: 500,
+                    fontWeight: 400,
                     color: "#18181b",
                     background: "#fff",
                     border: "1px solid #e4e4e7",
@@ -220,16 +221,16 @@ export default function Fig63() {
                 }}
               >
                 <div style={{ flex: 1 }}>
-                  <div style={{ width: 60, height: 8, borderRadius: 4, background: "#d4d4d8" }} />
+                  <div style={{ width: 60, height: 8, borderRadius: 8, background: "#d4d4d8" }} />
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ width: 22, height: 22, borderRadius: "50%", background: "#d4d4d8" }} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ width: 48, height: 16, borderRadius: 8, background: "#d4d4d8" }} />
+                  <div style={{ width: 48, height: 16, borderRadius: 16, background: "#d4d4d8" }} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ width: 50, height: 8, borderRadius: 4, background: "#d4d4d8" }} />
+                  <div style={{ width: 50, height: 8, borderRadius: 8, background: "#d4d4d8" }} />
                 </div>
               </div>
             ))}
@@ -277,7 +278,7 @@ export default function Fig63() {
               <div
                 style={{
                   background: "#fff",
-                  borderRadius: 8,
+                  borderRadius: 16,
                   border: "1px solid #e4e4e7",
                   padding: 12,
                   display: "flex",
@@ -285,12 +286,13 @@ export default function Fig63() {
                   alignItems: "center",
                 }}
               >
-                <div
+                <img
+                  src={avatars.takahashi}
                   style={{
                     width: 40,
                     height: 40,
                     borderRadius: "50%",
-                    background: "#bfdbfe",
+                    objectFit: "cover",
                     flexShrink: 0,
                   }}
                 />
@@ -304,14 +306,14 @@ export default function Fig63() {
                     }}
                   >
                     <span
-                      style={{ fontSize: 13, fontWeight: 600, color: "#18181b" }}
+                      style={{ fontSize: 13, fontWeight: 700, color: "#18181b" }}
                     >
                       田中 太郎
                     </span>
                     <span
                       style={{
                         fontSize: 10,
-                        fontWeight: 500,
+                        fontWeight: 400,
                         color: "#18181b",
                         background: "#f4f4f5",
                         border: "1px solid #e4e4e7",

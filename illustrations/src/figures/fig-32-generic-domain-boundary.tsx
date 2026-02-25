@@ -4,7 +4,7 @@ import { CONTENT_WIDTH } from "../styles/tokens";
 
 const colTitle: CSSProperties = {
   fontSize: 13,
-  fontWeight: 600,
+  fontWeight: 700,
   color: "#18181b",
   marginBottom: 6,
 };
@@ -17,8 +17,7 @@ const colSub: CSSProperties = {
 
 const card: CSSProperties = {
   background: "#fff",
-  borderRadius: 8,
-  border: "1px solid #e4e4e7",
+  borderRadius: 16,
   padding: 16,
 };
 
@@ -34,14 +33,14 @@ const bubble: CSSProperties = {
 
 const tag = (type: "generic" | "domain"): CSSProperties => ({
   fontSize: 11,
-  fontWeight: 600,
+  fontWeight: 700,
   color: type === "generic" ? "#2563eb" : "#d97706",
   letterSpacing: "0.02em",
 });
 
 const propsBox: CSSProperties = {
   background: "#fafafa",
-  borderRadius: 6,
+  borderRadius: 12,
   border: "1px solid #e4e4e7",
   padding: "8px 10px",
   marginTop: 12,
@@ -57,7 +56,7 @@ const propKey: CSSProperties = {
 
 const propType: CSSProperties = {
   color: "#18181b",
-  fontWeight: 500,
+  fontWeight: 700,
 };
 
 const checkItem: CSSProperties = {
@@ -67,17 +66,6 @@ const checkItem: CSSProperties = {
   display: "flex",
   alignItems: "center",
   gap: 6,
-};
-
-const noteStyle: CSSProperties = {
-  fontSize: 11,
-  color: "#3f3f46",
-  textAlign: "center",
-  marginTop: 16,
-  padding: "8px 16px",
-  background: "#fff",
-  borderRadius: 6,
-  border: "1px dashed #d4d4d8",
 };
 
 function CheckIcon({ color }: { color: string }) {
@@ -102,11 +90,11 @@ function CheckIcon({ color }: { color: string }) {
 
 export default function Fig32() {
   return (
-    <IllustrationFrame title="汎用かドメインか: 視点で答えが変わる">
+    <IllustrationFrame>
       <div style={{ display: "flex", gap: 16, width: CONTENT_WIDTH }}>
         {/* Left: Generic — service-agnostic */}
         <div style={{ flex: 1 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
             <span style={tag("generic")}>汎用</span>
             <span style={colTitle}>Bubble</span>
           </div>
@@ -171,7 +159,7 @@ export default function Fig32() {
 
         {/* Right: Domain — object-dependent */}
         <div style={{ flex: 1 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
             <span style={tag("domain")}>ドメイン</span>
             <span style={colTitle}>ChatBubble</span>
           </div>
@@ -222,10 +210,6 @@ export default function Fig32() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div style={noteStyle}>
-        どちらが正解かは文脈次第。同じUIでも、再利用の範囲や依存するデータによって答えが変わる
       </div>
 
     </IllustrationFrame>
