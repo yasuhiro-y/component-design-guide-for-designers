@@ -11,7 +11,8 @@ chapters:
   - build-strategy
   - component-splitting
   - practical-problems
-  - variables
+  - variables-1
+  - variables-2
   - states
   - layout
   - assets
