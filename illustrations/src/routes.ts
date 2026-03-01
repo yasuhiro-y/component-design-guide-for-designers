@@ -85,6 +85,8 @@ export const figures: FigureRoute[] = [
   { id: "fig-76", component: lazy(() => import("./figures/fig-76-deprecation-workflow")), title: "非推奨化ワークフロー: 安全にコンポーネントを削除する4ステップ" },
   { id: "fig-77", component: lazy(() => import("./figures/fig-77-loading-skeleton-pattern")), title: "ローディングスケルトン: Loading / Partial / Error" },
   { id: "fig-78", component: lazy(() => import("./figures/fig-78-token-cascade")), title: "トークンの連鎖: 1つの変更が全コンポーネントに届く" },
+  { id: "fig-79", component: lazy(() => import("./figures/fig-79-rework-cost-timeline")), title: "拡張性のない設計のコスト累積" },
+  { id: "fig-80", component: lazy(() => import("./figures/fig-80-cascading-hacks")), title: "場当たり対応の連鎖: 状態の掛け合わせが設計を侵食する" },
 ];
 
 export function getFigureById(id: string) {
