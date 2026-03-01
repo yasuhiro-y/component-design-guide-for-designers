@@ -27,17 +27,6 @@ def slugify_book(title: str, index: int) -> str:
     return f"chapter-{index:02d}"
 
 
-def promote_headings(content: str) -> str:
-    lines = content.split("\n")
-    result = []
-    for line in lines:
-        m = re.match(r"^(#{2,6})\s", line)
-        if m:
-            hashes = m.group(1)
-            line = "#" * (len(hashes) - 1) + line[len(hashes):]
-        result.append(line)
-    return "\n".join(result)
-
 
 def split_by_h1(text: str) -> list[tuple[str, str]]:
     sections = []
@@ -89,18 +78,18 @@ def main():
 
     print(f"Found {len(sections)} sections:\n")
     for i, (title, body) in enumerate(sections, 1):
-        promoted = promote_headings(body.strip())
+        chapter_body = body.strip()
 
         book_slug = slugify_book(title, i)
         book_filename = f"{book_slug}.md"
         book_path = book_dir / book_filename
 
         frontmatter = f"---\ntitle: \"{title}\"\n---\n\n"
-        book_path.write_text(frontmatter + promoted + "\n", encoding="utf-8")
+        book_path.write_text(frontmatter + chapter_body + "\n", encoding="utf-8")
 
         book_chapters.append((book_slug, title))
 
-        print(f"  {book_filename:30s} ({len(promoted.splitlines())} lines) — {title}")
+        print(f"  {book_filename:30s} ({len(chapter_body.splitlines())} lines) — {title}")
 
     write_config_yaml(book_dir, book_chapters)
 
