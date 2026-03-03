@@ -85,8 +85,13 @@ export const figures: FigureRoute[] = [
   { id: "fig-76", component: lazy(() => import("./figures/fig-76-deprecation-workflow")), title: "非推奨化ワークフロー: 安全にコンポーネントを削除する4ステップ" },
   { id: "fig-77", component: lazy(() => import("./figures/fig-77-loading-skeleton-pattern")), title: "ローディングスケルトン: Loading / Partial / Error" },
   { id: "fig-78", component: lazy(() => import("./figures/fig-78-token-cascade")), title: "トークンの連鎖: 1つの変更が全コンポーネントに届く" },
-  { id: "fig-79", component: lazy(() => import("./figures/fig-79-rework-cost-timeline")), title: "拡張性のない設計のコスト累積" },
-  { id: "fig-80", component: lazy(() => import("./figures/fig-80-cascading-hacks")), title: "場当たり対応の連鎖: 状態の掛け合わせが設計を侵食する" },
+  { id: "fig-79", component: lazy(() => import("./figures/fig-79-generalization-spectrum")), title: "一般化と個別化のスペクトラム" },
+  { id: "fig-80", component: lazy(() => import("./figures/fig-80-intentional-compromise")), title: "意図的な妥協: 無自覚な場当たりとの違い" },
+  { id: "fig-81", component: lazy(() => import("./figures/fig-81-addition-removal-asymmetry")), title: "追加と削除の非対称性: 5分で追加、数週間で削除" },
+  { id: "fig-82", component: lazy(() => import("./figures/fig-82-uncertainty-structure")), title: "不確実性が高いときの構造設計: 器の形だけ先に決める" },
+  { id: "fig-83", component: lazy(() => import("./figures/fig-83-cascading-hacks")), title: "場当たり対応の連鎖: ハックがハックを呼ぶ構造" },
+  { id: "fig-84", component: lazy(() => import("./figures/fig-84-property-vs-state")), title: "プロパティと状態の違い: 外から渡す値と内部で管理する値" },
+  { id: "fig-85", component: lazy(() => import("./figures/fig-85-icon-naming")), title: "プロパティ名の先読み: icon問題" },
 ];
 
 export function getFigureById(id: string) {
