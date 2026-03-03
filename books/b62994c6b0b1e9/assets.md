@@ -23,7 +23,7 @@ Figma上で描けたからといって、それがそのままCSSやコードで
 
 つまり、コード実装は変更コストが低く、画像埋め込みは初期コストが低い。この表現は今後変わる可能性があるかを軸に判断します。
 
-![コード実装かアセット埋め込みかの判断フロー](/images/books/b62994c6b0b1e9/fig-09.png)
+![コード実装かアセット埋め込みかの判断フロー](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-09.png)
 
 たとえば、ライトモードで黒、ダークモードで白に切り替わるアイコンはコード実装が必須です。画像として埋め込んでいると、モード切り替えのたびにファイルを差し替える手間が発生します。一方、一度作ったら長期間変わらない装飾的なイラストは画像埋め込みで構いません。
 
@@ -41,7 +41,7 @@ Figma上で描けたからといって、それがそのままCSSやコードで
 
 ### 独自アイコンを制作する
 
-![既存ライブラリ vs 独自アイコン](/images/books/b62994c6b0b1e9/fig-21.png)
+![既存ライブラリ vs 独自アイコン](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-21.png)
 
 ブランドの世界観を細部までコントロールでき、プロダクト独自のドメイン知識を視覚的に正しく伝えることが可能です。ただし、制作とメンテナンスのコストは大きいです。SVGのパスをきれいに掃除し、書き出し設定を整え、実装で使える形式で管理し続ける必要があります。
 
@@ -57,7 +57,7 @@ Figma上で描けたからといって、それがそのままCSSやコードで
 
 具体的にどれほどの違いがあるかを見てみましょう。
 
-![名前指定によるアイコン呼び出し](/images/books/b62994c6b0b1e9/fig-49.png)
+![名前指定によるアイコン呼び出し](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-49.png)
 
 Figmaでの管理方法としては、アイコンそれぞれを個別のコンポーネントとして作成する方法と、`Component Set`でバリアントとしてまとめる方法があります。チームの規模やアイコンの数に応じて選択してください。
 
@@ -75,7 +75,7 @@ Figma上でアイコンの色を変えるとき、塗りの色を直接変更し
 
 理想は、SVGの中の色を固定値にせず、周囲のテキスト色に自動で合わせるという指定にしておくことです。CSSでは `currentColor` という値でこれを実現します。白いテキストのボタンの中に置けば白に、青いリンクの中に置けば青に、と自動で色が変わります。Figmaでいえば、Variablesでアイコンの色をテキスト色トークンに紐づけておくのと近い考え方です。
 
-![SVGの色制御: 固定色 vs currentColor](/images/books/b62994c6b0b1e9/fig-30.png)
+![SVGの色制御: 固定色 vs currentColor](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-30.png)
 
 運用ルールとしておすすめなのは、Figma上でアイコンコンポーネントを最初から黒一色で作ることです。コード側で色を上書きする前提にしておけば、Figma上ではカジュアルに色をあてることができます（こうしたとき、デザイントークンによる規律が有効です）。
 

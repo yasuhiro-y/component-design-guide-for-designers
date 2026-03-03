@@ -40,7 +40,7 @@ Kevin Muldoonは[What Design Systems Actually Do](https://www.designsystemscolle
 
 たとえば、プライマリボタンの角丸を8pxから12pxに統一する、フォントサイズのベースを14pxから16pxに上げる、ブランドカラーを変更する。こうした変更も、コンポーネント化されていれば一箇所の修正で全画面に反映できます。少人数のデザイナーでも大規模なプロダクト全体に高品質なユーザー体験を届けられるのは、このレバレッジが効いているからです。
 
-![間接化: 1箇所の変更がすべてに届く](/images/books/b62994c6b0b1e9/fig-23.png)
+![間接化: 1箇所の変更がすべてに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-23.png)
 
 Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eightshapes-llc/and-you-thought-buttons-were-easy-26eb5b5c1871)」の中で、ボタンひとつをデザイン・実装・テストするコストを$20,000（300万円）と見積もり、50チームがそれぞれ作れば$1,000,000（1億5000万円）になると試算しています。この見積もりはボタンの設計・実装・テスト・ドキュメント・アクセシビリティ対応までを含むライフサイクル全体のコストです。絶対値は組織の規模やプロセスによって大きく異なりますが、注目すべきはN倍という乗数構造のほうです。5チームであれ50チームであれ、同じものを何度も作っている構造自体がコストを生んでいます。
 
@@ -52,7 +52,7 @@ Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eight
 
 ボタンを例に考えてみましょう。ラベルと背景色だけのシンプルな部品に見えますが、その裏には膨大な設計判断が隠れています。`Hover`・`Pressed`・`Disabled`・`Focus`のインタラクション状態、`primary`・`secondary`・`destructive`のバリアント、アイコンの有無と位置、ライト/ダークテーマ。これらの組み合わせだけで数百にのぼります。カプセル化されたボタンコンポーネントは、この複雑さを隠して「variant と size を選ぶだけ」にしてくれます。
 
-![ボタンの複雑さ: シンプルに見えて設計判断の山](/images/books/b62994c6b0b1e9/fig-55.png)
+![ボタンの複雑さ: シンプルに見えて設計判断の山](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-55.png)
 
 たとえば、`UserCard`コンポーネントの中に、ユーザーデータを取得するロジックが埋め込まれていたとします。画面上ではきれいに動きます。しかし、同じカードを別の画面で「お気に入り一覧」に使いたくなったとき、データ取得先が決め打ちになっているので使い回せません。見た目だけ欲しいのに、データ取得のロジックがくっついてくるからです。
 
@@ -66,7 +66,7 @@ Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eight
 
 カプセル化は、コンポーネント設計のさまざまな場面で顔を出します。この記事では、以下の3つのレイヤーを順番に扱っていきます。
 
-![カプセル化: 3つの分離レイヤー](/images/books/b62994c6b0b1e9/fig-24.png)
+![カプセル化: 3つの分離レイヤー](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-24.png)
 
 - **見た目とデータの分離**: コンポーネントは表示に専念し、どんなデータを取ってきて渡すかは呼び出す側が担う
 - **構造とスタイルの分離**: 骨組みと見た目の装飾を切り離す。後述するHeadless UIの思想。[Shadcn/ui](https://ui.shadcn.com/)はこの分離をライブラリレベルで体現した実例で、[Radix UI](https://www.radix-ui.com/primitives)が提供する骨組み（振る舞い＋アクセシビリティ）に[Tailwind CSS](https://tailwindcss.com/)で見た目を上書きする構成になっている
@@ -84,7 +84,7 @@ Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eight
 
 スペーシングも同じです。`margin`や`padding`に「好きな数字を入れてよい」とすると、14px, 17px, 23pxのような半端な値が乱立します。4/8/12/16/24/32のスケールに制約すれば、誰が作っても整ったリズムが生まれます。
 
-![制約: 選択肢を絞り、判断の負荷を下げる](/images/books/b62994c6b0b1e9/fig-53.png)
+![制約: 選択肢を絞り、判断の負荷を下げる](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-53.png)
 
 変数の章で扱うプロパティの型も制約の一形態です。Booleanは2択、EnumはN択、Stringは自由入力。型が厳しいほど誤用が減り、型がゆるいほど柔軟性が増します。
 
@@ -104,7 +104,7 @@ Figmaで赤い塗りの四角形を描いたとします。これは「エラー
 
 しかし`Dialog`は背景クリックで閉じられる汎用モーダルであるのに対し、`AlertDialog`は「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
 
-![Radix UI: Dialog と AlertDialog の違い](/images/books/b62994c6b0b1e9/fig-11.png)
+![Radix UI: Dialog と AlertDialog の違い](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-11.png)
 
 アクセシビリティの国際標準規格（[WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/)）でも、スクリーンリーダーに「通常のダイアログ」と「警告ダイアログ」を区別して伝える仕組みが用意されており、この設計判断はその規格に基づいています。意味を正しく符号化することは、アクセシビリティにも直結します。
 
@@ -114,7 +114,7 @@ Figmaで赤い塗りの四角形を描いたとします。これは「エラー
 
 4つの小さな部品（`Avatar`、`Text`、`Badge`、`Button`）があるとします。これらを組み合わせるだけで、`UserCard`（Avatar + Text + Badge）にも`NotificationItem`（Badge + Text + Button）にもなります。部品そのものを増やさなくても、配置を変えるだけでバリエーションが生まれるのです。
 
-![合成: 小さな部品を組み合わせて大きなUIを構築する](/images/books/b62994c6b0b1e9/fig-54.png)
+![合成: 小さな部品を組み合わせて大きなUIを構築する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-54.png)
 
 Figmaのコンポーネントネスト（コンポーネントの中にコンポーネントを入れること）は、まさに合成そのものです。
 
@@ -139,7 +139,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 3. 控えめなボタンも欲しい → `btn-light` を追加
 4. 半年後、`primary` / `secondary` / `red-button` / `btn-light` / `outline-gray` が混在し、新メンバーが `red-button` と `btn-light` の違いは何ですか？と聞く。答えられる人がいない
 
-![慣習: ルールの有無が半年後の品質を決める](/images/books/b62994c6b0b1e9/fig-41.png)
+![慣習: ルールの有無が半年後の品質を決める](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-41.png)
 
 最初の2人目が正しく拡張できたかどうかは、10人目の生産性を大きく左右します。新メンバーが既存の仕組みに沿って迷わず貢献でき、チームが大きくなっても生産性が落ちにくい。これが慣習のビジネスインパクトです。
 
@@ -179,7 +179,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 ところが1年後、ユーザー向け画面にも独自のデザインを入れたくなったとき、`MUI`のスタイル上書きがいたるところに広がっていて、Headless UIに乗り換えようにも影響範囲が大きすぎて踏み切れない。
 
-![経路依存性: 初期の選択が未来を縛る](/images/books/b62994c6b0b1e9/fig-39.png)
+![経路依存性: 初期の選択が未来を縛る](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-39.png)
 
 命名も同じです。初期に`Card`と名付けたコンポーネントが50画面で使われたあとに「やっぱり`Tile`のほうが適切だった」と気づいても、Figma・コード・ドキュメント・チームの会話すべてに染みこんだ名前を変えるコストは、最初に決めるコストとは比べものになりません。
 
@@ -214,7 +214,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 使われる期間が長いほど、チームの語彙に染みこみ、ドキュメントに書かれ、新メンバーがそれを前提に学習する。削除のコストは線形ではなく、時間に対して加速度的に上がっていきます。
 
-![追加と削除の非対称性: 5分で追加、数週間で削除](/images/books/b62994c6b0b1e9/fig-81.png)
+![追加と削除の非対称性: 5分で追加、数週間で削除](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-81.png)
 
 この性質を知っていると、とりあえず追加しておこうという判断の重みが変わります。追加はほぼ無料に見えますが、実際にはその瞬間から将来の削除コストが積み上がり始めています。簡単に増やせるからこそ、増やすときにこそよく考える必要があります。慎重に追加し、使われなくなったものは早めに非推奨（deprecated）にする。この姿勢が、長く使えるコンポーネントライブラリを支えます。
 
@@ -256,7 +256,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 デザインシステムへの投資判断を先送りするほど、あとから導入するコストが上がっていく。これも経路依存性の一種です。
 
-![デザインシステムがない世界: 4つの立場から見た課題](/images/books/b62994c6b0b1e9/fig-73.png)
+![デザインシステムがない世界: 4つの立場から見た課題](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-73.png)
 
 いずれの立場にも共通するのは、すでに決まっているべきことが決まっていないために、同じ判断を繰り返しているという構造です。デザインシステムは、この繰り返しを仕組みとして吸収し、チームの認知リソースを本来の問題解決に向けるためのものです。
 
@@ -282,7 +282,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 - **後で直しやすい方向に倒す。** 名前を仮で決めるなら、少なくとも一括置換しやすい一意な名前にする。型を仮で決めるなら、より厳密な型への移行が非破壊的変更になる方向を選ぶ（Stringで仮置き → 後でEnumに絞る、のほうが逆よりも安全）
 - **「今はやらない」と「やらなくていい」を区別する。** 意識的に先送りした判断はチーム内で共有し、何が起きたら着手するかのトリガーを決めておく。トリガーがないと、先送りは風化して既成事実になる
 
-![意図的な妥協: 無自覚な場当たりとの違い](/images/books/b62994c6b0b1e9/fig-80.png)
+![意図的な妥協: 無自覚な場当たりとの違い](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-80.png)
 
 原則を知らずに場当たり的に進めるのと、原則を知ったうえで意図的に妥協するのでは、見た目は同じでも半年後の改善のしやすさがまるで違います。理想を知っているからこそ、今はどこまでやり、どこを後に回すかという線引きができるのです。
 
@@ -303,7 +303,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 個別化しすぎると、似た見た目のコンポーネントが乱立し、変更のたびに複数のコンポーネントを同時に修正する羽目になります。一箇所を直せば全部直るという間接化のメリットが失われます。
 
-![一般化と個別化のスペクトラム](/images/books/b62994c6b0b1e9/fig-79.png)
+![一般化と個別化のスペクトラム](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-79.png)
 
 最適解はプロダクトのフェーズやチームの規模によって変わります。立ち上げ期は個別化寄りで素早く作り、パターンが見えてきたら一般化する。成熟期には一般化された基盤を維持しつつ、ドメイン固有の要件は個別のコンポーネントで吸収する。
 
