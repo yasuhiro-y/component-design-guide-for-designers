@@ -57,9 +57,9 @@ function PropLabel({ name, warning }: { name: string; warning?: boolean }) {
         fontWeight: 600,
         padding: "2px 6px",
         borderRadius: 4,
-        background: warning ? "#fef2f2" : "#f4f4f5",
-        color: warning ? "#b91c1c" : secondary,
-        border: warning ? "1px solid #fca5a5" : `1px solid ${border}`,
+        background: "#f4f4f5",
+        color: secondary,
+        border: warning ? `1px dashed #a1a1aa` : `1px solid ${border}`,
       }}
     >
       {name}
@@ -120,7 +120,7 @@ export default function Fig85() {
         </Row>
 
         {/* Row 2: Months later - problem */}
-        <Row phase="数ヶ月後" label="右側にもアイコンがほしい" bgColor="#fffbeb" borderColor="#f59e0b">
+        <Row phase="数ヶ月後" label="右側にもアイコンがほしい" bgColor="#fafafa" borderColor="#a1a1aa">
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <MockButton label="次へ" iconStart iconEnd />
             <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -130,7 +130,7 @@ export default function Fig85() {
                 <PropLabel name="iconRight" warning />
                 <span style={{ fontSize: 10, color: tertiary }}>（右）</span>
               </div>
-              <div style={{ fontSize: 10, color: "#92400e", lineHeight: 1.5 }}>
+              <div style={{ fontSize: 10, color: tertiary, lineHeight: 1.5 }}>
                 左が icon で右が iconRight — 非対称な名前。<br />
                 icon を iconLeft にリネームすると全箇所に破壊的変更
               </div>
@@ -139,7 +139,7 @@ export default function Fig85() {
         </Row>
 
         {/* Row 3: Forward-thinking solution */}
-        <Row phase="先読み" label="最初から対称に名付ける" bgColor="#f0fdf4" borderColor="#22c55e">
+        <Row phase="先読み" label="最初から対称に名付ける" borderColor={text}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <MockButton label="次へ" iconStart iconEnd />
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -147,7 +147,7 @@ export default function Fig85() {
                 <PropLabel name="iconStart" />
                 <PropLabel name="iconEnd" />
               </div>
-              <div style={{ fontSize: 10, color: "#166534", lineHeight: 1.5 }}>
+              <div style={{ fontSize: 10, color: secondary, lineHeight: 1.5 }}>
                 対称で、もう一方を足しても破綻しない
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function Fig85() {
             style={{
               marginTop: 12,
               paddingTop: 10,
-              borderTop: `1px solid #bbf7d0`,
+              borderTop: `1px solid ${border}`,
               display: "flex",
               gap: 20,
               alignItems: "center",
@@ -173,13 +173,13 @@ export default function Fig85() {
                       width: 20,
                       height: 14,
                       borderRadius: 3,
-                      background: "#dcfce7",
-                      border: "1px solid #86efac",
+                      background: "#f4f4f5",
+                      border: `1px solid ${border}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 7,
-                      color: "#166534",
+                      color: secondary,
                     }}
                   >
                     S
@@ -190,13 +190,13 @@ export default function Fig85() {
                       width: 20,
                       height: 14,
                       borderRadius: 3,
-                      background: "#dcfce7",
-                      border: "1px solid #86efac",
+                      background: "#f4f4f5",
+                      border: `1px solid ${border}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 7,
-                      color: "#166534",
+                      color: secondary,
                     }}
                   >
                     E
@@ -211,13 +211,13 @@ export default function Fig85() {
                       width: 20,
                       height: 14,
                       borderRadius: 3,
-                      background: "#dcfce7",
-                      border: "1px solid #86efac",
+                      background: "#f4f4f5",
+                      border: `1px solid ${border}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 7,
-                      color: "#166534",
+                      color: secondary,
                     }}
                   >
                     E
@@ -228,13 +228,13 @@ export default function Fig85() {
                       width: 20,
                       height: 14,
                       borderRadius: 3,
-                      background: "#dcfce7",
-                      border: "1px solid #86efac",
+                      background: "#f4f4f5",
+                      border: `1px solid ${border}`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 7,
-                      color: "#166534",
+                      color: secondary,
                     }}
                   >
                     S
@@ -242,7 +242,7 @@ export default function Fig85() {
                 </div>
               </div>
             </div>
-            <div style={{ fontSize: 10, color: "#166534", lineHeight: 1.5 }}>
+            <div style={{ fontSize: 10, color: secondary, lineHeight: 1.5 }}>
               start / end は論理方向。<br />
               LTR でも RTL でも意味が通る
             </div>

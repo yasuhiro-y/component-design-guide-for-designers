@@ -36,7 +36,7 @@ function TrafficLight({ active }: { active: "red" | "yellow" | "green" }) {
             borderRadius: "50%",
             background: l.id === active ? l.color : "#3f3f46",
             opacity: l.id === active ? 1 : 0.3,
-            boxShadow: l.id === active ? `0 0 8px ${l.color}50` : "none",
+            boxShadow: "none",
           }}
         />
       ))}

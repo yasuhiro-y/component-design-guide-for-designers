@@ -42,9 +42,9 @@ function ListItem({
   hackIconShifted,
   broken,
 }: ListItemProps) {
-  const bg = highlighted ? "#eef2ff" : "#fff";
-  const borderCol = error ? "#ef4444" : border;
-  const brokenBg = broken ? "linear-gradient(90deg, #eef2ff 0%, #fef2f2 100%)" : undefined;
+  const bg = highlighted ? "#f4f4f5" : "#fff";
+  const borderCol = error ? "#71717a" : border;
+  const brokenBg = broken ? "#f4f4f5" : undefined;
 
   return (
     <div
@@ -69,7 +69,7 @@ function ListItem({
             bottom: 8,
             width: 3,
             borderRadius: 2,
-            background: "#6366f1",
+            background: "#a1a1aa",
           }}
         />
       )}
@@ -119,11 +119,10 @@ function ListItem({
             width: 20,
             height: 20,
             borderRadius: "50%",
-            background: "#ef4444",
+            background: text,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
           }}
         >
           <span style={{ color: "#fff", fontSize: 11, fontWeight: 700, lineHeight: 1 }}>!</span>
@@ -136,7 +135,7 @@ function ListItem({
             width: 20,
             height: 20,
             borderRadius: "50%",
-            background: "#ef4444",
+            background: text,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -153,7 +152,7 @@ function ListItem({
             position: "absolute",
             inset: 0,
             borderRadius: 12,
-            border: "2px dashed #ef4444",
+            border: `2px dashed ${secondary}`,
             pointerEvents: "none",
           }}
         />
@@ -172,7 +171,7 @@ interface PanelProps {
 }
 
 function Panel({ step, label, sublabel, broken, children, annotation }: PanelProps) {
-  const headerColor = broken ? "#ef4444" : tertiary;
+  const headerColor = tertiary;
 
   return (
     <div style={{ flex: 1, minWidth: 0 }}>
@@ -202,7 +201,7 @@ function Panel({ step, label, sublabel, broken, children, annotation }: PanelPro
           display: "flex",
           flexDirection: "column",
           gap: 6,
-          border: broken ? "1.5px dashed #fca5a5" : `1px solid ${border}`,
+          border: broken ? `1.5px dashed #a1a1aa` : `1px solid ${border}`,
         }}
       >
         {children}
