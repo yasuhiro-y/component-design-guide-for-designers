@@ -29,13 +29,13 @@ title: "構築戦略: どう作るかを選ぶ"
 しかし、プロダクトがどの方向に発展していくか、どのようなUIパターンが今後必要になるか、独自のブランド表現がどの程度重要か。これらはプロダクトの未来像を描くデザイナーだからこそ持っている視点です。技術選定に最終的な決定権がなくとも、こうした情報をエンジニアリングチームに共有することは、構築戦略の質を上げます。
 
 
-![構築戦略の4パターン: コストと自由度のトレードオフ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-25.png)
+![構築戦略の4パターン: コストと自由度のトレードオフ](/images/books/b62994c6b0b1e9/fig-25.png)
 
 ## 汎用ライブラリの活用: MUIやChakra UIを土台にする
 
 外部公開されているライブラリをそのまま活用する方法です。[Material UI](https://mui.com/)、[Chakra UI](https://chakra-ui.com/)、[Ant Design](https://ant.design/)などがこれにあたります。どんなサービスにも使える汎用のコンポーネント群です。
 
-![汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-56.png)
+![汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design](/images/books/b62994c6b0b1e9/fig-56.png)
 
 すでにひと通りのコンポーネントがそろっているため、すぐに開発を始められるのが強みです。`Button`、`Input`、`Modal`、`Table`など、基本的なUI部品はすべて用意されています。とくに初期フェーズのスタートアップや、管理画面のような機能性重視のプロダクトでは、採用するメリットが大きいです。
 
@@ -74,11 +74,11 @@ title: "構築戦略: どう作るかを選ぶ"
 
 Headless UIの設計思想がよく表れているのが、見た目が似たコンポーネントの分類です。
 
-![Radix UI: 見た目が似た3つのコンポーネント](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-14.png)
+![Radix UI: 見た目が似た3つのコンポーネント](/images/books/b62994c6b0b1e9/fig-14.png)
 
 Radix UIには、いずれもドロップダウン的な見た目の[`Select`](https://www.radix-ui.com/primitives/docs/components/select)、[`DropdownMenu`](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[`ContextMenu`](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。
 
-![Headless UI: Listbox / Combobox / Menu](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-57.png)
+![Headless UI: Listbox / Combobox / Menu](/images/books/b62994c6b0b1e9/fig-57.png)
 
 Headless UIライブラリも同様に、[`Listbox`](https://headlessui.com/react/listbox)はドロップダウンで1つ選ぶUI、[`Combobox`](https://headlessui.com/react/combobox)は入力しながら候補が絞られる検索付き選択UI、[`Menu`](https://headlessui.com/react/menu)はアクション一覧、というように分離しています。ポップオーバーが開いて項目が並ぶという見た目は共通しているのに、なぜ分けるのか。それはユーザーが何をしたいか（値を選ぶのか、アクションを実行するのか、検索してから選ぶのか）が違うからです。
 
@@ -122,7 +122,7 @@ Headless UIライブラリも同様に、[`Listbox`](https://headlessui.com/reac
 
 後発導入で実践的なのは、以下の3ステップです。
 
-![後発導入: 稼働中プロダクトへの3ステップ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-44.png)
+![後発導入: 稼働中プロダクトへの3ステップ](/images/books/b62994c6b0b1e9/fig-44.png)
 
 1. デザイントークンから入る。 コンポーネントの前に、色・フォントサイズ・余白のトークンを定義して既存コードに適用する。見た目はほぼ変わらないが、後からの一括変更が可能になる。これがもっとも低リスクで効果の高い出発点です
 2. 新規画面から準拠する。 既存画面は触らず、新しく作る画面だけをデザインシステムに沿って設計する。新規画面は100%準拠というルールを置くことで、デザインシステムの利用実績が自然に積み上がります

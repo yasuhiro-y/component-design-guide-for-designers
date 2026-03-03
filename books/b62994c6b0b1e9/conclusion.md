@@ -6,7 +6,7 @@ title: "おわりに"
 
 この記事では、デザインシステムのコンポーネント設計を、原則から具体的な変数の型まで段階的に掘り下げてきました。
 
-![本書の構成と知識の積み上げ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-10.png)
+![本書の構成と知識の積み上げ](/images/books/b62994c6b0b1e9/fig-10.png)
 
 振り返ると、この記事で扱ってきたのはFigmaとコードをどう揃えるかだけではありませんでした。コンポーネントをどう分けるか、プロパティにどんな型を選ぶか、変更のどこが安全でどこが危険か——これらの問いに向き合うことは、一枚の画面を描くこととは質の異なる思考です。
 
@@ -25,7 +25,7 @@ title: "おわりに"
 
 コンポーネント名、プロパティの型、レイヤーの階層。これらが整理されていると、会議であのコンポーネントのあのプロパティと言ったとき、デザイナーもエンジニアも同じものを思い浮かべられます。このメンタルモデルの同期は、ツールの一致ではなく、チームが同じ設計言語を共有することで実現します。そしてその設計言語は、完成品ではなく、チームで育てていくものです。
 
-![メンタルモデルの同期: Figma・コード・チームの認知が一致する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-52.png)
+![メンタルモデルの同期: Figma・コード・チームの認知が一致する](/images/books/b62994c6b0b1e9/fig-52.png)
 
 ## 参考リソース
 
