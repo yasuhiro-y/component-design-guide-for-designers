@@ -19,7 +19,7 @@ function Marker({ label, position, accent }: MarkerProps) {
       style={{
         position: "absolute",
         left: `${position}%`,
-        top: -6,
+        top: 1,
         transform: "translateX(-50%)",
         display: "flex",
         flexDirection: "column",
