@@ -80,7 +80,7 @@ Figmaで修正したとき何に影響するかが予測でき、ある画面を
 - **構造とスタイルの分離**: 骨組みと見た目の装飾を切り離す。後述するHeadless UIの思想。[Shadcn/ui](https://ui.shadcn.com/)はこの分離をライブラリレベルで体現した実例で、[Radix UI](https://www.radix-ui.com/primitives)が提供する骨組み（振る舞い＋アクセシビリティ）に[Tailwind CSS](https://tailwindcss.com/)で見た目を上書きする構成になっている
 - **汎用とドメインの分離**: どこでも使える部品（`Button`や`Avatar`）と、特定の機能に特化した部品（`JobCard`）を混ぜない。コンポーネント分割の章で詳しく扱う
 
-`UserCard`ひとつをとっても、3つの分離が見えます。見た目（レイアウトや色）とデータ（ユーザー名やアイコンURL）は分離すべきですし、骨組み（`Auto Layout`の構造）とスタイル（色・角丸）も分けられます。`UserCard`自体はドメインコンポーネントですが、その中で使う`Card`（枠）や`Avatar`（アイコン）は汎用コンポーネントです。
+`UserCard`ひとつをとっても、3つの分離が見えます。見た目（レイアウトや色）とデータ（ユーザー名やアイコンURL）は分離すべきですし、骨組み（Auto Layoutの構造）とスタイル（色・角丸）も分けられます。`UserCard`自体はドメインコンポーネントですが、その中で使う`Card`（枠）や`Avatar`（アイコン）は汎用コンポーネントです。
 
 責任を分けておくからこそ、片方だけを変えたり、別の組み合わせで再利用したりできます。レイアウトの章で扱う、コンポーネントの中身（`padding`）と配置（`margin`）を分ける話も、カプセル化そのものです。
 
@@ -100,7 +100,7 @@ Figmaで修正したとき何に影響するかが予測でき、ある画面を
 
 
 
-Ross Horbiは記事「[How I Created a Design System for Buttons](https://medium.com/@rosshorbi/how-i-created-a-design-system-for-buttons-cfebbc55106e)」の中で、ボタンひとつが持ちうるバリアントの総数を計算しています。サイズ4段階 × アイコン有無4パターン × スタイル5種 × 状態5種 × テーマ2種 = 800バリアント。制約なしにすべてを自由設計すると破綻するのは明白です。
+Ross Horbiは記事「[How I Created a Design System for Buttons](https://medium.com/@rosshorbi/how-i-created-a-design-system-for-buttons-cfebbc55106e)」の中で、ボタンひとつが持ちうるバリアントの総数を計算し、最終的に960バリアントに達するデザインシステムを構築しています。サイズ・アイコン有無・スタイル・状態・テーマの組み合わせだけでこの数です。制約なしにすべてを自由設計すると破綻するのは明白です。
 
 ただし、制約が強すぎると例外的なユースケースに対応できなくなります。制約と柔軟性のバランスをどうとるか。このトレードオフは変数の章・状態の章で繰り返し登場します。
 
@@ -114,7 +114,7 @@ Figmaで赤い塗りの四角形を描いたとします。
 
 この視点は、命名の章で扱う色は意味で名付ける原則にもつながります。
 
-好例がRadix UIの`[Dialog](https://www.radix-ui.com/primitives/docs/components/dialog)`と`[AlertDialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog)`です。どちらもオーバーレイ付きのモーダルウィンドウで、ピクセル単位ではほぼ同じ外観です。
+好例がRadix UIの[Dialog](https://www.radix-ui.com/primitives/docs/components/dialog)と[AlertDialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog)です。どちらもオーバーレイ付きのモーダルウィンドウで、ピクセル単位ではほぼ同じ外観です。
 
 しかし`Dialog`は背景クリックで閉じられる汎用モーダルであるのに対し、`AlertDialog`は「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
 

@@ -14,7 +14,7 @@ title: "構築戦略: どう作るかを選ぶ"
 
 ## 構築戦略の全体像
 
-コンポーネントの設計論の序盤になぜこのような俯瞰的なトピックを扱うかというと、コンポーネントの運用は、土台となるデザインシステムの方式に大きく左右されるからです。
+コンポーネントの設計論の序盤になぜこのような俯瞰的なトピックを扱うかというと、コンポーネントの運用は、土台となるデザインシステムの方式に大きく規定されるからです。
 
 プロダクトの立ち上げ時に構築方法が入念に検討されることは稀で、限られた情報と状況の中で決まることがほとんどです。デザインシステムより優先すべき事情が山積みなのが現実です。一方、ある構築方法を選んだ日が、2年後のリブランドの可否を決めていた。そんなことが起こりえます。構築戦略の選択は、その後の自由度や拡大効率を大きく左右します。
 
@@ -51,7 +51,7 @@ title: "構築戦略: どう作るかを選ぶ"
 
 とはいえ、プロダクト開発の見通しが不明瞭な段階では、短期的なメリットを優先して汎用ライブラリを採用するのは有力な選択肢です。
 
-ライブラリの実装上の使用方法やデフォルトの挙動が自社の方針と合わないケースです。たとえば`Disabled`状態のボタンをライブラリは`opacity: 50%`で表現するが、自社では背景色をグレーに変えたい、といった不一致はよくあります。
+もうひとつ注意しておきたいのが、ライブラリの実装上の使用方法やデフォルトの挙動が自社の方針と合わないケースです。たとえば`Disabled`状態のボタンをライブラリは`opacity: 50%`で表現するが、自社では背景色をグレーに変えたい、といった不一致はよくあります。
 
 多くの汎用ライブラリにはtheming機能があり、ある程度はオーバーライドで対応できます。しかしライブラリの設計思想と根本的にぶつかる場合は、その部品だけ自前で作る判断が必要になることもあります。こうした使えるところは使い、合わないところは割り切る、という判断は、後述するハイブリッド戦略につながる考え方です。
 
@@ -69,7 +69,7 @@ title: "構築戦略: どう作るかを選ぶ"
 
 ここ数年で注目されているのがHeadless UI（Headless = 頭のない、つまり見た目の層を持たないという意味）です。Radix UI、[React Aria](https://react-aria.adobe.com/)、[Headless UI](https://headlessui.com/)といったライブラリがあり、多くのプロダクトで採用が進んでいます。
 
-これらは見た目を持たず、機能だけを提供するライブラリです。Figmaでたとえるなら、`Auto Layout`の構造だけが用意されていて、色・フォント・角丸は一切ついていない状態のコンポーネント集です。見た目は自分たちで自由にデザインします。
+これらは見た目を持たず、機能だけを提供するライブラリです。Figmaでたとえるなら、Auto Layoutの構造だけが用意されていて、色・フォント・角丸は一切ついていない状態のコンポーネント集です。見た目は自分たちで自由にデザインします。
 
 たとえば、ドロップダウンメニューやモーダル、`Combobox`といったコンポーネントは、アクセシビリティへの対応がとても複雑です。これを自社でゼロから正しく実装するのは大変です。Headless UIを使えば、この複雑な裏側のロジックはライブラリに任せつつ、見た目だけを自社のスタイルで自由にあてることができます。車輪の再発明を防ぎながら、自由度を確保できます。
 
@@ -77,11 +77,11 @@ Headless UIの設計思想がよく表れているのが、見た目が似たコ
 
 ![Radix UI: 見た目が似た3つのコンポーネント](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-14.png)
 
-Radix UIには、いずれもドロップダウン的な見た目の`[Select](https://www.radix-ui.com/primitives/docs/components/select)`、`[DropdownMenu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)`、`[ContextMenu](https://www.radix-ui.com/primitives/docs/components/context-menu)`が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。
+Radix UIには、いずれもドロップダウン的な見た目の[Select](https://www.radix-ui.com/primitives/docs/components/select)、[DropdownMenu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[ContextMenu](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。
 
 ![Headless UI: Listbox / Combobox / Menu](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-57.png)
 
-Headless UIライブラリも同様に、`[Listbox](https://headlessui.com/react/listbox)`はドロップダウンで1つ選ぶUI、`[Combobox](https://headlessui.com/react/combobox)`は入力しながら候補が絞られる検索付き選択UI、`[Menu](https://headlessui.com/react/menu)`はアクション一覧、というように分離しています。ポップオーバーが開いて項目が並ぶという見た目は共通しているのに、なぜ分けるのか。それはユーザーが何をしたいか（値を選ぶのか、アクションを実行するのか、検索してから選ぶのか）が違うからです。
+Headless UIライブラリも同様に、[Listbox](https://headlessui.com/react/listbox)はドロップダウンで1つ選ぶUI、[Combobox](https://headlessui.com/react/combobox)は入力しながら候補が絞られる検索付き選択UI、[Menu](https://headlessui.com/react/menu)はアクション一覧、というように分離しています。ポップオーバーが開いて項目が並ぶという見た目は共通しているのに、なぜ分けるのか。それはユーザーが何をしたいか（値を選ぶのか、アクションを実行するのか、検索してから選ぶのか）が違うからです。
 
 見た目ではなくインタラクションの目的でコンポーネントを分ける。これがHeadless UIの設計思想であり、後述する汎用とドメインの分離にも通じる考え方です。
 
