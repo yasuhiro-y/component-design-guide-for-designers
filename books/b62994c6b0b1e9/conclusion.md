@@ -36,16 +36,38 @@ title: "おわりに"
 - [Atlassian Design System](https://atlassian.design/) — B2Bプロダクト向け
 - [GitHub Primer](https://primer.style/) — 開発者ツール向け
 - [IBM Carbon](https://carbondesignsystem.com/) — エンタープライズ向け
+- [Material Design](https://m3.material.io/) — Googleのプラットフォーム横断システム
+- [Base Web](https://baseweb.design/) — Uber。Headless UI的な設計思想
+- [GOV.UK Design System](https://design-system.service.gov.uk/) — 行政分野の代表例。アクセシビリティの徹底
+- [Paste](https://paste.twilio.design/) — Twilio。運用とガバナンスのドキュメントが充実
 
-**UIパターン・コンポーネント集:**
+**デザインシステムのギャラリー・ディレクトリ:**
+
+- [Design Systems Surf](https://designsystems.surf/) — コンポーネント単位で主要デザインシステムを横断検索できるデータベース
+- [Design Systems Repo](https://designsystemsrepo.com/design-systems/) — 100以上のデザインシステムを収録したカタログ
+- [Component Gallery](https://component.gallery/) — オープンソースコンポーネントの横断比較
+
+**UIパターン・リファレンス:**
 
 - [Mobbin](https://mobbin.com/) — 実在アプリのUIパターン検索
-- [Component Gallery](https://component.gallery/) — オープンソースコンポーネントの横断比較
 
 **ツール:**
 
-- [Tokens Studio](https://tokens.studio/) — Figmaプラグインでデザイントークンを管理
 - [Storybook](https://storybook.js.org/) — コンポーネントのカタログ化と動作確認
+- [Style Dictionary](https://styledictionary.com/) — Amazon製。デザイントークンのJSON定義からCSS/Swift/Kotlin等を自動生成
+- [Chromatic](https://www.chromatic.com/) — Storybookベースのビジュアルリグレッションテスト
+- [zeroheight](https://zeroheight.com/) — デザインシステムのドキュメンテーションプラットフォーム
+- [CSS Stats](https://cssstats.com/) — 既存サイトのCSSを分析し、色やフォントサイズの散らばりを可視化
+
+**書籍:**
+
+- [Atomic Design](https://atomicdesign.bradfrost.com/) — Brad Frost。本文でも参照。Web無料公開
+
+**コミュニティ・記事集:**
+
+- [Design Systems Collective](https://www.designsystemscollective.com/) — デザインシステムに関する記事コミュニティ
+- [Ultimate Design Systems Resources List](https://designstrategy.guide/the-ultimate-design-systems-resources-list/) — ツール・プラグイン・記事の包括リスト
+- [Nathan Curtis on Medium](https://medium.com/@nathanacurtis) — デザインシステムの組織運営・トークン命名に関する記事群
 
 **アクセシビリティ:**
 

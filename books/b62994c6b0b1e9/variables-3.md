@@ -66,7 +66,7 @@ Figmaでは、Tagの色を変えたければTagのスタイルを編集し、Cal
 
 ![トークン変更の波及: 1箇所の変更が全コンポーネントに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-78.png)
 
-Figma上でデザイントークンを管理するプラグインとしては、[Tokens Studio](https://tokens.studio/)が広く使われています。JSONベースでトークンを定義でき、コードとの同期にも対応しています。
+Figma上でデザイントークンを管理するプラグインとしては、Tokens Studioが広く使われています。JSONベースでトークンを定義でき、コードとの同期にも対応しています。コード側では[Style Dictionary](https://styledictionary.com/)を使うと、JSONで定義したトークンからCSS変数・Swift・Kotlinなど複数プラットフォーム向けのコードを自動生成できます。
 
 ## Figmaだけでは伝わらない変数の性質: コードとの差分を知る
 

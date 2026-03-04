@@ -254,7 +254,7 @@ Figmaのコンポーネントネスト（コンポーネントの中にコンポ
 
 組織の規模が小さいうちは、明文化されたプロセスは過剰に感じるかもしれません。しかし「新しいコンポーネントを作るときはこの人にレビューを依頼する」「Enumの選択肢名はチャットで合意を取る」といった最小限のルールから始めるだけで、慣習が個人の頭の中から離れ、チームの仕組みとして機能し始めます。
 
-この運営体制には大きく2つの型があります。専任チームがすべてのコンポーネントを管理する集権型（Centralized）と、各プロダクトチームが自分たちの裁量でコンポーネントを作り・育てる分散型（Decentralized）とよばれます。集権型は一貫性を保ちやすい反面、専任チームがボトルネックになりがちです。分散型は各チームの速度を活かせますが、命名や設計方針がバラつくリスクがあります。
+この運営体制には大きく2つの型があります。専任チームがすべてのコンポーネントを管理する集権型（Centralized）と、各プロダクトチームが自分たちの裁量でコンポーネントを作り・育てる分散型（Decentralized）とよばれます。集権型は一貫性を保ちやすい反面、専任チームがボトルネックになりがちです。分散型は各チームの速度を活かせますが、命名や設計方針がバラつくリスクがあります。Nathan Curtisの「[Team Models for Scaling a Design System](https://medium.com/eightshapes-llc/team-models-for-scaling-a-design-system-2cf9d03be6a0)」がこの論点を詳しく扱っています。
 
 この論点はチームの規模やフェーズで最適解が変わっていきます。どちらが優れているという話ではなく、短期的な最適解と長期的な最適解が異なることが多い点がポイントです。立ち上げ期は分散型で素早く動き、プロダクトが安定してきたら集権型に寄せていく。あるいはその逆もあり得ます。
 
@@ -676,7 +676,7 @@ Figmaでいうと青い線。マスターコンポーネントにせず通常の
 
 この考え方の背景にあるのがSSOT（Single Source of Truth）、真実の情報源はひとつだけという原則です。原則の章で紹介した間接化の考え方そのものです。Figmaでいえば、コンポーネントのマスターを1つ持ち、全画面でそのインスタンスを使います。マスターを更新すれば全インスタンスに反映されます。
 
-チームが成熟してくると、Figma は仮説構築の場、コード（および Storybook などのカタログツール）が実装上の SSOT という役割分担に移行していくケースもあります。どちらが正であるかはフェーズによって変わりますが、「現在の正解がどこにあるか」をチーム全員が知っている状態を保つことが重要です。
+チームが成熟してくると、Figma は仮説構築の場、コード（および [Storybook](https://storybook.js.org/) などのカタログツール）が実装上の SSOT という役割分担に移行していくケースもあります。どちらが正であるかはフェーズによって変わりますが、「現在の正解がどこにあるか」をチーム全員が知っている状態を保つことが重要です。
 
 たとえば、フッターのリンク一覧。今は1画面にしか置いていなくても、将来2画面目に必要になったとき、コピー&ペーストで増やすとリンクの追加漏れが起きます。コンポーネント化しておけば、元を直すだけで全画面に反映されます。
 
@@ -1349,7 +1349,7 @@ Figmaでは、Tagの色を変えたければTagのスタイルを編集し、Cal
 
 ![トークン変更の波及: 1箇所の変更が全コンポーネントに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-78.png)
 
-Figma上でデザイントークンを管理するプラグインとしては、[Tokens Studio](https://tokens.studio/)が広く使われています。JSONベースでトークンを定義でき、コードとの同期にも対応しています。
+Figma上でデザイントークンを管理するプラグインとしては、Tokens Studioが広く使われています。JSONベースでトークンを定義でき、コードとの同期にも対応しています。コード側では[Style Dictionary](https://styledictionary.com/)を使うと、JSONで定義したトークンからCSS変数・Swift・Kotlinなど複数プラットフォーム向けのコードを自動生成できます。
 
 ## Figmaだけでは伝わらない変数の性質: コードとの差分を知る
 
@@ -1961,16 +1961,38 @@ Figma上でアイコンの色を変えるとき、塗りの色を直接変更し
 - [Atlassian Design System](https://atlassian.design/) — B2Bプロダクト向け
 - [GitHub Primer](https://primer.style/) — 開発者ツール向け
 - [IBM Carbon](https://carbondesignsystem.com/) — エンタープライズ向け
+- [Material Design](https://m3.material.io/) — Googleのプラットフォーム横断システム
+- [Base Web](https://baseweb.design/) — Uber。Headless UI的な設計思想
+- [GOV.UK Design System](https://design-system.service.gov.uk/) — 行政分野の代表例。アクセシビリティの徹底
+- [Paste](https://paste.twilio.design/) — Twilio。運用とガバナンスのドキュメントが充実
 
-**UIパターン・コンポーネント集:**
+**デザインシステムのギャラリー・ディレクトリ:**
+
+- [Design Systems Surf](https://designsystems.surf/) — コンポーネント単位で主要デザインシステムを横断検索できるデータベース
+- [Design Systems Repo](https://designsystemsrepo.com/design-systems/) — 100以上のデザインシステムを収録したカタログ
+- [Component Gallery](https://component.gallery/) — オープンソースコンポーネントの横断比較
+
+**UIパターン・リファレンス:**
 
 - [Mobbin](https://mobbin.com/) — 実在アプリのUIパターン検索
-- [Component Gallery](https://component.gallery/) — オープンソースコンポーネントの横断比較
 
 **ツール:**
 
-- [Tokens Studio](https://tokens.studio/) — Figmaプラグインでデザイントークンを管理
 - [Storybook](https://storybook.js.org/) — コンポーネントのカタログ化と動作確認
+- [Style Dictionary](https://styledictionary.com/) — Amazon製。デザイントークンのJSON定義からCSS/Swift/Kotlin等を自動生成
+- [Chromatic](https://www.chromatic.com/) — Storybookベースのビジュアルリグレッションテスト
+- [zeroheight](https://zeroheight.com/) — デザインシステムのドキュメンテーションプラットフォーム
+- [CSS Stats](https://cssstats.com/) — 既存サイトのCSSを分析し、色やフォントサイズの散らばりを可視化
+
+**書籍:**
+
+- [Atomic Design](https://atomicdesign.bradfrost.com/) — Brad Frost。本文でも参照。Web無料公開
+
+**コミュニティ・記事集:**
+
+- [Design Systems Collective](https://www.designsystemscollective.com/) — デザインシステムに関する記事コミュニティ
+- [Ultimate Design Systems Resources List](https://designstrategy.guide/the-ultimate-design-systems-resources-list/) — ツール・プラグイン・記事の包括リスト
+- [Nathan Curtis on Medium](https://medium.com/@nathanacurtis) — デザインシステムの組織運営・トークン命名に関する記事群
 
 **アクセシビリティ:**
 
