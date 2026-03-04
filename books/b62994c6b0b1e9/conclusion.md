@@ -57,7 +57,6 @@ title: "おわりに"
 - [Style Dictionary](https://styledictionary.com/) — Amazon製。デザイントークンのJSON定義からCSS/Swift/Kotlin等を自動生成
 - [Chromatic](https://www.chromatic.com/) — Storybookベースのビジュアルリグレッションテスト
 - [zeroheight](https://zeroheight.com/) — デザインシステムのドキュメンテーションプラットフォーム
-- [CSS Stats](https://cssstats.com/) — 既存サイトのCSSを分析し、色やフォントサイズの散らばりを可視化
 
 **書籍:**
 
@@ -67,8 +66,6 @@ title: "おわりに"
 
 - [Design Systems Collective](https://www.designsystemscollective.com/) — デザインシステムに関する記事コミュニティ
 - [Ultimate Design Systems Resources List](https://designstrategy.guide/the-ultimate-design-systems-resources-list/) — ツール・プラグイン・記事の包括リスト
-- [Nathan Curtis on Medium](https://medium.com/@nathanacurtis) — デザインシステムの組織運営・トークン命名に関する記事群
-
 **アクセシビリティ:**
 
 - [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/) — WAI-ARIAの実装パターン集

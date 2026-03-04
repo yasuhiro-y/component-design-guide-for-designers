@@ -1349,7 +1349,6 @@ Figmaでは、Tagの色を変えたければTagのスタイルを編集し、Cal
 
 ![トークン変更の波及: 1箇所の変更が全コンポーネントに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-78.png)
 
-Figma上でデザイントークンを管理するプラグインとしては、Tokens Studioが広く使われています。JSONベースでトークンを定義でき、コードとの同期にも対応しています。コード側では[Style Dictionary](https://styledictionary.com/)を使うと、JSONで定義したトークンからCSS変数・Swift・Kotlinなど複数プラットフォーム向けのコードを自動生成できます。
 
 ## Figmaだけでは伝わらない変数の性質: コードとの差分を知る
 
@@ -1982,7 +1981,6 @@ Figma上でアイコンの色を変えるとき、塗りの色を直接変更し
 - [Style Dictionary](https://styledictionary.com/) — Amazon製。デザイントークンのJSON定義からCSS/Swift/Kotlin等を自動生成
 - [Chromatic](https://www.chromatic.com/) — Storybookベースのビジュアルリグレッションテスト
 - [zeroheight](https://zeroheight.com/) — デザインシステムのドキュメンテーションプラットフォーム
-- [CSS Stats](https://cssstats.com/) — 既存サイトのCSSを分析し、色やフォントサイズの散らばりを可視化
 
 **書籍:**
 
@@ -1992,8 +1990,6 @@ Figma上でアイコンの色を変えるとき、塗りの色を直接変更し
 
 - [Design Systems Collective](https://www.designsystemscollective.com/) — デザインシステムに関する記事コミュニティ
 - [Ultimate Design Systems Resources List](https://designstrategy.guide/the-ultimate-design-systems-resources-list/) — ツール・プラグイン・記事の包括リスト
-- [Nathan Curtis on Medium](https://medium.com/@nathanacurtis) — デザインシステムの組織運営・トークン命名に関する記事群
-
 **アクセシビリティ:**
 
 - [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/) — WAI-ARIAの実装パターン集
