@@ -6,7 +6,7 @@ title: "変数(3): プロパティの組み合わせと運用"
 
 ## プロパティの直交性: 組み合わせが壊れない設計
 
-実際のコンポーネントではプロパティが複数組み合わさって使われます。Figmaで`Button`の`size`を`S`から`L`に変えても、`variant`の色は変わりませんよね？　この当たり前の独立性に、名前がついています。直交性です。
+実際のコンポーネントではプロパティが複数組み合わさって使われます。FigmaでButtonの`size`を`S`から`L`に変えても、`variant`の色は変わりませんよね？　この当たり前の独立性に、名前がついています。直交性です。
 
 数学的にはX軸を動かしてもY軸は動かないことを指します。ここでの意味はもっとシンプルで、Figmaのバリアントで`size`を変えても`variant`の見た目に影響しない、という独立性のことです。
 
@@ -14,7 +14,7 @@ title: "変数(3): プロパティの組み合わせと運用"
 
 ### 直交している状態
 
-`Button`に`size`（`S`・`M`・`L`）と`variant`（`primary`・`secondary`・`destructive`）の2つのプロパティがあるとします。`size`を`S`から`L`に変えても`variant`の見た目は変わらない。`variant`を`destructive`に変えても`size`は影響を受けない。3×3＝9通りすべてが成立します。これが直交している状態です。
+Buttonに`size`（`S`・`M`・`L`）と`variant`（`primary`・`secondary`・`destructive`）の2つのプロパティがあるとします。`size`を`S`から`L`に変えても`variant`の見た目は変わらない。`variant`を`destructive`に変えても`size`は影響を受けない。3×3＝9通りすべてが成立します。これが直交している状態です。
 
 ![直交性: size と variant の組み合わせがすべて成立する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-05.png)
 
@@ -56,15 +56,15 @@ Figmaの[Propstar](https://www.figma.com/community/plugin/1116018586739867857/pr
 
 ![トークンの共有: 複数コンポーネントの一貫性を保つ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-06.png)
 
-Figmaでは、`Tag`の色を変えたければ`Tag`のスタイルを編集し、`Callout`の色も変えたければ`Callout`のスタイルも別途編集する、というコンポーネントごとの作業になりがちです。
+Figmaでは、Tagの色を変えたければTagのスタイルを編集し、Calloutの色も変えたければCalloutのスタイルも別途編集する、というコンポーネントごとの作業になりがちです。
 
 しかしコードの世界では、共通のトークンを参照する仕組みがあれば、トークンの値をひとつ変えるだけですべてのコンポーネントに反映されます。
 
-たとえば、`Tag`の info と `Callout` の info が同じセマンティックカラーを参照していれば、色を変えたいときに一箇所の修正で両方に反映されます。バラバラに定義していると、デザイナーが個別に色を選ぶたびに微妙なズレが蓄積し、`Tag`は青いのに`Callout`は水色、という不一致がいつの間にか生まれます。
+たとえば、Tagの info と Callout の info が同じセマンティックカラーを参照していれば、色を変えたいときに一箇所の修正で両方に反映されます。バラバラに定義していると、デザイナーが個別に色を選ぶたびに微妙なズレが蓄積し、Tagは青いのにCalloutは水色、という不一致がいつの間にか生まれます。
 
-色だけの話ではありません。兄弟関係にあるコンポーネント（`Button` / `IconButton` / `CopyButton`など）では、縦幅やアイコンのサイズも共通のトークンを参照しておくと一貫性を保ちやすくなります。
+色だけの話ではありません。兄弟関係にあるコンポーネント（Button / IconButton / CopyButtonなど）では、縦幅やアイコンのサイズも共通のトークンを参照しておくと一貫性を保ちやすくなります。
 
-こうしたトークンを一元管理しておけば、`Tag`の配色を微調整したいときに、共通構造を持つすべてのコンポーネントに変更が波及します。トークンを使わず個別のコンポーネントに値を直接書き込んでいたら、ひとつずつ直すことになります。
+こうしたトークンを一元管理しておけば、Tagの配色を微調整したいときに、共通構造を持つすべてのコンポーネントに変更が波及します。トークンを使わず個別のコンポーネントに値を直接書き込んでいたら、ひとつずつ直すことになります。
 
 ![トークン変更の波及: 1箇所の変更が全コンポーネントに届く](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-78.png)
 

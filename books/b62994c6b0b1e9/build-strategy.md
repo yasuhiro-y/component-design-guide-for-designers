@@ -32,7 +32,7 @@ title: "構築戦略: どう作るかを選ぶ"
 
 ![汎用ライブラリのコンポーネント例: MUI / Chakra UI / Ant Design](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-56.png)
 
-すでにひと通りのコンポーネントがそろっているため、すぐに開発を始められるのが強みです。`Button`、`Input`、`Modal`、`Table`など、基本的なUI部品はすべて用意されています。とくに初期フェーズのスタートアップや、管理画面のような機能性重視のプロダクトでは、採用するメリットが大きいです。
+すでにひと通りのコンポーネントがそろっているため、すぐに開発を始められるのが強みです。Button、Input、Modal、Tableなど、基本的なUI部品はすべて用意されています。とくに初期フェーズのスタートアップや、管理画面のような機能性重視のプロダクトでは、採用するメリットが大きいです。
 
 一方で、どこかで見たことのあるデザインになりがちです。ライブラリの設計思想に強く依存するため、そこから外れた独自のUIを実現しようとすると、かえって実装コストが高まる場合があります。独自性のあるデザインや機能をもつToCサービスでは、カスタマイズの限界がネックになります。
 
@@ -71,13 +71,13 @@ title: "構築戦略: どう作るかを選ぶ"
 
 これらは見た目を持たず、機能だけを提供するライブラリです。Figmaでたとえるなら、Auto Layoutの構造だけが用意されていて、色・フォント・角丸は一切ついていない状態のコンポーネント集です。見た目は自分たちで自由にデザインします。
 
-たとえば、ドロップダウンメニューやモーダル、`Combobox`といったコンポーネントは、アクセシビリティへの対応がとても複雑です。これを自社でゼロから正しく実装するのは大変です。Headless UIを使えば、この複雑な裏側のロジックはライブラリに任せつつ、見た目だけを自社のスタイルで自由にあてることができます。車輪の再発明を防ぎながら、自由度を確保できます。
+たとえば、ドロップダウンメニューやモーダル、Comboboxといったコンポーネントは、アクセシビリティへの対応がとても複雑です。これを自社でゼロから正しく実装するのは大変です。Headless UIを使えば、この複雑な裏側のロジックはライブラリに任せつつ、見た目だけを自社のスタイルで自由にあてることができます。車輪の再発明を防ぎながら、自由度を確保できます。
 
 Headless UIの設計思想がよく表れているのが、見た目が似たコンポーネントの分類です。
 
 ![Radix UI: 見た目が似た3つのコンポーネント](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-14.png)
 
-Radix UIには、いずれもドロップダウン的な見た目の[Select](https://www.radix-ui.com/primitives/docs/components/select)、[DropdownMenu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[ContextMenu](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。`Select`はリストから値を選ぶUI、`DropdownMenu`はメニューからアクションを実行するUI、`ContextMenu`は右クリックで開く操作メニュー。
+Radix UIには、いずれもドロップダウン的な見た目の[Select](https://www.radix-ui.com/primitives/docs/components/select)、[DropdownMenu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu)、[ContextMenu](https://www.radix-ui.com/primitives/docs/components/context-menu)が別々のコンポーネントとして存在します。Selectはリストから値を選ぶUI、DropdownMenuはメニューからアクションを実行するUI、ContextMenuは右クリックで開く操作メニュー。
 
 ![Headless UI: Listbox / Combobox / Menu](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-57.png)
 
@@ -97,9 +97,9 @@ Headless UIライブラリも同様に、[Listbox](https://headlessui.com/react/
 
 汎用ライブラリだけで完結するサービスはほとんどなく、プロダクトが育つにつれて、チャット画面やドメイン固有のダッシュボードなど、汎用ライブラリにはないUIが必ず生まれます。
 
-たとえば、`Button`、`Input`、`Checkbox`といった部品はHeadless UIをベースに自社スタイルをあてて構築し、ドメイン固有の部品や、汎用コンポーネントを組み合わせて再利用したい場合は自社で独自に開発する。あるいは、プラットフォームが分かれていれば、管理画面はMUIをそのまま使い、ユーザー向けアプリはフルスクラッチで作るなど、組み合わせ方はさまざまです。
+たとえば、Button、Input、Checkboxといった部品はHeadless UIをベースに自社スタイルをあてて構築し、ドメイン固有の部品や、汎用コンポーネントを組み合わせて再利用したい場合は自社で独自に開発する。あるいは、プラットフォームが分かれていれば、管理画面はMUIをそのまま使い、ユーザー向けアプリはフルスクラッチで作るなど、組み合わせ方はさまざまです。
 
-大事なのは、ドメインコンポーネントの内部で汎用コンポーネントを使うことです。チャット入力エリアの中には汎用の`Input`や`IconButton`が使われる。こうすることで、汎用層の恩恵（アクセシビリティ、テーマ対応、テスト済みの挙動）をドメイン層でもそのまま享受できます。
+大事なのは、ドメインコンポーネントの内部で汎用コンポーネントを使うことです。チャット入力エリアの中には汎用のInputやIconButtonが使われる。こうすることで、汎用層の恩恵（アクセシビリティ、テーマ対応、テスト済みの挙動）をドメイン層でもそのまま享受できます。
 
 また、ベースはフルスクラッチでありながら、一部の実装が複雑なコンポーネントについてはHeadless UIや汎用ライブラリから拝借するという実装方法も存在します（その場合、実装方法の乖離が少ない選択肢が検討されます）。
 
@@ -111,7 +111,7 @@ Headless UIライブラリも同様に、[Listbox](https://headlessui.com/react/
 
 組織が複数のプロダクトを持つ場合は、構築戦略の線引きがさらに重要になります。
 
-プロダクトごとに異なるライブラリを採用しているケースは珍しくありません。あるプロダクトはChakra UIを、別のプロダクトはShadcn/uiを使っている。こうした状態では、`Alert`と`Banner`のような名前のズレがプロダクト横断のコミュニケーションを混乱させます。
+プロダクトごとに異なるライブラリを採用しているケースは珍しくありません。あるプロダクトはChakra UIを、別のプロダクトはShadcn/uiを使っている。こうした状態では、AlertとBannerのような名前のズレがプロダクト横断のコミュニケーションを混乱させます。
 
 また、BtoB SaaSのようにクライアント企業ごとにブランドカラーを変えたい、特定の機能を出し分けたいといったカスタマイズ要件が生じることもあります。こうした場合、デザイントークンのレイヤー分けやテーマ機能の設計が鍵になります。
 

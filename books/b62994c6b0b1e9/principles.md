@@ -62,11 +62,11 @@ Nathan Curtisは「[And You Thought Buttons Were Easy?](https://medium.com/eight
 
 ![ボタンの複雑さ: シンプルに見えて設計判断の山](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-55.png)
 
-たとえば、`UserCard`コンポーネントの中に、ユーザーデータを取得するロジックが埋め込まれていたとします。画面上ではきれいに動きます。しかし、同じカードを別の画面で「お気に入り一覧」に使いたくなったとき、データ取得先が決め打ちになっているので使い回せません。見た目だけ欲しいのに、データ取得のロジックがくっついてくるからです。
+たとえば、UserCardコンポーネントの中に、ユーザーデータを取得するロジックが埋め込まれていたとします。画面上ではきれいに動きます。しかし、同じカードを別の画面で「お気に入り一覧」に使いたくなったとき、データ取得先が決め打ちになっているので使い回せません。見た目だけ欲しいのに、データ取得のロジックがくっついてくるからです。
 
-結果として、ほぼ同じ見た目の`UserCard2`が生まれます。この種の似て非なるコンポーネントの増殖は、カプセル化が崩れている兆候です。
+結果として、ほぼ同じ見た目のUserCard2が生まれます。この種の似て非なるコンポーネントの増殖は、カプセル化が崩れている兆候です。
 
-もし`UserCard`が受け取ったデータを表示することだけに責任を持ち、どこからデータを取ってくるかを呼び出す側に任せていれば、どの画面でもそのまま使い回せます。Figmaでいえば、マスターコンポーネントが見え方を決め、インスタンス側がテキストや画像を差し替える関係と同じです。
+もしUserCardが受け取ったデータを表示することだけに責任を持ち、どこからデータを取ってくるかを呼び出す側に任せていれば、どの画面でもそのまま使い回せます。Figmaでいえば、マスターコンポーネントが見え方を決め、インスタンス側がテキストや画像を差し替える関係と同じです。
 
 Figmaで修正したとき何に影響するかが予測でき、ある画面を直したら別の画面が壊れた、という事故を防げます。
 
@@ -78,9 +78,9 @@ Figmaで修正したとき何に影響するかが予測でき、ある画面を
 
 - **見た目とデータの分離**: コンポーネントは表示に専念し、どんなデータを取ってきて渡すかは呼び出す側が担う
 - **構造とスタイルの分離**: 骨組みと見た目の装飾を切り離す。後述するHeadless UIの思想。[Shadcn/ui](https://ui.shadcn.com/)はこの分離をライブラリレベルで体現した実例で、[Radix UI](https://www.radix-ui.com/primitives)が提供する骨組み（振る舞い＋アクセシビリティ）に[Tailwind CSS](https://tailwindcss.com/)で見た目を上書きする構成になっている
-- **汎用とドメインの分離**: どこでも使える部品（`Button`や`Avatar`）と、特定の機能に特化した部品（`JobCard`）を混ぜない。コンポーネント分割の章で詳しく扱う
+- **汎用とドメインの分離**: どこでも使える部品（ButtonやAvatar）と、特定の機能に特化した部品（JobCard）を混ぜない。コンポーネント分割の章で詳しく扱う
 
-`UserCard`ひとつをとっても、3つの分離が見えます。見た目（レイアウトや色）とデータ（ユーザー名やアイコンURL）は分離すべきですし、骨組み（Auto Layoutの構造）とスタイル（色・角丸）も分けられます。`UserCard`自体はドメインコンポーネントですが、その中で使う`Card`（枠）や`Avatar`（アイコン）は汎用コンポーネントです。
+UserCardひとつをとっても、3つの分離が見えます。見た目（レイアウトや色）とデータ（ユーザー名やアイコンURL）は分離すべきですし、骨組み（Auto Layoutの構造）とスタイル（色・角丸）も分けられます。UserCard自体はドメインコンポーネントですが、その中で使うCard（枠）やAvatar（アイコン）は汎用コンポーネントです。
 
 責任を分けておくからこそ、片方だけを変えたり、別の組み合わせで再利用したりできます。レイアウトの章で扱う、コンポーネントの中身（`padding`）と配置（`margin`）を分ける話も、カプセル化そのものです。
 
@@ -116,7 +116,7 @@ Figmaで赤い塗りの四角形を描いたとします。
 
 好例がRadix UIの[Dialog](https://www.radix-ui.com/primitives/docs/components/dialog)と[AlertDialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog)です。どちらもオーバーレイ付きのモーダルウィンドウで、ピクセル単位ではほぼ同じ外観です。
 
-しかし`Dialog`は背景クリックで閉じられる汎用モーダルであるのに対し、`AlertDialog`は「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
+しかしDialogは背景クリックで閉じられる汎用モーダルであるのに対し、AlertDialogは「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
 
 ![Radix UI: Dialog と AlertDialog の違い](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-11.png)
 
@@ -126,7 +126,7 @@ WAI-ARIAでも、[`dialog`ロール](https://www.w3.org/WAI/ARIA/apg/patterns/di
 
 レゴブロックは同じブロックの組み合わせで、家もロボットも作れます。
 
-4つの小さな部品（`Avatar`、`Text`、`Badge`、`Button`）があるとします。これらを組み合わせるだけで、`UserCard`（Avatar + Text + Badge）にも`NotificationItem`（Badge + Text + Button）にもなります。部品そのものを増やさなくても、配置を変えるだけでバリエーションが生まれるのです。
+4つの小さな部品（Avatar、Text、Badge、Button）があるとします。これらを組み合わせるだけで、UserCard（Avatar + Text + Badge）にもNotificationItem（Badge + Text + Button）にもなります。部品そのものを増やさなくても、配置を変えるだけでバリエーションが生まれるのです。
 
 ![合成: 小さな部品を組み合わせて大きなUIを構築する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-54.png)
 

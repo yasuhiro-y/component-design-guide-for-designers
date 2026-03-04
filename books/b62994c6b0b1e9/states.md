@@ -15,7 +15,7 @@ title: "状態: コンポーネントの見え方を網羅する"
 [Scott Hurff](https://www.scotthurff.com/posts/why-your-user-interface-is-awkward-youre-ignoring-the-ui-stack/)が提唱したUIスタックという概念では、UIには以下の5つの状態があるとされています。
 
 1. `Ideal State`: データが完璧に入った状態。Figmaで最初にデザインする状態
-2. `Empty State`: データが空の状態。リストが0件のとき、`Avatar`の画像がないとき
+2. `Empty State`: データが空の状態。リストが0件のとき、Avatarの画像がないとき
 3. `Loading State`: 読み込み中。スケルトンスクリーンやスピナー
 4. `Partial State`: データが不完全な状態。ユーザー名はあるけどアイコンがない、商品情報はあるが画像が未登録、など
 5. `Error State`: 読み込み失敗やバリデーションエラー
@@ -28,7 +28,7 @@ title: "状態: コンポーネントの見え方を網羅する"
 
 MUIでは、ユーザーへのフィードバックという同じ目的を持ちながら、[Alert](https://mui.com/material-ui/react-alert/)（ページ内に常駐するお知らせ欄）、[Snackbar](https://mui.com/material-ui/react-snackbar/)（画面下部に一瞬だけ出る通知。トーストとも呼ばれます）、[Dialog](https://mui.com/material-ui/react-dialog/)（操作を中断して確認を求めるモーダル）を別々のコンポーネントとして提供しています。
 
-`Alert`は`Error State`や`Partial State`の表示手段、`Snackbar`は操作完了後の一時通知、`Dialog`は操作前の確認。見た目が似ていても、UIスタックのどの層で使われるかが違えば、コンポーネントとして分けるのが自然です。
+Alertは`Error State`や`Partial State`の表示手段、Snackbarは操作完了後の一時通知、Dialogは操作前の確認。見た目が似ていても、UIスタックのどの層で使われるかが違えば、コンポーネントとして分けるのが自然です。
 
 ユーザーカードや求人リストなどのドメインコンポーネントでは、これらの状態をあらかじめ定義しておく必要があります。読み込み中、データが空、エラーといった状態ごとの見た目をFigmaのバリアントとしてデザインしておきます。たとえば、`state` というバリアント軸に `ideal` / `empty` / `loading` / `error` を用意する方法が一般的です。
 
