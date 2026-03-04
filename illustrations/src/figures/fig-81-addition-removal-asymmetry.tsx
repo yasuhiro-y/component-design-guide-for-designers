@@ -185,62 +185,6 @@ export default function Fig81() {
           </PhaseCard>
         </div>
 
-        {/* Cost comparison bar */}
-        <div
-          style={{
-            marginTop: 16,
-            display: "flex",
-            gap: 12,
-            alignItems: "stretch",
-          }}
-        >
-          <div
-            style={{
-              flex: 1,
-              background: "#fff",
-              borderRadius: 12,
-              padding: "12px 16px",
-              border: `1px solid ${border}`,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 10, color: tertiary, marginBottom: 2 }}>追加コスト</div>
-              <div style={{ fontFamily: mono, fontSize: 18, fontWeight: 700, color: secondary }}>
-                5min
-              </div>
-            </div>
-            <div style={{ fontSize: 10, color: tertiary }}>ほぼ無料に見える</div>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", fontSize: 16, color: "#d4d4d8" }}>
-            vs
-          </div>
-          <div
-            style={{
-              flex: 1,
-              background: text,
-              borderRadius: 12,
-              padding: "12px 16px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", marginBottom: 2 }}>
-                削除コスト
-              </div>
-              <div style={{ fontFamily: mono, fontSize: 18, fontWeight: 700, color: "#fff" }}>
-                数日〜数週間
-              </div>
-            </div>
-            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", textAlign: "right", lineHeight: 1.5 }}>
-              時間とともに<br />加速度的に増加
-            </div>
-          </div>
-        </div>
       </div>
     </IllustrationFrame>
   );
