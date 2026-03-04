@@ -8,11 +8,14 @@ toc_depth: 2
 chapters:
   - introduction
   - principles
+  - principles-practice
   - build-strategy
   - component-splitting
-  - practical-problems
+  - naming
   - variables-1
   - variables-2
+  - variables-3
+  - practical-problems
   - states
   - layout
   - assets

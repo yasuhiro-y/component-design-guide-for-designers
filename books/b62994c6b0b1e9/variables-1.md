@@ -1,5 +1,5 @@
 ---
-title: "変数(1): コンポーネントの変数を解剖する"
+title: "変数(1): 基本の型"
 ---
 
 Figmaのプロパティパネルは、コードの設計図そのものです。パネルに並ぶトグルやドロップダウン、あの一つひとつに型があることを意識したことはありますか？　この章を読むと、エンジニアに「このプロパティ、BooleanですかEnumですか？」と自分から確認できるようになります。型の会話ができるだけで、認識のズレによる手戻りが激減します。
@@ -17,6 +17,21 @@ Figmaのプロパティパネルは、コードの設計図そのものです。
 型が明確に定義されていれば、AIコード生成に渡したときにも自社のルールに沿った精度の高いコードが返ってきやすくなります。
 
 Boolean、Enum、String、Number、Dateといった基本の型に加え、配列やオブジェクトといったデータの構造も扱います。ひとつずつFigmaの操作に対応づけていきます。
+
+同じ概念でもプラットフォームごとに呼び名が異なるため、先に対応表を示します。
+
+| 概念 | Figma | TypeScript | Swift | Kotlin | Dart (Flutter) |
+|---|---|---|---|---|---|
+| Boolean | トグル | `boolean` | `Bool` | `Boolean` | `bool` |
+| Enum | バリアント | `enum` / union | `enum` | `enum class` | `enum` |
+| String | テキスト入力 | `string` | `String` | `String` | `String` |
+| Number | 数値入力 | `number` | `Int` / `Double` | `Int` / `Double` | `int` / `double` |
+| Date | — | `Date` | `Date` | `LocalDate` / `Instant` | `DateTime` |
+| Array | — | `T[]` | `[T]` | `List<T>` | `List<T>` |
+| Object | — | `interface` / `type` | `struct` | `data class` | `class` |
+| Element | — | `ReactNode` | `some View` | `@Composable` | `Widget` |
+
+※ Array・Object・Element は変数(2)で扱います。
 
 ![プロパティの型: Figma での見え方とコードの対応](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-17.png)
 
@@ -216,84 +231,4 @@ Enumの力が特に発揮されるのが、`Tag`、`Badge`、`Callout` のよう
 
 もうひとつ実務で役立つ視点があります。たとえば、更新日: 2026/01/01 と表示するUIがあるとき、Figma上のプロパティは 2026/01/01 のテキストだけにし、更新日というラベルはコンポーネント内に固定しておくと、実装との対応が明確になります。
 
-ここまでの5つの型（Boolean / Enum / String / Number / Date）で、コンポーネント設計に必要な基礎は揃いました。以降のArray・Object・Elementは、複雑なデータを扱うときに必要になる発展的な型です。今すぐ必要でなければ次の章に進んでも構いません。読み進める方のために、ここからはデータの構造（まとまり方）に関する型を見ていきます。
-
-### Array: 配列（リスト）
-
-同じ種類のデータが複数あるとき、コンポーネントにはそのリストをまるごとプロパティとして渡します。タグの一覧、通知リスト、メニューの項目がこれにあたります。
-
-Figmaでいえば、同じコンポーネントを`Auto Layout`内に繰り返し配置する操作にあたります。コードではこれを配列として扱います。
-
-![配列: 同じテンプレートに異なるデータを流し込む](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-62.png)
-
-同じ器に異なるデータを流し込む。これが配列型のUIの特徴です。各要素のテキストの内容、`Tag`の有無、ステータスの色はそれぞれ異なりますが、コンポーネント自体は同じものが使い回されます。
-
-![Array型: リストの4つの状態](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-34.png)
-
-ただし、Figmaでは3件分のデータを置くと3件で固定されますが、実際のアプリでは0件になったり100件になったりします。デザイナーが意識しておきたいのは、0件・1件・大量にあるときのそれぞれの見え方です。
-
-- 0件のとき何を表示するか（空状態のデザインは用意したか）
-- 上限はあるか（無限に増えるのか、最大表示件数を設けるか）
-- 大量にあるとき、無限スクロールかページネーションか
-- 並び順は固定か、ユーザーが変えられるか
-
-### Object: オブジェクト（データのまとまり）
-
-名前・アイコン・ステータスのような、複数の情報がひとかたまりになっているケースです。
-
-Notionでいえば、データベースの1行がこれにあたります。ユーザーという1行に、名前・アイコン画像・ステータスがセットで入っているイメージです。
-
-![オブジェクト: 複数の値をひとかたまりで渡す](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-63.png)
-
-たとえば、ユーザーカードに渡すユーザーというデータを考えてみてください。名前、アイコン画像、ステータス。これらをバラバラのプロパティとして渡すこともできますが、ドメインコンポーネントではユーザーの情報一式としてまとめて渡すほうが自然です。
-
-Figmaのプロパティパネルでは、こうしたデータのまとまりを直接表現する方法がありません。名前・アイコン・ステータスをバラバラのプロパティとして並べるしかないのです。しかし、コード側ではユーザーというひとつのまとまり（オブジェクト）として渡せます。
-
-デザイナーが意識しておきたいのは、このコンポーネントに渡すデータは、個別の値なのか、まとまりなのか、という点です。`Avatar`なら画像URLだけで十分（個別の値）。`UserCard`ならユーザーの情報一式が前提（まとまり）。この判断が、コンポーネントを汎用にするかドメイン専用にするかの分かれ道です。
-
-Figmaのプロパティパネルで見比べてみると、この違いがはっきりします。`Avatar`のパネルには`image`、`altText`の2項目だけ。一方`UserCard`には`userName`、`userImage`、`rating`、`status`、`isVerified`とずらりと並びます。
-
-プロパティが20個並んだコンポーネントは、使う側にとって何をどう設定すればいいかわからなくなります。逆に粒度が粗すぎると汎用性がなくなります。いま手元のFigmaで、プロパティが10個を超えているコンポーネントを探してみてください。それはドメイン専用として認識すべきサインかもしれません。
-
-オブジェクトの中で特に気をつけたいのは、データの一部が欠けているケースです。ユーザー名はあるけどアイコン画像がない、評価スコアがまだ付いていない。こうした歯抜けのデータにどう対応するかを、コンポーネントの仕様として決めておく必要があります。
-
-また、オブジェクトをまるごと受け取る設計は、そのコンポーネントが特定のドメインに紐づいていることを意味します。コンポーネント分割の章で触れたように、汎用コンポーネントは個々の値をバラバラに受け取り、ドメインコンポーネントはデータ一式をまとめて受け取るのが基本です。
-
-Objectを受け取るコンポーネントを作ろうとしているなら、それはドメインコンポーネントとして位置づけるのが自然でしょう。コンポーネント分割の章で扱った汎用/ドメインの判断基準がここで直接効いてきます。
-
-![Object型: 個別の値 vs データのまとまり](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-47.png)
-
-### Element: 要素
-
-ここまでの型（Boolean、Enum、String、Numberなど）はすべて、テキストや数値といったデータを渡すものでした。しかし、プロパティに渡したいのがデータではなく、別のコンポーネントそのものというケースがあります。
-
-![Button のスロット構造: 差し込み口を設けることでバリアント爆発を防ぐ](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-04.png)
-
-Figmaで考えるとわかりやすいです。`Instance Swap Property`を使って、ある箇所にアイコンを差し込んだり、`Avatar`に差し替えたりします。
-
-コードの世界ではこの仕組みをスロット（slot）と呼びます。Reactでは`ReactNode`あるいは`JSX.Element`型、SwiftUIでは`@ViewBuilder`、Flutterでは`Widget`型としてそれぞれ表現されます。ここでは便宜上Element型と総称します。好きなものを差し込める口を設けておく設計です。
-
-たとえば、カードの説明文を表示する箇所を考えてみてください。通常はテキストを渡せば十分です。しかし、テキストの一部をリンクにしたい場合はどうでしょうか。String型ではここからここまでがリンクという情報を表現できません。リンクを含んだUIのかたまりをまるごと渡す必要があります。
-
-あるいは、リストアイテムの左側に置くものが、ある画面ではアイコン、別の画面では`Avatar`。こうした場合にスロット（Element型のプロパティ）があれば、何を差し込むかは利用者に委ねられます。
-
-スロットの威力がもっともわかりやすいのは、バリアントの爆発を防げる点です。
-
-![バリアント爆発 vs スロット: 4つ作るか、1つで済ませるか](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-71.png)
-
-アイコン付きボタンの例で考えてみましょう。デザイナーは `LeftIcon` / `RightIcon` / `BothIcons` / `NoIcon` という4つのバリアントを作りがちです。しかし、スロットの発想を使えば、ボタンの左右に好きなものが入るエリアを用意するだけで済みます。アイコンでも、バッジでも、何も入れなくてもよい。
-
-Figmaでは、`Instance Swap Property`を使ってスロットを表現します。設計のポイントは2つです。
-
-- 何も入れないを選択肢に含める。空のプレースホルダーコンポーネントを候補に入れておけば、アイコン不要な場面でも対応できる
-- 差し込める対象を制約する。`Instance Swap Property`で差し替え候補を同じカテゴリに限定し、意図しない使い方を防ぐ
-
-設計時に考えておきたいのは、その箇所にテキストを渡すだけで本当に十分か、それとも将来的にUIのかたまりを渡す必要が出てこないか、という点です。最初はStringで足りていても、後からリンクやアイコン付きテキストが必要になるケースは少なくありません。
-
-![Element型（スロット）: 差し込み口で中身を自由に](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-48.png)
-
-コンポーネントを柔軟にする方法は2つあります。プロパティ（設定値）をどんどん増やす方法と、スロットのように小さな部品を差し替える方法です。前者をConfiguration（設定型）、後者をComposition（組み合わせ型）と呼びます。プロパティが10個、20個と膨らんできたら、それはスロット（Composition）への切り替えどきです。
-
-![Configuration vs Composition: 設定の山か、組み合わせか](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-50.png)
-
-ここまで個々の型を見てきました。次の章では、これらの型が複数組み合わさったときにどう振る舞うか、プロパティの設計と運用に踏み込みます。
+ここまでの5つの型（Boolean / Enum / String / Number / Date）で、コンポーネント設計に必要な基礎は揃いました。
