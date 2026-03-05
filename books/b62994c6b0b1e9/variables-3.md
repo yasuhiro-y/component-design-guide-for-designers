@@ -6,7 +6,7 @@ title: "変数(3): プロパティの組み合わせと運用"
 
 ## プロパティの直交性: 組み合わせが壊れない設計
 
-実際のコンポーネントではプロパティが複数組み合わさって使われます。FigmaでButtonの`size`を`S`から`L`に変えても、`variant`の色は変わりませんよね？　この当たり前の独立性を直交性と呼びます。数学的にはX軸を動かしてもY軸は動かないのと同じで、あるプロパティの変更が他のプロパティに影響しない状態のことです。
+実際のコンポーネントではプロパティが複数組み合わさって使われます。FigmaでButtonの`size`を`S`から`L`に変えても、`variant`の色は変わりませんよね？　この独立性を直交性と呼びます。数学的にはX軸を動かしてもY軸は動かないのと同じで、あるプロパティの変更が他のプロパティに影響しない状態のことです。
 
 あるプロパティの値を変えたとき、他のプロパティの意味や振る舞いまで変わってしまうなら、そのプロパティ同士は独立していません。Figmaでバリアントのマトリクスを設計するとき、この感覚があると組み合わせの破綻を未然に防げます。
 
@@ -30,7 +30,7 @@ Buttonに`size`（`S`・`M`・`L`）と`variant`（`primary`・`secondary`・`de
 
 この設計では、`ghost`のエラー色はどうなるのかという問いに答えられません。`style: ghost`は背景がないのだから、`danger`の赤い背景は出せない。「`ghost`のときはエラー表示に対応していません」という例外が生まれ、その例外はドキュメントに書かれますが、使う側が見落とすリスクがあります。
 
-`variant`（`solid` / `subtle` / `ghost`）と`colorScheme`（`primary` / `secondary` / `danger`）を分ければ、`colorScheme: danger` × `variant: ghost`の組み合わせは自然に成立します。赤いテキストだけのボタンが、マトリクスの1セルとして生まれる。例外のないシステムは、ドキュメントなしでも正しく使えます。
+`variant`（`solid` / `subtle` / `ghost`）と`colorScheme`（`primary` / `secondary` / `danger`）を分ければ、`colorScheme: danger` × `variant: ghost`の組み合わせは自然に成立します。赤いテキストだけのボタンが、マトリクスの1セルとして生まれる。例外が少ないシステムほど、ドキュメントに頼らなくても正しく使いやすくなります。
 
 ![直交性の崩れ: 1つのプロパティに混ぜる vs 分離する](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-67.png)
 
