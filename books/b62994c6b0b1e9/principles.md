@@ -98,16 +98,13 @@ Ross Horbiは「[How I Created a Design System for Buttons](https://medium.com/@
 セマンティック（Semantic）は「意味の・意味論的な」を意味し（ややこしいですね）、データやコードの形式・構造だけでなく、その内容・意味を特定の符号で表現することです。
 
 Figmaで赤い塗りの四角形を描いたとします。
-
 これは「エラー表示」なのか「セール価格の強調」なのか、見た目だけでは判断できません。赤いボタンが「削除」を表す場合もあれば「エラー」を表す場合もある。
 
 コンポーネントを設計するとき、視覚的に正確かと同じくらい、このコンポーネントが表現する意味は何かを言語化しておくと、後の判断がぶれにくくなります。
 
 この視点は、命名の章で扱う色は意味で名付ける原則にもつながります。
 
-好例がRadix UIの[Dialog](https://www.radix-ui.com/primitives/docs/components/dialog)と[AlertDialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog)です。どちらもオーバーレイ付きのモーダルウィンドウで、ピクセル単位ではほぼ同じ外観です。
-
-しかしDialogは背景クリックで閉じられる汎用モーダルであるのに対し、AlertDialogは「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
+好例がRadix UIの[Dialog](https://www.radix-ui.com/primitives/docs/components/dialog)と[AlertDialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog)です。どちらもオーバーレイ付きのモーダルウィンドウで、ピクセル単位ではほぼ同じ外観です。しかしDialogは背景クリックで閉じられる汎用モーダルであるのに対し、AlertDialogは「本当に削除しますか？」のような確認用で、背景クリックでは閉じられません。見た目ではなく、ユーザーに強制する操作の意味が違うから別コンポーネントになっています。
 
 ![Radix UI: Dialog と AlertDialog の違い](https://raw.githubusercontent.com/yasuhiro-y/component-design-guide-for-designers/main/illustrations/output/fig-11.png)
 
